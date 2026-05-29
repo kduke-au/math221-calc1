@@ -1,0 +1,6 @@
+---
+title: 'Families of Functions'
+sidebar: notes
+---
+
+Content coming soon.

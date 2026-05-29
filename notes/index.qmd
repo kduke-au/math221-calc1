@@ -1,0 +1,6 @@
+---
+title: 'Course Notes'
+sidebar: notes
+---
+
+Content coming soon.

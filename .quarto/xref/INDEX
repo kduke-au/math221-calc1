@@ -1,0 +1,125 @@
+{
+  "about.qmd": {
+    "about.html": "1f3d0da1"
+  },
+  "index.qmd": {
+    "index.html": "d2ec9823"
+  },
+  "notes/index.qmd": {
+    "index.html": "e3d12e56"
+  },
+  "notes/unit0/0-1-functions.qmd": {
+    "0-1-functions.html": "e5cb52a5"
+  },
+  "notes/unit0/0-2-families.qmd": {
+    "0-2-families.html": "255a6f90"
+  },
+  "notes/unit0/index.qmd": {
+    "index.html": "0ef972ac"
+  },
+  "notes/unit1/1-1-intuitive-limits.qmd": {
+    "1-1-intuitive-limits.html": "504871bb"
+  },
+  "notes/unit1/1-2-limit-laws.qmd": {
+    "1-2-limit-laws.html": "bb779690"
+  },
+  "notes/unit1/1-3-continuity.qmd": {
+    "1-3-continuity.html": "8b176494"
+  },
+  "notes/unit1/1-4-limits-infinity.qmd": {
+    "1-4-limits-infinity.html": "d46ede77"
+  },
+  "notes/unit1/index.qmd": {
+    "index.html": "6ced07d3"
+  },
+  "notes/unit2/2-1-aroc.qmd": {
+    "2-1-aroc.html": "d46912aa"
+  },
+  "notes/unit2/2-2-derivative-def.qmd": {
+    "2-2-derivative-def.html": "e48f8c9e"
+  },
+  "notes/unit2/2-3-differentiability.qmd": {
+    "2-3-differentiability.html": "02232978"
+  },
+  "notes/unit2/index.qmd": {
+    "index.html": "15985782"
+  },
+  "notes/unit3/3-1-basic-rules.qmd": {
+    "3-1-basic-rules.html": "57f7acfc"
+  },
+  "notes/unit3/3-2-product-quotient.qmd": {
+    "3-2-product-quotient.html": "bd78b54c"
+  },
+  "notes/unit3/3-3-chain-rule.qmd": {
+    "3-3-chain-rule.html": "9e962c1d"
+  },
+  "notes/unit3/3-4-implicit.qmd": {
+    "3-4-implicit.html": "6586495e"
+  },
+  "notes/unit3/index.qmd": {
+    "index.html": "aba5fa55"
+  },
+  "notes/unit4/4-1-related-rates.qmd": {
+    "4-1-related-rates.html": "f0594e2c"
+  },
+  "notes/unit4/4-2-linear-approx.qmd": {
+    "4-2-linear-approx.html": "8d9d25d6"
+  },
+  "notes/unit4/4-3-extrema.qmd": {
+    "4-3-extrema.html": "a12c371c"
+  },
+  "notes/unit4/4-4-curve-sketching.qmd": {
+    "4-4-curve-sketching.html": "7fee410d"
+  },
+  "notes/unit4/4-5-optimization.qmd": {
+    "4-5-optimization.html": "2a53516e"
+  },
+  "notes/unit4/index.qmd": {
+    "index.html": "278cd0c4"
+  },
+  "notes/unit5/5-1-area-distance.qmd": {
+    "5-1-area-distance.html": "f7605601"
+  },
+  "notes/unit5/5-2-riemann-sums.qmd": {
+    "5-2-riemann-sums.html": "83624e85"
+  },
+  "notes/unit5/5-3-definite-integral.qmd": {
+    "5-3-definite-integral.html": "ec781728"
+  },
+  "notes/unit5/index.qmd": {
+    "index.html": "87a33c15"
+  },
+  "notes/unit6/6-1-antiderivatives.qmd": {
+    "6-1-antiderivatives.html": "8659d069"
+  },
+  "notes/unit6/6-2-ftc.qmd": {
+    "6-2-ftc.html": "c98a2d6c"
+  },
+  "notes/unit6/6-3-substitution.qmd": {
+    "6-3-substitution.html": "d86f6396"
+  },
+  "notes/unit6/index.qmd": {
+    "index.html": "1583eb09"
+  },
+  "practice/index.qmd": {
+    "index.html": "5888eb4d"
+  },
+  "practice/p1-limits.qmd": {
+    "p1-limits.html": "c6e3a59f"
+  },
+  "practice/p2-derivative.qmd": {
+    "p2-derivative.html": "7823c25f"
+  },
+  "practice/p3-computational.qmd": {
+    "p3-computational.html": "9d2214cb"
+  },
+  "practice/p4-applications.qmd": {
+    "p4-applications.html": "23fe71e8"
+  },
+  "practice/p5-definite-integral.qmd": {
+    "p5-definite-integral.html": "1c5b9df9"
+  },
+  "practice/p6-ftc.qmd": {
+    "p6-ftc.html": "3daff491"
+  }
+}

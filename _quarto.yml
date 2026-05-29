@@ -1,0 +1,125 @@
+project:
+  type: website
+
+website:
+  title: "Math 221 - Calculus I"
+  navbar:
+    left:
+      - text: "Course Notes"
+        href: notes/index.qmd
+      - text: "Practice Exam Problems"
+        href: practice/index.qmd
+
+  sidebar:
+    - id: notes
+      title: "Course Notes"
+      style: "docked"
+      contents:
+        - text: "Home"
+          href: notes/index.qmd
+        - section: "Unit 0: Review"
+          contents:
+            - text: "Overview"
+              href: notes/unit0/index.qmd
+            - text: "Functions & Their Properties"
+              href: notes/unit0/0-1-functions.qmd
+            - text: "Families of Functions"
+              href: notes/unit0/0-2-families.qmd
+        - section: "Unit 1: Limits & Continuity"
+          contents:
+            - text: "Overview"
+              href: notes/unit1/index.qmd
+            - text: "Intuitive Limits"
+              href: notes/unit1/1-1-intuitive-limits.qmd
+            - text: "Limit Laws"
+              href: notes/unit1/1-2-limit-laws.qmd
+            - text: "Continuity"
+              href: notes/unit1/1-3-continuity.qmd
+            - text: "Limits at Infinity"
+              href: notes/unit1/1-4-limits-infinity.qmd
+        - section: "Unit 2: The Derivative"
+          contents:
+            - text: "Overview"
+              href: notes/unit2/index.qmd
+            - text: "Average Rate of Change"
+              href: notes/unit2/2-1-aroc.qmd
+            - text: "The Derivative Definition"
+              href: notes/unit2/2-2-derivative-def.qmd
+            - text: "Differentiability"
+              href: notes/unit2/2-3-differentiability.qmd
+        - section: "Unit 3: Computational Rules"
+          contents:
+            - text: "Overview"
+              href: notes/unit3/index.qmd
+            - text: "Basic Derivative Rules"
+              href: notes/unit3/3-1-basic-rules.qmd
+            - text: "Product & Quotient Rules"
+              href: notes/unit3/3-2-product-quotient.qmd
+            - text: "Chain Rule"
+              href: notes/unit3/3-3-chain-rule.qmd
+            - text: "Implicit Differentiation"
+              href: notes/unit3/3-4-implicit.qmd
+        - section: "Unit 4: Applications of Derivatives"
+          contents:
+            - text: "Overview"
+              href: notes/unit4/index.qmd
+            - text: "Related Rates"
+              href: notes/unit4/4-1-related-rates.qmd
+            - text: "Linear Approximation"
+              href: notes/unit4/4-2-linear-approx.qmd
+            - text: "Critical Points & Extrema"
+              href: notes/unit4/4-3-extrema.qmd
+            - text: "Curve Sketching"
+              href: notes/unit4/4-4-curve-sketching.qmd
+            - text: "Optimization"
+              href: notes/unit4/4-5-optimization.qmd
+        - section: "Unit 5: The Definite Integral"
+          contents:
+            - text: "Overview"
+              href: notes/unit5/index.qmd
+            - text: "Area & Distance Problems"
+              href: notes/unit5/5-1-area-distance.qmd
+            - text: "Riemann Sums"
+              href: notes/unit5/5-2-riemann-sums.qmd
+            - text: "The Definite Integral"
+              href: notes/unit5/5-3-definite-integral.qmd
+        - section: "Unit 6: Antiderivatives & FTC"
+          contents:
+            - text: "Overview"
+              href: notes/unit6/index.qmd
+            - text: "Antiderivatives"
+              href: notes/unit6/6-1-antiderivatives.qmd
+            - text: "The Fundamental Theorem"
+              href: notes/unit6/6-2-ftc.qmd
+            - text: "Substitution Rule"
+              href: notes/unit6/6-3-substitution.qmd
+
+    - id: practice
+      title: "Practice Exam Problems"
+      style: "docked"
+      contents:
+        - text: "Home"
+          href: practice/index.qmd
+        - section: "By Topic"
+          contents:
+            - text: "Limits & Continuity"
+              href: practice/p1-limits.qmd
+            - text: "The Derivative"
+              href: practice/p2-derivative.qmd
+            - text: "Computational Rules"
+              href: practice/p3-computational.qmd
+            - text: "Applications of Derivatives"
+              href: practice/p4-applications.qmd
+            - text: "The Definite Integral"
+              href: practice/p5-definite-integral.qmd
+            - text: "Antiderivatives & FTC"
+              href: practice/p6-ftc.qmd
+
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3

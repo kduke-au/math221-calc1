@@ -1,0 +1,6 @@
+---
+title: 'Curve Sketching'
+sidebar: notes
+---
+
+Content coming soon.

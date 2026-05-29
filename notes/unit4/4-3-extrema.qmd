@@ -1,0 +1,6 @@
+---
+title: 'Critical Points & Extrema'
+sidebar: notes
+---
+
+Content coming soon.

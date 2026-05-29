@@ -1,0 +1,6 @@
+---
+title: 'Functions & Their Properties'
+sidebar: notes
+---
+
+Content coming soon.

@@ -1,0 +1,6 @@
+---
+title: 'Linear Approximation'
+sidebar: notes
+---
+
+Content coming soon.
