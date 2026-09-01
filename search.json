@@ -1,235 +1,87 @@
 [
   {
-    "objectID": "practice/p6-ftc.html",
-    "href": "practice/p6-ftc.html",
-    "title": "Antiderivatives & FTC",
+    "objectID": "notes/unit0_index.html",
+    "href": "notes/unit0_index.html",
+    "title": "What is Calculus?",
     "section": "",
-    "text": "Content coming soon.",
+    "text": "Calculus provides us with a framework in which we can measure the effects of change and use this to better understand relationships between variables.\nThere are two main problems we will consider this semester:",
     "crumbs": [
       "Course Notes",
-      "By Topic",
-      "Antiderivatives & FTC"
+      "Unit 0: Introduction & Review",
+      "What is Calculus?"
     ]
   },
   {
-    "objectID": "practice/p4-applications.html",
-    "href": "practice/p4-applications.html",
-    "title": "Applications of Derivatives",
-    "section": "",
-    "text": "Content coming soon.",
+    "objectID": "notes/unit0_index.html#discussion-problem-the-vessel",
+    "href": "notes/unit0_index.html#discussion-problem-the-vessel",
+    "title": "What is Calculus?",
+    "section": "Discussion Problem: The Vessel",
+    "text": "Discussion Problem: The Vessel\nTake the curve\n\\[\nx = r(y) = \\sin\\!\\left(\\frac{\\pi y}{4}\\right) + 1.5, \\qquad 0 \\le y \\le 8,\n\\]\nand spin it around the \\(y\\)-axis. The result is the 8 in. tall, vase-shaped vessel shown below:\n\n// Fine sampling of the wall profile r(y), used only to draw the outline.\nvesselOutlineData = {\n  const yVals = d3.range(0, 8.001, 0.02);\n  return yVals.map((y) =&gt; ({ y, r: r(y) }));\n}\n\n\n\n\n\n\n\nPlot.plot({\n  width: 260,\n  height: 420,\n  x: { domain: [-3, 3], axis: null },\n  y: { domain: [0, 8], label: \"height (in)\" },\n  marks: [\n    Plot.line(vesselOutlineData, { x: (d) =&gt; d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.line(vesselOutlineData, { x: (d) =&gt; -d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0])\n  ]\n})\n\n\n\n\n\n\n\n\nFigure 1: The empty vessel, formed by rotating x = r(y) around the y-axis.\n\n\n\n\nSuppose that the vessel starts out empty. Water is poured in at a constant rate (measured in in\\(^3\\)/sec), chosen so that it takes 20 seconds to completely fill the vessel.\n\nCreate Two Graphs\nBased on the shape of the vessel and the provided information:\n\nSketch a graph of the depth of the water in the vessel versus time as it is filled up.\nSimilarly, sketch a graph showing how fast the depth is increasing versus time.\n\n\n\nCompare & Collaborate\nOnce you have sketched both graphs, compare your work with others at your table.\n\nDiscuss any differences that you see.\nCompare your reasoning and decide as a group which graph you believe is best for both.\nDraw these graphs on the board.\n\n\n\nCheck Your Work\nOnce your answer is up on the board, use the interactive visualization below to reveal the solution.\n\nIn what ways does your group’s graph differ?\nCan you explain any differences? Was there a flaw in your reasoning? Did you have the right idea and your graph just lacked precision?\n\n\n\n\n\n\n\nTipClick to reveal the interactive solution\n\n\n\n\n\n\nfunction r(y) {\n  return Math.sin((Math.PI * y) / 4) + 1.5;\n}\n\nfunction crossSectionArea(y) {\n  const radius = r(y);\n  return Math.PI * radius * radius;\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyMax = 8\nnumSteps = 4000\nstepSize = yMax / numSteps\n\nyGrid = d3.range(0, numSteps + 1).map((i) =&gt; i * stepSize)\nareaGrid = yGrid.map(crossSectionArea)\n\nvolumeGrid = {\n  const cumulative = [0];\n  for (let i = 1; i &lt;= numSteps; i++) {\n    const trapezoid = ((areaGrid[i - 1] + areaGrid[i]) / 2) * stepSize;\n    cumulative.push(cumulative[i - 1] + trapezoid);\n  }\n  return cumulative;\n}\n\ntotalVolume = volumeGrid[numSteps]\n\n// Choose the fill rate so that it takes a specified amount of time to fill.\nfillRate = totalVolume / 20\ntotalTime = 20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction depthAtTime(t) {\n  const targetVolume = fillRate * t;\n  const i = d3.bisectLeft(volumeGrid, targetVolume);\n  if (i &lt;= 0) return 0;\n  if (i &gt;= volumeGrid.length) return yMax;\n  const v0 = volumeGrid[i - 1], v1 = volumeGrid[i];\n  const y0 = yGrid[i - 1], y1 = yGrid[i];\n  const frac = v1 === v0 ? 0 : (targetVolume - v0) / (v1 - v0);\n  return y0 + frac * (y1 - y0);\n}\n\n// dy/dt = (dV/dt) / A(y) = fillRate / crossSectionArea(y(t)).\nfunction rateAtTime(t) {\n  const y = depthAtTime(t);\n  return fillRate / crossSectionArea(y);\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnumSamples = 300\ntSeries = d3.range(0, numSamples + 1).map((i) =&gt; (a * i) / numSamples)\ndepthSeries = tSeries.map((t) =&gt; ({ t, depth: depthAtTime(t) }))\nrateSeries = tSeries.map((t) =&gt; ({ t, rate: rateAtTime(t) }))\ncurrentDepth = depthAtTime(a)\nwaterSlice = vesselOutlineData.filter((d) =&gt; d.y &lt;= currentDepth)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrateMax = 4.5\nrateScaleFactor = yMax / rateMax\nscaledRateSeries = rateSeries.map((d) =&gt; ({ t: d.t, scaledRate: d.rate * rateScaleFactor }))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 220,\n  height: 320,\n  style: { background: \"transparent\" },\n  x: { domain: [-3, 3], axis: null },\n  y: { domain: [0, yMax], label: \"depth (in)\" },\n  marks: [\n    Plot.areaX(waterSlice, { y: \"y\", x1: (d) =&gt; -d.r, x2: (d) =&gt; d.r, fill: \"#8ecae6\", fillOpacity: 0.8 }),\n    Plot.line(vesselOutlineData, { x: (d) =&gt; d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.line(vesselOutlineData, { x: (d) =&gt; -d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([currentDepth], { stroke: \"steelblue\", strokeDasharray: \"4,2\" })\n  ]\n})\nPlot.plot({\n  width: 380,\n  height: 320,\n  style: { background: \"transparent\" },\n  x: { domain: [0, totalTime], label: \"time (sec)\" },\n  y: { domain: [0, yMax], label: \"depth (in)\" },\n  marks: [\n    // Explicit left axis: once we add the custom right-side axis below,\n    // Plot stops auto-generating its usual default axis, so the left\n    // one has to be added by hand too or it disappears entirely.\n    Plot.axisY({ anchor: \"left\", label: \"depth (in)\" }),\n    Plot.axisY({\n      anchor: \"right\",\n      label: \"rate (in/sec)\",\n      ticks: [0, 1.5, 3, 4.5].map((v) =&gt; v * rateScaleFactor),\n      tickFormat: (v) =&gt; (v / rateScaleFactor).toFixed(1)\n    }),\n    Plot.line(depthSeries, { x: \"t\", y: \"depth\", stroke: \"steelblue\", strokeWidth: 2 }),\n    Plot.dot([{ t: a, depth: currentDepth }], { x: \"t\", y: \"depth\", fill: \"steelblue\", r: 4 }),\n    Plot.line(scaledRateSeries, { x: \"t\", y: \"scaledRate\", stroke: \"firebrick\", strokeWidth: 2 }),\n    Plot.dot([{ t: a, scaledRate: rateAtTime(a) * rateScaleFactor }], { x: \"t\", y: \"scaledRate\", fill: \"firebrick\", r: 4 })\n  ]\n})\nmd`**At t = ${a.toFixed(2)} sec, the water is ${currentDepth.toFixed(2)} in deep.**`\nhtml`&lt;div style=\"display:flex; gap:1.5rem; justify-content:center; align-items:center; font-size:0.9rem;\"&gt;\n  &lt;span style=\"display:flex; align-items:center; gap:6px;\"&gt;\n    &lt;span style=\"display:inline-block; width:14px; height:14px; background:steelblue; border-radius:2px;\"&gt;&lt;/span&gt;\n    Depth (in)\n  &lt;/span&gt;\n  &lt;span style=\"display:flex; align-items:center; gap:6px;\"&gt;\n    &lt;span style=\"display:inline-block; width:14px; height:14px; background:firebrick; border-radius:2px;\"&gt;&lt;/span&gt;\n    Rate of depth increase (in/sec)\n  &lt;/span&gt;\n&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nviewof a = Inputs.range(\n  [0, totalTime],\n  {\n    value: totalTime / 2,\n    step: totalTime / 400,\n    label: \"Time:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\nWrap-Up\nThe first graph you created showing depth vs. time is an example of an accumulation problem; the depth increased as the water flowed in and our goal was to figure out the total depth reached at each moment as the water accumulated. We will see later this semester (Unit 5) that the integral is the right mathematical tool for accumulation problems.\nThe second graph you created is an example of a rate problem; the goal was to understand how quickly the depth of the water was increasing at each moment. We will see in Unit 2 that the derivative is the right mathematical tool for rate problems.\nOur goal this semester is to carefully define each of these tools, understand how they work, deduce some computational rules, and see how they can be applied to problems in a wide array of fields. Ultimately, our work will reveal that these two problems are closely connected, and that relationship will be explained in the Fundamental Theorem of Calculus.",
     "crumbs": [
       "Course Notes",
-      "By Topic",
-      "Applications of Derivatives"
+      "Unit 0: Introduction & Review",
+      "What is Calculus?"
     ]
   },
   {
-    "objectID": "practice/p2-derivative.html",
-    "href": "practice/p2-derivative.html",
-    "title": "The Derivative",
+    "objectID": "notes/unit0_1.html",
+    "href": "notes/unit0_1.html",
+    "title": "Functions & Their Properties",
     "section": "",
-    "text": "Content coming soon.",
+    "text": "As noted in the course introduction, this semester’s main concepts are tools for understanding relationships between variables. So, before we dive into developing these ideas, we need to have a good understanding of what we mean mathematically by relationships between variables.",
     "crumbs": [
       "Course Notes",
-      "By Topic",
-      "The Derivative"
+      "Unit 0: Introduction & Review",
+      "Functions & Their Properties"
     ]
   },
   {
-    "objectID": "practice/index.html",
-    "href": "practice/index.html",
+    "objectID": "notes/unit0_1.html#problem-1-sleep-and-productivity",
+    "href": "notes/unit0_1.html#problem-1-sleep-and-productivity",
+    "title": "Functions & Their Properties",
+    "section": "Problem 1: Sleep and Productivity",
+    "text": "Problem 1: Sleep and Productivity\n\n\n\n\n\n\nNoteBefore the problem:\n\n\n\n\n\nMost of the time, we will be interested in relationships where one variable is a function of another. Appropriately, such relationships are called functions.\nWhat criteria does a relationship have to meet in order for it to be a function? Discuss it with your group.\n\n\n\nOver the summer, Tom kept track of how his sleep habits affected his work productivity. Each week, he recorded the average number of hours of sleep he got each night as well as the average number of hours he was productive each workday. The data for the first 6 weeks is recorded below:\n\n\n\nWeek\n1\n2\n3\n4\n5\n6\n\n\n\n\nAvg. sleep (hrs/night)\n8\n7\n6.5\n7\n5.5\n5\n\n\nAvg. productivity (hrs/workday)\n8.5\n8\n7.5\n7.25\n7\n6\n\n\n\nThe table establishes relationships among the three variables (week, average amount of sleep, and average productivity). According to the table, is:\n\nTom’s average productivity a function of the week?\nTom’s average amount of sleep a function of the week?\nTom’s average productivity a function of his average amount of sleep?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Functions & Their Properties"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_1.html#problem-2-the-pomegranate",
+    "href": "notes/unit0_1.html#problem-2-the-pomegranate",
+    "title": "Functions & Their Properties",
+    "section": "Problem 2: The Pomegranate",
+    "text": "Problem 2: The Pomegranate\n\n\n\n\n\n\nNoteBefore the problem:\n\n\n\n\n\nWhen trying to understand a function, it is often useful to start by determining its domain and range. Discuss what these terms mean with your group.\nNote: In some cases, the domain of a function will be explicitly included as part of the rule defining the function. In other cases, the domain will be implied by the rule or the context in which the rule is given.\n\n\n\nA pomegranate is thrown from ground level straight up into the air at time \\(t=0\\) with an initial velocity of 64 feet per second. The function \\(h(t) = -16t^2 + 64t\\) gives the pomegranate’s height \\(t\\) seconds after it was thrown until it hits the ground. Determine the domain and range for the function \\(h(t)\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Functions & Their Properties"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_1.html#problem-3-matching-rates-of-change",
+    "href": "notes/unit0_1.html#problem-3-matching-rates-of-change",
+    "title": "Functions & Their Properties",
+    "section": "Problem 3: Matching Rates of Change",
+    "text": "Problem 3: Matching Rates of Change\n\n\n\n\n\n\nNoteBefore the problem:\n\n\n\n\n\nRecall that we are interested in figuring out ways of measuring change. One simple way to measure change is to calculate the average rate of change of a function over a given interval.\nWhat is the formula for computing average rate of change? What does it tell us about the function? What does it tell us about the graph of the function? Discuss with your group\n\n\n\nSome data for three different functions is provided in the table below.\n\n\n\n\\(t\\)\n0\n0.75\n1.25\n\n\n\n\n\\(f(t)\\)\n40\n31\n15\n\n\n\\(g(t)\\)\n70\n42\n31\n\n\n\\(h(t)\\)\n65\n53\n45\n\n\n\nFor each description below, decide if any of the functions from the data table could fit the description.\n\nThe speed of a car (in mph) \\(t\\) seconds after it begins decelerating at a constant rate.\nThe position of a watermelon (in feet above the ground) \\(t\\) seconds after the physics department drops it off the top of the DMTI building.\nThe temperature of a cup of coffee (in °C) after it has been sitting on a counter for \\(t\\) hours. (We expect the temperature of the coffee to decrease more slowly over time.)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Functions & Their Properties"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Math 221 Course Notes",
+    "section": "",
+    "text": "Welcome! This site hosts course notes and discussion/practice problems for Math 221 (Calculus 1) at American University.\nIt will be continuously updated and changed throughout the Fall 2026 semester as we work our way through the course material – so visit frequently!"
+  },
+  {
+    "objectID": "exam_practice/index.html",
+    "href": "exam_practice/index.html",
     "title": "Practice Exam Problems",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Home"
-    ]
-  },
-  {
-    "objectID": "notes/unit6/6-3-substitution.html",
-    "href": "notes/unit6/6-3-substitution.html",
-    "title": "Substitution Rule",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 6: Antiderivatives & FTC",
-      "Substitution Rule"
-    ]
-  },
-  {
-    "objectID": "notes/unit6/6-1-antiderivatives.html",
-    "href": "notes/unit6/6-1-antiderivatives.html",
-    "title": "Antiderivatives",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 6: Antiderivatives & FTC",
-      "Antiderivatives"
-    ]
-  },
-  {
-    "objectID": "notes/unit5/5-3-definite-integral.html",
-    "href": "notes/unit5/5-3-definite-integral.html",
-    "title": "The Definite Integral",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 5: The Definite Integral",
-      "The Definite Integral"
-    ]
-  },
-  {
-    "objectID": "notes/unit5/5-1-area-distance.html",
-    "href": "notes/unit5/5-1-area-distance.html",
-    "title": "Area & Distance Problems",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 5: The Definite Integral",
-      "Area & Distance Problems"
-    ]
-  },
-  {
-    "objectID": "notes/unit4/4-5-optimization.html",
-    "href": "notes/unit4/4-5-optimization.html",
-    "title": "Optimization",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 4: Applications of Derivatives",
-      "Optimization"
-    ]
-  },
-  {
-    "objectID": "notes/unit4/4-3-extrema.html",
-    "href": "notes/unit4/4-3-extrema.html",
-    "title": "Critical Points & Extrema",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 4: Applications of Derivatives",
-      "Critical Points & Extrema"
-    ]
-  },
-  {
-    "objectID": "notes/unit4/4-1-related-rates.html",
-    "href": "notes/unit4/4-1-related-rates.html",
-    "title": "Related Rates",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 4: Applications of Derivatives",
-      "Related Rates"
-    ]
-  },
-  {
-    "objectID": "notes/unit3/3-4-implicit.html",
-    "href": "notes/unit3/3-4-implicit.html",
-    "title": "Implicit Differentiation",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 3: Computational Rules",
-      "Implicit Differentiation"
-    ]
-  },
-  {
-    "objectID": "notes/unit3/3-2-product-quotient.html",
-    "href": "notes/unit3/3-2-product-quotient.html",
-    "title": "Product & Quotient Rules",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 3: Computational Rules",
-      "Product & Quotient Rules"
-    ]
-  },
-  {
-    "objectID": "notes/unit2/index.html",
-    "href": "notes/unit2/index.html",
-    "title": "Unit 2 Overview",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "notes/unit2/2-2-derivative-def.html",
-    "href": "notes/unit2/2-2-derivative-def.html",
-    "title": "The Derivative Definition",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "The Derivative Definition"
-    ]
-  },
-  {
-    "objectID": "notes/unit1/index.html",
-    "href": "notes/unit1/index.html",
-    "title": "Unit 1 Overview",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "notes/unit1/1-3-continuity.html",
-    "href": "notes/unit1/1-3-continuity.html",
-    "title": "Continuity",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Continuity"
-    ]
-  },
-  {
-    "objectID": "notes/unit1/1-1-intuitive-limits.html",
-    "href": "notes/unit1/1-1-intuitive-limits.html",
-    "title": "Intuitive Limits",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Intuitive Limits"
-    ]
-  },
-  {
-    "objectID": "notes/unit0/0-2-families.html",
-    "href": "notes/unit0/0-2-families.html",
-    "title": "Families of Functions",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Review",
-      "Families of Functions"
-    ]
-  },
-  {
-    "objectID": "notes/index.html",
-    "href": "notes/index.html",
-    "title": "Course Notes",
     "section": "",
     "text": "Content coming soon.",
     "crumbs": [
@@ -242,241 +94,17 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "Currently, this site is maintained by Prof. Kevin Duke at American University. Reach out to Prof. Duke if you find any mistakes or have any questions."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "calc1",
+    "objectID": "notes/index.html",
+    "href": "notes/index.html",
+    "title": "Course Notes",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "notes/unit0/0-1-functions.html",
-    "href": "notes/unit0/0-1-functions.html",
-    "title": "Functions & Their Properties",
-    "section": "",
-    "text": "Content coming soon.",
+    "text": "During class this semester, we will spend most of our time working on and discussing problems. There will be assigned readings for each class that will help you prepare for these discussions.\nReading mathematics is a skill that is just as essential as doing and communicating mathematics. Class is meant to accompany the reading, not substitute for it. Together, they’ll help you build an initial understanding of concepts and surface the questions worth bringing to class\nMake sure you have pencil and paper out when reading and during discussion. Take notes, jot down questions, and try to work through examples on your own before seeing them worked out by others. If you get stuck or have no clue where to start—great! Make a note of it and let’s talk about it.\nWhen you wait for others to solve problems for you, you miss out on all the critical thinking, which can lead to a false sense of understanding. In my experience, you learn far more from actively trying on your own and failing than passively following along and never being wrong.\nSo, in short, to get the most out of class this semester:\n\nCome prepared!\nBe engaged!\nMake mistakes!\nAsk questions!",
     "crumbs": [
       "Course Notes",
-      "Unit 0: Review",
-      "Functions & Their Properties"
-    ]
-  },
-  {
-    "objectID": "notes/unit0/index.html",
-    "href": "notes/unit0/index.html",
-    "title": "Unit 0 Overview",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Review",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "notes/unit1/1-2-limit-laws.html",
-    "href": "notes/unit1/1-2-limit-laws.html",
-    "title": "Limit Laws",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Limit Laws"
-    ]
-  },
-  {
-    "objectID": "notes/unit1/1-4-limits-infinity.html",
-    "href": "notes/unit1/1-4-limits-infinity.html",
-    "title": "Limits at Infinity",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Limits at Infinity"
-    ]
-  },
-  {
-    "objectID": "notes/unit2/2-1-aroc.html",
-    "href": "notes/unit2/2-1-aroc.html",
-    "title": "Average Rate of Change",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Average Rate of Change"
-    ]
-  },
-  {
-    "objectID": "notes/unit2/2-3-differentiability.html",
-    "href": "notes/unit2/2-3-differentiability.html",
-    "title": "Differentiability",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Differentiability"
-    ]
-  },
-  {
-    "objectID": "notes/unit3/3-1-basic-rules.html",
-    "href": "notes/unit3/3-1-basic-rules.html",
-    "title": "Basic Derivative Rules",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 3: Computational Rules",
-      "Basic Derivative Rules"
-    ]
-  },
-  {
-    "objectID": "notes/unit3/3-3-chain-rule.html",
-    "href": "notes/unit3/3-3-chain-rule.html",
-    "title": "Chain Rule",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 3: Computational Rules",
-      "Chain Rule"
-    ]
-  },
-  {
-    "objectID": "notes/unit3/index.html",
-    "href": "notes/unit3/index.html",
-    "title": "Unit 3 Overview",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 3: Computational Rules",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "notes/unit4/4-2-linear-approx.html",
-    "href": "notes/unit4/4-2-linear-approx.html",
-    "title": "Linear Approximation",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 4: Applications of Derivatives",
-      "Linear Approximation"
-    ]
-  },
-  {
-    "objectID": "notes/unit4/4-4-curve-sketching.html",
-    "href": "notes/unit4/4-4-curve-sketching.html",
-    "title": "Curve Sketching",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 4: Applications of Derivatives",
-      "Curve Sketching"
-    ]
-  },
-  {
-    "objectID": "notes/unit4/index.html",
-    "href": "notes/unit4/index.html",
-    "title": "Unit 4 Overview",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 4: Applications of Derivatives",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "notes/unit5/5-2-riemann-sums.html",
-    "href": "notes/unit5/5-2-riemann-sums.html",
-    "title": "Riemann Sums",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 5: The Definite Integral",
-      "Riemann Sums"
-    ]
-  },
-  {
-    "objectID": "notes/unit5/index.html",
-    "href": "notes/unit5/index.html",
-    "title": "Unit 5 Overview",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 5: The Definite Integral",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "notes/unit6/6-2-ftc.html",
-    "href": "notes/unit6/6-2-ftc.html",
-    "title": "The Fundamental Theorem",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 6: Antiderivatives & FTC",
-      "The Fundamental Theorem"
-    ]
-  },
-  {
-    "objectID": "notes/unit6/index.html",
-    "href": "notes/unit6/index.html",
-    "title": "Unit 6 Overview",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 6: Antiderivatives & FTC",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "practice/p1-limits.html",
-    "href": "practice/p1-limits.html",
-    "title": "Limits & Continuity",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "By Topic",
-      "Limits & Continuity"
-    ]
-  },
-  {
-    "objectID": "practice/p3-computational.html",
-    "href": "practice/p3-computational.html",
-    "title": "Computational Rules",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "By Topic",
-      "Computational Rules"
-    ]
-  },
-  {
-    "objectID": "practice/p5-definite-integral.html",
-    "href": "practice/p5-definite-integral.html",
-    "title": "The Definite Integral",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "By Topic",
-      "The Definite Integral"
+      "Home"
     ]
   }
 ]

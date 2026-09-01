@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Unit 4 Overview – Math 221 - Calculus I</title>
+<title>Discussion Problems: Introduction, Functions, and Change – Math 221 - Calculus I</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,27 +26,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3c431d8e9ee4da10bc2970116de02e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-dark-1b55e4154dd84d6589dc854c34eedebf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-3c431d8e9ee4da10bc2970116de02e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3c431d8e9ee4da10bc2970116de02e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-dark-1b55e4154dd84d6589dc854c34eedebf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3c431d8e9ee4da10bc2970116de02e63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,11 +75,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -248,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Math 221 - Calculus I</span>
     </a>
   </div>
@@ -259,21 +288,17 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../notes/index.html" aria-current="page"> 
+    <a class="nav-link" href="./notes/index.html"> 
 <span class="menu-text">Course Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../discussion/index.html"> 
-<span class="menu-text">Discussion Problems</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../exam_practice/index.html"> 
+    <a class="nav-link" href="./exam_practice/index.html"> 
 <span class="menu-text">Practice Exam Problems</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">Questions?</span></a>
   </li>  
 </ul>
@@ -283,331 +308,30 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit4/index.html">Unit 4: Applications of Derivatives</a></li><li class="breadcrumb-item"><a href="../../notes/unit4/index.html">Overview</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 0: Introduction &amp; Review</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit0_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 1: Limits &amp; Continuity</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit1_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/sec-1-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limit Laws</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/sec-1-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Evaluating Limits Using Algebra</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/sec-1-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formal Definition</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 2: The Derivative</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/sec-2-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Speed &amp; Velocity</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/sec-2-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Defining the Derivative at a Point</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/sec-2-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Derivatives as Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/sec-2-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Derivatives as Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/sec-2-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Derivatives as Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/sec-2-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Derivatives as Functions</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 3: Computing Derivatives</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/sec-3-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Rules for Power and Polynomial Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/sec-3-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Rules for Exponential Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/sec-3-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Product &amp; Quotient Rules</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/sec-3-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chain Rule</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/sec-3-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Rules for Trigonometric Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/sec-3-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Rules for Inverse Functions</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 4: Applications of Derivatives</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/sec-4-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Implicit Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/sec-4-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Linear Approximation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/sec-4-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyzing Function Behavior</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/sec-4-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Global Extrema</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/sec-4-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Optimization and Modeling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/sec-4-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Further Applications</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 5: The Definite Integral</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit5/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit5/sec-5-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Distance &amp; Displacement</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit5/sec-5-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Defining the Definite Integral</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit5/sec-5-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Fundamental Theorem - Part I</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit5/sec-5-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Properties of Definite Integrals</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 6: Antiderivatives</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit6/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit6/6-1-antiderivatives.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Graphing and Computing Antiderivatives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit6/sec-6-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Finding Formulas for Antiderivatives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit6/sec-6-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Fundamental Theorem - Part II</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problem-1-filling-a-vessel" id="toc-problem-1-filling-a-vessel" class="nav-link active" data-scroll-target="#problem-1-filling-a-vessel">Problem 1: Filling a Vessel</a></li>
+  <li><a href="#problem-2-sleep-and-productivity" id="toc-problem-2-sleep-and-productivity" class="nav-link" data-scroll-target="#problem-2-sleep-and-productivity">Problem 2: Sleep and Productivity</a></li>
+  <li><a href="#problem-3-the-pomegranate" id="toc-problem-3-the-pomegranate" class="nav-link" data-scroll-target="#problem-3-the-pomegranate">Problem 3: The Pomegranate</a></li>
+  <li><a href="#problem-4-matching-rates-of-change" id="toc-problem-4-matching-rates-of-change" class="nav-link" data-scroll-target="#problem-4-matching-rates-of-change">Problem 4: Matching Rates of Change</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit4/index.html">Unit 4: Applications of Derivatives</a></li><li class="breadcrumb-item"><a href="../../notes/unit4/index.html">Overview</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Unit 4 Overview</h1>
+<h1 class="title">Discussion Problems: Introduction, Functions, and Change</h1>
 </div>
 
 
@@ -624,9 +348,174 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Content coming soon.</p>
+<section id="problem-1-filling-a-vessel" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1-filling-a-vessel">Problem 1: Filling a Vessel</h2>
+<p><em>[PLACEHOLDER — new problem replacing “Race to New Year’s Eve”]</em></p>
+<p>A two-dimensional cross-section of a vessel is shown below. The vessel is formed by rotating this profile around the <span class="math inline">\(y\)</span>-axis. Water is poured into the vessel at a constant rate of 1 cubic inch per second.</p>
+<p><em>[Insert vessel profile graphic here]</em></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Try this before class">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Try this before class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Sketch a graph of the <strong>depth of the water</strong> as a function of time.</li>
+<li>Sketch a graph of the <strong>rate at which the depth is changing</strong> as a function of time.</li>
+</ol>
+<p>Think about which parts of the vessel cause the water level to rise quickly and which cause it to rise slowly.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Where the vessel is narrow, the same amount of water added raises the level more. Where it’s wide, the level rises less for the same amount of water.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-2-sleep-and-productivity" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2-sleep-and-productivity">Problem 2: Sleep and Productivity</h2>
+<p>Over the summer, Tom kept track of how his sleep habits affected his work productivity. Each week, he recorded the average number of hours of sleep he got each night as well as the average number of hours he was productive each workday. The data for the first 6 weeks is recorded below:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Avg. sleep (hrs/night)</td>
+<td>8</td>
+<td>7</td>
+<td>6.5</td>
+<td>7</td>
+<td>5.5</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Avg. productivity (hrs/workday)</td>
+<td>8.5</td>
+<td>8</td>
+<td>7.5</td>
+<td>7.25</td>
+<td>7</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>The table establishes a relationship between each of the three variables (week, average amount of sleep, and average productivity). According to the table, is:</p>
+<ol type="a">
+<li>Tom’s average productivity a function of the week?</li>
+<li>Tom’s average amount of sleep a function of the week?</li>
+<li>Tom’s average productivity a function of his average amount of sleep?</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled" title="Main Idea">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Main Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <em>function</em> is a relationship between two variables, an input variable and an output variable, such that each value of the input variable is associated with no more than one value of the output variable.</p>
+</div>
+</div>
+</section>
+<section id="problem-3-the-pomegranate" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3-the-pomegranate">Problem 3: The Pomegranate</h2>
+<p>A pomegranate is thrown from ground level straight up into the air at time <span class="math inline">\(t=0\)</span> with an initial velocity of 64 feet per second. The function <span class="math inline">\(h(t) = -16t^2 + 64t\)</span> gives the pomegranate’s height <span class="math inline">\(t\)</span> seconds after it was thrown until it hits the ground. Determine the domain and range for the function <span class="math inline">\(h(t)\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Main Idea">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Main Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <em>domain</em> of a function is the set of all values for the input variable. The <em>range</em> of a function is the set of all values for the output variable.</p>
+</div>
+</div>
+</section>
+<section id="problem-4-matching-rates-of-change" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4-matching-rates-of-change">Problem 4: Matching Rates of Change</h2>
+<p>Some data for three different functions is provided in the table below.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(t\)</span></th>
+<th>0</th>
+<th>0.75</th>
+<th>1.25</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(f(t)\)</span></td>
+<td>40</td>
+<td>31</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(g(t)\)</span></td>
+<td>70</td>
+<td>42</td>
+<td>31</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(h(t)\)</span></td>
+<td>65</td>
+<td>53</td>
+<td>45</td>
+</tr>
+</tbody>
+</table>
+<p>For each description below, decide if any of the functions from the data table could fit the description.</p>
+<ol type="a">
+<li>The speed of a car (in mph) <span class="math inline">\(t\)</span> seconds after it begins decelerating at a constant rate.</li>
+<li>The position of a watermelon (in feet above the ground) <span class="math inline">\(t\)</span> seconds after the physics department drops it off the top of the DMTI building.</li>
+<li>The temperature of a cup of coffee (in °C) after it has been sitting on a counter for <span class="math inline">\(t\)</span> hours. (We expect the temperature of the coffee to decrease more slowly over time.)</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled" title="Main Idea">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Main Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Measuring the <em>average rate of change</em> for each function over the intervals <span class="math inline">\([0, 0.75]\)</span> and <span class="math inline">\([0.75, 1.25]\)</span> is useful here. The formula for computing the average rate of change of <span class="math inline">\(f(x)\)</span> over the interval <span class="math inline">\([a,b]\)</span> is:</p>
+<p><span class="math display">\[\frac{\Delta \text{Outputs}}{\Delta \text{Inputs}} = \frac{f(b) - f(a)}{b - a}\]</span></p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
