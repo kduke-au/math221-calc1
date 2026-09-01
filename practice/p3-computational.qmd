@@ -1,6 +1,0 @@
----
-title: 'Computational Rules'
-sidebar: practice
----
-
-Content coming soon.

@@ -1,6 +1,0 @@
----
-title: 'Substitution Rule'
-sidebar: notes
----
-
-Content coming soon.

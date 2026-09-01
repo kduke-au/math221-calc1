@@ -1,7 +1,7 @@
 ---
-title: "calc1"
+title: "Math 221 Course Notes"
 ---
 
-This is a Quarto website.
+Welcome! This site hosts course notes and discussion/practice problems for Math 221 (Calculus 1) at American University. 
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+It will be continuously updated and changed throughout the Fall 2026 semester as we work our way through the course material -- so visit frequently!

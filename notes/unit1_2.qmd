@@ -1,5 +1,5 @@
 ---
-title: 'Linear Approximation'
+title: 'Limit Properties'
 sidebar: notes
 ---
 

@@ -1,6 +1,0 @@
----
-title: 'Related Rates'
-sidebar: notes
----
-
-Content coming soon.

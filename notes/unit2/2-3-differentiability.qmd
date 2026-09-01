@@ -1,6 +1,0 @@
----
-title: 'Differentiability'
-sidebar: notes
----
-
-Content coming soon.

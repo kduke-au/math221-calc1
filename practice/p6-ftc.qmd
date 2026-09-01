@@ -1,6 +1,0 @@
----
-title: 'Antiderivatives & FTC'
-sidebar: practice
----
-
-Content coming soon.

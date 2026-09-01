@@ -1,6 +1,0 @@
----
-title: 'Riemann Sums'
-sidebar: notes
----
-
-Content coming soon.

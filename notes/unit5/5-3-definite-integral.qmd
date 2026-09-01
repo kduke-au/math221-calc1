@@ -1,6 +1,0 @@
----
-title: 'The Definite Integral'
-sidebar: notes
----
-
-Content coming soon.

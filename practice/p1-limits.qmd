@@ -1,6 +1,0 @@
----
-title: 'Limits & Continuity'
-sidebar: practice
----
-
-Content coming soon.

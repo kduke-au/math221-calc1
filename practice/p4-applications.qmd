@@ -1,6 +1,0 @@
----
-title: 'Applications of Derivatives'
-sidebar: practice
----
-
-Content coming soon.

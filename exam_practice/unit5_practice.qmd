@@ -1,0 +1,6 @@
+---
+title: 'The Definite Integral'
+sidebar: practice
+---
+
+Problems coming soon. This material will first appear on the Final Exam. 

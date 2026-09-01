@@ -1,0 +1,6 @@
+---
+title: 'Computational Rules'
+sidebar: practice
+---
+
+Problems coming soon. This material will first appear on Exam 2. 

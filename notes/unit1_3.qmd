@@ -1,5 +1,5 @@
 ---
-title: 'Curve Sketching'
+title: 'Evaluating Limits Using Algebra'
 sidebar: notes
 ---
 

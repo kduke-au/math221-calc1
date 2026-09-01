@@ -1,6 +1,0 @@
----
-title: 'Average Rate of Change'
-sidebar: notes
----
-
-Content coming soon.

@@ -3,4 +3,18 @@ title: 'Course Notes'
 sidebar: notes
 ---
 
-Content coming soon.
+During class this semester, we will spend most of our time working on and discussing problems. There will be assigned readings for each class that will help you prepare for these discussions. 
+
+Reading mathematics is a skill that is just as essential as doing and communicating mathematics.
+Class is meant to accompany the reading, not substitute for it. Together, they'll help you build an initial understanding of concepts and surface the questions worth bringing to class
+
+Make sure you have pencil and paper out when reading and during discussion. Take notes, jot down questions, and try to work through examples on your own before seeing them worked out by others. If you get stuck or have no clue where to start---great! Make a note of it and let's talk about it. 
+
+When you wait for others to solve problems for you, you miss out on all the critical thinking, which can lead to a false sense of understanding. In my experience, you learn far more from actively trying on your own and failing than passively following along and never being wrong.  
+
+So, in short, to get the most out of class this semester:
+
+- Come prepared!
+- Be engaged!
+- Make mistakes!
+- Ask questions!    

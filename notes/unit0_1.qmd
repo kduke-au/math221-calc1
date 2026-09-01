@@ -1,0 +1,95 @@
+---
+title: 'Functions & Their Properties'
+sidebar: notes
+---
+As noted in the course introduction, this semester's main concepts are tools for understanding relationships between variables. So, before we dive into developing these ideas, we need to have a good understanding of what we mean mathematically by *relationships between variables*. 
+
+#### What is a variable?
+By *variable*, we mean some quantity whose value could be anything from a specified set of values. Some common sets of values you should be familiar with:
+
+- $\mathbb{N}$: the natural numbers; this is our set of counting numbers $\{1,2,3,\ldots\}$
+- $\mathbb{Z}$: the integers; this extends the natural numbers to include 0 and negative values
+- $\mathbb{Q}$: the rational numbers; this extends the integers to now include fractions---ratios of integers
+- $\mathbb{R}$: the real numbers; this extends the rational numbers to include *irrational* numbers as well, i.e. values like $\sqrt{2}$ or $\pi$
+
+Most of the relationships we will consider in this course are between two *real-valued* variables. 
+
+#### What do we mean by relationship?
+
+A *relationship* between two variables is a rule that establishes a link between the values of one variable and the values of the other. This rule could be specified with a formula, a data table, a graph, in words, or maybe just an exhaustive list of all the pairs of connected values.
+
+We typically think of one of the variables in the relationship as the *input* or *independent* variable; the other is the *output* or *dependent* variable. 
+
+If the relationship is clearly defined, given some value of the independent variable, we can find all values of the dependent variable (if any) that are associated with it.
+
+## Problem 1: Sleep and Productivity
+
+::: {.callout-note collapse="false"}
+### Before the problem:
+Most of the time, we will be interested in relationships where one variable *is a function* of another. Appropriately, such relationships are called *functions*.
+
+What criteria does a relationship have to meet in order for it to be a function? Discuss it with your group.
+:::
+
+Over the summer, Tom kept track of how his sleep habits affected his work
+productivity. Each week, he recorded the average number of hours of sleep
+he got each night as well as the average number of hours he was
+productive each workday. The data for the first 6 weeks is recorded
+below:
+
+| Week | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|
+| Avg. sleep (hrs/night) | 8 | 7 | 6.5 | 7 | 5.5 | 5 |
+| Avg. productivity (hrs/workday) | 8.5 | 8 | 7.5 | 7.25 | 7 | 6 |
+
+The table establishes relationships among the three variables
+(week, average amount of sleep, and average productivity). According to
+the table, is:
+
+a. Tom's average productivity a function of the week?
+b. Tom's average amount of sleep a function of the week?
+c. Tom's average productivity a function of his average amount of sleep?
+
+## Problem 2: The Pomegranate
+
+::: {.callout-note collapse="false"}
+### Before the problem:
+When trying to understand a function, it is often useful to start by determining its *domain* and *range*. Discuss what these terms mean with your group.
+
+Note: In some cases, the domain of a function will be explicitly included as part of the rule defining the function. In other cases, the domain will be implied by the rule or the context in which the rule is given.
+:::
+
+
+A pomegranate is thrown from ground level straight up into the air at
+time $t=0$ with an initial velocity of 64 feet per second. The function
+$h(t) = -16t^2 + 64t$ gives the pomegranate's height $t$ seconds after it
+was thrown until it hits the ground. Determine the domain and range for
+the function $h(t)$.
+
+## Problem 3: Matching Rates of Change
+::: {.callout-note collapse="false"}
+### Before the problem:
+Recall that we are interested in figuring out ways of measuring change. One simple way to measure change is to calculate the *average rate of change* of a function over a given interval. 
+
+What is the formula for computing average rate of change? What does it tell us about the function? What does it tell us about the graph of the function? Discuss with your group
+:::
+
+Some data for three different functions is provided in the table below.
+
+| $t$ | 0 | 0.75 | 1.25 |
+|---|---|---|---|
+| $f(t)$ | 40 | 31 | 15 |
+| $g(t)$ | 70 | 42 | 31 |
+| $h(t)$ | 65 | 53 | 45 |
+
+For each description below, decide if any of the functions from the data
+table could fit the description.
+
+a. The speed of a car (in mph) $t$ seconds after it begins decelerating
+   at a constant rate.
+b. The position of a watermelon (in feet above the ground) $t$ seconds
+   after the physics department drops it off the top of the DMTI
+   building.
+c. The temperature of a cup of coffee (in °C) after it has been sitting
+   on a counter for $t$ hours. (We expect the temperature of the coffee
+   to decrease more slowly over time.)

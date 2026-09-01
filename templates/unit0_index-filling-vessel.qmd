@@ -1,0 +1,264 @@
+---
+title: "The Two Big Ideas of Calculus: Rate and Accumulation"
+---
+
+## Setting the Scene
+
+Calculus grew out of two questions that seem completely different at first:
+
+1. **How fast is something changing right now?** (rate)
+2. **How much has accumulated in total?** (accumulation)
+
+The problem below is designed to let you *feel* the difference between these two questions
+— and to notice, informally, that they're secretly connected — before we give either one a
+name.
+
+## The Vessel
+
+Take the curve
+
+$$
+x = r(y) = \sin\!\left(\frac{\pi y}{4}\right) + 1.5, \qquad 0 \le y \le 8,
+$$
+
+and spin it around the $y$-axis. This traces out a (slightly quirky!) vase-shaped vessel,
+standing on end, $8$ units tall:
+
+```{ojs}
+//| echo: false
+//| label: fig-vessel-empty
+//| fig-cap: "The empty vessel, formed by rotating x = r(y) around the y-axis."
+
+// Fine sampling of the wall profile r(y), used only to draw the outline.
+vesselOutlineData = {
+  const yVals = d3.range(0, 8.001, 0.02);
+  return yVals.map((y) => ({ y, r: r(y) }));
+}
+
+Plot.plot({
+  width: 260,
+  height: 420,
+  x: { domain: [-3, 3], axis: null },
+  y: { domain: [0, 8], label: "height y" },
+  marks: [
+    Plot.line(vesselOutlineData, { x: (d) => d.r, y: "y", stroke: "black" }),
+    Plot.line(vesselOutlineData, { x: (d) => -d.r, y: "y", stroke: "black" }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+Water is poured into the vessel **at a constant rate** (the same number of, say, liters
+per minute, the whole time it's filling).
+
+## Your Turn: Two Sketches
+
+Don't compute anything yet — just reason from the shape of the vessel and sketch by hand.
+
+::: {.callout-important}
+### Question 1 — Depth vs. Time
+
+Sketch a graph of **the depth of the water** in the vessel as a function of time, from the
+moment it's empty to the moment it's full. Where is the depth increasing quickly? Slowly?
+Is it ever momentarily *not* increasing?
+:::
+
+::: {.callout-important}
+### Question 2 — Rate of Depth Increase vs. Time
+
+Sketch a graph of **how fast the depth is increasing** as a function of time. (You don't
+need a formula — think about where the vessel is narrow vs. wide, and what that does to
+the water level.)
+:::
+
+::: {.callout-tip collapse="true"}
+### A hint, if you want one
+
+The vessel is *narrow* in some places and *wide* in others. If the same amount of water
+pours in during each minute, does a narrow section or a wide section make the depth rise
+faster?
+:::
+
+## Reveal: Explore the Solution
+
+Once you've sketched both graphs on paper, use the slider below to check your thinking.
+Dragging it plays the fill forward: you'll see the depth graph, the rate graph, and the
+vessel itself (with its current water level) all update together, up to whatever time you
+choose.
+
+::: {.callout-note collapse="true"}
+### Click to reveal the interactive solution
+
+```{ojs}
+//| echo: false
+// ---- Core geometry -------------------------------------------------
+// r(y): radius of the vessel wall at height y.
+// sin ranges over [-1, 1], so r(y) stays between 0.5 and 2.5 for all
+// 0 <= y <= 8 -- the vessel narrows and widens but never pinches shut.
+function r(y) {
+  return Math.sin((Math.PI * y) / 4) + 1.5;
+}
+
+function crossSectionArea(y) {
+  const radius = r(y);
+  return Math.PI * radius * radius;
+}
+```
+
+```{ojs}
+//| echo: false
+// ---- Build a lookup table for V(y) = volume in the vessel up to height y ----
+// We integrate crossSectionArea(y) numerically (trapezoid rule) rather
+// than solving anything in closed form -- this keeps things flexible if
+// r(y) is ever edited, and it's the same idea students will meet later
+// as a Riemann sum.
+yMax = 8
+numSteps = 4000
+stepSize = yMax / numSteps
+
+yGrid = d3.range(0, numSteps + 1).map((i) => i * stepSize)
+areaGrid = yGrid.map(crossSectionArea)
+
+volumeGrid = {
+  const cumulative = [0];
+  for (let i = 1; i <= numSteps; i++) {
+    const trapezoid = ((areaGrid[i - 1] + areaGrid[i]) / 2) * stepSize;
+    cumulative.push(cumulative[i - 1] + trapezoid);
+  }
+  return cumulative;
+}
+
+totalVolume = volumeGrid[numSteps]
+
+// Choose the fill rate k so that the vessel finishes filling at a tidy
+// t = 20 (purely cosmetic -- doesn't change the shape of either curve,
+// just relabels the time axis).
+fillRate = totalVolume / 20
+totalTime = 20
+```
+
+```{ojs}
+//| echo: false
+// ---- Invert V(y) = fillRate * t to get depth as a function of time ----
+// volumeGrid is non-decreasing in y (area is always >= 0), so we can
+// find y(t) by locating t*fillRate in volumeGrid and interpolating.
+function depthAtTime(t) {
+  const targetVolume = fillRate * t;
+  const i = d3.bisectLeft(volumeGrid, targetVolume);
+  if (i <= 0) return 0;
+  if (i >= volumeGrid.length) return yMax;
+  const v0 = volumeGrid[i - 1], v1 = volumeGrid[i];
+  const y0 = yGrid[i - 1], y1 = yGrid[i];
+  const frac = v1 === v0 ? 0 : (targetVolume - v0) / (v1 - v0);
+  return y0 + frac * (y1 - y0);
+}
+
+// dy/dt = (dV/dt) / A(y) = fillRate / crossSectionArea(y(t)).
+// r(y) never reaches 0 here (it stays between 0.5 and 2.5), so this
+// stays finite everywhere -- no capping needed.
+function rateAtTime(t) {
+  const y = depthAtTime(t);
+  return fillRate / crossSectionArea(y);
+}
+
+// Fixed axis ceiling for the rate plot, based on the true max rate over
+// the whole fill (the narrowest point of the vessel). Computed once so
+// the axis doesn't rescale as the slider moves.
+rateAxisMax = {
+  const fullRange = d3.range(0, numSteps + 1).map((i) => i * stepSize);
+  const rates = fullRange.map((y) => fillRate / crossSectionArea(y));
+  return d3.max(rates) * 1.1;
+}
+```
+
+```{ojs}
+//| echo: false
+viewof a = Inputs.range(
+  [0, totalTime],
+  {
+    value: totalTime / 2,
+    step: totalTime / 400,
+    label: "Time (a)"
+  }
+)
+```
+
+```{ojs}
+//| echo: false
+// ---- Series computed up to whatever time the slider is set to ----
+numSamples = 300
+tSeries = d3.range(0, numSamples + 1).map((i) => (a * i) / numSamples)
+depthSeries = tSeries.map((t) => ({ t, depth: depthAtTime(t) }))
+rateSeries = tSeries.map((t) => ({ t, rate: rateAtTime(t) }))
+currentDepth = depthAtTime(a)
+```
+
+:::: {layout-ncol="3"}
+
+```{ojs}
+//| echo: false
+//| fig-cap: "Depth vs. time"
+Plot.plot({
+  width: 300,
+  height: 320,
+  x: { domain: [0, totalTime], label: "time t" },
+  y: { domain: [0, yMax], label: "depth y(t)" },
+  marks: [
+    Plot.line(depthSeries, { x: "t", y: "depth", stroke: "steelblue", strokeWidth: 2 }),
+    Plot.dot([{ t: a, depth: currentDepth }], { x: "t", y: "depth", fill: "steelblue", r: 4 })
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+//| fig-cap: "Rate of depth increase vs. time"
+Plot.plot({
+  width: 300,
+  height: 320,
+  x: { domain: [0, totalTime], label: "time t" },
+  y: { domain: [0, rateAxisMax], label: "dy/dt" },
+  marks: [
+    Plot.line(rateSeries, { x: "t", y: "rate", stroke: "firebrick", strokeWidth: 2 }),
+    Plot.dot([{ t: a, rate: rateAtTime(a) }], { x: "t", y: "rate", fill: "firebrick", r: 4 })
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+//| fig-cap: "Vessel at time a"
+waterSlice = vesselOutlineData.filter((d) => d.y <= currentDepth)
+
+Plot.plot({
+  width: 220,
+  height: 320,
+  x: { domain: [-3, 3], axis: null },
+  y: { domain: [0, yMax], label: "height" },
+  marks: [
+    Plot.areaX(waterSlice, { y: "y", x1: (d) => -d.r, x2: (d) => d.r, fill: "#8ecae6", fillOpacity: 0.8 }),
+    Plot.line(vesselOutlineData, { x: (d) => d.r, y: "y", stroke: "black" }),
+    Plot.line(vesselOutlineData, { x: (d) => -d.r, y: "y", stroke: "black" }),
+    Plot.ruleY([currentDepth], { stroke: "steelblue", strokeDasharray: "4,2" })
+  ]
+})
+```
+
+::::
+
+```{ojs}
+//| echo: false
+md`**At t = ${a.toFixed(2)}, the water depth is ${currentDepth.toFixed(2)} units.**`
+```
+
+:::
+
+## Discussion
+
+- Where on the depth-vs-time graph is the curve steepest? Where is it flattest? How does
+  that match up with narrow vs. wide sections of the vessel?
+- The rate graph peaks somewhere in the middle of the fill and dips near the top and
+  bottom. What's happening to the vessel's width at those points?
+- Question 1 asked about a *total accumulated amount* (depth, built up from a constant
+  inflow). Question 2 asked about an *instantaneous rate*. Which graph in this pair looks
+  like it might be built *from* the other one?

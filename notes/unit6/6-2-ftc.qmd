@@ -1,6 +1,0 @@
----
-title: 'The Fundamental Theorem'
-sidebar: notes
----
-
-Content coming soon.

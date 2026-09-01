@@ -1,0 +1,39 @@
+---
+title: "Domain Practice (test page)"
+---
+
+/*
+Template for a problem checker where the answer is an interval.
+*/
+
+## Try it: Domain of a Rational Function
+
+Find the domain of $f(x) = \dfrac{1}{x - 3}$ and enter it in interval notation.
+
+```{=html}
+
+<div class="interval-checker mb-3">
+  <label for="domain-answer-1" class="form-label">Answer:</label>
+  <div class="input-group" style="max-width: 28em;">
+    <input type="text" id="domain-answer-1" class="form-control"
+           placeholder="e.g. [1, 2) U (3, 4)">
+    <button id="check-btn-1" class="btn btn-primary">Check</button>
+  </div>
+  <p id="feedback-1" class="mt-2"></p>
+</div>
+
+<script type="module">
+import { checkIntervalAnswer } from "/scripts/interval-checker.js";
+
+document.getElementById("check-btn-1").addEventListener("click", () => {
+  const input = document.getElementById("domain-answer-1").value;
+  const result = checkIntervalAnswer(input, "(-inf, 3) U (3, inf)");
+  const feedback = document.getElementById("feedback-1");
+
+  feedback.className = "mt-2 " + (result.correct ? "text-success" : "text-danger");
+  feedback.textContent = result.correct
+    ? "✅ Correct!"
+    : "❌ " + (result.error ?? "Not quite — check your answer.");
+});
+</script>
+```

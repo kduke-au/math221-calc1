@@ -1,6 +1,0 @@
----
-title: 'Intuitive Limits'
-sidebar: notes
----
-
-Content coming soon.

@@ -1,6 +1,0 @@
----
-title: 'Continuity'
-sidebar: notes
----
-
-Content coming soon.

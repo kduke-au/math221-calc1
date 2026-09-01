@@ -1,6 +1,0 @@
----
-title: 'Implicit Differentiation'
-sidebar: notes
----
-
-Content coming soon.

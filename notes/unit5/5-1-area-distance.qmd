@@ -1,6 +1,0 @@
----
-title: 'Area & Distance Problems'
-sidebar: notes
----
-
-Content coming soon.

@@ -1,0 +1,251 @@
+---
+title: 'What is Calculus?'
+sidebar: notes
+---
+Calculus provides us a framework in which we can measure the effects of change and use this to better understand relationships between variables.  
+
+There are two main problems we will consider this semester:
+
+1. **Rates.** Given a relationship between variables, can we measure how sensitive one variable is to small changes in others?
+2. **Accumulation.** Can we determine how much a given variable will change in response to changes in others?   
+
+## Discussion Problem: The Vessel
+
+Take the curve
+
+$$
+x = r(y) = \sin\!\left(\frac{\pi y}{4}\right) + 1.5, \qquad 0 \le y \le 8,
+$$
+
+and spin it around the $y$-axis. The result is the 8in tall, vase-shaped vessel shown below: 
+
+```{ojs}
+//| echo: false
+// Fine sampling of the wall profile r(y), used only to draw the outline.
+vesselOutlineData = {
+  const yVals = d3.range(0, 8.001, 0.02);
+  return yVals.map((y) => ({ y, r: r(y) }));
+}
+```
+
+```{ojs}
+//| echo: false
+//| label: fig-vessel-empty
+//| fig-cap: "The empty vessel, formed by rotating x = r(y) around the y-axis."
+Plot.plot({
+  width: 260,
+  height: 420,
+  x: { domain: [-3, 3], axis: null },
+  y: { domain: [0, 8], label: "height (in)" },
+  marks: [
+    Plot.line(vesselOutlineData, { x: (d) => d.r, y: "y", stroke: "var(--bs-body-color)" }),
+    Plot.line(vesselOutlineData, { x: (d) => -d.r, y: "y", stroke: "var(--bs-body-color)" }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+Suppose that the vessel starts out empty. Water is poured into it **at a constant rate**, measured in some number of in$^3$/sec. Let's assume this rate is chosen so that it takes 20 seconds to completely fill the vessel.
+
+### Create Two Graphs
+
+Based on the shape of the vessel and the provided information:
+
+1. Sketch a graph of **the depth of the water** in the vessel versus time as it is filled up. 
+2. Similarly, sketch a graph showing **how fast the depth is increasing** versus time.
+
+### Compare & Collaborate
+
+Once you have sketched both graphs, compare your work with others at your table.
+
+- Discuss any differences that you see.
+- Compare your reasoning and decide as a group which graph you believe is best.
+- Draw this graph on the board.
+
+### Check Your Work
+
+Once you have got your group's answer up on the board, use the interactive graph below to reveal the true graphs.
+
+- In what ways does your group's graph differ?
+- Can you explain any differences? Was there a flaw in your reasoning? Did you have the right idea and your graph just lacked precision?
+
+::: {.callout-tip collapse="true"}
+### Click to reveal the interactive solution
+
+```{ojs}
+//| echo: false
+// Define Vessel
+// r(y): radius of the vessel wall at height y for 0<=y<=8
+function r(y) {
+  return Math.sin((Math.PI * y) / 4) + 1.5;
+}
+
+function crossSectionArea(y) {
+  const radius = r(y);
+  return Math.PI * radius * radius;
+}
+```
+
+```{ojs}
+//| echo: false
+// ---- Build a lookup table for V(y) = volume in the vessel up to height y ----
+// We integrate crossSectionArea(y) numerically (trapezoid rule):
+yMax = 8
+numSteps = 4000
+stepSize = yMax / numSteps
+
+yGrid = d3.range(0, numSteps + 1).map((i) => i * stepSize)
+areaGrid = yGrid.map(crossSectionArea)
+
+volumeGrid = {
+  const cumulative = [0];
+  for (let i = 1; i <= numSteps; i++) {
+    const trapezoid = ((areaGrid[i - 1] + areaGrid[i]) / 2) * stepSize;
+    cumulative.push(cumulative[i - 1] + trapezoid);
+  }
+  return cumulative;
+}
+
+totalVolume = volumeGrid[numSteps]
+
+// Choose the fill rate so that it takes a specified amount of time to fill.
+fillRate = totalVolume / 20
+totalTime = 20
+```
+
+```{ojs}
+//| echo: false
+// ---- Invert V(y) = fillRate * t to get depth as a function of time ----
+// volumeGrid is non-decreasing in y (area is always >= 0), so we can
+// find y(t) by locating t*fillRate in volumeGrid and interpolating.
+function depthAtTime(t) {
+  const targetVolume = fillRate * t;
+  const i = d3.bisectLeft(volumeGrid, targetVolume);
+  if (i <= 0) return 0;
+  if (i >= volumeGrid.length) return yMax;
+  const v0 = volumeGrid[i - 1], v1 = volumeGrid[i];
+  const y0 = yGrid[i - 1], y1 = yGrid[i];
+  const frac = v1 === v0 ? 0 : (targetVolume - v0) / (v1 - v0);
+  return y0 + frac * (y1 - y0);
+}
+
+// dy/dt = (dV/dt) / A(y) = fillRate / crossSectionArea(y(t)).
+function rateAtTime(t) {
+  const y = depthAtTime(t);
+  return fillRate / crossSectionArea(y);
+}
+```
+
+```{ojs}
+//| echo: false
+//| output: false
+// output:false suppresses this cell's own display -- we re-embed the
+// same slider element ("timeInput") inside the layout panel below, so
+// nothing should render here directly.
+timeInput = Inputs.range(
+  [0, totalTime],
+  {
+    value: totalTime / 2,
+    step: totalTime / 400,
+    label: "Time (a)"
+  }
+)
+viewof a = timeInput
+```
+
+```{ojs}
+//| echo: false
+// ---- Series computed up to whatever time the slider is set to ----
+numSamples = 300
+tSeries = d3.range(0, numSamples + 1).map((i) => (a * i) / numSamples)
+depthSeries = tSeries.map((t) => ({ t, depth: depthAtTime(t) }))
+rateSeries = tSeries.map((t) => ({ t, rate: rateAtTime(t) }))
+currentDepth = depthAtTime(a)
+waterSlice = vesselOutlineData.filter((d) => d.y <= currentDepth)
+```
+
+```{ojs}
+//| echo: false
+// Rescale the rate series onto the depth axis's pixel space so both
+// curves can be drawn on one shared grid. rateMax is a fixed, chosen
+// ceiling for the right-hand axis (in/sec); the depth axis is [0, yMax].
+rateMax = 4.5
+rateScaleFactor = yMax / rateMax
+scaledRateSeries = rateSeries.map((d) => ({ t: d.t, scaledRate: d.rate * rateScaleFactor }))
+```
+
+:::: {layout-ncol="2"}
+
+```{ojs}
+//| echo: false
+timeInput
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 380,
+  height: 340,
+  x: { domain: [0, totalTime], label: "time (sec)" },
+  y: { domain: [0, yMax], label: "depth (in)" },
+  marks: [
+    Plot.line(depthSeries, { x: "t", y: "depth", stroke: "steelblue", strokeWidth: 2 }),
+    Plot.dot([{ t: a, depth: currentDepth }], { x: "t", y: "depth", fill: "steelblue", r: 4 }),
+    Plot.line(scaledRateSeries, { x: "t", y: "scaledRate", stroke: "firebrick", strokeWidth: 2 }),
+    Plot.dot([{ t: a, scaledRate: rateAtTime(a) * rateScaleFactor }], { x: "t", y: "scaledRate", fill: "firebrick", r: 4 }),
+    Plot.axisY({
+      anchor: "right",
+      label: "rate (in/sec)",
+      ticks: [0, 1.5, 3, 4.5].map((v) => v * rateScaleFactor),
+      tickFormat: (v) => (v / rateScaleFactor).toFixed(1)
+    })
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 220,
+  height: 320,
+  x: { domain: [-3, 3], axis: null },
+  y: { domain: [0, yMax], label: "height (in)" },
+  marks: [
+    Plot.areaX(waterSlice, { y: "y", x1: (d) => -d.r, x2: (d) => d.r, fill: "#8ecae6", fillOpacity: 0.8 }),
+    Plot.line(vesselOutlineData, { x: (d) => d.r, y: "y", stroke: "var(--bs-body-color)" }),
+    Plot.line(vesselOutlineData, { x: (d) => -d.r, y: "y", stroke: "var(--bs-body-color)" }),
+    Plot.ruleY([currentDepth], { stroke: "steelblue", strokeDasharray: "4,2" })
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+html`<div style="display:flex; gap:1.5rem; justify-content:center; align-items:center; font-size:0.9rem; margin-top:8px;">
+  <span style="display:flex; align-items:center; gap:6px;">
+    <span style="display:inline-block; width:14px; height:14px; background:steelblue; border-radius:2px;"></span>
+    Depth (in)
+  </span>
+  <span style="display:flex; align-items:center; gap:6px;">
+    <span style="display:inline-block; width:14px; height:14px; background:firebrick; border-radius:2px;"></span>
+    Rate of depth increase (in/sec)
+  </span>
+</div>`
+```
+
+::::
+
+```{ojs}
+//| echo: false
+md`**At t = ${a.toFixed(2)}, the water depth is ${currentDepth.toFixed(2)} units.**`
+```
+
+:::
+
+### Wrap-Up
+
+The first graph you created showing depth vs. time is an example of an *accumulation* problem; the depth increased as the water flowed in and our goal was to figure out the total amount of depth that had accumulated at each moment in time. We will see later on this semester in unit 5 that the *integral* is the right mathematical tool for accumulation problems.
+
+The second graph you created is an example of a *rate* problem; the goal was to understand how quickly the depth of the water was increasing at each moment. We will see in unit 2 that the *derivative* is the right mathematical tool for rate problems. 
+
+Our goal this semester is to carefully define each of these tools, understand how they work, deduce some computational rules, and see how they can be applied to problems in wide array of fields. Ultimately, our work will reveal that these two problems are closely connected, and that relationship will be explained in the Fundamental Theorem of Calculus. 

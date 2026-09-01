@@ -1,6 +1,0 @@
----
-title: 'Unit 2 Overview'
-sidebar: notes
----
-
-Content coming soon.

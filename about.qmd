@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-About this site
+Currently, this site is maintained by [Prof. Kevin Duke](https://www.american.edu/cas/faculty/kduke.cfm) at American University. Reach out to Prof. Duke if you find any mistakes or have any questions.
