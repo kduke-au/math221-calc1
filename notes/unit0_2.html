@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Families of Functions – Math 221 - Calculus I</title>
+<title>Modeling with Families of Functions – Math 221 - Calculus I</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,8 +74,36 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="quarto:status" content="draft">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -245,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -285,7 +313,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Families of Functions</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit0_index.html">Unit 0: Introduction &amp; Review</a></li><li class="breadcrumb-item"><a href="../notes/unit0_2.html">Families of Functions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -325,8 +353,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Families of Functions</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit0_2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Families of Functions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -358,16 +389,25 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-should-you-know" id="toc-what-should-you-know" class="nav-link active" data-scroll-target="#what-should-you-know">What should you know?</a></li>
+  <li><a href="#problem-1-population-growth-model" id="toc-problem-1-population-growth-model" class="nav-link" data-scroll-target="#problem-1-population-growth-model">Problem 1: Population Growth Model</a></li>
+  <li><a href="#problem-2-water-temperature" id="toc-problem-2-water-temperature" class="nav-link" data-scroll-target="#problem-2-water-temperature">Problem 2: Water Temperature</a></li>
+  <li><a href="#problem-3-polynomials-and-rational-functions" id="toc-problem-3-polynomials-and-rational-functions" class="nav-link" data-scroll-target="#problem-3-polynomials-and-rational-functions">Problem 3: Polynomials and Rational Functions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit0_index.html">Unit 0: Introduction &amp; Review</a></li><li class="breadcrumb-item"><a href="../notes/unit0_2.html">Families of Functions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Families of Functions</h1>
+<h1 class="title">Modeling with Families of Functions</h1>
 </div>
 
 
@@ -384,9 +424,162 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Content coming soon.</p>
+<p>A <em>mathematical model</em> is an abstract mathematical representation of some object, idea, or relationship that exists in the real world. Creating a mathematical model usually involves making some simplifying assumptions about whatever it is we are trying to represent. Using data from measurements or other observations, we try to distill the essential properties that we want our model to capture. We use mathematical models to make estimate or predict, weigh and compare decisions, simulate experiments, and try to discover properties that may otherwise be difficult or costly to observe.</p>
+<p>Be careful when drawing conclusions! Always consider the simplifying assumptions that were made when the model was created. Did we ignore anything that may impact our findings? Under what conditions is it reasonable to believe that the assumptions we made are realistic? These are all important things to include when communicating what you have learned in its real world context.</p>
+<section id="what-should-you-know" class="level2">
+<h2 class="anchored" data-anchor-id="what-should-you-know">What should you know?</h2>
+<p>The following families of functions are frequently used as the basis for mathematical models. How well do you know them? We will need to be able to:</p>
+<ul>
+<li>Solve equations involving each of these types of functions.</li>
+<li>Recognize properties of the function from its formula.</li>
+</ul>
+<p>It is very helpful if you are familiar enough with each of these families of functions to be able to “see” what the graph looks like and sketch it out by hand without relying on a graphing tool.</p>
+<section id="linear-functions" class="level4">
+<h4 class="anchored" data-anchor-id="linear-functions">Linear Functions</h4>
+<p>Our first question in creating a mathematical model for a relationship is often <em>is it linear?</em> Linear models are simple to understand and easy to work with. Our intuition often relies on linear thinking.</p>
+<p>There are two common ways of writing a linear formula:</p>
+<p><span class="math display">\[\begin{align}
+&amp;f(x)=mx+b &amp; (\text{Slope-Intercept Form}) \\
+&amp;f(x)=m(x-x_0)+y_0 &amp; (\text{Point-Slope Form})
+\end{align}\]</span></p>
+</section>
+<section id="power-functions" class="level4">
+<h4 class="anchored" data-anchor-id="power-functions">Power Functions</h4>
+<p>Useful when modeling something that is strictly increasing or decreasing, but not in a linear way.</p>
+<p>The formula is: <span class="math display">\[f(x)=k x^p\]</span> where the power, <span class="math inline">\(p\)</span>, can be any real number.</p>
+</section>
+<section id="absolute-value-function" class="level4">
+<h4 class="anchored" data-anchor-id="absolute-value-function">Absolute Value Function</h4>
+<p>Useful when you only need the <em>magnitude</em> of a value: <span class="math display">\[ f(x)=|x|\]</span></p>
+</section>
+<section id="exponential-functions" class="level4">
+<h4 class="anchored" data-anchor-id="exponential-functions">Exponential Functions</h4>
+<p>We say a quantity is increasing or decreasing <em>exponentially</em> when it always changes by the same <em>factor</em> over each unit of time.</p>
+<p>There are two different ways of writing exponential functions:</p>
+<p><span class="math display">\[f(x)=ab^x = a(1+r)^x\]</span></p>
+<p>where <span class="math inline">\(a\)</span> is the initial value, <span class="math inline">\(b\)</span> is the growth factor, and <span class="math inline">\(r\)</span> is the growth rate,</p>
+<p><span class="math display">\[f(x)=ae^{rx}\]</span></p>
+<p>where again <span class="math inline">\(r\)</span> is the <em>continuous</em> or <em>relative</em> growth rate and again <span class="math inline">\(a\)</span> is the initial value.</p>
+</section>
+<section id="logarithmic-functions" class="level4">
+<h4 class="anchored" data-anchor-id="logarithmic-functions">Logarithmic Functions</h4>
+<p>Logarithms provide the inverse relationship for exponential growth. They are useful because they can convert something changing on an exponential scale to a linear scale.</p>
+<p>The formula is: <span class="math display">\[f(x)=\log_b(x)\]</span> where <span class="math inline">\(b\)</span> is the base of the logarithm.</p>
+<p>Most often, we will use: <span class="math display">\[\begin{align}
+&amp;f(x)=\log(x) &amp; (\text{common log, } b=10)\\
+&amp;f(x)=\ln(x) &amp; (\text{natural log, } b=e)
+\end{align}\]</span></p>
+</section>
+<section id="trigonometric-functions" class="level4">
+<h4 class="anchored" data-anchor-id="trigonometric-functions">Trigonometric Functions</h4>
+<p>Frequently used when trying to model quantities that vary periodically. Also useful in problems involving geometry.</p>
+<p>The three main trigonometric functions are:</p>
+<p><span class="math display">\[f(x) = \sin(x),~ f(x) = \cos(x),~ f(x) = \tan(x)\]</span></p>
+<p>Also useful are the corresponding reciprocal functions:</p>
+<p><span class="math display">\[f(x) = \csc(x) = \frac{1}{\sin(x)},~ f(x) = \sec(x) = \frac{1}{\cos(x)},
+f(x) = \cot(x) = \frac{1}{\tan(x)}\]</span></p>
+<p>And inverse functions: <span class="math display">\[f(x) = \arcsin(x) = \sin^{-1}(x),
+~f(x) = \arccos(x) = \cos^{-1}(x),
+~f(x) = \arctan(x) = \tan^{-1}(x)\]</span></p>
+</section>
+<section id="polynomial-functions" class="level4">
+<h4 class="anchored" data-anchor-id="polynomial-functions">Polynomial Functions</h4>
+<p>We use polynomials to model relationships that have one or more local extrema.</p>
+<p>The two common ways of writing polynomials are:</p>
+<p><span class="math display">\[\begin{align}
+&amp;f(x)=a_nx^n +a_{n-1}x^{n-1}+\ldots +a_1x + a_0 &amp; (\text{Standard form}) \\[5pt]
+&amp;f(x)=a(x-z_1)^{m_1}(x-z_2)^{m_2}\cdot\ldots\cdot(x-z_k)^{m_k}
+&amp; (\text{Factored form})
+\end{align}\]</span></p>
+<p>In standard form, the <span class="math inline">\(a_k\)</span>s are called <em>coefficients</em>; <span class="math inline">\(n\)</span> is the <em>degree</em> of the polynomial and <span class="math inline">\(a_n\)</span> is referred to as the <em>leading coefficient</em>.</p>
+<p>In factored form, the <span class="math inline">\(z_k\)</span>s are the <em>zeros</em> or <em>roots</em> of the polynomial and the <span class="math inline">\(m_k\)</span>s are their <em>multiplicities</em>; <span class="math inline">\(a\)</span> is the leading coefficient.</p>
+</section>
+<section id="rational-functions" class="level4">
+<h4 class="anchored" data-anchor-id="rational-functions">Rational Functions</h4>
+<p>Rational functions are useful when the relationship has <em>asymptotic behavior</em>. There are two kinds of asymptotes:</p>
+<ul>
+<li><em>vertical</em> asymptotes: the magnitude of the output value increases without bound near a particular input value</li>
+<li><em>horizontal</em> asymptotes: the output value of the function approaches a specific value as the input tends towards <span class="math inline">\(\pm\infty\)</span>.</li>
+</ul>
+<p>Rational functions can be written as <span class="math display">\[ f(x)=\frac{p(x)}{q(x)} \]</span> where <span class="math inline">\(p(x)\)</span> and <span class="math inline">\(q(x)\)</span> are polynomials.</p>
+</section>
+</section>
+<section id="problem-1-population-growth-model" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1-population-growth-model">Problem 1: Population Growth Model</h2>
+<p>The table below gives the population, measured in <strong>1000s of people</strong>, of three different cities in 2010, 2012, and 2016. The data has been rounded.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Year</th>
+<th style="text-align: center;">2010</th>
+<th style="text-align: center;">2012</th>
+<th style="text-align: center;">2016</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">City A</td>
+<td style="text-align: center;">59.8</td>
+<td style="text-align: center;">61.8</td>
+<td style="text-align: center;">77.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">City B</td>
+<td style="text-align: center;">60.1</td>
+<td style="text-align: center;">68.7</td>
+<td style="text-align: center;">85.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">City C</td>
+<td style="text-align: center;">50.2</td>
+<td style="text-align: center;">54.3</td>
+<td style="text-align: center;">63.5</td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>The population of one of these cities is growing linearly and one is growing exponentially. Determine which cities fit each type of growth and find formulas modeling their populations.<br>
+</li>
+<li>The third city’s population can be modeled using a function of the form <span class="math display">\[f(t)=a+kt^p.\]</span> Find the values of the parameters in this model.</li>
+<li>Using your models, determine when each city’s population will reach 100,000.</li>
+</ol>
+</section>
+<section id="problem-2-water-temperature" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2-water-temperature">Problem 2: Water Temperature</h2>
+<p>Emily enjoys swimming at a nearby beach. The temperature of the water throughout the course of the year can be modeled with a sinusoidal function. Currently, the water is 44<span class="math inline">\(^\circ\)</span>F, which is the coldest it will be all year. The water will reach its warmest temperature of 80<span class="math inline">\(^\circ\)</span>F 180 days from now.</p>
+<p>Let <span class="math inline">\(T(x)\)</span> be the sinusoidal function modeling the temperature of the water <span class="math inline">\(x\)</span> days from now.</p>
+<ol type="a">
+<li><p>Sketch a graph of <span class="math inline">\(T(x)\)</span>. Determine the amplitude, midline, and period.</p></li>
+<li><p>Write a formula for <span class="math inline">\(T(x)\)</span>.</p></li>
+<li><p>According to this model, what is the expected temperature of the water 30 days from now?</p></li>
+<li><p>Emily will only go swimming when the temperature of the water is above 74<span class="math inline">\(^\circ\)</span>F. How long does Emily have to wait before the water reaches this temperature? (Show all algebraic work.)</p></li>
+<li><p>How many days will the water temperature stay above 74<span class="math inline">\(^\circ\)</span>F? Explain your reasoning.</p></li>
+</ol>
+</section>
+<section id="problem-3-polynomials-and-rational-functions" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3-polynomials-and-rational-functions">Problem 3: Polynomials and Rational Functions</h2>
+<ol type="a">
+<li><p>Let <span class="math inline">\(f(x) = x^4 - 4x^2\)</span>. Sketch a graph of <span class="math inline">\(f(x)\)</span>. Make sure to show all <span class="math inline">\(x\)</span>-intercepts and the end behavior. Use Desmos to check your answer.</p></li>
+<li><p>Let <span class="math inline">\(g(x)\)</span> be the polynomial shown below. Find a formula for <span class="math inline">\(g(x)\)</span> assuming it has the smallest possible degree.</p></li>
+</ol>
+<div id="fig-gx" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A degree-3 polynomial graph with, crossing the x-axis at x = -1 and touching it at x = 1, and crossing the y-axis at (0,-3).">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Graph1b_1.svg" class="img-fluid figure-img" style="width:60.0%" alt="A degree-3 polynomial graph with, crossing the x-axis at x = -1 and touching it at x = 1, and crossing the y-axis at (0,-3).">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Graph of <span class="math inline">\(g(x)\)</span>
+</figcaption>
+</figure>
+</div>
+<ol start="3" type="a">
+<li>Let <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span> be the functions from parts (a) and (b). Find all vertical and horizontal asymptotes for the function <span class="math display">\[
+h(x) = \frac{g(x)}{f(x)}.
+\]</span></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -106,5 +106,65 @@
       "Course Notes",
       "Home"
     ]
+  },
+  {
+    "objectID": "notes/unit0_2.html",
+    "href": "notes/unit0_2.html",
+    "title": "Modeling with Families of Functions",
+    "section": "",
+    "text": "A mathematical model is an abstract mathematical representation of some object, idea, or relationship that exists in the real world. Creating a mathematical model usually involves making some simplifying assumptions about whatever it is we are trying to represent. Using data from measurements or other observations, we try to distill the essential properties that we want our model to capture. We use mathematical models to make estimate or predict, weigh and compare decisions, simulate experiments, and try to discover properties that may otherwise be difficult or costly to observe.\nBe careful when drawing conclusions! Always consider the simplifying assumptions that were made when the model was created. Did we ignore anything that may impact our findings? Under what conditions is it reasonable to believe that the assumptions we made are realistic? These are all important things to include when communicating what you have learned in its real world context.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_2.html#what-should-you-know",
+    "href": "notes/unit0_2.html#what-should-you-know",
+    "title": "Modeling with Families of Functions",
+    "section": "What should you know?",
+    "text": "What should you know?\nThe following families of functions are frequently used as the basis for mathematical models. How well do you know them? We will need to be able to:\n\nSolve equations involving each of these types of functions.\nRecognize properties of the function from its formula.\n\nIt is very helpful if you are familiar enough with each of these families of functions to be able to “see” what the graph looks like and sketch it out by hand without relying on a graphing tool.\n\nLinear Functions\nOur first question in creating a mathematical model for a relationship is often is it linear? Linear models are simple to understand and easy to work with. Our intuition often relies on linear thinking.\nThere are two common ways of writing a linear formula:\n\\[\\begin{align}\n&f(x)=mx+b & (\\text{Slope-Intercept Form}) \\\\\n&f(x)=m(x-x_0)+y_0 & (\\text{Point-Slope Form})\n\\end{align}\\]\n\n\nPower Functions\nUseful when modeling something that is strictly increasing or decreasing, but not in a linear way.\nThe formula is: \\[f(x)=k x^p\\] where the power, \\(p\\), can be any real number.\n\n\nAbsolute Value Function\nUseful when you only need the magnitude of a value: \\[ f(x)=|x|\\]\n\n\nExponential Functions\nWe say a quantity is increasing or decreasing exponentially when it always changes by the same factor over each unit of time.\nThere are two different ways of writing exponential functions:\n\\[f(x)=ab^x = a(1+r)^x\\]\nwhere \\(a\\) is the initial value, \\(b\\) is the growth factor, and \\(r\\) is the growth rate,\n\\[f(x)=ae^{rx}\\]\nwhere again \\(r\\) is the continuous or relative growth rate and again \\(a\\) is the initial value.\n\n\nLogarithmic Functions\nLogarithms provide the inverse relationship for exponential growth. They are useful because they can convert something changing on an exponential scale to a linear scale.\nThe formula is: \\[f(x)=\\log_b(x)\\] where \\(b\\) is the base of the logarithm.\nMost often, we will use: \\[\\begin{align}\n&f(x)=\\log(x) & (\\text{common log, } b=10)\\\\\n&f(x)=\\ln(x) & (\\text{natural log, } b=e)\n\\end{align}\\]\n\n\nTrigonometric Functions\nFrequently used when trying to model quantities that vary periodically. Also useful in problems involving geometry.\nThe three main trigonometric functions are:\n\\[f(x) = \\sin(x),~ f(x) = \\cos(x),~ f(x) = \\tan(x)\\]\nAlso useful are the corresponding reciprocal functions:\n\\[f(x) = \\csc(x) = \\frac{1}{\\sin(x)},~ f(x) = \\sec(x) = \\frac{1}{\\cos(x)},\nf(x) = \\cot(x) = \\frac{1}{\\tan(x)}\\]\nAnd inverse functions: \\[f(x) = \\arcsin(x) = \\sin^{-1}(x),\n~f(x) = \\arccos(x) = \\cos^{-1}(x),\n~f(x) = \\arctan(x) = \\tan^{-1}(x)\\]\n\n\nPolynomial Functions\nWe use polynomials to model relationships that have one or more local extrema.\nThe two common ways of writing polynomials are:\n\\[\\begin{align}\n&f(x)=a_nx^n +a_{n-1}x^{n-1}+\\ldots +a_1x + a_0 & (\\text{Standard form}) \\\\[5pt]\n&f(x)=a(x-z_1)^{m_1}(x-z_2)^{m_2}\\cdot\\ldots\\cdot(x-z_k)^{m_k}\n& (\\text{Factored form})\n\\end{align}\\]\nIn standard form, the \\(a_k\\)s are called coefficients; \\(n\\) is the degree of the polynomial and \\(a_n\\) is referred to as the leading coefficient.\nIn factored form, the \\(z_k\\)s are the zeros or roots of the polynomial and the \\(m_k\\)s are their multiplicities; \\(a\\) is the leading coefficient.\n\n\nRational Functions\nRational functions are useful when the relationship has asymptotic behavior. There are two kinds of asymptotes:\n\nvertical asymptotes: the magnitude of the output value increases without bound near a particular input value\nhorizontal asymptotes: the output value of the function approaches a specific value as the input tends towards \\(\\pm\\infty\\).\n\nRational functions can be written as \\[ f(x)=\\frac{p(x)}{q(x)} \\] where \\(p(x)\\) and \\(q(x)\\) are polynomials.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_2.html#problem-1-population-growth-model",
+    "href": "notes/unit0_2.html#problem-1-population-growth-model",
+    "title": "Modeling with Families of Functions",
+    "section": "Problem 1: Population Growth Model",
+    "text": "Problem 1: Population Growth Model\nThe table below gives the population, measured in 1000s of people, of three different cities in 2010, 2012, and 2016. The data has been rounded.\n\n\n\nYear\n2010\n2012\n2016\n\n\n\n\nCity A\n59.8\n61.8\n77.8\n\n\nCity B\n60.1\n68.7\n85.9\n\n\nCity C\n50.2\n54.3\n63.5\n\n\n\n\nThe population of one of these cities is growing linearly and one is growing exponentially. Determine which cities fit each type of growth and find formulas modeling their populations.\n\nThe third city’s population can be modeled using a function of the form \\[f(t)=a+kt^p.\\] Find the values of the parameters in this model.\nUsing your models, determine when each city’s population will reach 100,000.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_2.html#problem-2-water-temperature",
+    "href": "notes/unit0_2.html#problem-2-water-temperature",
+    "title": "Modeling with Families of Functions",
+    "section": "Problem 2: Water Temperature",
+    "text": "Problem 2: Water Temperature\nEmily enjoys swimming at a nearby beach. The temperature of the water throughout the course of the year can be modeled with a sinusoidal function. Currently, the water is 44\\(^\\circ\\)F, which is the coldest it will be all year. The water will reach its warmest temperature of 80\\(^\\circ\\)F 180 days from now.\nLet \\(T(x)\\) be the sinusoidal function modeling the temperature of the water \\(x\\) days from now.\n\nSketch a graph of \\(T(x)\\). Determine the amplitude, midline, and period.\nWrite a formula for \\(T(x)\\).\nAccording to this model, what is the expected temperature of the water 30 days from now?\nEmily will only go swimming when the temperature of the water is above 74\\(^\\circ\\)F. How long does Emily have to wait before the water reaches this temperature? (Show all algebraic work.)\nHow many days will the water temperature stay above 74\\(^\\circ\\)F? Explain your reasoning.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_2.html#problem-3-polynomials-and-rational-functions",
+    "href": "notes/unit0_2.html#problem-3-polynomials-and-rational-functions",
+    "title": "Modeling with Families of Functions",
+    "section": "Problem 3: Polynomials and Rational Functions",
+    "text": "Problem 3: Polynomials and Rational Functions\n\nLet \\(f(x) = x^4 - 4x^2\\). Sketch a graph of \\(f(x)\\). Make sure to show all \\(x\\)-intercepts and the end behavior. Use Desmos to check your answer.\nLet \\(g(x)\\) be the polynomial shown below. Find a formula for \\(g(x)\\) assuming it has the smallest possible degree.\n\n\n\n\n\n\n\nFigure 1: Graph of \\(g(x)\\)\n\n\n\n\nLet \\(f(x)\\) and \\(g(x)\\) be the functions from parts (a) and (b). Find all vertical and horizontal asymptotes for the function \\[\nh(x) = \\frac{g(x)}{f(x)}.\n\\]",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
   }
 ]
