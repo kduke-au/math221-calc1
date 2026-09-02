@@ -136,7 +136,7 @@ c. According to this model, what is the expected temperature of the water 30 day
 
 d. Emily will only go swimming when the temperature of the water is above 74$^\circ$F. How long does Emily have to wait before the water reaches this temperature? (Show all algebraic work.)
 
-e. How many days will the water temperature stay above 74$^\circ$F? Explain your reasoning.
+**(e)** How many days will the water temperature stay above 74$^\circ$F? Explain your reasoning.
 
 
 ## Problem 3: Polynomials and Rational Functions
@@ -145,8 +145,6 @@ e. How many days will the water temperature stay above 74$^\circ$F? Explain your
 a. Let $f(x) = x^4 - 4x^2$. Sketch a graph of $f(x)$. Make sure to show all $x$-intercepts and the end behavior. Use Desmos to check your answer.
 
 b. Let $g(x)$ be the polynomial shown below. Find a formula for $g(x)$ assuming it has the smallest possible degree.
-
-![Graph of $g(x)$](images/Graph1b_1.svg){#fig-gx width=60% fig-alt="A degree-3 polynomial graph with, crossing the x-axis at x = -1 and touching it at x = 1, and crossing the y-axis at (0,-3)."}
 
 c. Let $f(x)$ and $g(x)$ be the functions from parts (a) and (b). Find all vertical and horizontal asymptotes for the function
 $$

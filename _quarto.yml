@@ -31,7 +31,7 @@ website:
             - text: "Functions & Their Properties"
               href: notes/unit0_1.qmd
             - text: "Families of Functions"
-              # href: notes/unit0_2.qmd
+              href: notes/unit0_2.qmd
         - section: "Unit 1: Limits & Continuity"
           contents:
             # - text: "Overview"
@@ -86,7 +86,6 @@ website:
             - text: "Antiderivatives"
               href: exam_practice/unit6_practice.qmd
   drafts:
-    - notes/unit0_2.qmd
     - notes/unit1_index.qmd
     - notes/unit1_1.qmd
     - notes/unit1_2.qmd
