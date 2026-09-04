@@ -34,10 +34,10 @@ website:
               href: notes/unit0_2.qmd
         - section: "Unit 1: Limits & Continuity"
           contents:
-            # - text: "Overview"
-            #   href: notes/unit1_index.qmd
-            # - text: "Definitions & Intuition"
-            #   href: notes/unit1_1.qmd
+             - text: "Overview"
+               href: notes/unit1_index.qmd
+             - text: "Definitions & Intuition"
+               href: notes/unit1_1.qmd
             # - text: "Limit Properties"
             #   href: notes/unit1_2.qmd
             # - text: "Evaluating Limits Using Algebra"
@@ -86,8 +86,6 @@ website:
             - text: "Antiderivatives"
               href: exam_practice/unit6_practice.qmd
   drafts:
-    - notes/unit1_index.qmd
-    - notes/unit1_1.qmd
     - notes/unit1_2.qmd
     - notes/unit1_3.qmd
     - exam_practice/unit0_practice.qmd

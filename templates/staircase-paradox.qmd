@@ -1,0 +1,112 @@
+---
+title: "The Staircase Paradox"
+draft: true
+---
+
+::: {.callout-note title="A Paradox of Infinite Processes"}
+Consider the diagonal of a unit square, running from $(0,0)$ to $(1,1)$. Its length is
+$\sqrt{2} \approx 1.41421$.
+
+Now approximate that diagonal with a "staircase": a path made of alternating horizontal and
+vertical segments that hug the diagonal, always moving right or up, never diagonally. Below,
+you can control how many steps the staircase uses.
+
+a. As the number of steps increases, what happens to the staircase visually?
+b. What do you think happens to the *length* of the staircase as the number of steps increases?
+c. Use the slider to check your prediction. What do you notice?
+:::
+
+::: {style="display:flex; justify-content:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof n = Inputs.range([1, 60], {value: 4, step: 1, label: "Number of steps (n)"})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+stairPoints = {
+  const pts = [{x: 0, y: 0}];
+  for (let i = 0; i < n; i++) {
+    const y0 = i / n;
+    const x1 = (i + 1) / n;
+    const y1 = (i + 1) / n;
+    pts.push({x: x1, y: y0});
+    pts.push({x: x1, y: y1});
+  }
+  return pts;
+}
+```
+
+```{ojs}
+//| echo: false
+diagPoints = [{x: 0, y: 0}, {x: 1, y: 1}]
+```
+
+```{ojs}
+//| echo: false
+stairLength = {
+  let total = 0;
+  for (let i = 1; i < stairPoints.length; i++) {
+    const dx = stairPoints[i].x - stairPoints[i - 1].x;
+    const dy = stairPoints[i].y - stairPoints[i - 1].y;
+    total += Math.hypot(dx, dy);
+  }
+  return total;
+}
+```
+
+```{ojs}
+//| echo: false
+diagLength = Math.hypot(1, 1)
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 420,
+  height: 420,
+  aspectRatio: 1,
+  x: {domain: [0, 1], label: "x"},
+  y: {domain: [0, 1], label: "y"},
+  style: {background: "transparent"},
+  marks: [
+    Plot.line(diagPoints, {
+      x: "x", y: "y",
+      stroke: "var(--bs-body-color)",
+      strokeWidth: 2,
+      strokeDasharray: "6,4"
+    }),
+    Plot.line(stairPoints, {
+      x: "x", y: "y",
+      stroke: "#e63946",
+      strokeWidth: 2.5
+    }),
+    Plot.frame({stroke: "var(--bs-border-color, gray)"})
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+md`**Staircase length:** ${stairLength.toFixed(4)} &nbsp;&nbsp;|&nbsp;&nbsp; **Diagonal length:** ${diagLength.toFixed(4)} ($\sqrt{2}$)`
+```
+
+::: {.callout-important title="The Punchline" collapse="true"}
+No matter how many steps you use, the staircase's total length is *exactly* 2 — each step
+contributes a horizontal run and a vertical rise that together always sum to $\frac{1}{n}+\frac{1}{n}$
+per step, and there are $n$ steps, so the total is always $n\cdot\frac{2}{n}=2$.
+
+Visually, the staircase looks like it is converging to the diagonal as $n\to\infty$ — and in a
+precise sense (uniform convergence of the curve itself) it *is*. But its length never budges
+from 2, while the diagonal's length is $\sqrt{2}\approx 1.41421$. The curves converge; the
+lengths do not.
+
+**Discussion prompt:** Why doesn't "the staircase visually approaches the diagonal" imply "the
+length of the staircase approaches the length of the diagonal"? What does this suggest about
+trusting a picture as a substitute for a precise definition — here, of *arc length* as a limit
+of a specific process (inscribed polygonal paths), rather than of *any* sequence of curves that
+happens to look close?
+:::

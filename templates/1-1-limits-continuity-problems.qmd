@@ -1,0 +1,72 @@
+---
+title: "Discussion Problems: Introduction to Limits and Continuity"
+draft: true
+---
+
+## Worksheet 1.7 — Introduction to Limits and Continuity
+
+::: {.callout-note title="Problem 1"}
+Consider the function $f(w) = \dfrac{\sqrt{w}-1}{w-1}$.
+
+a. What is the domain of $f$?
+b. Fill out the data table below:
+
+| $w$    | 0.9 | 0.99 | 0.999 | 1.001 | 1.01 | 1.1 |
+|--------|-----|------|-------|-------|------|-----|
+| $f(w)$ |     |      |       |       |      |     |
+
+c. What value does $f(w)$ appear to be approaching as $w$ approaches 1?
+d. Write your observation from part (c) using limit notation: $\lim_{w\to a} f(w) = L$
+:::
+
+::: {.callout-note title="Problem 2"}
+The physics department drops a watermelon off the top of the DMTI building. Suppose this watermelon falls for 1.5 seconds before it hits the ground.
+
+a. Let $s(t)$ be the watermelon's speed $t$ seconds after it was dropped. Sketch a graph of $s(t)$ on the interval $0 \le t \le 3$. Is $s(t)$ continuous on this interval?
+b. Let $h(t)$ be the watermelon's height above the ground $t$ seconds after it was dropped. Sketch a graph of $h(t)$ on the interval $0 \le t \le 3$. Is $h(t)$ continuous on $0 \le t \le 3$?
+:::
+
+::: {.callout-note title="Problem 3"}
+Let
+
+$$
+h(x) = \begin{cases} ax^2+2 & \text{if } x<1 \\ 4 & \text{if } x=1 \\ -3x+b & \text{if } x>1 \end{cases}
+$$
+
+a. [Here is a link to a graph of $h(x)$ in Desmos.](https://www.desmos.com/calculator/k9s00vtasu) Use the sliders to help you guess the values of $a$ and $b$ that make $h(x)$ continuous at $x=1$.
+b. Verify your answer to part (a) algebraically.
+:::
+
+::: {.callout-note title="Problem 4"}
+A 0.6 mL dose of a drug is administered to a patient steadily for half a second. At the end of this time, the quantity $Q$ of the drug in the body starts to decay exponentially. The continuous decay rate of the drug is 0.2% per second.
+
+a. Let $Q(t)$ be the amount of drug in the body $t$ seconds after the drug began to be administered. Do you expect $Q(t)$ to be continuous for $t>0$?
+b. Find a formula for $Q(t)$.
+:::
+
+## Worksheet 1.8 — Concept of a Limit
+
+::: {.callout-note title="Problem 1 — Baked Potato"}
+A baked potato is placed in an oven. Let $P(x)$ be a function modeling the temperature of the potato $x$ minutes after it has been placed in the oven.
+
+a. Sketch what you think the graph of $P(x)$ should look like.
+b. Do you expect $\lim_{x\to\infty} P(x)$ to exist? If so, what would this value represent in the context of the problem? If not, why?
+:::
+
+::: {.callout-note title="Problem 2 — Table of Values"}
+Let $f(x) = \dfrac{x^2+2x-3}{x+1}$ and $g(x) = \dfrac{x^2-2x-3}{x+1}$.
+
+a. Fill out the following table of values:
+
+| $x$    | -1.1 | -1.01 | -1.001 | -0.999 | -0.99 | -0.9 |
+|--------|------|-------|--------|--------|-------|------|
+| $f(x)$ |      |       |        |        |       |      |
+| $g(x)$ |      |       |        |        |       |      |
+
+b. Use the table to guess the value of the following limits. If the limit does not exist, write DNE, $\infty$, or $-\infty$ as appropriate.
+
+   i. $\lim_{x\to -1^-} f(x)$
+   ii. $\lim_{x\to -1^+} f(x)$
+   iii. $\lim_{x\to -1^-} g(x)$
+   iv. $\lim_{x\to -1^+} g(x)$
+:::

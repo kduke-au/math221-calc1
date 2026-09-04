@@ -3,4 +3,167 @@ title: 'Limits & Continuity - Definitions and Intuition'
 sidebar: notes
 ---
 
-Content coming soon.
+Creating the proper tools that allow us to measure rate and accumulation require us to grapple with *infinities* and *infinitesimals*. Here are some examples that illustrate the logical hurdle these ideas pose: 
+
+### Problem 1: Infinities and Infinitesimals
+Discuss and try to resolve one or more of the following questions with your group. 
+
+a. Consider a hotel with infinitely many rooms. Currently each room is occupied. A new guest arrives at the front desk and requests a room. Can they be accommodated? If so, how?
+b. Consider the value $0.999\ldots$ where there is a 9 in all decimal places. This value is the result of an infinite process:
+
+    - Start with 0.9
+    - Add 9 hundredths to get 0.99
+    - Add 9 thousandths to get 0.999
+    - And so on ...
+
+    At each step of this process, the value $0.99\ldots 9$ is getting closer to, but always less than 1. So, $0.999\ldots$ must be infinitesimally close to, but less than 1. Do you agree?
+
+c. Someone is turning a lamp on and off over the course of 1 minute 
+
+    - The lamp starts on.
+    - It is turned off after 1/2 of a  minute.
+    - It is turned back on at 3/4 of a minute.
+    - It is turned off again at 7/8 of a minute.
+    - Then turned back on again at 15/16 of a minute.
+    - And so on...
+
+    Does the lamp end up off or on after 1 minute?    
+
+d. Construct an infinite staircase as follows. 
+
+- Start with one step that is 1m long and rises 1m. The total length is 2m.
+- Now add another step. So now, each step is 0.5m long and rises 0.5m. The total length of the staircase is still 2m.
+- Continue in this fashion as shown in the graph below. At each iteration, the staircase as $n$ steps, each one runs $\frac{1}{n}$ meters and rises $\frac{1}{n}$ meters and so the total length of the staircase is always 2m.    
+
+::: {style="display:flex; justify-content:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof n = Inputs.range([1, 100], {value: 4, step: 1, label: "Number of steps (n)"})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+stairPoints = {
+  const pts = [{x: 0, y: 0}];
+  for (let i = 0; i < n; i++) {
+    const y0 = i / n;
+    const x1 = (i + 1) / n;
+    const y1 = (i + 1) / n;
+    pts.push({x: x1, y: y0});
+    pts.push({x: x1, y: y1});
+  }
+  return pts;
+}
+```
+
+```{ojs}
+//| echo: false
+diagPoints = [{x: 0, y: 0}, {x: 1, y: 1}]
+```
+
+```{ojs}
+//| echo: false
+stairLength = {
+  let total = 0;
+  for (let i = 1; i < stairPoints.length; i++) {
+    const dx = stairPoints[i].x - stairPoints[i - 1].x;
+    const dy = stairPoints[i].y - stairPoints[i - 1].y;
+    total += Math.hypot(dx, dy);
+  }
+  return total;
+}
+```
+
+```{ojs}
+//| echo: false
+diagLength = Math.hypot(1, 1)
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 420,
+  height: 420,
+  aspectRatio: 1,
+  x: {domain: [0, 1], label: "x"},
+  y: {domain: [0, 1], label: "y"},
+  style: {background: "transparent"},
+  marks: [
+    Plot.line(diagPoints, {
+      x: "x", y: "y",
+      stroke: "var(--bs-body-color)",
+      strokeWidth: 2,
+      strokeDasharray: "6,4"
+    }),
+    Plot.line(stairPoints, {
+      x: "x", y: "y",
+      stroke: "#e63946",
+      strokeWidth: 2.5
+    }),
+    Plot.frame({stroke: "var(--bs-border-color, gray)"})
+  ]
+})
+```
+
+<!-- 
+```{ojs}
+//| echo: false
+#md`**Staircase length:** ${stairLength.toFixed(4)} &nbsp;&nbsp;|&nbsp;&nbsp; **Diagonal length:** ${diagLength.toFixed(4)} ($\sqrt{2}$)`
+```
+-->
+
+The process results in a staircase with infinitely many steps that has a total length of 2m. Therefore the length of the diagonal shown in the diagram must also be 2m. Do you agree?
+
+## Definition of a limit
+
+### Problem 2: Exist or Does Not Exist?
+Consider the function $f(w) = \dfrac{\sqrt{w}-1}{w-1}$.
+
+a. What is the domain of $f$?
+b. Fill out the data table below:
+
+| $w$    | 0.9 | 0.99 | 0.999 | 1.001 | 1.01 | 1.1 |
+|--------|-----|------|-------|-------|------|-----|
+| $f(w)$ |     |      |       |       |      |     |
+
+c. What value does $f(w)$ appear to be approaching as $w$ approaches 1?
+d. Write your observation from part (c) using limit notation: $\lim_{w\to a} f(w) = L$
+
+
+### Problem 3: Holes vs. Asymptotes
+Let $f(x) = \dfrac{x^2+2x-3}{x+1}$ and $g(x) = \dfrac{x^2-2x-3}{x+1}$.
+
+a. Fill out the following table of values:
+
+| $x$    | -1.1 | -1.01 | -1.001 | -0.999 | -0.99 | -0.9 |
+|--------|------|-------|--------|--------|-------|------|
+| $f(x)$ |      |       |        |        |       |      |
+| $g(x)$ |      |       |        |        |       |      |
+
+b. Use the table to guess the value of the following limits. If the limit does not exist, write DNE, $\infty$, or $-\infty$ as appropriate.
+
+   i. $\lim_{x\to -1^-} f(x)$
+   ii. $\lim_{x\to -1^+} f(x)$
+   iii. $\lim_{x\to -1^-} g(x)$
+   iv. $\lim_{x\to -1^+} g(x)$
+
+## Definition of Continuity
+
+### Problem 4: Making a Piecewise Function Continuous
+Let
+
+$$
+h(x) = \begin{cases} ax^2+2 & \text{if } x<1 \\ 4 & \text{if } x=1 \\ -3x+b & \text{if } x>1 \end{cases}
+$$
+
+a. [Here is a link to a graph of $h(x)$ in Desmos.](https://www.desmos.com/calculator/k9s00vtasu) Use the sliders to help you guess the values of $a$ and $b$ that make $h(x)$ continuous at $x=1$.
+b. Verify your answer to part (a) algebraically.
+
+### Problem 5: Drug Decay
+A 0.6 mL dose of a drug is administered to a patient steadily for half a second. At the end of this time, the quantity $Q$ of the drug in the body starts to decay exponentially. The continuous decay rate of the drug is 0.2% per second.
+
+a. Let $Q(t)$ be the amount of drug in the body $t$ seconds after the drug began to be administered. Do you expect $Q(t)$ to be continuous for $t>0$?
+b. Find a formula for $Q(t)$.
