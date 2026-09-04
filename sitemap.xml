@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://kduke-au.github.io/math221-calc1/notes/unit1_index.html</loc>
+    <lastmod>2026-05-29T20:29:09.658Z</lastmod>
+  </url>
+  <url>
     <loc>https://kduke-au.github.io/math221-calc1/notes/unit0_index.html</loc>
     <lastmod>2026-09-01T08:27:27.696Z</lastmod>
   </url>
@@ -27,5 +31,9 @@
   <url>
     <loc>https://kduke-au.github.io/math221-calc1/notes/unit0_2.html</loc>
     <lastmod>2026-09-02T11:39:18.016Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kduke-au.github.io/math221-calc1/notes/unit1_1.html</loc>
+    <lastmod>2026-09-04T12:24:58.407Z</lastmod>
   </url>
 </urlset>

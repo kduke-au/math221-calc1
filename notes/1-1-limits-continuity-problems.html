@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Math 221 Course Notes – Math 221 - Calculus I</title>
+<title>Discussion Problems: Introduction to Limits and Continuity – Math 221 - Calculus I</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,27 +29,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-dark-ee46beb70aa31211458725bc788f2241.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee46beb70aa31211458725bc788f2241.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,9 +77,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<meta name="quarto:status" content="draft">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -247,11 +277,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Math 221 - Calculus I</span>
     </a>
   </div>
@@ -262,17 +292,17 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./notes/index.html"> 
+    <a class="nav-link" href="../notes/index.html"> 
 <span class="menu-text">Course Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./exam_practice/index.html"> 
+    <a class="nav-link" href="../exam_practice/index.html"> 
 <span class="menu-text">Practice Exam Problems</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">Questions?</span></a>
   </li>  
 </ul>
@@ -287,8 +317,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#worksheet-1.7-introduction-to-limits-and-continuity" id="toc-worksheet-1.7-introduction-to-limits-and-continuity" class="nav-link active" data-scroll-target="#worksheet-1.7-introduction-to-limits-and-continuity">Worksheet 1.7 — Introduction to Limits and Continuity</a></li>
+  <li><a href="#worksheet-1.8-concept-of-a-limit" id="toc-worksheet-1.8-concept-of-a-limit" class="nav-link" data-scroll-target="#worksheet-1.8-concept-of-a-limit">Worksheet 1.8 — Concept of a Limit</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -296,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Math 221 Course Notes</h1>
+<h1 class="title">Discussion Problems: Introduction to Limits and Continuity</h1>
 </div>
 
 
@@ -313,10 +350,188 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome! This site hosts course notes and discussion/practice problems for Math 221 (Calculus 1) at American University.</p>
-<p>It will be continuously updated and changed throughout the Fall 2026 semester as we work our way through the course material – so visit frequently!</p>
+<section id="worksheet-1.7-introduction-to-limits-and-continuity" class="level2">
+<h2 class="anchored" data-anchor-id="worksheet-1.7-introduction-to-limits-and-continuity">Worksheet 1.7 — Introduction to Limits and Continuity</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Problem 1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problem 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the function <span class="math inline">\(f(w) = \dfrac{\sqrt{w}-1}{w-1}\)</span>.</p>
+<ol type="a">
+<li>What is the domain of <span class="math inline">\(f\)</span>?</li>
+<li>Fill out the data table below:</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(w\)</span></th>
+<th>0.9</th>
+<th>0.99</th>
+<th>0.999</th>
+<th>1.001</th>
+<th>1.01</th>
+<th>1.1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(f(w)\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="a">
+<li>What value does <span class="math inline">\(f(w)\)</span> appear to be approaching as <span class="math inline">\(w\)</span> approaches 1?</li>
+<li>Write your observation from part (c) using limit notation: <span class="math inline">\(\lim_{w\to a} f(w) = L\)</span></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Problem 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problem 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The physics department drops a watermelon off the top of the DMTI building. Suppose this watermelon falls for 1.5 seconds before it hits the ground.</p>
+<ol type="a">
+<li>Let <span class="math inline">\(s(t)\)</span> be the watermelon’s speed <span class="math inline">\(t\)</span> seconds after it was dropped. Sketch a graph of <span class="math inline">\(s(t)\)</span> on the interval <span class="math inline">\(0 \le t \le 3\)</span>. Is <span class="math inline">\(s(t)\)</span> continuous on this interval?</li>
+<li>Let <span class="math inline">\(h(t)\)</span> be the watermelon’s height above the ground <span class="math inline">\(t\)</span> seconds after it was dropped. Sketch a graph of <span class="math inline">\(h(t)\)</span> on the interval <span class="math inline">\(0 \le t \le 3\)</span>. Is <span class="math inline">\(h(t)\)</span> continuous on <span class="math inline">\(0 \le t \le 3\)</span>?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Problem 3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problem 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let</p>
+<p><span class="math display">\[
+h(x) = \begin{cases} ax^2+2 &amp; \text{if } x&lt;1 \\ 4 &amp; \text{if } x=1 \\ -3x+b &amp; \text{if } x&gt;1 \end{cases}
+\]</span></p>
+<ol type="a">
+<li><a href="https://www.desmos.com/calculator/k9s00vtasu">Here is a link to a graph of <span class="math inline">\(h(x)\)</span> in Desmos.</a> Use the sliders to help you guess the values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> that make <span class="math inline">\(h(x)\)</span> continuous at <span class="math inline">\(x=1\)</span>.</li>
+<li>Verify your answer to part (a) algebraically.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Problem 4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problem 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A 0.6 mL dose of a drug is administered to a patient steadily for half a second. At the end of this time, the quantity <span class="math inline">\(Q\)</span> of the drug in the body starts to decay exponentially. The continuous decay rate of the drug is 0.2% per second.</p>
+<ol type="a">
+<li>Let <span class="math inline">\(Q(t)\)</span> be the amount of drug in the body <span class="math inline">\(t\)</span> seconds after the drug began to be administered. Do you expect <span class="math inline">\(Q(t)\)</span> to be continuous for <span class="math inline">\(t&gt;0\)</span>?</li>
+<li>Find a formula for <span class="math inline">\(Q(t)\)</span>.</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="worksheet-1.8-concept-of-a-limit" class="level2">
+<h2 class="anchored" data-anchor-id="worksheet-1.8-concept-of-a-limit">Worksheet 1.8 — Concept of a Limit</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Problem 1 — Baked Potato">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problem 1 — Baked Potato
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A baked potato is placed in an oven. Let <span class="math inline">\(P(x)\)</span> be a function modeling the temperature of the potato <span class="math inline">\(x\)</span> minutes after it has been placed in the oven.</p>
+<ol type="a">
+<li>Sketch what you think the graph of <span class="math inline">\(P(x)\)</span> should look like.</li>
+<li>Do you expect <span class="math inline">\(\lim_{x\to\infty} P(x)\)</span> to exist? If so, what would this value represent in the context of the problem? If not, why?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Problem 2 — Table of Values">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Problem 2 — Table of Values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(f(x) = \dfrac{x^2+2x-3}{x+1}\)</span> and <span class="math inline">\(g(x) = \dfrac{x^2-2x-3}{x+1}\)</span>.</p>
+<ol type="a">
+<li>Fill out the following table of values:</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th>-1.1</th>
+<th>-1.01</th>
+<th>-1.001</th>
+<th>-0.999</th>
+<th>-0.99</th>
+<th>-0.9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(f(x)\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(g(x)\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="a">
+<li><p>Use the table to guess the value of the following limits. If the limit does not exist, write DNE, <span class="math inline">\(\infty\)</span>, or <span class="math inline">\(-\infty\)</span> as appropriate.</p>
+<ol type="i">
+<li><span class="math inline">\(\lim_{x\to -1^-} f(x)\)</span></li>
+<li><span class="math inline">\(\lim_{x\to -1^+} f(x)\)</span></li>
+<li><span class="math inline">\(\lim_{x\to -1^-} g(x)\)</span></li>
+<li><span class="math inline">\(\lim_{x\to -1^+} g(x)\)</span></li>
+</ol></li>
+</ol>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -405,7 +620,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/kduke-au\.github\.io\/math221-calc1\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
