@@ -3,137 +3,80 @@ title: 'Limits & Continuity - Definitions and Intuition'
 sidebar: notes
 ---
 
-Creating the proper tools that allow us to measure rate and accumulation require us to grapple with *infinities* and *infinitesimals*. Here are some examples that illustrate the logical hurdle these ideas pose: 
+## Definition of a limit
+When computing a *limit*, we are trying to determine the end result of an indefinite process. Like with the light switch example in the Unit 1 Overview, some indefinite processes do not yield a final outcome. In these cases, we say that the limit of the process *does not exist*. 
 
-### Problem 1: Infinities and Infinitesimals
-Discuss and try to resolve one or more of the following questions with your group. 
+In other instances, like with the value of $0.999\ldots$, we will be able to see that the outcomes of the process ($0.9$, $0.99$, $0.999$, $\ldots$) become infinitesimally close to a specific value and we define this value to be the *limit* of the process.
 
-a. Consider a hotel with infinitely many rooms. Currently each room is occupied. A new guest arrives at the front desk and requests a room. Can they be accommodated? If so, how?
-b. Consider the value $0.999\ldots$ where there is a 9 in all decimal places. This value is the result of an infinite process:
+The process we are interested in here is the value a function $f(x)$ approaches as $x$ approaches a particular input value $x=a$ or as $x$ tends towards $\infty$ or $-\infty$. We use the following notation when trying to compute the limit in this context: $$\lim_{x\to a}f(x).$$ 
 
-    - Start with 0.9
-    - Add 9 hundredths to get 0.99
-    - Add 9 thousandths to get 0.999
-    - And so on ...
+Note that $\displaystyle\lim_{x\to a}f(x)$ and $f(a)$ are asking two *different* questions:
 
-    At each step of this process, the value $0.99\ldots 9$ is getting closer to, but always less than 1. So, $0.999\ldots$ must be infinitesimally close to, but less than 1. Do you agree?
+- $\displaystyle\lim_{x\to a}f(x)$ is asking us to examine the behavior of the output values of $f$ as the input values get closer and closer to $x=a$; at no point in this process do we plug in $x=a$.
+- $f(a)$ is asking for the output value that we get when we plug in $x=a$.
 
-c. Someone is turning a lamp on and off over the course of 1 minute 
+In some cases, these questions have the same answer. We say that the function is *continuous* at $x=a$ when this happens. In other cases, they do not. But it is always important to keep in mind that these are two distinct questions!
 
-    - The lamp starts on.
-    - It is turned off after 1/2 of a  minute.
-    - It is turned back on at 3/4 of a minute.
-    - It is turned off again at 7/8 of a minute.
-    - Then turned back on again at 15/16 of a minute.
-    - And so on...
+Here are some formal definitions for the different kinds of limits we will use in this context:
 
-    Does the lamp end up off or on after 1 minute?    
+:::{#def-limit}
+### Limit
+For a given real number $a$, we write that $$\lim_{x\to a}f(x)=L$$ when there is a real number $L$ such that the values of $f(x)$ can be made arbitrarily close to $L$ by plugging in any $x$ value that is sufficiently close to, but not equal to $a$. In this case, we say that the limit of $f(x)$ as $x$ approaches $a$ exists and equals $L$. 
+::: 
 
-d. Construct an infinite staircase as follows. 
+:::{#def-lim_infty}
+### Limits at Infinity
+We write that $$\lim_{x\to \infty}f(x)=L$$ when there is a real number $L$ such that the values of $f(x)$ can be made arbitrarily close to $L$ by plugging in sufficiently large values for $x$.
 
-- Start with one step that is 1m long and rises 1m. The total length is 2m.
-- Now add another step. So now, each step is 0.5m long and rises 0.5m. The total length of the staircase is still 2m.
-- Continue in this fashion as shown in the graph below. At each iteration, the staircase as $n$ steps, each one runs $\frac{1}{n}$ meters and rises $\frac{1}{n}$ meters and so the total length of the staircase is always 2m.    
+We write $$\lim_{x\to -\infty}f(x)=L$$ when there is a real number $L$ such that the values of $f(x)$ can be made arbitrarily close to $L$ by plugging in negative values for $x$ that are sufficiently large in magnitude.
 
-::: {style="display:flex; justify-content:center; margin-top:12px;"}
-
-```{ojs}
-//| echo: false
-viewof n = Inputs.range([1, 100], {value: 4, step: 1, label: "Number of steps (n)"})
-```
-
+In these cases, we say that the limit of $f(x)$ as $x$ approaches infinity or negative infinity exists and equals $L$. 
 :::
 
-```{ojs}
-//| echo: false
-stairPoints = {
-  const pts = [{x: 0, y: 0}];
-  for (let i = 0; i < n; i++) {
-    const y0 = i / n;
-    const x1 = (i + 1) / n;
-    const y1 = (i + 1) / n;
-    pts.push({x: x1, y: y0});
-    pts.push({x: x1, y: y1});
-  }
-  return pts;
-}
-```
+:::{#def-one_sided_lim}
+For a given real number $a$, we write that $$\lim_{x\to a^+}f(x)=L$$ if there is a real number $L$ such that the values of $f(x)$ can be made arbitrarily close to $L$ by plugging in any $x$ value that sufficiently close to, but greater than $a$.
 
-```{ojs}
-//| echo: false
-diagPoints = [{x: 0, y: 0}, {x: 1, y: 1}]
-```
+We write that $$\lim_{x\to a^-}f(x)=L$$ if there is a real number $L$ such that the values of $f(x)$ can be made arbitrarily close to $L$ by plugging in any $x$ value that sufficiently close to, but less than $a$.
 
-```{ojs}
-//| echo: false
-stairLength = {
-  let total = 0;
-  for (let i = 1; i < stairPoints.length; i++) {
-    const dx = stairPoints[i].x - stairPoints[i - 1].x;
-    const dy = stairPoints[i].y - stairPoints[i - 1].y;
-    total += Math.hypot(dx, dy);
-  }
-  return total;
-}
-```
+In these cases, we say that the limit of $f(x)$ as $x$ approaches a from the right ($x\to a^+$), or from the left ($x\to a^-$), exists and equals $L$.
+:::
 
-```{ojs}
-//| echo: false
-diagLength = Math.hypot(1, 1)
-```
+### Problem 1: Exist or Does Not Exist?
+Let $f(x)$ be the function shown in the graph below.
 
-```{ojs}
-//| echo: false
-Plot.plot({
-  width: 420,
-  height: 420,
-  aspectRatio: 1,
-  x: {domain: [0, 1], label: "x"},
-  y: {domain: [0, 1], label: "y"},
-  style: {background: "transparent"},
-  marks: [
-    Plot.line(diagPoints, {
-      x: "x", y: "y",
-      stroke: "var(--bs-body-color)",
-      strokeWidth: 2,
-      strokeDasharray: "6,4"
-    }),
-    Plot.line(stairPoints, {
-      x: "x", y: "y",
-      stroke: "#e63946",
-      strokeWidth: 2.5
-    }),
-    Plot.frame({stroke: "var(--bs-border-color, gray)"})
-  ]
-})
-```
+![Graph of $f(x)$](images/limitgraph_u1.png){#fig-limit-example width=70%}
 
-<!-- 
-```{ojs}
-//| echo: false
-#md`**Staircase length:** ${stairLength.toFixed(4)} &nbsp;&nbsp;|&nbsp;&nbsp; **Diagonal length:** ${diagLength.toFixed(4)} ($\sqrt{2}$)`
-```
--->
+Evaluate each of the following limits or indicate they do not exist by writing DNE, $\infty$, or $-\infty$ as appropriate.
 
-The process results in a staircase with infinitely many steps that has a total length of 2m. Therefore the length of the diagonal shown in the diagram must also be 2m. Do you agree?
+::::{layout-ncol=2}
 
-## Definition of a limit
+:::{#part-a}
+**(a)** $\displaystyle\lim_{x\to 0}f(x)$
+:::
 
-### Problem 2: Exist or Does Not Exist?
-Consider the function $f(w) = \dfrac{\sqrt{w}-1}{w-1}$.
+:::{#part-b}
+**(b)** $\displaystyle\lim_{x\to -\infty}f(x)$
+:::
 
-a. What is the domain of $f$?
-b. Fill out the data table below:
+:::{#part-c}
+**(c)** $\displaystyle\lim_{x\to -3^+}f(x)$
+:::
 
-| $w$    | 0.9 | 0.99 | 0.999 | 1.001 | 1.01 | 1.1 |
-|--------|-----|------|-------|-------|------|-----|
-| $f(w)$ |     |      |       |       |      |     |
+:::{#part-d}
+**(d)** $\displaystyle\lim_{x\to -3^-}f(x)$
+:::
 
-c. What value does $f(w)$ appear to be approaching as $w$ approaches 1?
-d. Write your observation from part (c) using limit notation: $\lim_{w\to a} f(w) = L$
+:::{#part-e}
+**(e)** $\displaystyle\lim_{x\to 2}f(x)$
+:::
 
+:::{#part-f}
+**(f)** $\displaystyle\lim_{x\to \infty}f(x)$
+:::
 
-### Problem 3: Holes vs. Asymptotes
+::::
+
+### Problem 2: Holes vs. Asymptotes
 Let $f(x) = \dfrac{x^2+2x-3}{x+1}$ and $g(x) = \dfrac{x^2-2x-3}{x+1}$.
 
 a. Fill out the following table of values:
@@ -145,14 +88,48 @@ a. Fill out the following table of values:
 
 b. Use the table to guess the value of the following limits. If the limit does not exist, write DNE, $\infty$, or $-\infty$ as appropriate.
 
-   i. $\lim_{x\to -1^-} f(x)$
-   ii. $\lim_{x\to -1^+} f(x)$
-   iii. $\lim_{x\to -1^-} g(x)$
-   iv. $\lim_{x\to -1^+} g(x)$
+::::{layout-ncol=3}
+  
+:::{#part-i}  
+**i.** $\lim_{x\to -1^-} f(x)$
+:::
+  
+:::{#part-ii}  
+**ii.** $\lim_{x\to -1^+} f(x)$
+:::
+  
+:::{#part-iii}  
+**iii.** $\lim_{x\to -1} f(x)$
+:::
+  
+:::{#part-iv}  
+**iv.** $\lim_{x\to -1^-} g(x)$
+:::
+  
+:::{#part-v}  
+**v.** $\lim_{x\to -1^-} g(x)$
+:::
+  
+:::{#part-vi}  
+**vi.** $\lim_{x\to -1} g(x)$
+:::
+
+::::
 
 ## Definition of Continuity
+One property we frequently look for in functions is their *continuity*. This is a particular nice property to have if $y=f(x)$ is the model for some real world relationship. If $f$ is continuous at $x=a$ and $f(a)=b$, then we know that sufficiently small errors in our input value (e.g. maybe $a$ gets rounded to the nearest 0.01) will produce an output value that is within some desired margin of error around $b$.
 
-### Problem 4: Making a Piecewise Function Continuous
+In terms of limits, as noted above, knowing a function is continuous at $x=a$ makes evaluating the limit really easy---all we have to do in this case is plug in $x=a$.
+
+Here is our formal definition:
+
+:::{#def-continuity}
+### Continuity 
+We say that $f(x)$ is continuous at $x=a$ if $$\lim_{x\to a}f(x)=f(a)$$
+:::
+
+
+### Problem 3: Making a Piecewise Function Continuous
 Let
 
 $$
@@ -162,7 +139,7 @@ $$
 a. [Here is a link to a graph of $h(x)$ in Desmos.](https://www.desmos.com/calculator/k9s00vtasu) Use the sliders to help you guess the values of $a$ and $b$ that make $h(x)$ continuous at $x=1$.
 b. Verify your answer to part (a) algebraically.
 
-### Problem 5: Drug Decay
+### Problem 4: Drug Decay
 A 0.6 mL dose of a drug is administered to a patient steadily for half a second. At the end of this time, the quantity $Q$ of the drug in the body starts to decay exponentially. The continuous decay rate of the drug is 0.2% per second.
 
 a. Let $Q(t)$ be the amount of drug in the body $t$ seconds after the drug began to be administered. Do you expect $Q(t)$ to be continuous for $t>0$?
