@@ -38,8 +38,8 @@ website:
                href: notes/unit1_index.qmd
              - text: "Definitions & Intuition"
                href: notes/unit1_1.qmd
-            # - text: "Limit Properties"
-            #   href: notes/unit1_2.qmd
+             - text: "Limit Properties"
+               href: notes/unit1_2.qmd
             # - text: "Evaluating Limits Using Algebra"
             #   href: notes/unit1_3.qmd
         - section: "Unit 2: The Derivative"
@@ -86,7 +86,6 @@ website:
             - text: "Antiderivatives"
               href: exam_practice/unit6_practice.qmd
   drafts:
-    - notes/unit1_2.qmd
     - notes/unit1_3.qmd
     - exam_practice/unit0_practice.qmd
     - exam_practice/unit1_practice.qmd
@@ -105,12 +104,12 @@ format:
     css: styles.css
     toc: true
     toc-depth: 3
-#    include-in-header:
-#    - text: |
-#        <script type="importmap">
-#        {
-#          "imports": {
-#            "mathjs": "https://cdn.jsdelivr.net/npm/mathjs@13/+esm"
-#          }
-#        }
-#        </script>
+    filters:
+      - callouty-theorem
+
+callouty-theorem:
+  thm:
+    override-title: false
+    callout:
+      type: note
+      appearance: minimal

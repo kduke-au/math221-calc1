@@ -1,1 +1,9 @@
 /* css styles */
+.columns-2 {
+  column-count: 2;
+  column-gap: 2em;
+}
+
+.columns-2 li {
+  break-inside: avoid;   /* keeps a single list item from splitting across columns */
+}
