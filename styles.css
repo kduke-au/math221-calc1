@@ -7,3 +7,9 @@
 .columns-2 li {
   break-inside: avoid;   /* keeps a single list item from splitting across columns */
 }
+
+@media (max-width: 768px) {
+    .quarto-layout-panel {
+      grid-template-columns: 1fr !important;
+    }
+  }

@@ -9,7 +9,13 @@ First, let's consider what happens when we take the limit of a combination of fu
 
 Take an $x$-value close to $a$, say $x=a+t$ where $t$ is a small positive or negative number. Since $\lim_{x\to a}f(x)=L$ and $\lim_{x\to a}g(x)=M$, we know that $f(a+t)=L+\epsilon$ and $g(a+t)=M+\delta$, where $\epsilon$ and $\delta$ are themselves small — the closer $x$ is to $a$ (the smaller $t$ is), the smaller $\epsilon$ and $\delta$ get.
 
-Adding these together, $$S(a+t)=f(a+t)+g(a+t)=(L+\epsilon)+(M+\delta)=L+M+(\epsilon+\delta).$$ Since $\epsilon$ and $\delta$ are both small, their sum $\epsilon+\delta$ is small too.
+Adding these together, 
+$$\begin{align}
+S(a+t)& =f(a+t)+g(a+t)\\ 
+& =(L+\epsilon)+(M+\delta) \\ 
+& =L+M+(\epsilon+\delta).
+\end{align}$$ 
+Since $\epsilon$ and $\delta$ are both small, their sum $\epsilon+\delta$ is small too.
 
 Now let $x$ get closer and closer to $a$: $t$ shrinks toward $0$, which forces $\epsilon$ and $\delta$ — and therefore $\epsilon+\delta$ — to shrink toward $0$ as well. That's exactly what it means for $S(x)=f(x)+g(x)$ to approach $L+M$ as $x\to a$.
 
@@ -38,6 +44,7 @@ The functions $f(x)$ and $g(x)$ are shown in the graphs below. Assume that the v
 ![](images/WS6_Limits2.svg)
 :::
 
+
 a. Find all $x$-values in the domain of each function where the function is not continuous.
 
 b. Evaluate the following limits. If the limit does not exist but the function grows arbitrarily large in magnitude, write $\infty$ or $-\infty$. Otherwise, write the value of the limit or DNE.
@@ -49,7 +56,7 @@ iii. $\displaystyle\lim_{x\to 0}g(x)$
 iv. $\displaystyle\lim_{x\to 2^{-}}g(x)$
 v. $\displaystyle\lim_{x\to 0^+}g(3x+2)$
 vi. $\displaystyle\lim_{x\to -2}\big(f(x)+g(x)\big)$
-vii. $\displaystyle\lim_{x\to 5}\frac{1}{g(x)}
+vii. $\displaystyle\lim_{x\to 5}\frac{1}{g(x)}$
 viii. $\displaystyle\lim_{x\to -\infty}f(x)g(x)$
 ix. $\displaystyle\lim_{x\to -\infty} f(g(x))$
 :::
