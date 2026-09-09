@@ -454,7 +454,11 @@ window.Quarto = {
 <p>Now that we have some intuition about what a limit of a function is and what it means for a function to be continuous, we can dig a little deeper into how these ideas work and how they can be applied.</p>
 <p>First, let’s consider what happens when we take the limit of a combination of functions. If we know that <span class="math inline">\(\lim_{x\to a}f(x)=L\)</span> and <span class="math inline">\(\lim_{x\to a}g(x)=M\)</span>, can we figure out what happens when we compute the limit of some combination of <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span>? For example, your intuition probably tells you that <span class="math inline">\(S(x)=f(x)+g(x)\)</span> will approach <span class="math inline">\(L+M\)</span> as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(a\)</span>, but can we explain <em>why</em> this is correct?</p>
 <p>Take an <span class="math inline">\(x\)</span>-value close to <span class="math inline">\(a\)</span>, say <span class="math inline">\(x=a+t\)</span> where <span class="math inline">\(t\)</span> is a small positive or negative number. Since <span class="math inline">\(\lim_{x\to a}f(x)=L\)</span> and <span class="math inline">\(\lim_{x\to a}g(x)=M\)</span>, we know that <span class="math inline">\(f(a+t)=L+\epsilon\)</span> and <span class="math inline">\(g(a+t)=M+\delta\)</span>, where <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span> are themselves small — the closer <span class="math inline">\(x\)</span> is to <span class="math inline">\(a\)</span> (the smaller <span class="math inline">\(t\)</span> is), the smaller <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span> get.</p>
-<p>Adding these together, <span class="math display">\[S(a+t)=f(a+t)+g(a+t)=(L+\epsilon)+(M+\delta)=L+M+(\epsilon+\delta).\]</span> Since <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span> are both small, their sum <span class="math inline">\(\epsilon+\delta\)</span> is small too.</p>
+<p>Adding these together, <span class="math display">\[\begin{align}
+S(a+t)&amp; =f(a+t)+g(a+t)\\
+&amp; =(L+\epsilon)+(M+\delta) \\
+&amp; =L+M+(\epsilon+\delta).
+\end{align}\]</span> Since <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span> are both small, their sum <span class="math inline">\(\epsilon+\delta\)</span> is small too.</p>
 <p>Now let <span class="math inline">\(x\)</span> get closer and closer to <span class="math inline">\(a\)</span>: <span class="math inline">\(t\)</span> shrinks toward <span class="math inline">\(0\)</span>, which forces <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span> — and therefore <span class="math inline">\(\epsilon+\delta\)</span> — to shrink toward <span class="math inline">\(0\)</span> as well. That’s exactly what it means for <span class="math inline">\(S(x)=f(x)+g(x)\)</span> to approach <span class="math inline">\(L+M\)</span> as <span class="math inline">\(x\to a\)</span>.</p>
 <p>Similar reasoning can help you figure out and explain the properties listed in the following theorem. These properties are listed in terms of two-sided limits, but they also apply to one-sided limits, and limits as <span class="math inline">\(x\to \pm\infty\)</span>:</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -499,7 +503,7 @@ window.Quarto = {
 <li><span class="math inline">\(\displaystyle\lim_{x\to 2^{-}}g(x)\)</span></li>
 <li><span class="math inline">\(\displaystyle\lim_{x\to 0^+}g(3x+2)\)</span></li>
 <li><span class="math inline">\(\displaystyle\lim_{x\to -2}\big(f(x)+g(x)\big)\)</span></li>
-<li>$_{x}</li>
+<li><span class="math inline">\(\displaystyle\lim_{x\to 5}\frac{1}{g(x)}\)</span></li>
 <li><span class="math inline">\(\displaystyle\lim_{x\to -\infty}f(x)g(x)\)</span></li>
 <li><span class="math inline">\(\displaystyle\lim_{x\to -\infty} f(g(x))\)</span></li>
 </ol>
