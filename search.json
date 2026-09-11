@@ -40,7 +40,7 @@
     "href": "notes/unit1_2.html",
     "title": "Limit Properties",
     "section": "",
-    "text": "Now that we have some intuition about what a limit of a function is and what it means for a function to be continuous, we can dig a little deeper into how these ideas work and how they can be applied.\nFirst, let’s consider what happens when we take the limit of a combination of functions. If we know that \\(\\lim_{x\\to a}f(x)=L\\) and \\(\\lim_{x\\to a}g(x)=M\\), can we figure out what happens when we compute the limit of some combination of \\(f(x)\\) and \\(g(x)\\)? For example, your intuition probably tells you that \\(S(x)=f(x)+g(x)\\) will approach \\(L+M\\) as \\(x\\) approaches \\(a\\), but can we explain why this is correct?\nTake an \\(x\\)-value close to \\(a\\), say \\(x=a+t\\) where \\(t\\) is a small positive or negative number. Since \\(\\lim_{x\\to a}f(x)=L\\) and \\(\\lim_{x\\to a}g(x)=M\\), we know that \\(f(a+t)=L+\\epsilon\\) and \\(g(a+t)=M+\\delta\\), where \\(\\epsilon\\) and \\(\\delta\\) are themselves small — the closer \\(x\\) is to \\(a\\) (the smaller \\(t\\) is), the smaller \\(\\epsilon\\) and \\(\\delta\\) get.\nAdding these together, \\[\\begin{align}\nS(a+t)& =f(a+t)+g(a+t)\\\\\n& =(L+\\epsilon)+(M+\\delta) \\\\\n& =L+M+(\\epsilon+\\delta).\n\\end{align}\\] Since \\(\\epsilon\\) and \\(\\delta\\) are both small, their sum \\(\\epsilon+\\delta\\) is small too.\nNow let \\(x\\) get closer and closer to \\(a\\): \\(t\\) shrinks toward \\(0\\), which forces \\(\\epsilon\\) and \\(\\delta\\) — and therefore \\(\\epsilon+\\delta\\) — to shrink toward \\(0\\) as well. That’s exactly what it means for \\(S(x)=f(x)+g(x)\\) to approach \\(L+M\\) as \\(x\\to a\\).\nSimilar reasoning can help you figure out and explain the properties listed in the following theorem. These properties are listed in terms of two-sided limits, but they also apply to one-sided limits, and limits as \\(x\\to \\pm\\infty\\):\n\n\n\n\n\n\n\nTheorem 1 (Limit Properties) If \\[\\lim_{x\\to a}f(x)=L \\text{ and } \\lim_{x\\to a}g(x)=M,\\] then:\n\n\\(\\displaystyle\\lim_{x\\to a}\\left[f(x)\\pm g(x)\\right]=L\\pm M\\)\n\\(\\displaystyle\\lim_{x\\to a}\\left[f(x)\\cdot g(x)\\right]=L\\cdot M\\)\n\\(\\displaystyle\\lim_{x\\to a}\\left[\\frac{f(x)}{g(x)}\\right]=\\frac{L}{M},~~\\) as long as \\(M\\neq 0\\)\n\n\n\n\n\n\nProblem 1: Using Limit Properties\nThe functions \\(f(x)\\) and \\(g(x)\\) are shown in the graphs below. Assume that the viewing window is large enough to show the end behavior of each function.\n\n\n\n\n\n\n\n\n\n\n\nFind all \\(x\\)-values in the domain of each function where the function is not continuous.\nEvaluate the following limits. If the limit does not exist but the function grows arbitrarily large in magnitude, write \\(\\infty\\) or \\(-\\infty\\). Otherwise, write the value of the limit or DNE.\n\n\n\n\\(\\displaystyle\\lim_{x\\to-\\infty}f(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0}f(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0}g(x)\\)\n\\(\\displaystyle\\lim_{x\\to 2^{-}}g(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0^+}g(3x+2)\\)\n\\(\\displaystyle\\lim_{x\\to -2}\\big(f(x)+g(x)\\big)\\)\n\\(\\displaystyle\\lim_{x\\to 5}\\frac{1}{g(x)}\\)\n\\(\\displaystyle\\lim_{x\\to -\\infty}f(x)g(x)\\)\n\\(\\displaystyle\\lim_{x\\to -\\infty} f(g(x))\\)\n\n\n\n\nProblem 2: Complicated Limit?\nEvaluate the following limit: \\[\\lim_{x\\to 1}\\ln\\left(\\frac{2\\sqrt{x}-1}{e^x\\cdot\\sin(0.5\\pi x^2)}\\right)\\]\n\n\nProblem 2: True/False?\nDecide with your group if you think the following statements are true or false. If you think they are true, explain why. If you think they are false, provide an example showing why they are false.\n\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=L\\) where \\(L\\neq 0\\), and \\(\\lim_{x\\to a}g(x)=0\\), then \\[\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\text{DNE}\\]\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=0\\) and \\(\\lim_{x\\to a}g(x)=0\\), then \\[\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\text{DNE}\\]\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=\\infty\\) and \\(\\lim_{x\\to a}g(x)=\\infty\\), then \\[\\lim_{x\\to a}\\left[f(x)-g(x)\\right]=0\\] d.If \\(\\displaystyle\\lim_{x\\to a}f(x)=0\\) and \\(\\lim_{x\\to a}g(x)=\\infty\\), then \\[\\lim_{x\\to a}f(x)\\cdot g(x)=0\\]",
+    "text": "Now that we have some intuition about what a limit of a function is and what it means for a function to be continuous, we can dig a little deeper into how these ideas work and how they can be applied.\nFirst, let’s consider what happens when we take the limit of a combination of functions. If we know that \\(\\lim_{x\\to a}f(x)=L\\) and \\(\\lim_{x\\to a}g(x)=M\\), can we figure out what happens when we compute the limit of some combination of \\(f(x)\\) and \\(g(x)\\)? For example, your intuition probably tells you that \\(S(x)=f(x)+g(x)\\) will approach \\(L+M\\) as \\(x\\) approaches \\(a\\), but can we explain why this is correct?\nTake an \\(x\\)-value close to \\(a\\), say \\(x=a+t\\) where \\(t\\) is a small positive or negative number. Since \\(\\lim_{x\\to a}f(x)=L\\) and \\(\\lim_{x\\to a}g(x)=M\\), we know that \\(f(a+t)=L+\\epsilon\\) and \\(g(a+t)=M+\\delta\\), where \\(\\epsilon\\) and \\(\\delta\\) are themselves small — the closer \\(x\\) is to \\(a\\) (the smaller \\(t\\) is), the smaller \\(\\epsilon\\) and \\(\\delta\\) get.\nAdding these together, \\[\\begin{align}\nS(a+t)& =f(a+t)+g(a+t)\\\\\n& =(L+\\epsilon)+(M+\\delta) \\\\\n& =L+M+(\\epsilon+\\delta).\n\\end{align}\\] Since \\(\\epsilon\\) and \\(\\delta\\) are both small, their sum \\(\\epsilon+\\delta\\) is small too.\nNow let \\(x\\) get closer and closer to \\(a\\): \\(t\\) shrinks toward \\(0\\), which forces \\(\\epsilon\\) and \\(\\delta\\) — and therefore \\(\\epsilon+\\delta\\) — to shrink toward \\(0\\) as well. That’s exactly what it means for \\(S(x)=f(x)+g(x)\\) to approach \\(L+M\\) as \\(x\\to a\\).\nSimilar reasoning can help you figure out and explain the properties listed in the following theorem. These properties are listed in terms of two-sided limits, but they also apply to one-sided limits, and limits as \\(x\\to \\pm\\infty\\):\n\n\n\n\n\n\n\nTheorem 1 (Limit Properties) If \\[\\lim_{x\\to a}f(x)=L \\text{ and } \\lim_{x\\to a}g(x)=M,\\] then:\n\n\\(\\displaystyle\\lim_{x\\to a}\\left[f(x)\\pm g(x)\\right]=L\\pm M\\)\n\\(\\displaystyle\\lim_{x\\to a}\\left[f(x)\\cdot g(x)\\right]=L\\cdot M\\)\n\\(\\displaystyle\\lim_{x\\to a}\\left[\\frac{f(x)}{g(x)}\\right]=\\frac{L}{M},~~\\) as long as \\(M\\neq 0\\)\n\n\n\n\n\n\nProblem 1: Using Limit Properties\nThe functions \\(f(x)\\) and \\(g(x)\\) are shown in the graphs below. Assume that the viewing window is large enough to show the end behavior of each function.\n\n\n\n\n\n\n\n\n\n\n\nFind all \\(x\\)-values in the domain of each function where the function is not continuous.\nEvaluate the following limits. If the limit does not exist but the function grows arbitrarily large in magnitude, write \\(\\infty\\) or \\(-\\infty\\). Otherwise, write the value of the limit or DNE.\n\n\n\n\\(\\displaystyle\\lim_{x\\to-\\infty}f(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0}f(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0}g(x)\\)\n\\(\\displaystyle\\lim_{x\\to 2^{-}}g(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0^+}g(3x+2)\\)\n\\(\\displaystyle\\lim_{x\\to -2}\\big(f(x)+g(x)\\big)\\)\n\\(\\displaystyle\\lim_{x\\to 5}\\frac{1}{g(x)}\\)\n\\(\\displaystyle\\lim_{x\\to -\\infty}f(x)g(x)\\)\n\\(\\displaystyle\\lim_{x\\to -\\infty} f(g(x))\\)\n\n\n\n\nProblem 2: Complicated Limit?\nEvaluate the following limit: \\[\\lim_{x\\to 1}\\ln\\left(\\frac{2\\sqrt{x}-1}{e^x\\cdot\\sin(0.5\\pi x^2)}\\right)\\]\n\n\nProblem 3: True/False?\nDecide with your group if you think the following statements are true or false. If you think they are true, explain why. If you think they are false, provide an example showing why they are false.\n\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=L\\) where \\(L\\neq 0\\), and \\(\\lim_{x\\to a}g(x)=0\\), then \\[\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\text{DNE}\\]\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=0\\) and \\(\\lim_{x\\to a}g(x)=0\\), then \\[\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\text{DNE}\\]\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=\\infty\\) and \\(\\lim_{x\\to a}g(x)=\\infty\\), then \\[\\lim_{x\\to a}\\left[f(x)-g(x)\\right]=0\\] d.If \\(\\displaystyle\\lim_{x\\to a}f(x)=0\\) and \\(\\lim_{x\\to a}g(x)=\\infty\\), then \\[\\lim_{x\\to a}f(x)\\cdot g(x)=0\\]",
     "crumbs": [
       "Course Notes",
       "Unit 1: Limits & Continuity",
@@ -249,6 +249,78 @@
       "Course Notes",
       "Unit 1: Limits & Continuity",
       "Definitions & Intuition"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html",
+    "href": "notes/unit1_3.html",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "",
+    "text": "Graphs and data tables are helpful for developing our intuition about limits. They can be used as the basis for making a reasonable guess as to whether \\(\\displaystyle\\lim_{x\\to a}f(x)\\) exists and estimating its value if it does. However, these approaches fall short of providing conclusive proof.\nWhen using a computational tool to create a data table or graph, we are limited by its level of precision (it can only compute a certain number of decimal places) and its finite-ness. Making a conclusion about some indefinite process based on a finite number of measurements can be treacherous, even when done carefully!\nToday, we will go over some analytical and algebraic approaches that are more robust and can be used in certain cases to show why a limit does or does not exist and determine its value.\nBefore we proceed: Remember that if we know the function is continuous at \\(x=a\\), all we have to do is plug in to evaluate \\(\\displaystyle\\lim_{x\\to a}f(x)\\)! This works, for example, if \\(f(x)\\) can be written as the combination of elementary functions and \\(x=a\\) is in its domain1\nThe algebraic techniques discussed here are for analyzing what happens when \\(a\\) is not in the domain of \\(f(x)\\), particularly when we arrive at indeterminate forms when trying to use limit properties.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#problem-1-factoring",
+    "href": "notes/unit1_3.html#problem-1-factoring",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Problem 1: Factoring",
+    "text": "Problem 1: Factoring\nFind the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\\(\\displaystyle\\lim_{r\\to 3} \\frac{r^2-9}{r^2+r-12}\\)\n\\(\\displaystyle\\lim_{x\\to 1} \\frac{x+1}{x^2+3x-4}\\)\n\\(\\displaystyle\\lim_{h\\to 0} \\frac{(3+h)^2-9}{h}\\)\n\\(\\displaystyle\\lim_{a\\to 0} \\frac{\\frac{1}{4+a}-\\frac{1}{4}}{a}\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#problem-2-change-of-variables",
+    "href": "notes/unit1_3.html#problem-2-change-of-variables",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Problem 2: Change of Variables",
+    "text": "Problem 2: Change of Variables\nUse the hints to evaluate the following limits.\n\n\\(\\displaystyle\\lim_{x\\to 0}\\frac{e^{4x}-e^{3x}}{e^x-1}\\) (Hint: Let \\(t=e^x\\) and rewrite the entire limit in terms of \\(t\\).)\n\\(\\displaystyle\\lim_{w\\to 4}\\frac{w-4}{\\sqrt{w}-2}\\) (Hint: Let \\(t=\\sqrt{w}\\) and rewrite the entire limit in terms of \\(t\\).)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#problem-3-comparing-end-behavior",
+    "href": "notes/unit1_3.html#problem-3-comparing-end-behavior",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Problem 3: Comparing End Behavior",
+    "text": "Problem 3: Comparing End Behavior\nEvaluate the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\\(\\displaystyle\\lim_{x\\to\\infty}\\frac{7x^2+x+11}{2x-3x^2}\\)\n\\(\\displaystyle\\lim_{t\\to -\\infty}\\frac{t^3-3t}{t^2-1}\\)\n\\(\\displaystyle\\lim_{x\\to\\infty}\\frac{72}{1+2(0.9)^x}\\)\n\\(\\displaystyle\\lim_{z\\to\\infty}z^2e^{-z}\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#problem-4-squeeze-theorem",
+    "href": "notes/unit1_3.html#problem-4-squeeze-theorem",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Problem 4: Squeeze Theorem",
+    "text": "Problem 4: Squeeze Theorem\n\nLet \\(f(x)=\\sin(\\pi/x)\\) and consider \\(\\displaystyle\\lim_{x\\to 0^+}f(x)\\).\nFirst, compute the value of \\(\\sin(\\pi/x)\\) at \\(x = 0.1,\\ 0.01,\\ 0.001,\\) and \\(0.0001\\).\n\n\n\n\\(x\\)\n\\(0.1\\)\n\\(0.01\\)\n\\(0.001\\)\n\\(0.0001\\)\n\n\n\n\n\\(f(x)\\)\n\n\n\n\n\n\n\nBased on this, can we conclude \\[\\lim_{x\\to 0^+} \\sin(\\pi/x) = 0?\\]\nNow let \\(f(x)=x\\sin(\\pi/x)\\) and consider \\(\\displaystyle\\lim_{x\\to 0^+}f(x)\\).\nIs the following argument using our limit properties correct/reasonable:\n\\[\n\\begin{align}\n\\lim_{x\\to 0^+}x\\sin(\\pi/x) & = \\lim_{x\\to 0^+}x \\cdot \\lim_{x\\to 0+}\\sin(\\pi/x) \\\\\n& = 0 \\cdot \\lim_{x\\to 0^+}\\sin(\\pi/x) \\\\\n\\end{align}\n\\]\nSince anything multiplied by 0 is 0, the limit must be equal to 0.\nIf either argument above is flawed, try to correct and improve it!",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#footnotes",
+    "href": "notes/unit1_3.html#footnotes",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThough, we do have to be careful if \\(x=a\\) is on the boundary of the domain; then it only applies to the appropriate one-sided limit.↩︎",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
     ]
   }
 ]
