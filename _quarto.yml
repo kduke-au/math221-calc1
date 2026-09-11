@@ -40,8 +40,8 @@ website:
                href: notes/unit1_1.qmd
              - text: "Limit Properties"
                href: notes/unit1_2.qmd
-            # - text: "Evaluating Limits Using Algebra"
-            #   href: notes/unit1_3.qmd
+             - text: "Evaluating Limits Using Algebra"
+               href: notes/unit1_3.qmd
         - section: "Unit 2: The Derivative"
           contents:
           #  - text: "Overview"
@@ -86,7 +86,6 @@ website:
             - text: "Antiderivatives"
               href: exam_practice/unit6_practice.qmd
   drafts:
-    - notes/unit1_3.qmd
     - exam_practice/unit0_practice.qmd
     - exam_practice/unit1_practice.qmd
     - exam_practice/unit2_practice.qmd

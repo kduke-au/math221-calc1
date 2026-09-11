@@ -66,7 +66,7 @@ Evaluate the following limit:
 $$\lim_{x\to 1}\ln\left(\frac{2\sqrt{x}-1}{e^x\cdot\sin(0.5\pi x^2)}\right)$$
 
 
-### Problem 2: True/False?
+### Problem 3: True/False?
 Decide with your group if you think the following statements are true or false. If you think they are true, explain why. If you think they are false, provide an example showing why they are false.
 
 a. If $\displaystyle\lim_{x\to a}f(x)=L$ where $L\neq 0$, and $\lim_{x\to a}g(x)=0$, then $$\lim_{x\to a}\frac{f(x)}{g(x)}=\text{DNE}$$

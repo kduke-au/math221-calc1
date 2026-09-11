@@ -3,4 +3,71 @@ title: 'Evaluating Limits Using Algebra'
 sidebar: notes
 ---
 
-Content coming soon.
+Graphs and data tables are helpful for developing our intuition about limits. They can be used as the basis for making a reasonable guess as to whether $\displaystyle\lim_{x\to a}f(x)$ exists and estimating its value if it does. However, these approaches fall short of providing conclusive proof.
+
+When using a computational tool to create a data table or graph, we are limited by its level of precision (it can only compute a certain number of decimal places) and its finite-ness. Making a conclusion about some indefinite process based on a finite number of measurements can be treacherous, even when done carefully!
+
+Today, we will go over some analytical and algebraic approaches that are more robust and can be used in certain cases to show why a limit does or does not exist and determine its value.
+
+**Before we proceed:** Remember that if we know the function is continuous at $x=a$, all we have to do is plug in to evaluate $\displaystyle\lim_{x\to a}f(x)$! This works, for example, if $f(x)$ can be written as the combination of elementary functions and $x=a$ is in its domain^[Though, we do have to be careful if $x=a$ is on the *boundary* of the domain; then it only applies to the appropriate one-sided limit.]
+
+The algebraic techniques discussed here are for analyzing what happens when $a$ is not in the domain of $f(x)$, particularly when we arrive at *indeterminate forms* when trying to use limit properties. 
+
+##  Problem 1: Factoring
+Find the following limits. If the limit does not exist, write DNE, $\infty$, or $-\infty$ as appropriate.
+
+a. $\displaystyle\lim_{r\to 3} \frac{r^2-9}{r^2+r-12}$
+
+b. $\displaystyle\lim_{x\to 1} \frac{x+1}{x^2+3x-4}$
+
+c. $\displaystyle\lim_{h\to 0} \frac{(3+h)^2-9}{h}$
+
+d. $\displaystyle\lim_{a\to 0} \frac{\frac{1}{4+a}-\frac{1}{4}}{a}$
+
+## Problem 2: Change of Variables
+
+Use the hints to evaluate the following limits.
+
+a. $\displaystyle\lim_{x\to 0}\frac{e^{4x}-e^{3x}}{e^x-1}$ (Hint: Let $t=e^x$ and rewrite the entire limit in terms of $t$.)
+
+b. $\displaystyle\lim_{w\to 4}\frac{w-4}{\sqrt{w}-2}$ (Hint: Let $t=\sqrt{w}$ and rewrite the entire limit in terms of $t$.)
+
+## Problem 3: Comparing End Behavior
+
+Evaluate the following limits. If the limit does not exist, write DNE, $\infty$, or $-\infty$ as appropriate.
+
+a. $\displaystyle\lim_{x\to\infty}\frac{7x^2+x+11}{2x-3x^2}$
+
+b. $\displaystyle\lim_{t\to -\infty}\frac{t^3-3t}{t^2-1}$
+
+c. $\displaystyle\lim_{x\to\infty}\frac{72}{1+2(0.9)^x}$
+
+d. $\displaystyle\lim_{z\to\infty}z^2e^{-z}$
+
+## Problem 4: Squeeze Theorem
+
+a. Let $f(x)=\sin(\pi/x)$ and consider $\displaystyle\lim_{x\to 0^+}f(x)$.
+
+    First, compute the value of $\sin(\pi/x)$ at $x = 0.1,\ 0.01,\ 0.001,$ and  $0.0001$.
+
+    | $x$ | $0.1$ | $0.01$ | $0.001$ | $0.0001$ |
+    |---|---|---|---|---|
+    | $f(x)$ |  |  |  | 
+
+    Based on this, can we conclude $$\lim_{x\to 0^+} \sin(\pi/x) = 0?$$
+
+b. Now let $f(x)=x\sin(\pi/x)$ and consider $\displaystyle\lim_{x\to 0^+}f(x)$.
+
+    Is the following argument using our limit properties correct/reasonable:
+
+
+    $$
+    \begin{align}
+    \lim_{x\to 0^+}x\sin(\pi/x) & = \lim_{x\to 0^+}x \cdot \lim_{x\to 0+}\sin(\pi/x) \\
+    & = 0 \cdot \lim_{x\to 0^+}\sin(\pi/x) \\
+    \end{align}
+    $$
+
+    Since anything multiplied by 0 is 0, the limit must be equal to 0.
+
+c. If either argument above is flawed, try to correct and improve it!
