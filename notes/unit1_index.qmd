@@ -1,5 +1,5 @@
 ---
-title: 'Unit 1 Overview'
+title: 'Limits & Continuity - Introduction'
 sidebar: notes
 ---
 
