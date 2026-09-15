@@ -38,15 +38,13 @@ The graph of this function is shown below.
 
 a. Rank the following from least to greatest:
 
-    ::: {.columns-2}
     - A. The average velocity on $0\leq t\leq 1$
     - B. The average velocity on $2\leq t\leq 3$
     - C. The instantaneous velocity at $t=0$
     - D. The instantaneous velocity at $t=1$
     - E. The instantaneous velocity at $t=2$
     - F. The instantaneous velocity at $t=3$
-    :::
-
+    
 b. Is there ever a moment when the velocity is $0$? If so, when?
 
 ### Problem 2: Estimating an Instantaneous Velocity
@@ -59,15 +57,13 @@ shown again below,
 
 a. Compute the average velocity of the object over each of the following intervals:
 
-    ::: {.columns-2}
     - $1\leq t\leq 1.1$
     - $1\leq t\leq 1.01$
     - $1\leq t\leq 1.001$
     - $0.9\leq t\leq 1$
     - $0.99\leq t\leq 1$
     - $0.999\leq t\leq 1$
-    :::
-
+    
 b. Based on your answers to part (a), what do you think the instantaneous velocity of the object is at $t=1$?
 
 ### Problem 3: From Average to Instantaneous

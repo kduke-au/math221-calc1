@@ -34,11 +34,7 @@ d. Is it possible to calculate the instantaneous speed at time $t=3$ from this d
 ::: {.callout-note collapse="true"}
 ## Try it: watch the estimate converge
 
-Whatever strategy you used in part (b), you were computing an *average* speed over some interval of time — you don't yet have a way to compute speed at a single instant directly. But your answer in part (b) is probably a better estimate of the cheetah's speed at $t=3$ than your answer in part (a). Why? What is it about the data you used in part (b) that makes it a better estimate?
-
-Here's the catch: the table only tells you the cheetah's position at eight specific moments. You can compute an average speed *between* any two of those moments, but you can't shrink the interval any further than the data allows — there's nothing between $t=2.5$ and $t=3$ to compute with.
-
-To get past that, the plot below fills in the gaps with a smooth curve passing through all eight data points *(a "natural cubic spline," if you're curious — just one reasonable way to interpolate between measurements; it isn't necessarily the cheetah's actual path, just a stand-in that lets us move continuously).* With a continuous curve in hand, you can slide your second point as close to $t=3$ as you like.
+If we have a formula that could tell us how far the cheetah had traveled at any point in time near $t=3$, we could measure the cheetah's speed as precisely as we want: 
 
 ```{ojs}
 //| echo: false
