@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Instantaneous Velocity – Math 221 - Calculus I</title>
+<title>Definition of the Derivative – Math 221 - Calculus I</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -316,7 +316,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_1.html">Instantaneous Velocity</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_2.html">Definition of the Derivative</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -415,13 +415,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notes/unit2_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Instantaneous Velocity</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/unit2_2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Definition of the Derivative</span></a>
   </div>
 </li>
@@ -453,9 +453,14 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#problem-1-ranking-velocities" id="toc-problem-1-ranking-velocities" class="nav-link active" data-scroll-target="#problem-1-ranking-velocities">Problem 1: Ranking Velocities</a></li>
-  <li><a href="#problem-2-estimating-an-instantaneous-velocity" id="toc-problem-2-estimating-an-instantaneous-velocity" class="nav-link" data-scroll-target="#problem-2-estimating-an-instantaneous-velocity">Problem 2: Estimating an Instantaneous Velocity</a></li>
-  <li><a href="#problem-3-from-average-to-instantaneous" id="toc-problem-3-from-average-to-instantaneous" class="nav-link" data-scroll-target="#problem-3-from-average-to-instantaneous">Problem 3: From Average to Instantaneous</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#discussion-problems" id="toc-discussion-problems" class="nav-link" data-scroll-target="#discussion-problems">Discussion Problems</a>
+  <ul class="collapse">
+  <li><a href="#problem-1---derivatives-as-slope" id="toc-problem-1---derivatives-as-slope" class="nav-link" data-scroll-target="#problem-1---derivatives-as-slope">Problem 1 - Derivatives as Slope</a></li>
+  <li><a href="#problem-2---estimating-derivatives" id="toc-problem-2---estimating-derivatives" class="nav-link" data-scroll-target="#problem-2---estimating-derivatives">Problem 2 - Estimating Derivatives</a></li>
+  <li><a href="#problem-3---derivatives-as-rates-of-change" id="toc-problem-3---derivatives-as-rates-of-change" class="nav-link" data-scroll-target="#problem-3---derivatives-as-rates-of-change">Problem 3 - Derivatives as Rates of Change</a></li>
+  <li><a href="#problem-4---derivatives-using-limits" id="toc-problem-4---derivatives-using-limits" class="nav-link" data-scroll-target="#problem-4---derivatives-using-limits">Problem 4 - Derivatives Using Limits</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -463,10 +468,10 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_1.html">Instantaneous Velocity</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_2.html">Definition of the Derivative</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Instantaneous Velocity</h1>
-<p class="subtitle lead">Read Section 2.1</p>
+<h1 class="title">Definition of the Derivative</h1>
+<p class="subtitle lead">Read Section 2.2</p>
 </div>
 
 
@@ -483,70 +488,108 @@ window.Quarto = {
 </header>
 
 
-<!-- In the introduction to this unit, our goal was to measure how fast something was moving at a single instant in time.  immediately ran into a problem however - speed seems to require *two* points in time to measure — a change in position and a change in time. Let's make this precise, and then figure out how to push past it.
-
-If an object's position at time $t$ is given by a function $h(t)$, then the **average velocity** of the object over the interval from $t=a$ to $t=b$ is
-$$\text{average velocity on } [a,b] = \frac{h(b)-h(a)}{b-a}.$$
-This is just the familiar "change in position over change in time," and geometrically, it's the slope of the secant line connecting the points $(a,h(a))$ and $(b,h(b))$ on the graph of $h$.
-
-Average velocity is something we can always compute directly from the definition of $h(t)$ — no new ideas needed. The trouble is that it describes an *interval* of time, not an instant. So here's the key idea: what happens to the average velocity on $[a,b]$ as we let $b$ get closer and closer to $a$?
-
-As $b\to a$, the interval $[a,b]$ shrinks down toward the single instant $t=a$, and the secant line connecting $(a,h(a))$ and $(b,h(b))$ should start to look more and more like the line that just grazes the graph at the point $(a,h(a))$ — what we'll eventually call the *tangent line*. This suggests a definition:
-
-::: {#def-inst-velocity}
-## Instantaneous Velocity
-
-If an object's position at time $t$ is given by $h(t)$, then the object's **instantaneous velocity** at time $t=a$ is
-$$v(a)=\lim_{b\to a}\frac{h(b)-h(a)}{b-a},$$
-provided this limit exists.
-:::
-
-In other words, instantaneous velocity is what average velocity is "heading toward" as the length of the time interval shrinks to zero. Let's get some practice reasoning about this idea before we compute with it. -->
-<section id="problem-1-ranking-velocities" class="level3">
-<h3 class="anchored" data-anchor-id="problem-1-ranking-velocities">Problem 1: Ranking Velocities</h3>
-<p>A person throws an object up into the air from a bridge. Its height above the ground <span class="math inline">\(t\)</span> seconds after it is thrown is given by the function <span class="math display">\[h(t)=-16t^2+50t+36.\]</span> The graph of this function is shown below.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Today, we will generalize our idea of instantaneous velocity. Given any function <span class="math inline">\(f(x)\)</span>, we can try to measure its <em>instantaneous rate of change</em> at a given point <span class="math inline">\(x=a\)</span> by computing its <em>average rate of change</em> over smaller and smaller intervals around <span class="math inline">\(x=a\)</span>.</p>
+<p>As the width of these intervals shrinks down to <span class="math inline">\(0\)</span>, if the values of the average rate of change appear to be approaching some real number <span class="math inline">\(m\)</span>, we will take this value to be our instantaneous rate of change. We call this value <em>the derivative of <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=a\)</span></em> and will use the notation <span class="math inline">\(f'(a)\)</span> to represent it symbolically.</p>
+<p>As we saw with instantaneous velocity, we can write this definition of <span class="math inline">\(f'(a)\)</span> precisely in terms of limits.</p>
+<div id="def-deriv-t" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Derivative at a Point)</strong></span> The <em>derivative of <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=a\)</span></em>, or <span class="math inline">\(f'(a)\)</span>, is<br>
+<span class="math display">\[f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}\]</span></p>
+</div>
+<p>Instead of writing this limit in terms of a point <span class="math inline">\(x\)</span> that is getting closer and closer to <span class="math inline">\(a\)</span> (from both sides), we could write in terms of the width (and direction) of the interval on which we are computing the average rate of change of <span class="math inline">\(f(x)\)</span>. Letting <span class="math inline">\(h=x-a\)</span>, we get the following:</p>
+<div id="def-deriv-h" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Derivative at a Point - Interval Version)</strong></span> <span class="math display">\[ f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}\]</span></p>
+</div>
+</section>
+<section id="discussion-problems" class="level1">
+<h1>Discussion Problems</h1>
+<section id="problem-1---derivatives-as-slope" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1---derivatives-as-slope">Problem 1 - Derivatives as Slope</h2>
+<p>The function <span class="math inline">\(f(x)\)</span> is shown in the graph below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/unit2_1_instvel.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption><a href="https://www.desmos.com/calculator/mw9d2h6lyj">Click here to open this graph in Desmos</a></figcaption>
+<p><img src="images/unit2_2_im1.svg" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>Graph of <span class="math inline">\(f(x)\)</span></figcaption>
 </figure>
 </div>
 <ol type="a">
-<li><p>Rank the following from least to greatest:</p>
-<ul>
-<li>A. The average velocity on <span class="math inline">\(0\leq t\leq 1\)</span></li>
-<li>B. The average velocity on <span class="math inline">\(2\leq t\leq 3\)</span></li>
-<li>C. The instantaneous velocity at <span class="math inline">\(t=0\)</span></li>
-<li>D. The instantaneous velocity at <span class="math inline">\(t=1\)</span></li>
-<li>E. The instantaneous velocity at <span class="math inline">\(t=2\)</span></li>
-<li>F. The instantaneous velocity at <span class="math inline">\(t=3\)</span></li>
-</ul></li>
-<li><p>Is there ever a moment when the velocity is <span class="math inline">\(0\)</span>? If so, when?</p></li>
+<li><p>Without computing anything, try to put the following values in order from least to greatest: <span class="math inline">\(f'(0)\)</span>, <span class="math inline">\(f'(1)\)</span>, <span class="math inline">\(f'(2)\)</span>, <span class="math inline">\(f'(3)\)</span>, <span class="math inline">\(f'(4)\)</span>, <span class="math inline">\(f'(5)\)</span>.</p></li>
+<li><p>Verify your work by estimating the values:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(a\)</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(f'(a)\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></li>
+<li><p><a href="https://www.desmos.com/calculator/sclpufc2gq">Here is a link to this graph in Desmos.</a> Pick one of the points and zoom in on it. What do you notice happens to the graph as you zoom in?</p>
+<p>Use this observation to help you guess the precise value of <span class="math inline">\(f'(a)\)</span> at this point.</p></li>
+<li><p>Use the value you found for <span class="math inline">\(f'(a)\)</span> to write the equation of the line tangent to <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=a\)</span>. Add it to the graph of <span class="math inline">\(f(x)\)</span> to check your work.</p></li>
 </ol>
 </section>
-<section id="problem-2-estimating-an-instantaneous-velocity" class="level3">
-<h3 class="anchored" data-anchor-id="problem-2-estimating-an-instantaneous-velocity">Problem 2: Estimating an Instantaneous Velocity</h3>
-<p>Using the same height function from Problem 2, <span class="math display">\[h(t)=-16t^2+50t+36,\]</span> shown again below,</p>
-<p><img src="images/unit2_1_instvel.png" class="img-fluid" style="width:60.0%"></p>
+<section id="problem-2---estimating-derivatives" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2---estimating-derivatives">Problem 2 - Estimating Derivatives</h2>
+<p>Let <span class="math inline">\(f(x)=x^x\)</span>. Using the definition of the derivative and an appropriate table of values, estimate <span class="math inline">\(f'(2)\)</span>.</p>
+<p>Do enough computations so that you are reasonably confident your estimate is accurate to 3 decimal places.</p>
+</section>
+<section id="problem-3---derivatives-as-rates-of-change" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3---derivatives-as-rates-of-change">Problem 3 - Derivatives as Rates of Change</h2>
+<p>The data below shows the population for a country over the past ten years in millions:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>10 Years Ago</th>
+<th>5 Years Ago</th>
+<th>Current</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pop. (in millions)</td>
+<td>472.4</td>
+<td>496.0</td>
+<td>520.8</td>
+</tr>
+</tbody>
+</table>
 <ol type="a">
-<li><p>Compute the average velocity of the object over each of the following intervals:</p>
-<ul>
-<li><span class="math inline">\(1\leq t\leq 1.1\)</span></li>
-<li><span class="math inline">\(1\leq t\leq 1.01\)</span></li>
-<li><span class="math inline">\(1\leq t\leq 1.001\)</span></li>
-<li><span class="math inline">\(0.9\leq t\leq 1\)</span></li>
-<li><span class="math inline">\(0.99\leq t\leq 1\)</span></li>
-<li><span class="math inline">\(0.999\leq t\leq 1\)</span></li>
-</ul></li>
-<li><p>Based on your answers to part (a), what do you think the instantaneous velocity of the object is at <span class="math inline">\(t=1\)</span>?</p></li>
+<li>Assuming that the population is growing exponentially, find a model <span class="math inline">\(P(t)\)</span> for the population (in millions) <span class="math inline">\(t\)</span> years from now. Write your model in two different ways, <span class="math display">\[P(t)=ab^t \text{ and } P(t)=ae^{rt}.\]</span></li>
+<li>Calculate <span class="math inline">\(\dfrac{P(1)-P(0)}{1-0}\)</span>. Explain what this value represents in the context of the problem.</li>
+<li>Estimate the value of <span class="math inline">\(P'(0)\)</span>. Provide reasonable evidence that your estimate is accurate to at least 3 decimal places. Explain what this value means in this context and how it is different from your answer to part b.</li>
+<li>Divide your answers from part b and part c by <span class="math inline">\(P(0)\)</span>. What do these values represent in this context?</li>
 </ol>
 </section>
-<section id="problem-3-from-average-to-instantaneous" class="level3">
-<h3 class="anchored" data-anchor-id="problem-3-from-average-to-instantaneous">Problem 3: From Average to Instantaneous</h3>
-<p>Continuing with Problem 3, compute the value of the following limit: <span class="math display">\[\lim_{t\to 1}\frac{h(t)-h(1)}{t-1}\]</span></p>
-<p>Explain the significance of the value you found — how does it relate to your answers in Problem 3?</p>
+<section id="problem-4---derivatives-using-limits" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4---derivatives-using-limits">Problem 4 - Derivatives Using Limits</h2>
+<p>Use the limit definition of the derivative to compute each of the following:</p>
+<ol type="a">
+<li><span class="math inline">\(f(x)=1-2x\)</span>, <span class="math inline">\(f'(10)\)</span></li>
+<li><span class="math inline">\(f(x)=x^2+x\)</span>, <span class="math inline">\(f'(-2)\)</span></li>
+<li><span class="math inline">\(f(x)=\frac{1}{x+1}\)</span>, <span class="math inline">\(f'(1)\)</span></li>
+<li><span class="math inline">\(f(x)=\sqrt{x}\)</span>, <span class="math inline">\(f'(9)\)</span></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
