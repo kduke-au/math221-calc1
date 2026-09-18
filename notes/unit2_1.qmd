@@ -1,9 +1,10 @@
 ---
 title: "Instantaneous Velocity"
+subtitle: "Read Section 2.1"
 sidebar: notes
 ---
 
-<!-- In the introduction to this unit, we ran into a puzzle: we want to talk about how fast something is moving at a single instant in time, but speed seems to require *two* points in time to measure — a change in position and a change in time. Let's make this precise, and then figure out how to push past it.
+<!-- In the introduction to this unit, our goal was to measure how fast something was moving at a single instant in time.  immediately ran into a problem however - speed seems to require *two* points in time to measure — a change in position and a change in time. Let's make this precise, and then figure out how to push past it.
 
 If an object's position at time $t$ is given by a function $h(t)$, then the **average velocity** of the object over the interval from $t=a$ to $t=b$ is
 $$\text{average velocity on } [a,b] = \frac{h(b)-h(a)}{b-a}.$$
@@ -29,12 +30,7 @@ A person throws an object up into the air from a bridge. Its height above the gr
 $$h(t)=-16t^2+50t+36.$$
 The graph of this function is shown below.
 
-::: {layout="[60,40]"}
-
-[Interactive graph on Desmos](https://www.desmos.com/calculator/mw9d2h6lyj)
-
-![](images/unit2_1_instvel.png)
-:::
+![[Click here to open this graph in Desmos](https://www.desmos.com/calculator/mw9d2h6lyj)](images/unit2_1_instvel.png){width=50%}
 
 a. Rank the following from least to greatest:
 
