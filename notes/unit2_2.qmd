@@ -18,7 +18,7 @@ The *derivative of $f(x)$ at $x=a$*, or $f'(a)$, is
 $$f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}$$ 
 :::
 
-Instead of writing this limit in terms of a point $x$ that is getting closer and closer to $a$ (from both sides), we could write in terms of the width (and direction) of the interval on which we are computing the average rate of change of $f(x)$. Letting $h=x-a$, we get the following:
+Instead of writing this limit in terms of a point $x$ that is getting closer and closer to $a$ (from both sides), we could also write it in terms of the width (and direction) of the interval on which we are computing the average rate of change. This is equivalent to a change of variables in the previous formula. Letting $h=x-a$, we get:
 
 :::{#def-deriv-h}
 ## Derivative at a Point - Interval Version

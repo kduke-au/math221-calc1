@@ -1,0 +1,58 @@
+---
+title: "The Second Derivative"
+subtitle: "Read Section 2.5"
+sidebar: notes
+---
+
+# Introduction
+
+We already have a good understanding of functions with *constant* slope. These are linear functions. If the slope is positive, the function is increasing; if the slope is negative, the function is decreasing.
+
+Over the past few sections, we developed a way to measure the slope of a function when the slope is *not* constant. The derivative $f'(x)$ tells us the slope of $f(x)$ at each point. When the slope of a function is always changing, the graph is no longer a straight line, it will bend and curve.
+
+In this section, we discuss $f''(x)$, the *second derivative of $f(x)$*. Since $f'(x)$ is itself a function, we can take *its* derivative to find the rate of change of the slope of $f(x)$. 
+
+:::{#def-second-deriv}
+## The Second Derivative
+The *second derivative* of $f(x)$, written $f''(x)$, is the derivative of $f'(x)$. The value $f''(a)$ measures the instantaneous rate of change of the slope of $f(x)$ at $x=a$.
+:::
+
+While the values of $f'(x)$ tell us where $f(x)$ is increasing, decreasing or constant, the values of $f''(x)$ will tell us where $f'(x)$ is increasing, decreasing or constant. This will allow us to use $f''(x)$ to determine how $f(x)$ is curved. We call this property the *concavity* of $f(x)$.  
+
+# Discussion Problems
+
+## Problem 1 - Motion and Curvature
+Sketch a graph for each of the functions described below.
+
+a. A car is stopped at a stoplight. The light turns green and the car begins to accelerate straight ahead. Let $A(t)$ be the distance the car travels $t$ seconds after the light turns green.
+b. A car is headed straight towards the same stoplight on the cross street. The light turns red and the car begins to decelerate. Let $B(t)$ be the car's distance from the stoplight $t$ seconds after the light turns red.
+c. A cyclist is passing through the same intersection as the cars. The cyclist pays no attention to the color of the light and cruises through the intersection with no acceleration or deceleration. Let $C(t)$ be the distance the cyclist travels $t$ seconds after the light changes.
+
+## Problem 2 - Slope and Shape
+Each row of the table contains conditions on $f'(x)$ and $f''(x)$ which are true on an interval. Fill in the blanks with one or two words that describe what these conditions tell us about the slope of $f(x)$ and the graph of $f(x)$. Then draw a curve showing the shape of the graph of $f(x)$ that fits this description.
+
+| If ... | then the slope of $f(x)$ is ... | the graph of $f(x)$ is ... | and looks like ... |
+|:---:|:---:|:---:|:---:|
+| $f'(x)=0$ | \_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_ | |
+| $f'(x)>0$ and $f''(x)=0$ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | |
+| $f'(x)<0$ and $f''(x)=0$ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | |
+| $f'(x)>0$ and $f''(x)>0$ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | |
+| $f'(x)<0$ and $f''(x)>0$ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | |
+| $f'(x)>0$ and $f''(x)<0$ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | |
+| $f'(x)<0$ and $f''(x)<0$ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_ | |
+
+## Problem 3 - Signs of $f$, $f'$, and $f''$
+The function $f(x)$ is shown in the graph below.
+
+![Graph of $f(x)$](images/Graph5a_1.png){width=60%}
+
+Determine if $f$, $f'$, and $f''$ are positive, negative, or zero at each of the four labeled points.
+
+## Problem 4 - Using the Second Derivative to Assess Estimates
+The CFCs in the atmosphere above the US have been reduced from a high of 1915 parts per trillion (ppt) in 2000 to 1640 ppt in 2014. The reduction over this time has been approximately linear. Let $C(t)$ be the concentration of CFCs in ppt $t$ years after 2000.
+
+a. Find $C(14)$.
+b. Estimate $C'(14)$.
+c. According to the information given, what is a formula approximating $C(t)$ on the interval $0\leq t\leq 14$?
+d. Use your formula to approximate $C(20)$.
+e. Suppose that further analysis shows that $C''(t)<0$ on the interval $14\leq t\leq 20$. Is your estimate from part d too high or too low? Explain.

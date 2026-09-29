@@ -1,0 +1,169 @@
+---
+title: "The Derivative Function"
+subtitle: "Read Section 2.3"
+sidebar: notes
+---
+
+# Introduction
+
+Last time, we defined the derivative of a function $f(x)$ *at a single point* $x=a$. The value $f'(a)$ measures the instantaneous rate of change of $f(x)$ at $x=a$, which we can see graphically as the slope of the line tangent to the graph of $f(x)$ at that point.
+
+In our first discussion problem for Section 2.2, we estimated $f'(a)$ for the function $f(x)=0.5x(x-3)(x-5)$ at the points $x=0, 1, 2, 3, 4,$ and $5$. Each of these estimates gave us the slope of $f(x)$ at the corresponding point. However, we can estimate the slope of $f(x)$ at *any* point $x=a$ in the same way.
+
+If we can find $f'(a)$ for every value of $a$, then we have a rule that takes each input $x=a$ and returns the slope of $f(x)$ at that point. In other words, we can think of $f'$ itself as a *function*.
+
+## From Points to a Function
+
+The interactive graphs below illustrates this idea. On the left is the graph of $f(x)=0.5x(x-3)(x-5)$, with the six points from our previous discussion problem labeled. On the right, the values we found for $f'(a)$ at those six points are plotted initially.
+
+Use the slider to move the tangent line along the graph of $f(x)$. Each time the tangent line stops at a new point, the point $(a, f'(a))$ is added to the graph on the right. As you fill in more and more points, you will begin to see the complete picture of the graph of $f'(x)$.
+
+```{ojs}
+//| echo: false
+//| output: false
+f = (x) => 0.5 * x * (x - 3) * (x - 5)
+fp = (x) => 1.5 * x * x - 8 * x + 7.5
+
+// Viewing window (shared x-range for both graphs; slider uses the same range)
+xMin = -0.5
+xMax = 5.5
+knownA = [0, 1, 2, 3, 4, 5]
+fCurve = d3.range(xMin, xMax + 1e-9, 0.02).map((x) => ({ x, y: f(x) }))
+
+// Store of traced points. Depends only on the reset button, so it is
+// recreated (emptied) on each click and otherwise persists across slider moves.
+tracedStore = {
+  reset;
+  return new Map();
+}
+
+// Add the current slider position to the store (keyed to avoid duplicates)
+traced = {
+  tracedStore.set(a.toFixed(1), { x: a, y: fp(a) });
+  return Array.from(tracedStore.values());
+}
+
+tangentLine = [xMin, xMax].map((x) => ({ x, y: f(a) + fp(a) * (x - a) }))
+```
+
+::: {layout-ncol="2"}
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 420,
+  height: 380,
+  style: { background: "transparent" },
+  x: { domain: [xMin, xMax], label: "x" },
+  y: { domain: [-6, 6], label: "f(x)" },
+  grid: true,
+  marks: [
+    Plot.ruleX([0], { stroke: "var(--bs-body-color)" }),
+    Plot.ruleY([0], { stroke: "var(--bs-body-color)" }),
+    Plot.ruleX([a], { stroke: "gray", strokeDasharray: "4,4" }),
+    Plot.line(fCurve, { x: "x", y: "y", stroke: "steelblue", strokeWidth: 2.5, clip: true }),
+    Plot.line(tangentLine, { x: "x", y: "y", stroke: "#e76f51", strokeWidth: 2, clip: true }),
+    Plot.dot(knownA, { x: (d) => d, y: (d) => f(d), fill: "var(--bs-body-color)", r: 3.5 }),
+    Plot.text(knownA, {
+      x: (d) => d,
+      y: (d) => f(d),
+      text: (d) => `(${d}, ${Math.round(f(d))})`, // round avoids printing f(3) as "-0"
+      dy: -12,
+      fill: "var(--bs-body-color)",
+      stroke: "var(--bs-body-bg)",
+      strokeWidth: 4,
+      paintOrder: "stroke"
+    }),
+    Plot.dot([a], { x: (d) => d, y: (d) => f(d), fill: "#e76f51", r: 5.5 })
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 420,
+  height: 380,
+  style: { background: "transparent" },
+  x: { domain: [xMin, xMax], label: "x" },
+  y: { domain: [-4, 12], label: "f′(x)" },
+  grid: true,
+  marks: [
+    Plot.ruleX([0], { stroke: "var(--bs-body-color)" }),
+    Plot.ruleY([0], { stroke: "var(--bs-body-color)" }),
+    Plot.ruleX([a], { stroke: "gray", strokeDasharray: "4,4" }),
+    Plot.dot(traced, { x: "x", y: "y", fill: "#e76f51", r: 3, clip: true }),
+    Plot.dot(knownA, { x: (d) => d, y: (d) => fp(d), stroke: "var(--bs-body-color)", strokeWidth: 2, r: 6 }),
+    Plot.dot([a], { x: (d) => d, y: (d) => fp(d), fill: "#e76f51", stroke: "var(--bs-body-color)", r: 6, clip: true })
+  ]
+})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center; font-size:1.1em; margin-bottom:0;">
+  At <i>x</i> = ${a.toFixed(1)}, the slope of the tangent line is
+  <b>${fp(a).toFixed(2)}</b>.
+</p>`
+```
+
+::: {style="display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof a = Inputs.range([xMin, xMax], { value: 0, step: 0.1, label: "Tangent point (a)" })
+```
+
+```{ojs}
+//| echo: false
+viewof reset = Inputs.button("Clear traced points")
+```
+
+:::
+
+## Definition 
+
+The formal definition for $f'(x)$ comes directly from our definition of the derivative $f'(a)$. We just replace the specific $x$-value $a$ with a variable input $x$.
+
+:::{#def-deriv-fn}
+## The Derivative Function
+The *derivative of $f(x)$* is the function $f'(x)$, where we compute the $f'$ at each $x$-value using either of our limit formulas from Section 2.2:
+$$f'(x) \lim_{t\to x}\frac{f(t)-f(x)}{t-x}$$
+
+or 
+
+$$f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.$$
+
+:::
+
+# Discussion Problems
+
+## Problem 1 - Sketching Derivatives from Graphs
+Sketch the graph of the derivative for each of the following functions:
+
+a. \
+
+    ![](images/unit2_3_graph1.png){width=60% fig-alt="Graph of the first function for Problem 1"}
+
+b. \
+
+    ![](images/unit2_3_graph2.png){width=60% fig-alt="Graph of the second function for Problem 1"}
+
+c. \ 
+
+    ![](images/unit2_3_graph3.png){width=60% fig-alt="Graph of the third function for Problem 1"}
+
+## Problem 2 - Which Is the Derivative?
+The functions $f(x)$ and $g(x)$ are shown below. One is the derivative of the other. Determine which one is which.
+
+![Graphs of $f(x)$ and $g(x)$](images/unit2_3_graph4.png){width=75%}
+
+## Problem 3 - Derivative Functions Using Limits
+Use the definition of the derivative to find $f'(x)$ for each of the following functions:
+
+a. $f(x)=\frac{1}{x+1}$
+b. $f(x)=x^3$
+c. $f(x)=ax^2+bx+c$, where $a$, $b$, and $c$ are constants
+d. $f(x)=\sqrt{x}$

@@ -1,0 +1,65 @@
+---
+title: "Interpreting the Derivative"
+subtitle: "Read Section 2.4"
+sidebar: notes
+---
+
+# Introduction
+
+When $f(t)$ measures the position of an object in motion at time $t$, the instantaneous rate of change $f'(a)$ has a familiar meaning: it is the object's instantaneous velocity at the moment $t=a$. But derivatives show up in many contexts that have nothing to do with motion. What does the instantaneous rate of change mean in general when $f(x)$ models the relationship between two variables $x$ and $y$?
+
+In general, the derivative of $y=f(x)$ measures how *sensitive* the output $y$ is to small, local changes in the input $x$. If $f'(a)$ is large in magnitude, then even a small change in $x$ near $x=a$ produces a large change in $y$. If $f'(a)$ is close to $0$, then small changes in $x$ near $x=a$ barely affect $y$ at all.
+
+## Practical Interpretation of the Derivative
+This gives us a practical way to interpret $f'(a)$ in any context. We use it to *estimate how much $y$ changes* when $x$ changes by a small amount. Since $f'(a)$ is the limit of average rates of change $\frac{\Delta y}{\Delta x}$ over smaller and smaller intervals around $x=a$, for a small change $\Delta x$ we expect
+$$\frac{\Delta y}{\Delta x}\approx f'(a).$$
+Multiplying both sides by $\Delta x$ gives us the key relationship for this section.
+
+::: {.callout-note}
+## Practical Interpretation of $f'(a)$
+If $x$ changes from $x=a$ to $x=a+\Delta x$, where $\Delta x$ is small, then the corresponding change in $y=f(x)$ is approximately
+$$\Delta y \approx f'(a)\,\Delta x.$$
+In particular, the units of $f'(a)$ are the units of $y$ per unit of $x$.
+:::
+
+Keep in mind that this is a *local* estimate: it is only reliable when $\Delta x$ is small, because the rate of change of $f(x)$ may be quite different at points far away from $x=a$. 
+
+How small does $\Delta x$ need to be? As we will see, that depends on the context and how sensitive we expect the *rate of change* to be to changes in $x$.
+
+# Discussion Problems
+
+## Problem 1 - Interpreting a Derivative
+Let $r(t)$ be the total amount of rain (in inches) that had fallen in D.C. during the $t$ hours following noon on a particular September day. Suppose $r'(4)=2$. Provide a reasonable practical interpretation for this equation by filling in the blanks below:
+
+> Approximately \_\_\_\_\_\_\_\_\_\_ inches of rain fell between \_\_\_\_\_\_\_\_\_\_ and \_\_\_\_\_\_\_\_\_\_.
+
+## Problem 2 - Units of the Derivative
+Let $g(v)$ be the fuel efficiency, in miles per gallon, of a car going $v$ miles per hour.
+
+a. What are the units of $g'(v)$?
+b. What is a practical interpretation of the equation $g'(55)=-0.54$?
+
+## Problem 3 - Interpreting Function Notation
+Let $W(h)$ be an invertible function that models how many gallons of water an oak tree of height $h$ feet consumes on a hot summer day. Give practical interpretations for each of the following equations.
+
+a. $W(50)=70$
+b. $W^{-1}(60)=40$
+c. $W'(5)=3$
+d. $(W^{-1})'(20)=0.5$
+
+## Problem 4 - Translating Information into Notation
+As an object travels away from earth, the weight of the object decreases. Let $w=f(d)$ be the weight of an object, in Newtons, at a distance of $d$ kilometers above the earth's surface.
+
+Suppose that an object 800 km above the surface of the earth weighs 700 Newtons. When the object travels one km further, the weight decreases by about 0.2 Newtons. Which of the following mathematical statements are consistent with this information?
+
+::: {style="column-count: 3;"}
+a. $f(800)=700$
+b. $f(700)=800$
+c. $f^{-1}(700)=800$
+d. $f'(800)=-0.2$
+e. $f'(700)=-0.2$
+f. $f'(800)=0.2$
+g. $(f^{-1})'(0.2)=-800$
+h. $(f^{-1})'(800)=-5$
+i. $(f^{-1})'(700)=-5$
+:::

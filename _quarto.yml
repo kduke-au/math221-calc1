@@ -49,7 +49,13 @@ website:
             - text: "Instantaneous Velocity"
               href: notes/unit2_1.qmd
             - text: "Definition of the Derivative"
-              href: notes/unit2_2.qmd  
+              href: notes/unit2_2.qmd
+            - text: "The Derivative Function"
+              href: notes/unit2_3.qmd
+            - text: "Interpreting the Derivative"
+              href: notes/unit2_4.qmd
+            - text: "The Second Derivative"
+              href: notes/unit2_5.qmd  
         - section: "Unit 3: Computing Derivatives"
           contents:
           #  - text: "Overview"
