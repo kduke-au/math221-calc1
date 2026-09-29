@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Limits &amp; Continuity - Introduction – Math 221 - Calculus I</title>
+<title>The Derivative Function – Math 221 - Calculus I</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -353,7 +353,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit1_index.html">Unit 1: Limits &amp; Continuity</a></li><li class="breadcrumb-item"><a href="../notes/unit1_index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_3.html">The Derivative Function</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -411,7 +411,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit1_index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notes/unit1_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -464,7 +464,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_3.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/unit2_3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">The Derivative Function</span></a>
   </div>
 </li>
@@ -508,8 +508,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#discussion-problem-infinities-and-infinitesimals" id="toc-discussion-problem-infinities-and-infinitesimals" class="nav-link active" data-scroll-target="#discussion-problem-infinities-and-infinitesimals">Discussion Problem: Infinities and Infinitesimals</a></li>
-  <li><a href="#big-idea" id="toc-big-idea" class="nav-link" data-scroll-target="#big-idea">Big Idea</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#from-points-to-a-function" id="toc-from-points-to-a-function" class="nav-link" data-scroll-target="#from-points-to-a-function">From Points to a Function</a></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
+  </ul></li>
+  <li><a href="#discussion-problems" id="toc-discussion-problems" class="nav-link" data-scroll-target="#discussion-problems">Discussion Problems</a>
+  <ul class="collapse">
+  <li><a href="#problem-1---sketching-derivatives-from-graphs" id="toc-problem-1---sketching-derivatives-from-graphs" class="nav-link" data-scroll-target="#problem-1---sketching-derivatives-from-graphs">Problem 1 - Sketching Derivatives from Graphs</a></li>
+  <li><a href="#problem-2---which-is-the-derivative" id="toc-problem-2---which-is-the-derivative" class="nav-link" data-scroll-target="#problem-2---which-is-the-derivative">Problem 2 - Which Is the Derivative?</a></li>
+  <li><a href="#problem-3---derivative-functions-using-limits" id="toc-problem-3---derivative-functions-using-limits" class="nav-link" data-scroll-target="#problem-3---derivative-functions-using-limits">Problem 3 - Derivative Functions Using Limits</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -517,9 +526,10 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit1_index.html">Unit 1: Limits &amp; Continuity</a></li><li class="breadcrumb-item"><a href="../notes/unit1_index.html">Introduction</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_3.html">The Derivative Function</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Limits &amp; Continuity - Introduction</h1>
+<h1 class="title">The Derivative Function</h1>
+<p class="subtitle lead">Read Section 2.3</p>
 </div>
 
 
@@ -536,91 +546,178 @@ window.Quarto = {
 </header>
 
 
-<p>Creating the proper tools that allow us to measure rate and accumulation require us to grapple with <em>infinities</em> and <em>infinitesimals</em>. Here are some examples that illustrate the logical hurdle these ideas pose:</p>
-<section id="discussion-problem-infinities-and-infinitesimals" class="level2">
-<h2 class="anchored" data-anchor-id="discussion-problem-infinities-and-infinitesimals">Discussion Problem: Infinities and Infinitesimals</h2>
-<p>Discuss and try to resolve one or more of the following questions with your group.</p>
-<ol type="a">
-<li><p>Consider a hotel with infinitely many rooms. Currently each room is occupied. A new guest arrives at the front desk and requests a room. Can they be accommodated? If so, how?</p></li>
-<li><p>Consider the value <span class="math inline">\(0.999\ldots\)</span> where there is a 9 in all decimal places. This value is the result of an infinite process:</p>
-<ul>
-<li>Start with 0.9</li>
-<li>Add 9 hundredths to get 0.99</li>
-<li>Add 9 thousandths to get 0.999</li>
-<li>And so on …</li>
-</ul>
-<p>At each step of this process, the value <span class="math inline">\(0.99\ldots 9\)</span> is getting closer to, but always less than 1. So, <span class="math inline">\(0.999\ldots\)</span> must be infinitesimally close to, but less than 1. Do you agree?</p></li>
-<li><p>Someone is turning a lamp on and off over the course of 1 minute</p>
-<ul>
-<li>The lamp starts on.</li>
-<li>It is turned off after 1/2 of a minute.</li>
-<li>It is turned back on at 3/4 of a minute.</li>
-<li>It is turned off again at 7/8 of a minute.</li>
-<li>Then turned back on again at 15/16 of a minute.</li>
-<li>And so on…</li>
-</ul>
-<p>Does the lamp end up off or on after 1 minute?</p></li>
-<li><p>Construct an infinite staircase as follows.</p></li>
-</ol>
-<ul>
-<li>Start with one step that is 1m long and rises 1m. The total length is 2m.</li>
-<li>Now add another step. So now, each step is 0.5m long and rises 0.5m. The total length of the staircase is still 2m.</li>
-<li>Continue in this fashion as shown in the graph below. At each iteration, the staircase as <span class="math inline">\(n\)</span> steps, each one runs <span class="math inline">\(\frac{1}{n}\)</span> meters and rises <span class="math inline">\(\frac{1}{n}\)</span> meters and so the total length of the staircase is always 2m.</li>
-</ul>
-<div style="display:flex; justify-content:center; margin-top:12px;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="41" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 40;"><span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>viewof n <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Number of steps (n)"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-1" data-nodetype="declaration">
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Last time, we defined the derivative of a function <span class="math inline">\(f(x)\)</span> <em>at a single point</em> <span class="math inline">\(x=a\)</span>. The value <span class="math inline">\(f'(a)\)</span> measures the instantaneous rate of change of <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=a\)</span>, which we can see graphically as the slope of the line tangent to the graph of <span class="math inline">\(f(x)\)</span> at that point.</p>
+<p>In our first discussion problem for Section 2.2, we estimated <span class="math inline">\(f'(a)\)</span> for the function <span class="math inline">\(f(x)=0.5x(x-3)(x-5)\)</span> at the points <span class="math inline">\(x=0, 1, 2, 3, 4,\)</span> and <span class="math inline">\(5\)</span>. Each of these estimates gave us the slope of <span class="math inline">\(f(x)\)</span> at the corresponding point. However, we can estimate the slope of <span class="math inline">\(f(x)\)</span> at <em>any</em> point <span class="math inline">\(x=a\)</span> in the same way.</p>
+<p>If we can find <span class="math inline">\(f'(a)\)</span> for every value of <span class="math inline">\(a\)</span>, then we have a rule that takes each input <span class="math inline">\(x=a\)</span> and returns the slope of <span class="math inline">\(f(x)\)</span> at that point. In other words, we can think of <span class="math inline">\(f'\)</span> itself as a <em>function</em>.</p>
+<section id="from-points-to-a-function" class="level2">
+<h2 class="anchored" data-anchor-id="from-points-to-a-function">From Points to a Function</h2>
+<p>The interactive graphs below illustrates this idea. On the left is the graph of <span class="math inline">\(f(x)=0.5x(x-3)(x-5)\)</span>, with the six points from our previous discussion problem labeled. On the right, the values we found for <span class="math inline">\(f'(a)\)</span> at those six points are plotted initially.</p>
+<p>Use the slider to move the tangent line along the graph of <span class="math inline">\(f(x)\)</span>. Each time the tangent line stops at a new point, the point <span class="math inline">\((a, f'(a))\)</span> is added to the graph on the right. As you fill in more and more points, you will begin to see the complete picture of the graph of <span class="math inline">\(f'(x)\)</span>.</p>
+<div class="cell hidden">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="24" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 23;"><span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> (x) <span class="kw">=&gt;</span> <span class="fl">0.5</span> <span class="op">*</span> x <span class="op">*</span> (x <span class="op">-</span> <span class="dv">3</span>) <span class="op">*</span> (x <span class="op">-</span> <span class="dv">5</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>fp <span class="op">=</span> (x) <span class="kw">=&gt;</span> <span class="fl">1.5</span> <span class="op">*</span> x <span class="op">*</span> x <span class="op">-</span> <span class="dv">8</span> <span class="op">*</span> x <span class="op">+</span> <span class="fl">7.5</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">// Viewing window (shared x-range for both graphs; slider uses the same range)</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>xMin <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>xMax <span class="op">=</span> <span class="fl">5.5</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>knownA <span class="op">=</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>fCurve <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(xMin<span class="op">,</span> xMax <span class="op">+</span> <span class="fl">1e-9</span><span class="op">,</span> <span class="fl">0.02</span>)<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({ x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="fu">f</span>(x) }))</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">// Store of traced points. Depends only on the reset button, so it is</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">// recreated (emptied) on each click and otherwise persists across slider moves.</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>tracedStore <span class="op">=</span> {</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  reset<span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co">// Add the current slider position to the store (keyed to avoid duplicates)</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>traced <span class="op">=</span> {</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  tracedStore<span class="op">.</span><span class="fu">set</span>(a<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> a<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="fu">fp</span>(a) })<span class="op">;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(tracedStore<span class="op">.</span><span class="fu">values</span>())<span class="op">;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>tangentLine <span class="op">=</span> [xMin<span class="op">,</span> xMax]<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({ x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="fu">f</span>(a) <span class="op">+</span> <span class="fu">fp</span>(a) <span class="op">*</span> (x <span class="op">-</span> a) }))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-7" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-8" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-9" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="48" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 47;"><span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>stairPoints <span class="op">=</span> {</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pts <span class="op">=</span> [{<span class="dt">x</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">0</span>}]<span class="op">;</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> y0 <span class="op">=</span> i <span class="op">/</span> n<span class="op">;</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> x1 <span class="op">=</span> (i <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> n<span class="op">;</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> y1 <span class="op">=</span> (i <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> n<span class="op">;</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    pts<span class="op">.</span><span class="fu">push</span>({<span class="dt">x</span><span class="op">:</span> x1<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> y0})<span class="op">;</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    pts<span class="op">.</span><span class="fu">push</span>({<span class="dt">x</span><span class="op">:</span> x1<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> y1})<span class="op">;</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> pts<span class="op">;</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="52" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 51;"><span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">420</span><span class="op">,</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">380</span><span class="op">,</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> { <span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span> }<span class="op">,</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [xMin<span class="op">,</span> xMax]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span> }<span class="op">,</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">6</span><span class="op">,</span> <span class="dv">6</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"f(x)"</span> }<span class="op">,</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>]<span class="op">,</span> { <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span> })<span class="op">,</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>]<span class="op">,</span> { <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span> })<span class="op">,</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([a]<span class="op">,</span> { <span class="dt">stroke</span><span class="op">:</span> <span class="st">"gray"</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,4"</span> })<span class="op">,</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(fCurve<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"steelblue"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">,</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(tangentLine<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e76f51"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">,</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(knownA<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="fu">f</span>(d)<span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="fl">3.5</span> })<span class="op">,</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>(knownA<span class="op">,</span> {</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">,</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="fu">f</span>(d)<span class="op">,</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>      <span class="dt">text</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="vs">`(</span><span class="sc">${</span>d<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fu">f</span>(d))<span class="sc">}</span><span class="vs">)`</span><span class="op">,</span> <span class="co">// round avoids printing f(3) as "-0"</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>      <span class="dt">dy</span><span class="op">:</span> <span class="op">-</span><span class="dv">12</span><span class="op">,</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fill</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-bg)"</span><span class="op">,</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>      <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>      <span class="dt">paintOrder</span><span class="op">:</span> <span class="st">"stroke"</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([a]<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="fu">f</span>(d)<span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#e76f51"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="fl">5.5</span> })</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">420</span><span class="op">,</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">380</span><span class="op">,</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> { <span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span> }<span class="op">,</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [xMin<span class="op">,</span> xMax]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span> }<span class="op">,</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">4</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"f′(x)"</span> }<span class="op">,</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>]<span class="op">,</span> { <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span> })<span class="op">,</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>]<span class="op">,</span> { <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span> })<span class="op">,</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([a]<span class="op">,</span> { <span class="dt">stroke</span><span class="op">:</span> <span class="st">"gray"</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,4"</span> })<span class="op">,</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(traced<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#e76f51"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">,</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(knownA<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="fu">fp</span>(d)<span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">6</span> })<span class="op">,</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([a]<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="fu">fp</span>(d)<span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#e76f51"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">6</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span> })</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-2" data-nodetype="declaration">
+<div id="ojs-cell-2" data-nodetype="expression">
 
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="63" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 62;"><span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>diagPoints <span class="op">=</span> [{<span class="dt">x</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">0</span>}<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">1</span>}]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-3" data-nodetype="declaration">
+<div id="ojs-cell-3" data-nodetype="expression">
 
 </div>
 </div>
 </div>
+</div>
+</div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="68" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 67;"><span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>stairLength <span class="op">=</span> {</span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> stairPoints<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> dx <span class="op">=</span> stairPoints[i]<span class="op">.</span><span class="at">x</span> <span class="op">-</span> stairPoints[i <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">x</span><span class="op">;</span></span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> dy <span class="op">=</span> stairPoints[i]<span class="op">.</span><span class="at">y</span> <span class="op">-</span> stairPoints[i <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">y</span><span class="op">;</span></span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">hypot</span>(dx<span class="op">,</span> dy)<span class="op">;</span></span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> total<span class="op">;</span></span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="105" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 104;"><span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="text-align:center; font-size:1.1em; margin-bottom:0;"&gt;</span></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="vs">  At &lt;i&gt;x&lt;/i&gt; = </span><span class="sc">${</span>a<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">, the slope of the tangent line is</span></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;b&gt;</span><span class="sc">${</span><span class="fu">fp</span>(a)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;.</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-4" data-nodetype="declaration">
+<div id="ojs-cell-4" data-nodetype="expression">
 
 </div>
 </div>
 </div>
+<div style="display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-top:12px;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="81" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 80;"><span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>diagLength <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">hypot</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="115" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 114;"><span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>viewof a <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([xMin<span class="op">,</span> xMax]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Tangent point (a)"</span> })</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="declaration">
 
@@ -628,66 +725,68 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="86" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 85;"><span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">420</span><span class="op">,</span></span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">420</span><span class="op">,</span></span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>  <span class="dt">aspectRatio</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span>}<span class="op">,</span></span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"y"</span>}<span class="op">,</span></span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span>}<span class="op">,</span></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(diagPoints<span class="op">,</span> {</span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span></span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>      <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>      <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(stairPoints<span class="op">,</span> {</span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e63946"</span><span class="op">,</span></span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>      <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span></span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">frame</span>({<span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-border-color, gray)"</span>})</span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="120" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 119;"><span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>viewof reset <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Clear traced points"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-6" data-nodetype="expression">
+<div id="ojs-cell-6" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
-<!-- 
-
-:::::{.quarto-ojs-syntax-error}
-
-````{.numberLines .java startFrom="112" syntax-error-position="0" source-offset="9"}
-```dbesl
-//| echo: false
-#md`**Staircase length:** ${stairLength.toFixed(4)} &nbsp;&nbsp;|&nbsp;&nbsp; **Diagonal length:** ${diagLength.toFixed(4)} ($\sqrt{2}$)`
-```
-````
-
-::::{.cell-output .cell-output-error}
-
-:::{.callout-important}
-#### OJS Syntax Error (line 114, column 1)Unexpected character '#'
-:::
-::::
-:::::
--->
-<p>The process results in a staircase with infinitely many steps that has a total length of 2m. Therefore the length of the diagonal shown in the diagram must also be 2m. Do you agree?</p>
+</div>
 </section>
-<section id="big-idea" class="level2">
-<h2 class="anchored" data-anchor-id="big-idea">Big Idea</h2>
-<p>Paradoxes or controversies are not allowed in mathematics. They are the result of a lack of clarity. Either the question has not been posed clearly, terms have not been clearly defined, or assumptions have not been clearly stated.</p>
-<p>The key idea that we will need before we can proceed to our main goals is the <em>limit</em>. In this unit, we will define limits, develop our conceptual understanding of them, and determine some rules and algebraic procedures that can be used to compute some types of limits precisely.</p>
+<section id="definition" class="level2">
+<h2 class="anchored" data-anchor-id="definition">Definition</h2>
+<p>The formal definition for <span class="math inline">\(f'(x)\)</span> comes directly from our definition of the derivative <span class="math inline">\(f'(a)\)</span>. We just replace the specific <span class="math inline">\(x\)</span>-value <span class="math inline">\(a\)</span> with a variable input <span class="math inline">\(x\)</span>.</p>
+<div id="def-deriv-fn" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (The Derivative Function)</strong></span> The <em>derivative of <span class="math inline">\(f(x)\)</span></em> is the function <span class="math inline">\(f'(x)\)</span>, where we compute the <span class="math inline">\(f'\)</span> at each <span class="math inline">\(x\)</span>-value using either of our limit formulas from Section 2.2: <span class="math display">\[f'(x) \lim_{t\to x}\frac{f(t)-f(x)}{t-x}\]</span></p>
+<p>or</p>
+<p><span class="math display">\[f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.\]</span></p>
+</div>
+</section>
+</section>
+<section id="discussion-problems" class="level1">
+<h1>Discussion Problems</h1>
+<section id="problem-1---sketching-derivatives-from-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1---sketching-derivatives-from-graphs">Problem 1 - Sketching Derivatives from Graphs</h2>
+<p>Sketch the graph of the derivative for each of the following functions:</p>
+<ol type="a">
+<li><p><br>
+</p>
+<p><img src="images/unit2_3_graph1.png" class="img-fluid" style="width:60.0%" alt="Graph of the first function for Problem 1"></p></li>
+<li><p><br>
+</p>
+<p><img src="images/unit2_3_graph2.png" class="img-fluid" style="width:60.0%" alt="Graph of the second function for Problem 1"></p></li>
+<li><p>&nbsp;</p>
+<p><img src="images/unit2_3_graph3.png" class="img-fluid" style="width:60.0%" alt="Graph of the third function for Problem 1"></p></li>
+</ol>
+</section>
+<section id="problem-2---which-is-the-derivative" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2---which-is-the-derivative">Problem 2 - Which Is the Derivative?</h2>
+<p>The functions <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span> are shown below. One is the derivative of the other. Determine which one is which.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/unit2_3_graph4.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>Graphs of <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="problem-3---derivative-functions-using-limits" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3---derivative-functions-using-limits">Problem 3 - Derivative Functions Using Limits</h2>
+<p>Use the definition of the derivative to find <span class="math inline">\(f'(x)\)</span> for each of the following functions:</p>
+<ol type="a">
+<li><span class="math inline">\(f(x)=\frac{1}{x+1}\)</span></li>
+<li><span class="math inline">\(f(x)=x^3\)</span></li>
+<li><span class="math inline">\(f(x)=ax^2+bx+c\)</span>, where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span> are constants</li>
+<li><span class="math inline">\(f(x)=\sqrt{x}\)</span></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBuID0gSW5wdXRzLnJhbmdlKFsxLCAxMDBdLCB7dmFsdWU6IDQsIHN0ZXA6IDEsIGxhYmVsOiBcIk51bWJlciBvZiBzdGVwcyAobilcIn0pXHJcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InN0YWlyUG9pbnRzID0ge1xyXG4gIGNvbnN0IHB0cyA9IFt7eDogMCwgeTogMH1dO1xyXG4gIGZvciAobGV0IGkgPSAwOyBpIDwgbjsgaSsrKSB7XHJcbiAgICBjb25zdCB5MCA9IGkgLyBuO1xyXG4gICAgY29uc3QgeDEgPSAoaSArIDEpIC8gbjtcclxuICAgIGNvbnN0IHkxID0gKGkgKyAxKSAvIG47XHJcbiAgICBwdHMucHVzaCh7eDogeDEsIHk6IHkwfSk7XHJcbiAgICBwdHMucHVzaCh7eDogeDEsIHk6IHkxfSk7XHJcbiAgfVxyXG4gIHJldHVybiBwdHM7XHJcbn1cclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZGlhZ1BvaW50cyA9IFt7eDogMCwgeTogMH0sIHt4OiAxLCB5OiAxfV1cclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoic3RhaXJMZW5ndGggPSB7XHJcbiAgbGV0IHRvdGFsID0gMDtcclxuICBmb3IgKGxldCBpID0gMTsgaSA8IHN0YWlyUG9pbnRzLmxlbmd0aDsgaSsrKSB7XHJcbiAgICBjb25zdCBkeCA9IHN0YWlyUG9pbnRzW2ldLnggLSBzdGFpclBvaW50c1tpIC0gMV0ueDtcclxuICAgIGNvbnN0IGR5ID0gc3RhaXJQb2ludHNbaV0ueSAtIHN0YWlyUG9pbnRzW2kgLSAxXS55O1xyXG4gICAgdG90YWwgKz0gTWF0aC5oeXBvdChkeCwgZHkpO1xyXG4gIH1cclxuICByZXR1cm4gdG90YWw7XHJcbn1cclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZGlhZ0xlbmd0aCA9IE1hdGguaHlwb3QoMSwgMSlcclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiUGxvdC5wbG90KHtcclxuICB3aWR0aDogNDIwLFxyXG4gIGhlaWdodDogNDIwLFxyXG4gIGFzcGVjdFJhdGlvOiAxLFxyXG4gIHg6IHtkb21haW46IFswLCAxXSwgbGFiZWw6IFwieFwifSxcclxuICB5OiB7ZG9tYWluOiBbMCwgMV0sIGxhYmVsOiBcInlcIn0sXHJcbiAgc3R5bGU6IHtiYWNrZ3JvdW5kOiBcInRyYW5zcGFyZW50XCJ9LFxyXG4gIG1hcmtzOiBbXHJcbiAgICBQbG90LmxpbmUoZGlhZ1BvaW50cywge1xyXG4gICAgICB4OiBcInhcIiwgeTogXCJ5XCIsXHJcbiAgICAgIHN0cm9rZTogXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiLFxyXG4gICAgICBzdHJva2VXaWR0aDogMixcclxuICAgICAgc3Ryb2tlRGFzaGFycmF5OiBcIjYsNFwiXHJcbiAgICB9KSxcclxuICAgIFBsb3QubGluZShzdGFpclBvaW50cywge1xyXG4gICAgICB4OiBcInhcIiwgeTogXCJ5XCIsXHJcbiAgICAgIHN0cm9rZTogXCIjZTYzOTQ2XCIsXHJcbiAgICAgIHN0cm9rZVdpZHRoOiAyLjVcclxuICAgIH0pLFxyXG4gICAgUGxvdC5mcmFtZSh7c3Ryb2tlOiBcInZhcigtLWJzLWJvcmRlci1jb2xvciwgZ3JheSlcIn0pXHJcbiAgXVxyXG59KVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ24nKSJ9XX0=
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImYgPSAoeCkgPT4gMC41ICogeCAqICh4IC0gMykgKiAoeCAtIDUpXG5mcCA9ICh4KSA9PiAxLjUgKiB4ICogeCAtIDggKiB4ICsgNy41XG5cbi8vIFZpZXdpbmcgd2luZG93IChzaGFyZWQgeC1yYW5nZSBmb3IgYm90aCBncmFwaHM7IHNsaWRlciB1c2VzIHRoZSBzYW1lIHJhbmdlKVxueE1pbiA9IC0wLjVcbnhNYXggPSA1LjVcbmtub3duQSA9IFswLCAxLCAyLCAzLCA0LCA1XVxuZkN1cnZlID0gZDMucmFuZ2UoeE1pbiwgeE1heCArIDFlLTksIDAuMDIpLm1hcCgoeCkgPT4gKHsgeCwgeTogZih4KSB9KSlcblxuLy8gU3RvcmUgb2YgdHJhY2VkIHBvaW50cy4gRGVwZW5kcyBvbmx5IG9uIHRoZSByZXNldCBidXR0b24sIHNvIGl0IGlzXG4vLyByZWNyZWF0ZWQgKGVtcHRpZWQpIG9uIGVhY2ggY2xpY2sgYW5kIG90aGVyd2lzZSBwZXJzaXN0cyBhY3Jvc3Mgc2xpZGVyIG1vdmVzLlxudHJhY2VkU3RvcmUgPSB7XG4gIHJlc2V0O1xuICByZXR1cm4gbmV3IE1hcCgpO1xufVxuXG4vLyBBZGQgdGhlIGN1cnJlbnQgc2xpZGVyIHBvc2l0aW9uIHRvIHRoZSBzdG9yZSAoa2V5ZWQgdG8gYXZvaWQgZHVwbGljYXRlcylcbnRyYWNlZCA9IHtcbiAgdHJhY2VkU3RvcmUuc2V0KGEudG9GaXhlZCgxKSwgeyB4OiBhLCB5OiBmcChhKSB9KTtcbiAgcmV0dXJuIEFycmF5LmZyb20odHJhY2VkU3RvcmUudmFsdWVzKCkpO1xufVxuXG50YW5nZW50TGluZSA9IFt4TWluLCB4TWF4XS5tYXAoKHgpID0+ICh7IHgsIHk6IGYoYSkgKyBmcChhKSAqICh4IC0gYSkgfSkpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB3aWR0aDogNDIwLFxuICBoZWlnaHQ6IDM4MCxcbiAgc3R5bGU6IHsgYmFja2dyb3VuZDogXCJ0cmFuc3BhcmVudFwiIH0sXG4gIHg6IHsgZG9tYWluOiBbeE1pbiwgeE1heF0sIGxhYmVsOiBcInhcIiB9LFxuICB5OiB7IGRvbWFpbjogWy02LCA2XSwgbGFiZWw6IFwiZih4KVwiIH0sXG4gIGdyaWQ6IHRydWUsXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5ydWxlWChbMF0sIHsgc3Ryb2tlOiBcInZhcigtLWJzLWJvZHktY29sb3IpXCIgfSksXG4gICAgUGxvdC5ydWxlWShbMF0sIHsgc3Ryb2tlOiBcInZhcigtLWJzLWJvZHktY29sb3IpXCIgfSksXG4gICAgUGxvdC5ydWxlWChbYV0sIHsgc3Ryb2tlOiBcImdyYXlcIiwgc3Ryb2tlRGFzaGFycmF5OiBcIjQsNFwiIH0pLFxuICAgIFBsb3QubGluZShmQ3VydmUsIHsgeDogXCJ4XCIsIHk6IFwieVwiLCBzdHJva2U6IFwic3RlZWxibHVlXCIsIHN0cm9rZVdpZHRoOiAyLjUsIGNsaXA6IHRydWUgfSksXG4gICAgUGxvdC5saW5lKHRhbmdlbnRMaW5lLCB7IHg6IFwieFwiLCB5OiBcInlcIiwgc3Ryb2tlOiBcIiNlNzZmNTFcIiwgc3Ryb2tlV2lkdGg6IDIsIGNsaXA6IHRydWUgfSksXG4gICAgUGxvdC5kb3Qoa25vd25BLCB7IHg6IChkKSA9PiBkLCB5OiAoZCkgPT4gZihkKSwgZmlsbDogXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiLCByOiAzLjUgfSksXG4gICAgUGxvdC50ZXh0KGtub3duQSwge1xuICAgICAgeDogKGQpID0+IGQsXG4gICAgICB5OiAoZCkgPT4gZihkKSxcbiAgICAgIHRleHQ6IChkKSA9PiBgKCR7ZH0sICR7TWF0aC5yb3VuZChmKGQpKX0pYCwgLy8gcm91bmQgYXZvaWRzIHByaW50aW5nIGYoMykgYXMgXCItMFwiXG4gICAgICBkeTogLTEyLFxuICAgICAgZmlsbDogXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiLFxuICAgICAgc3Ryb2tlOiBcInZhcigtLWJzLWJvZHktYmcpXCIsXG4gICAgICBzdHJva2VXaWR0aDogNCxcbiAgICAgIHBhaW50T3JkZXI6IFwic3Ryb2tlXCJcbiAgICB9KSxcbiAgICBQbG90LmRvdChbYV0sIHsgeDogKGQpID0+IGQsIHk6IChkKSA9PiBmKGQpLCBmaWxsOiBcIiNlNzZmNTFcIiwgcjogNS41IH0pXG4gIF1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB3aWR0aDogNDIwLFxuICBoZWlnaHQ6IDM4MCxcbiAgc3R5bGU6IHsgYmFja2dyb3VuZDogXCJ0cmFuc3BhcmVudFwiIH0sXG4gIHg6IHsgZG9tYWluOiBbeE1pbiwgeE1heF0sIGxhYmVsOiBcInhcIiB9LFxuICB5OiB7IGRvbWFpbjogWy00LCAxMl0sIGxhYmVsOiBcImbigLIoeClcIiB9LFxuICBncmlkOiB0cnVlLFxuICBtYXJrczogW1xuICAgIFBsb3QucnVsZVgoWzBdLCB7IHN0cm9rZTogXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiIH0pLFxuICAgIFBsb3QucnVsZVkoWzBdLCB7IHN0cm9rZTogXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiIH0pLFxuICAgIFBsb3QucnVsZVgoW2FdLCB7IHN0cm9rZTogXCJncmF5XCIsIHN0cm9rZURhc2hhcnJheTogXCI0LDRcIiB9KSxcbiAgICBQbG90LmRvdCh0cmFjZWQsIHsgeDogXCJ4XCIsIHk6IFwieVwiLCBmaWxsOiBcIiNlNzZmNTFcIiwgcjogMywgY2xpcDogdHJ1ZSB9KSxcbiAgICBQbG90LmRvdChrbm93bkEsIHsgeDogKGQpID0+IGQsIHk6IChkKSA9PiBmcChkKSwgc3Ryb2tlOiBcInZhcigtLWJzLWJvZHktY29sb3IpXCIsIHN0cm9rZVdpZHRoOiAyLCByOiA2IH0pLFxuICAgIFBsb3QuZG90KFthXSwgeyB4OiAoZCkgPT4gZCwgeTogKGQpID0+IGZwKGQpLCBmaWxsOiBcIiNlNzZmNTFcIiwgc3Ryb2tlOiBcInZhcigtLWJzLWJvZHktY29sb3IpXCIsIHI6IDYsIGNsaXA6IHRydWUgfSlcbiAgXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imh0bWxgPHAgc3R5bGU9XCJ0ZXh0LWFsaWduOmNlbnRlcjsgZm9udC1zaXplOjEuMWVtOyBtYXJnaW4tYm90dG9tOjA7XCI+XG4gIEF0IDxpPng8L2k+ID0gJHthLnRvRml4ZWQoMSl9LCB0aGUgc2xvcGUgb2YgdGhlIHRhbmdlbnQgbGluZSBpc1xuICA8Yj4ke2ZwKGEpLnRvRml4ZWQoMil9PC9iPi5cbjwvcD5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgYSA9IElucHV0cy5yYW5nZShbeE1pbiwgeE1heF0sIHsgdmFsdWU6IDAsIHN0ZXA6IDAuMSwgbGFiZWw6IFwiVGFuZ2VudCBwb2ludCAoYSlcIiB9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHJlc2V0ID0gSW5wdXRzLmJ1dHRvbihcIkNsZWFyIHRyYWNlZCBwb2ludHNcIilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnYScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdyZXNldCcpIn1dfQ==
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

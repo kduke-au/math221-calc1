@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Instantaneous Velocity – Math 221 - Calculus I</title>
+<title>The Second Derivative – Math 221 - Calculus I</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,27 +29,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dark-ee46beb70aa31211458725bc788f2241.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee46beb70aa31211458725bc788f2241.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,7 +108,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -280,7 +280,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Math 221 - Calculus I</span>
     </a>
   </div>
@@ -291,17 +291,17 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../notes/index.html" aria-current="page"> 
+    <a class="nav-link active" href="../../notes/index.html" aria-current="page"> 
 <span class="menu-text">Course Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../exam_practice/index.html"> 
+    <a class="nav-link" href="../../exam_practice/index.html"> 
 <span class="menu-text">Practice Exam Problems</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">Questions?</span></a>
   </li>  
 </ul>
@@ -316,7 +316,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_1.html">Instantaneous Velocity</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">The Second Derivative</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -330,7 +330,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -345,19 +345,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit0_index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit0_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What is Calculus?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit0_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit0_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions &amp; Their Properties</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit0_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit0_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Families of Functions</span></a>
   </div>
 </li>
@@ -374,25 +374,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit1_index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit1_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit1_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit1_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Definitions &amp; Intuition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit1_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit1_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Limit Properties</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit1_3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit1_3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Evaluating Limits Using Algebra</span></a>
   </div>
 </li>
@@ -409,37 +409,37 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit2_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../notes/unit2_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Instantaneous Velocity</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit2_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Definition of the Derivative</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit2_3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Derivative Function</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit2_4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Interpreting the Derivative</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit2_5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Second Derivative</span></a>
   </div>
 </li>
@@ -471,9 +471,14 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#problem-1-ranking-velocities" id="toc-problem-1-ranking-velocities" class="nav-link active" data-scroll-target="#problem-1-ranking-velocities">Problem 1: Ranking Velocities</a></li>
-  <li><a href="#problem-2-estimating-an-instantaneous-velocity" id="toc-problem-2-estimating-an-instantaneous-velocity" class="nav-link" data-scroll-target="#problem-2-estimating-an-instantaneous-velocity">Problem 2: Estimating an Instantaneous Velocity</a></li>
-  <li><a href="#problem-3-from-average-to-instantaneous" id="toc-problem-3-from-average-to-instantaneous" class="nav-link" data-scroll-target="#problem-3-from-average-to-instantaneous">Problem 3: From Average to Instantaneous</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#discussion-problems" id="toc-discussion-problems" class="nav-link" data-scroll-target="#discussion-problems">Discussion Problems</a>
+  <ul class="collapse">
+  <li><a href="#problem-1---motion-and-curvature" id="toc-problem-1---motion-and-curvature" class="nav-link" data-scroll-target="#problem-1---motion-and-curvature">Problem 1 - Motion and Curvature</a></li>
+  <li><a href="#problem-2---slope-and-shape" id="toc-problem-2---slope-and-shape" class="nav-link" data-scroll-target="#problem-2---slope-and-shape">Problem 2 - Slope and Shape</a></li>
+  <li><a href="#problem-3---signs-of-f-f-and-f" id="toc-problem-3---signs-of-f-f-and-f" class="nav-link" data-scroll-target="#problem-3---signs-of-f-f-and-f">Problem 3 - Signs of <span class="math inline">\(f\)</span>, <span class="math inline">\(f'\)</span>, and <span class="math inline">\(f''\)</span></a></li>
+  <li><a href="#problem-4---using-the-second-derivative-to-assess-estimates" id="toc-problem-4---using-the-second-derivative-to-assess-estimates" class="nav-link" data-scroll-target="#problem-4---using-the-second-derivative-to-assess-estimates">Problem 4 - Using the Second Derivative to Assess Estimates</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -481,10 +486,10 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_1.html">Instantaneous Velocity</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Instantaneous Velocity</h1>
-<p class="subtitle lead">Read Section 2.1</p>
+<h1 class="title">The Second Derivative</h1>
+<p class="subtitle lead">Read Section 2.5</p>
 </div>
 
 
@@ -501,70 +506,115 @@ window.Quarto = {
 </header>
 
 
-<!-- In the introduction to this unit, our goal was to measure how fast something was moving at a single instant in time.  immediately ran into a problem however - speed seems to require *two* points in time to measure — a change in position and a change in time. Let's make this precise, and then figure out how to push past it.
-
-If an object's position at time $t$ is given by a function $h(t)$, then the **average velocity** of the object over the interval from $t=a$ to $t=b$ is
-$$\text{average velocity on } [a,b] = \frac{h(b)-h(a)}{b-a}.$$
-This is just the familiar "change in position over change in time," and geometrically, it's the slope of the secant line connecting the points $(a,h(a))$ and $(b,h(b))$ on the graph of $h$.
-
-Average velocity is something we can always compute directly from the definition of $h(t)$ — no new ideas needed. The trouble is that it describes an *interval* of time, not an instant. So here's the key idea: what happens to the average velocity on $[a,b]$ as we let $b$ get closer and closer to $a$?
-
-As $b\to a$, the interval $[a,b]$ shrinks down toward the single instant $t=a$, and the secant line connecting $(a,h(a))$ and $(b,h(b))$ should start to look more and more like the line that just grazes the graph at the point $(a,h(a))$ — what we'll eventually call the *tangent line*. This suggests a definition:
-
-::: {#def-inst-velocity}
-## Instantaneous Velocity
-
-If an object's position at time $t$ is given by $h(t)$, then the object's **instantaneous velocity** at time $t=a$ is
-$$v(a)=\lim_{b\to a}\frac{h(b)-h(a)}{b-a},$$
-provided this limit exists.
-:::
-
-In other words, instantaneous velocity is what average velocity is "heading toward" as the length of the time interval shrinks to zero. Let's get some practice reasoning about this idea before we compute with it. -->
-<section id="problem-1-ranking-velocities" class="level3">
-<h3 class="anchored" data-anchor-id="problem-1-ranking-velocities">Problem 1: Ranking Velocities</h3>
-<p>A person throws an object up into the air from a bridge. Its height above the ground <span class="math inline">\(t\)</span> seconds after it is thrown is given by the function <span class="math display">\[h(t)=-16t^2+50t+36.\]</span> The graph of this function is shown below.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>We already have a good understanding of functions with <em>constant</em> slope. These are linear functions, and their graphs are straight lines. If the slope is positive, the function is increasing; if the slope is negative, the function is decreasing.</p>
+<p>Over the past few sections, we developed a way to measure the slope of a function when the slope is <em>not</em> constant: the derivative <span class="math inline">\(f'(x)\)</span> tells us the slope of <span class="math inline">\(f(x)\)</span> at each point. When the slope of a function is always changing, its graph is no longer a straight line. Instead, the graph bends and curves.</p>
+<p>In this section, we will measure how the slope itself is changing. Since <span class="math inline">\(f'(x)\)</span> is a function, we can take <em>its</em> derivative to find the rate of change of the slope of <span class="math inline">\(f(x)\)</span>.</p>
+<div id="def-second-deriv" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (The Second Derivative)</strong></span> The <em>second derivative</em> of <span class="math inline">\(f(x)\)</span>, written <span class="math inline">\(f''(x)\)</span>, is the derivative of <span class="math inline">\(f'(x)\)</span>: <span class="math display">\[f''(x)=\lim_{h\to 0}\frac{f'(x+h)-f'(x)}{h}.\]</span> The value <span class="math inline">\(f''(a)\)</span> measures the instantaneous rate of change of the slope of <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=a\)</span>.</p>
+</div>
+<p>Our goal is to use <span class="math inline">\(f''(x)\)</span> to understand <em>how</em> the graph of <span class="math inline">\(f(x)\)</span> is curved, in the same way that we use <span class="math inline">\(f'(x)\)</span> to understand where <span class="math inline">\(f(x)\)</span> is increasing or decreasing.</p>
+</section>
+<section id="discussion-problems" class="level1">
+<h1>Discussion Problems</h1>
+<section id="problem-1---motion-and-curvature" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1---motion-and-curvature">Problem 1 - Motion and Curvature</h2>
+<p>Sketch a graph for each of the functions described below.</p>
+<ol type="a">
+<li>A car is stopped at a stoplight. The light turns green and the car begins to accelerate straight ahead. Let <span class="math inline">\(A(t)\)</span> be the distance the car travels <span class="math inline">\(t\)</span> seconds after the light turns green.</li>
+<li>A car is headed straight towards the same stoplight on the cross street. The light turns red and the car begins to decelerate. Let <span class="math inline">\(B(t)\)</span> be the car’s distance from the stoplight <span class="math inline">\(t\)</span> seconds after the light turns red.</li>
+<li>A cyclist is passing through the same intersection as the cars. The cyclist pays no attention to the color of the light and cruises through the intersection with no acceleration or deceleration. Let <span class="math inline">\(C(t)\)</span> be the distance the cyclist travels <span class="math inline">\(t\)</span> seconds after the light changes.</li>
+</ol>
+</section>
+<section id="problem-2---slope-and-shape" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2---slope-and-shape">Problem 2 - Slope and Shape</h2>
+<p>Each row of the table contains conditions on <span class="math inline">\(f'(x)\)</span> and <span class="math inline">\(f''(x)\)</span> which are true on an interval. Fill in the blanks with one or two words that describe what these conditions tell us about the slope of <span class="math inline">\(f(x)\)</span> and the graph of <span class="math inline">\(f(x)\)</span>. Then draw a curve showing the shape of the graph of <span class="math inline">\(f(x)\)</span> that fits this description.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">If …</th>
+<th style="text-align: center;">then the slope of <span class="math inline">\(f(x)\)</span> is …</th>
+<th style="text-align: center;">the graph of <span class="math inline">\(f(x)\)</span> is …</th>
+<th style="text-align: center;">and looks like …</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f'(x)=0\)</span></td>
+<td style="text-align: center;">__________</td>
+<td style="text-align: center;">__________</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(f'(x)&gt;0\)</span> and <span class="math inline">\(f''(x)=0\)</span></td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f'(x)&lt;0\)</span> and <span class="math inline">\(f''(x)=0\)</span></td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(f'(x)&gt;0\)</span> and <span class="math inline">\(f''(x)&gt;0\)</span></td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f'(x)&lt;0\)</span> and <span class="math inline">\(f''(x)&gt;0\)</span></td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(f'(x)&gt;0\)</span> and <span class="math inline">\(f''(x)&lt;0\)</span></td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f'(x)&lt;0\)</span> and <span class="math inline">\(f''(x)&lt;0\)</span></td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;">__________ and __________</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="problem-3---signs-of-f-f-and-f" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3---signs-of-f-f-and-f">Problem 3 - Signs of <span class="math inline">\(f\)</span>, <span class="math inline">\(f'\)</span>, and <span class="math inline">\(f''\)</span></h2>
+<p>The function <span class="math inline">\(f(x)\)</span> is shown in the graph below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/unit2_1_instvel.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption><a href="https://www.desmos.com/calculator/mw9d2h6lyj">Click here to open this graph in Desmos</a></figcaption>
+<p><img src="images/unit2_5_graph1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Graph of <span class="math inline">\(f(x)\)</span></figcaption>
 </figure>
 </div>
-<ol type="a">
-<li><p>Rank the following from least to greatest:</p>
-<ul>
-<li>A. The average velocity on <span class="math inline">\(0\leq t\leq 1\)</span></li>
-<li>B. The average velocity on <span class="math inline">\(2\leq t\leq 3\)</span></li>
-<li>C. The instantaneous velocity at <span class="math inline">\(t=0\)</span></li>
-<li>D. The instantaneous velocity at <span class="math inline">\(t=1\)</span></li>
-<li>E. The instantaneous velocity at <span class="math inline">\(t=2\)</span></li>
-<li>F. The instantaneous velocity at <span class="math inline">\(t=3\)</span></li>
-</ul></li>
-<li><p>Is there ever a moment when the velocity is <span class="math inline">\(0\)</span>? If so, when?</p></li>
-</ol>
+<p>Determine if <span class="math inline">\(f\)</span>, <span class="math inline">\(f'\)</span>, and <span class="math inline">\(f''\)</span> are positive, negative, or zero at each of the four labeled points.</p>
 </section>
-<section id="problem-2-estimating-an-instantaneous-velocity" class="level3">
-<h3 class="anchored" data-anchor-id="problem-2-estimating-an-instantaneous-velocity">Problem 2: Estimating an Instantaneous Velocity</h3>
-<p>Using the same height function from Problem 2, <span class="math display">\[h(t)=-16t^2+50t+36,\]</span> shown again below,</p>
-<p><img src="images/unit2_1_instvel.png" class="img-fluid" style="width:60.0%"></p>
+<section id="problem-4---using-the-second-derivative-to-assess-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4---using-the-second-derivative-to-assess-estimates">Problem 4 - Using the Second Derivative to Assess Estimates</h2>
+<p>The CFCs in the atmosphere above the US have been reduced from a high of 1915 parts per trillion (ppt) in 2000 to 1640 ppt in 2014. The reduction over this time has been approximately linear. Let <span class="math inline">\(C(t)\)</span> be the concentration of CFCs in ppt <span class="math inline">\(t\)</span> years after 2000.</p>
 <ol type="a">
-<li><p>Compute the average velocity of the object over each of the following intervals:</p>
-<ul>
-<li><span class="math inline">\(1\leq t\leq 1.1\)</span></li>
-<li><span class="math inline">\(1\leq t\leq 1.01\)</span></li>
-<li><span class="math inline">\(1\leq t\leq 1.001\)</span></li>
-<li><span class="math inline">\(0.9\leq t\leq 1\)</span></li>
-<li><span class="math inline">\(0.99\leq t\leq 1\)</span></li>
-<li><span class="math inline">\(0.999\leq t\leq 1\)</span></li>
-</ul></li>
-<li><p>Based on your answers to part (a), what do you think the instantaneous velocity of the object is at <span class="math inline">\(t=1\)</span>?</p></li>
+<li>Find <span class="math inline">\(C(14)\)</span>.</li>
+<li>Estimate <span class="math inline">\(C'(14)\)</span>.</li>
+<li>According to the information given, what is a formula approximating <span class="math inline">\(C(t)\)</span> on the interval <span class="math inline">\(0\leq t\leq 14\)</span>?</li>
+<li>Use your formula to approximate <span class="math inline">\(C(20)\)</span>.</li>
+<li>Suppose that further analysis shows that <span class="math inline">\(C''(t)&lt;0\)</span> on the interval <span class="math inline">\(14\leq t\leq 20\)</span>. Is your estimate from part d too high or too low? Explain.</li>
 </ol>
-</section>
-<section id="problem-3-from-average-to-instantaneous" class="level3">
-<h3 class="anchored" data-anchor-id="problem-3-from-average-to-instantaneous">Problem 3: From Average to Instantaneous</h3>
-<p>Continuing with Problem 3, compute the value of the following limit: <span class="math display">\[\lim_{t\to 1}\frac{h(t)-h(1)}{t-1}\]</span></p>
-<p>Explain the significance of the value you found — how does it relate to your answers in Problem 3?</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
