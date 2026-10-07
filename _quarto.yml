@@ -56,6 +56,8 @@ website:
               href: notes/unit2_4.qmd
             - text: "The Second Derivative"
               href: notes/unit2_5.qmd  
+            - text: "Differentiability"
+              href: notes/unit2_6.qmd
         - section: "Unit 3: Computing Derivatives"
           contents:
           #  - text: "Overview"

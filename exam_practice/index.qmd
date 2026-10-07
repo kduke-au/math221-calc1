@@ -3,4 +3,18 @@ title: 'Practice Exam Problems'
 sidebar: practice
 ---
 
-Content coming soon.
+See the [old exam archive](https://sites.google.com/view/aucalculus1/home) for old Calc 1 exams to use as practice exam problems. 
+
+As you prepare for exams, remember:
+
+- The Calc 1 instructors change from semester to semester, so the focus of the exam content may change a little as well. _Most_ of the old exams were written based on the textbook we currently use (or maybe an older edition). The exam coverage is usually about the same as it is this semester:
+
+    - Exam 1: Ch.1 & Ch. 2
+    - Exam 2: Ch.3 & Ch. 4
+    - Final: Ch. 1--6 
+
+    Your exams this semester will reflect what we have focused on in class.
+
+- One significant difference this semester is that *calculators are not allowed* during in-class exams. So, if you feel like you would need a calculator to complete a certain problem, expect something a little different this semester. A similar problem may be asked in a different way so that a calculator is not required.
+- Some of the exams have answer keys. Don't look at the answer keys! When you complete a problem, make sure you can explain both _how_ to do it and _why_ your approach is correct. You should be confident that your answer is correct without having to look at the answer key. If you are not sure, talk to me or post a question on our discussion board!
+- On the midterms, you may have a 3in x 5in note card (or a similar sized piece of paper) with whatever notes you would like on the front and back. For the final, you may have one 8.5in x 11in piece of paper with notes on one side.
