@@ -75,28 +75,29 @@ website:
             # - text: "Overview"
             #   href: notes/unit6/index.qmd
 
-    - id: practice
-      title: "Practice Exam Problems"
-      style: "docked"
-      contents:
-        - text: "Home"
-          href: exam_practice/index.qmd
-        - section: "By Topic"
-          contents:
-            - text: "Unit 0: Functions"
-              href: exam_practice/unit0_practice.qmd
-            - text: "Unit 1: Limits & Continuity"
-              href: exam_practice/unit1_practice.qmd
-            - text: "The Derivative"
-              href: exam_practice/unit2_practice.qmd
-            - text: "Computational Rules"
-              href: exam_practice/unit3_practice.qmd
-            - text: "Applications of Derivatives"
-              href: exam_practice/unit4_practice.qmd
-            - text: "The Definite Integral"
-              href: exam_practice/unit5_practice.qmd
-            - text: "Antiderivatives"
-              href: exam_practice/unit6_practice.qmd
+#    - id: practice
+#      title: "Practice Exam Problems"
+#      style: "docked"
+#      contents:
+#        - text: "Home"
+#          href: exam_practice/index.qmd
+#        - section: "By Topic"
+#          contents:
+#            - text: "Unit 0: Functions"
+#              href: exam_practice/unit0_practice.qmd
+#            - text: "Unit 1: Limits & Continuity"
+#              href: exam_practice/unit1_practice.qmd
+#            - text: "The Derivative"
+#              href: exam_practice/unit2_practice.qmd
+#            - text: "Computational Rules"
+#              href: exam_practice/unit3_practice.qmd
+#            - text: "Applications of Derivatives"
+#              href: exam_practice/unit4_practice.qmd
+#            - text: "The Definite Integral"
+#              href: exam_practice/unit5_practice.qmd
+#            - text: "Antiderivatives"
+#              href: exam_practice/unit6_practice.qmd
+
   drafts:
     - exam_practice/unit0_practice.qmd
     - exam_practice/unit1_practice.qmd

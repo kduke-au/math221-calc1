@@ -1,6 +1,6 @@
 ---
 title: 'Practice Exam Problems'
-sidebar: practice
+#sidebar: practice
 ---
 
 See the [old exam archive](https://sites.google.com/view/aucalculus1/home) for old Calc 1 exams to use as practice exam problems. 
