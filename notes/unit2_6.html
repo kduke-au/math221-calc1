@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Second Derivative – Math 221 - Calculus I</title>
+<title>Differentiability – Math 221 - Calculus I</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -316,7 +316,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_5.html">The Second Derivative</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_6.html">Differentiability</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -439,13 +439,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_5.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notes/unit2_5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Second Derivative</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/unit2_6.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/unit2_6.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Differentiability</span></a>
   </div>
 </li>
@@ -480,10 +480,11 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#discussion-problems" id="toc-discussion-problems" class="nav-link" data-scroll-target="#discussion-problems">Discussion Problems</a>
   <ul class="collapse">
-  <li><a href="#problem-1---motion-and-curvature" id="toc-problem-1---motion-and-curvature" class="nav-link" data-scroll-target="#problem-1---motion-and-curvature">Problem 1 - Motion and Curvature</a></li>
-  <li><a href="#problem-2---slope-and-shape" id="toc-problem-2---slope-and-shape" class="nav-link" data-scroll-target="#problem-2---slope-and-shape">Problem 2 - Slope and Shape</a></li>
-  <li><a href="#problem-3---signs-of-f-f-and-f" id="toc-problem-3---signs-of-f-f-and-f" class="nav-link" data-scroll-target="#problem-3---signs-of-f-f-and-f">Problem 3 - Signs of <span class="math inline">\(f\)</span>, <span class="math inline">\(f'\)</span>, and <span class="math inline">\(f''\)</span></a></li>
-  <li><a href="#problem-4---using-the-second-derivative-to-assess-estimates" id="toc-problem-4---using-the-second-derivative-to-assess-estimates" class="nav-link" data-scroll-target="#problem-4---using-the-second-derivative-to-assess-estimates">Problem 4 - Using the Second Derivative to Assess Estimates</a></li>
+  <li><a href="#problem-1---continuity-and-differentiability" id="toc-problem-1---continuity-and-differentiability" class="nav-link" data-scroll-target="#problem-1---continuity-and-differentiability">Problem 1 - Continuity and Differentiability</a></li>
+  <li><a href="#problem-2---reading-continuity-and-differentiability-from-a-graph" id="toc-problem-2---reading-continuity-and-differentiability-from-a-graph" class="nav-link" data-scroll-target="#problem-2---reading-continuity-and-differentiability-from-a-graph">Problem 2 - Reading Continuity and Differentiability from a Graph</a></li>
+  <li><a href="#problem-3---gravity-above-and-below-the-earths-surface" id="toc-problem-3---gravity-above-and-below-the-earths-surface" class="nav-link" data-scroll-target="#problem-3---gravity-above-and-below-the-earths-surface">Problem 3 - Gravity Above and Below the Earth’s Surface</a></li>
+  <li><a href="#problem-4---zooming-in" id="toc-problem-4---zooming-in" class="nav-link" data-scroll-target="#problem-4---zooming-in">Problem 4 - Zooming In</a></li>
+  <li><a href="#problem-5---differentiability-of-a-piecewise-function" id="toc-problem-5---differentiability-of-a-piecewise-function" class="nav-link" data-scroll-target="#problem-5---differentiability-of-a-piecewise-function">Problem 5 - Differentiability of a Piecewise Function</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -492,10 +493,10 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_5.html">The Second Derivative</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit2_index.html">Unit 2: The Derivative</a></li><li class="breadcrumb-item"><a href="../notes/unit2_6.html">Differentiability</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">The Second Derivative</h1>
-<p class="subtitle lead">Read Section 2.5</p>
+<h1 class="title">Differentiability</h1>
+<p class="subtitle lead">Read Section 2.6</p>
 </div>
 
 
@@ -514,109 +515,82 @@ window.Quarto = {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>We already have a good understanding of functions with <em>constant</em> slope. These are linear functions. If the slope is positive, the function is increasing; if the slope is negative, the function is decreasing.</p>
-<p>Over the past few sections, we developed a way to measure the slope of a function when the slope is <em>not</em> constant. The derivative <span class="math inline">\(f'(x)\)</span> tells us the slope of <span class="math inline">\(f(x)\)</span> at each point. When the slope of a function is always changing, the graph is no longer a straight line, it will bend and curve.</p>
-<p>In this section, we discuss <span class="math inline">\(f''(x)\)</span>, the <em>second derivative of <span class="math inline">\(f(x)\)</span></em>. Since <span class="math inline">\(f'(x)\)</span> is itself a function, we can take <em>its</em> derivative to find the rate of change of the slope of <span class="math inline">\(f(x)\)</span>.</p>
-<div id="def-second-deriv" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (The Second Derivative)</strong></span> The <em>second derivative</em> of <span class="math inline">\(f(x)\)</span>, written <span class="math inline">\(f''(x)\)</span>, is the derivative of <span class="math inline">\(f'(x)\)</span>. The value <span class="math inline">\(f''(a)\)</span> measures the instantaneous rate of change of the slope of <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=a\)</span>.</p>
+<div id="def-differentiable" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Differentiability at a Point)</strong></span> A function <span class="math inline">\(f(x)\)</span> is <em>differentiable at <span class="math inline">\(x=a\)</span></em> if the limit in the definition of <span class="math inline">\(f'(a)\)</span>, <span class="math display">\[
+f'(a) = \lim_{h\to 0} \frac{f(a+h)-f(a)}{h},
+\]</span> exists. If this limit does not exist, then <span class="math inline">\(f(x)\)</span> is <em>not differentiable at <span class="math inline">\(x=a\)</span></em>.</p>
 </div>
-<p>While the values of <span class="math inline">\(f'(x)\)</span> tell us where <span class="math inline">\(f(x)\)</span> is increasing, decreasing or constant, the values of <span class="math inline">\(f''(x)\)</span> will tell us where <span class="math inline">\(f'(x)\)</span> is increasing, decreasing or constant. This will allow us to use <span class="math inline">\(f''(x)\)</span> to determine how <span class="math inline">\(f(x)\)</span> is curved. We call this property the <em>concavity</em> of <span class="math inline">\(f(x)\)</span>.</p>
+<p>If <span class="math inline">\(f(x)\)</span> is differentiable at every point in an interval, we say <span class="math inline">\(f(x)\)</span> is differentiable on that interval. In this section, we explore how differentiability is related to continuity, and how we can recognize from a graph or a formula the points where a function fails to be differentiable.</p>
 </section>
 <section id="discussion-problems" class="level1">
 <h1>Discussion Problems</h1>
-<section id="problem-1---motion-and-curvature" class="level2">
-<h2 class="anchored" data-anchor-id="problem-1---motion-and-curvature">Problem 1 - Motion and Curvature</h2>
-<p>Sketch a graph for each of the functions described below.</p>
+<section id="problem-1---continuity-and-differentiability" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1---continuity-and-differentiability">Problem 1 - Continuity and Differentiability</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Recall: Continuity at a Point
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A function <span class="math inline">\(f(x)\)</span> is <em>continuous at <span class="math inline">\(x=a\)</span></em> if <span class="math inline">\(f(a)\)</span> is defined and <span class="math display">\[
+\lim_{x\to a} f(x) = f(a).
+\]</span></p>
+</div>
+</div>
+<p>Sketch the graph of a function that satisfies each description below. If you think such a graph is not possible, try to explain why.</p>
 <ol type="a">
-<li>A car is stopped at a stoplight. The light turns green and the car begins to accelerate straight ahead. Let <span class="math inline">\(A(t)\)</span> be the distance the car travels <span class="math inline">\(t\)</span> seconds after the light turns green.</li>
-<li>A car is headed straight towards the same stoplight on the cross street. The light turns red and the car begins to decelerate. Let <span class="math inline">\(B(t)\)</span> be the car’s distance from the stoplight <span class="math inline">\(t\)</span> seconds after the light turns red.</li>
-<li>A cyclist is passing through the same intersection as the cars. The cyclist pays no attention to the color of the light and cruises through the intersection with no acceleration or deceleration. Let <span class="math inline">\(C(t)\)</span> be the distance the cyclist travels <span class="math inline">\(t\)</span> seconds after the light changes.</li>
+<li>A function <span class="math inline">\(f(x)\)</span> that is continuous at <span class="math inline">\(x=a\)</span> but <strong>not</strong> differentiable at <span class="math inline">\(x=a\)</span>.</li>
+<li>A function <span class="math inline">\(f(x)\)</span> that is differentiable at <span class="math inline">\(x=a\)</span> but <strong>not</strong> continuous at <span class="math inline">\(x=a\)</span>.</li>
 </ol>
 </section>
-<section id="problem-2---slope-and-shape" class="level2">
-<h2 class="anchored" data-anchor-id="problem-2---slope-and-shape">Problem 2 - Slope and Shape</h2>
-<p>Each row of the table contains conditions on <span class="math inline">\(f'(x)\)</span> and <span class="math inline">\(f''(x)\)</span> which are true on an interval. Fill in the blanks with one or two words that describe what these conditions tell us about the slope of <span class="math inline">\(f(x)\)</span> and the graph of <span class="math inline">\(f(x)\)</span>. Then draw a curve showing the shape of the graph of <span class="math inline">\(f(x)\)</span> that fits this description.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">If …</th>
-<th style="text-align: center;">then the slope of <span class="math inline">\(f(x)\)</span> is …</th>
-<th style="text-align: center;">the graph of <span class="math inline">\(f(x)\)</span> is …</th>
-<th style="text-align: center;">and looks like …</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(f'(x)=0\)</span></td>
-<td style="text-align: center;">__________</td>
-<td style="text-align: center;">__________</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(f'(x)&gt;0\)</span> and <span class="math inline">\(f''(x)=0\)</span></td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(f'(x)&lt;0\)</span> and <span class="math inline">\(f''(x)=0\)</span></td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(f'(x)&gt;0\)</span> and <span class="math inline">\(f''(x)&gt;0\)</span></td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(f'(x)&lt;0\)</span> and <span class="math inline">\(f''(x)&gt;0\)</span></td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(f'(x)&gt;0\)</span> and <span class="math inline">\(f''(x)&lt;0\)</span></td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(f'(x)&lt;0\)</span> and <span class="math inline">\(f''(x)&lt;0\)</span></td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;">__________ and __________</td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="problem-3---signs-of-f-f-and-f" class="level2">
-<h2 class="anchored" data-anchor-id="problem-3---signs-of-f-f-and-f">Problem 3 - Signs of <span class="math inline">\(f\)</span>, <span class="math inline">\(f'\)</span>, and <span class="math inline">\(f''\)</span></h2>
+<section id="problem-2---reading-continuity-and-differentiability-from-a-graph" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2---reading-continuity-and-differentiability-from-a-graph">Problem 2 - Reading Continuity and Differentiability from a Graph</h2>
 <p>The function <span class="math inline">\(f(x)\)</span> is shown in the graph below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Graph5a_1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="images/Graph5B_1.png" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Graph of <span class="math inline">\(f(x)\)</span></figcaption>
 </figure>
 </div>
-<p>Determine if <span class="math inline">\(f\)</span>, <span class="math inline">\(f'\)</span>, and <span class="math inline">\(f''\)</span> are positive, negative, or zero at each of the four labeled points.</p>
-</section>
-<section id="problem-4---using-the-second-derivative-to-assess-estimates" class="level2">
-<h2 class="anchored" data-anchor-id="problem-4---using-the-second-derivative-to-assess-estimates">Problem 4 - Using the Second Derivative to Assess Estimates</h2>
-<p>The CFCs in the atmosphere above the US have been reduced from a high of 1915 parts per trillion (ppt) in 2000 to 1640 ppt in 2014. The reduction over this time has been approximately linear. Let <span class="math inline">\(C(t)\)</span> be the concentration of CFCs in ppt <span class="math inline">\(t\)</span> years after 2000.</p>
 <ol type="a">
-<li>Find <span class="math inline">\(C(14)\)</span>.</li>
-<li>Estimate <span class="math inline">\(C'(14)\)</span>.</li>
-<li>According to the information given, what is a formula approximating <span class="math inline">\(C(t)\)</span> on the interval <span class="math inline">\(0\leq t\leq 14\)</span>?</li>
-<li>Use your formula to approximate <span class="math inline">\(C(20)\)</span>.</li>
-<li>Suppose that further analysis shows that <span class="math inline">\(C''(t)&lt;0\)</span> on the interval <span class="math inline">\(14\leq t\leq 20\)</span>. Is your estimate from part d too high or too low? Explain.</li>
+<li>List all <span class="math inline">\(x\)</span> values for which <span class="math inline">\(f(x)\)</span> is not continuous.</li>
+<li>List all <span class="math inline">\(x\)</span> values for which <span class="math inline">\(f(x)\)</span> is not differentiable.</li>
+</ol>
+</section>
+<section id="problem-3---gravity-above-and-below-the-earths-surface" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3---gravity-above-and-below-the-earths-surface">Problem 3 - Gravity Above and Below the Earth’s Surface</h2>
+<p>The acceleration due to gravity, <span class="math inline">\(g\)</span>, varies with height above the surface of the earth, in a certain way. If you go down below the surface of the earth, <span class="math inline">\(g\)</span> varies in a different way. It can be shown that <span class="math inline">\(g\)</span> is given by <span class="math display">\[
+g = \begin{cases}
+\dfrac{GMr}{R^3} &amp; \text{for } r&lt;R \\[2ex]
+\dfrac{GM}{r^2} &amp; \text{for } r\geq R,
+\end{cases}
+\]</span> where <span class="math inline">\(R\)</span> is the radius of the earth, <span class="math inline">\(M\)</span> is the mass of the earth, <span class="math inline">\(G\)</span> is the gravitational constant, and <span class="math inline">\(r\)</span> is the distance to the center of the earth.</p>
+<ol type="a">
+<li>Sketch a graph of <span class="math inline">\(g\)</span> against <span class="math inline">\(r\)</span>.</li>
+<li>Is <span class="math inline">\(g\)</span> a continuous function of <span class="math inline">\(r\)</span>? Explain your reasoning.</li>
+<li>Is <span class="math inline">\(g\)</span> a differentiable function of <span class="math inline">\(r\)</span>? Explain your reasoning.</li>
+</ol>
+</section>
+<section id="problem-4---zooming-in" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4---zooming-in">Problem 4 - Zooming In</h2>
+<p>Graph the function <span class="math inline">\(f(x)=\sqrt{x^2+10^{-35}}\)</span> in <a href="https://www.desmos.com/calculator">Desmos</a>. Do you think the function is differentiable at <span class="math inline">\(x=0\)</span>? Explain your reasoning.</p>
+</section>
+<section id="problem-5---differentiability-of-a-piecewise-function" class="level2">
+<h2 class="anchored" data-anchor-id="problem-5---differentiability-of-a-piecewise-function">Problem 5 - Differentiability of a Piecewise Function</h2>
+<p>Let <span class="math display">\[
+f(x) = \begin{cases}
+(x+1)^2 &amp; \text{if } x\leq 1 \\
+4x-2 &amp; \text{if } x&gt;1
+\end{cases}
+\]</span></p>
+<ol type="a">
+<li>Using the limit definition of the derivative, find a formula for <span class="math inline">\(f'(x)\)</span> when <span class="math inline">\(x&lt;1\)</span>.</li>
+<li>Find a formula for <span class="math inline">\(f'(x)\)</span> when <span class="math inline">\(x&gt;1\)</span>.</li>
+<li>True or False: <span class="math inline">\(f'(1)=4\)</span>. Explain your reasoning.</li>
 </ol>
 
 

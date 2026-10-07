@@ -12,576 +12,63 @@
     ]
   },
   {
-    "objectID": "notes/unit2_4.html",
-    "href": "notes/unit2_4.html",
-    "title": "Interpreting the Derivative",
-    "section": "",
-    "text": "When \\(f(t)\\) measures the position of an object in motion at time \\(t\\), the instantaneous rate of change \\(f'(a)\\) has a familiar meaning: it is the object’s instantaneous velocity at the moment \\(t=a\\). But derivatives show up in many contexts that have nothing to do with motion. What does the instantaneous rate of change mean in general when \\(f(x)\\) models the relationship between two variables \\(x\\) and \\(y\\)?\nIn general, the derivative of \\(y=f(x)\\) measures how sensitive the output \\(y\\) is to small, local changes in the input \\(x\\). If \\(f'(a)\\) is large in magnitude, then even a small change in \\(x\\) near \\(x=a\\) produces a large change in \\(y\\). If \\(f'(a)\\) is close to \\(0\\), then small changes in \\(x\\) near \\(x=a\\) barely affect \\(y\\) at all.\n\n\nThis gives us a practical way to interpret \\(f'(a)\\) in any context. We use it to estimate how much \\(y\\) changes when \\(x\\) changes by a small amount. Since \\(f'(a)\\) is the limit of average rates of change \\(\\frac{\\Delta y}{\\Delta x}\\) over smaller and smaller intervals around \\(x=a\\), for a small change \\(\\Delta x\\) we expect \\[\\frac{\\Delta y}{\\Delta x}\\approx f'(a).\\] Multiplying both sides by \\(\\Delta x\\) gives us the key relationship for this section.\n\n\n\n\n\n\nNotePractical Interpretation of \\(f'(a)\\)\n\n\n\nIf \\(x\\) changes from \\(x=a\\) to \\(x=a+\\Delta x\\), where \\(\\Delta x\\) is small, then the corresponding change in \\(y=f(x)\\) is approximately \\[\\Delta y \\approx f'(a)\\,\\Delta x.\\] In particular, the units of \\(f'(a)\\) are the units of \\(y\\) per unit of \\(x\\).\n\n\nKeep in mind that this is a local estimate: it is only reliable when \\(\\Delta x\\) is small, because the rate of change of \\(f(x)\\) may be quite different at points far away from \\(x=a\\).\nHow small does \\(\\Delta x\\) need to be? As we will see, that depends on the context and how sensitive we expect the rate of change to be to changes in \\(x\\).",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Interpreting the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_4.html#practical-interpretation-of-the-derivative",
-    "href": "notes/unit2_4.html#practical-interpretation-of-the-derivative",
-    "title": "Interpreting the Derivative",
-    "section": "",
-    "text": "This gives us a practical way to interpret \\(f'(a)\\) in any context. We use it to estimate how much \\(y\\) changes when \\(x\\) changes by a small amount. Since \\(f'(a)\\) is the limit of average rates of change \\(\\frac{\\Delta y}{\\Delta x}\\) over smaller and smaller intervals around \\(x=a\\), for a small change \\(\\Delta x\\) we expect \\[\\frac{\\Delta y}{\\Delta x}\\approx f'(a).\\] Multiplying both sides by \\(\\Delta x\\) gives us the key relationship for this section.\n\n\n\n\n\n\nNotePractical Interpretation of \\(f'(a)\\)\n\n\n\nIf \\(x\\) changes from \\(x=a\\) to \\(x=a+\\Delta x\\), where \\(\\Delta x\\) is small, then the corresponding change in \\(y=f(x)\\) is approximately \\[\\Delta y \\approx f'(a)\\,\\Delta x.\\] In particular, the units of \\(f'(a)\\) are the units of \\(y\\) per unit of \\(x\\).\n\n\nKeep in mind that this is a local estimate: it is only reliable when \\(\\Delta x\\) is small, because the rate of change of \\(f(x)\\) may be quite different at points far away from \\(x=a\\).\nHow small does \\(\\Delta x\\) need to be? As we will see, that depends on the context and how sensitive we expect the rate of change to be to changes in \\(x\\).",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Interpreting the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_4.html#problem-1---interpreting-a-derivative",
-    "href": "notes/unit2_4.html#problem-1---interpreting-a-derivative",
-    "title": "Interpreting the Derivative",
-    "section": "Problem 1 - Interpreting a Derivative",
-    "text": "Problem 1 - Interpreting a Derivative\nLet \\(r(t)\\) be the total amount of rain (in inches) that had fallen in D.C. during the \\(t\\) hours following noon on a particular September day. Suppose \\(r'(4)=2\\). Provide a reasonable practical interpretation for this equation by filling in the blanks below:\n\nApproximately __________ inches of rain fell between __________ and __________.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Interpreting the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_4.html#problem-2---units-of-the-derivative",
-    "href": "notes/unit2_4.html#problem-2---units-of-the-derivative",
-    "title": "Interpreting the Derivative",
-    "section": "Problem 2 - Units of the Derivative",
-    "text": "Problem 2 - Units of the Derivative\nLet \\(g(v)\\) be the fuel efficiency, in miles per gallon, of a car going \\(v\\) miles per hour.\n\nWhat are the units of \\(g'(v)\\)?\nWhat is a practical interpretation of the equation \\(g'(55)=-0.54\\)?",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Interpreting the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_4.html#problem-3---interpreting-function-notation",
-    "href": "notes/unit2_4.html#problem-3---interpreting-function-notation",
-    "title": "Interpreting the Derivative",
-    "section": "Problem 3 - Interpreting Function Notation",
-    "text": "Problem 3 - Interpreting Function Notation\nLet \\(W(h)\\) be an invertible function that models how many gallons of water an oak tree of height \\(h\\) feet consumes on a hot summer day. Give practical interpretations for each of the following equations.\n\n\\(W(50)=70\\)\n\\(W^{-1}(60)=40\\)\n\\(W'(5)=3\\)\n\\((W^{-1})'(20)=0.5\\)",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Interpreting the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_4.html#problem-4---translating-information-into-notation",
-    "href": "notes/unit2_4.html#problem-4---translating-information-into-notation",
-    "title": "Interpreting the Derivative",
-    "section": "Problem 4 - Translating Information into Notation",
-    "text": "Problem 4 - Translating Information into Notation\nAs an object travels away from earth, the weight of the object decreases. Let \\(w=f(d)\\) be the weight of an object, in Newtons, at a distance of \\(d\\) kilometers above the earth’s surface.\nSuppose that an object 800 km above the surface of the earth weighs 700 Newtons. When the object travels one km further, the weight decreases by about 0.2 Newtons. Which of the following mathematical statements are consistent with this information?\n\n\n\\(f(800)=700\\)\n\\(f(700)=800\\)\n\\(f^{-1}(700)=800\\)\n\\(f'(800)=-0.2\\)\n\\(f'(700)=-0.2\\)\n\\(f'(800)=0.2\\)\n\\((f^{-1})'(0.2)=-800\\)\n\\((f^{-1})'(800)=-5\\)\n\\((f^{-1})'(700)=-5\\)",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Interpreting the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_2.html",
-    "href": "notes/unit2_2.html",
-    "title": "Definition of the Derivative",
-    "section": "",
-    "text": "Today, we will generalize our idea of instantaneous velocity. Given any function \\(f(x)\\), we can try to measure its instantaneous rate of change at a given point \\(x=a\\) by computing its average rate of change over smaller and smaller intervals around \\(x=a\\).\nAs the width of these intervals shrinks down to \\(0\\), if the values of the average rate of change appear to be approaching some real number \\(m\\), we will take this value to be our instantaneous rate of change. We call this value the derivative of \\(f(x)\\) at \\(x=a\\) and will use the notation \\(f'(a)\\) to represent it symbolically.\nAs we saw with instantaneous velocity, we can write this definition of \\(f'(a)\\) precisely in terms of limits.\n\nDefinition 1 (Derivative at a Point) The derivative of \\(f(x)\\) at \\(x=a\\), or \\(f'(a)\\), is\n\\[f'(a)=\\lim_{x\\to a}\\frac{f(x)-f(a)}{x-a}\\]\n\nInstead of writing this limit in terms of a point \\(x\\) that is getting closer and closer to \\(a\\) (from both sides), we could also write it in terms of the width (and direction) of the interval on which we are computing the average rate of change. This is equivalent to a change of variables in the previous formula. Letting \\(h=x-a\\), we get:\n\nDefinition 2 (Derivative at a Point - Interval Version) \\[ f'(a)=\\lim_{h\\to 0}\\frac{f(a+h)-f(a)}{h}\\]",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Definition of the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_2.html#problem-1---derivatives-as-slope",
-    "href": "notes/unit2_2.html#problem-1---derivatives-as-slope",
-    "title": "Definition of the Derivative",
-    "section": "Problem 1 - Derivatives as Slope",
-    "text": "Problem 1 - Derivatives as Slope\nThe function \\(f(x)\\) is shown in the graph below.\n\n\n\nGraph of \\(f(x)\\)\n\n\n\nWithout computing anything, try to put the following values in order from least to greatest: \\(f'(0)\\), \\(f'(1)\\), \\(f'(2)\\), \\(f'(3)\\), \\(f'(4)\\), \\(f'(5)\\).\nVerify your work by estimating the values:\n\n\n\n\\(a\\)\n0\n1\n2\n3\n4\n5\n\n\n\n\n\\(f'(a)\\)\n\n\n\n\n\n\n\n\n\nHere is a link to this graph in Desmos. Pick one of the points and zoom in on it. What do you notice happens to the graph as you zoom in?\nUse this observation to help you guess the precise value of \\(f'(a)\\) at this point.\nUse the value you found for \\(f'(a)\\) to write the equation of the line tangent to \\(f(x)\\) at \\(x=a\\). Add it to the graph of \\(f(x)\\) to check your work.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Definition of the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_2.html#problem-2---estimating-derivatives",
-    "href": "notes/unit2_2.html#problem-2---estimating-derivatives",
-    "title": "Definition of the Derivative",
-    "section": "Problem 2 - Estimating Derivatives",
-    "text": "Problem 2 - Estimating Derivatives\nLet \\(f(x)=x^x\\). Using the definition of the derivative and an appropriate table of values, estimate \\(f'(2)\\).\nDo enough computations so that you are reasonably confident your estimate is accurate to 3 decimal places.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Definition of the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_2.html#problem-3---derivatives-as-rates-of-change",
-    "href": "notes/unit2_2.html#problem-3---derivatives-as-rates-of-change",
-    "title": "Definition of the Derivative",
-    "section": "Problem 3 - Derivatives as Rates of Change",
-    "text": "Problem 3 - Derivatives as Rates of Change\nThe data below shows the population for a country over the past ten years in millions:\n\n\n\nTime\n10 Years Ago\n5 Years Ago\nCurrent\n\n\n\n\nPop. (in millions)\n472.4\n496.0\n520.8\n\n\n\n\nAssuming that the population is growing exponentially, find a model \\(P(t)\\) for the population (in millions) \\(t\\) years from now. Write your model in two different ways, \\[P(t)=ab^t \\text{ and } P(t)=ae^{rt}.\\]\nCalculate \\(\\dfrac{P(1)-P(0)}{1-0}\\). Explain what this value represents in the context of the problem.\nEstimate the value of \\(P'(0)\\). Provide reasonable evidence that your estimate is accurate to at least 3 decimal places. Explain what this value means in this context and how it is different from your answer to part b.\nDivide your answers from part b and part c by \\(P(0)\\). What do these values represent in this context?",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Definition of the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_2.html#problem-4---derivatives-using-limits",
-    "href": "notes/unit2_2.html#problem-4---derivatives-using-limits",
-    "title": "Definition of the Derivative",
-    "section": "Problem 4 - Derivatives Using Limits",
-    "text": "Problem 4 - Derivatives Using Limits\nUse the limit definition of the derivative to compute each of the following:\n\n\\(f(x)=1-2x\\), \\(f'(10)\\)\n\\(f(x)=x^2+x\\), \\(f'(-2)\\)\n\\(f(x)=\\frac{1}{x+1}\\), \\(f'(1)\\)\n\\(f(x)=\\sqrt{x}\\), \\(f'(9)\\)",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "Definition of the Derivative"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_index.html",
-    "href": "notes/unit1_index.html",
-    "title": "Limits & Continuity - Introduction",
-    "section": "",
-    "text": "Creating the proper tools that allow us to measure rate and accumulation require us to grapple with infinities and infinitesimals. Here are some examples that illustrate the logical hurdle these ideas pose:",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_index.html#discussion-problem-infinities-and-infinitesimals",
-    "href": "notes/unit1_index.html#discussion-problem-infinities-and-infinitesimals",
-    "title": "Limits & Continuity - Introduction",
-    "section": "Discussion Problem: Infinities and Infinitesimals",
-    "text": "Discussion Problem: Infinities and Infinitesimals\nDiscuss and try to resolve one or more of the following questions with your group.\n\nConsider a hotel with infinitely many rooms. Currently each room is occupied. A new guest arrives at the front desk and requests a room. Can they be accommodated? If so, how?\nConsider the value \\(0.999\\ldots\\) where there is a 9 in all decimal places. This value is the result of an infinite process:\n\nStart with 0.9\nAdd 9 hundredths to get 0.99\nAdd 9 thousandths to get 0.999\nAnd so on …\n\nAt each step of this process, the value \\(0.99\\ldots 9\\) is getting closer to, but always less than 1. So, \\(0.999\\ldots\\) must be infinitesimally close to, but less than 1. Do you agree?\nSomeone is turning a lamp on and off over the course of 1 minute\n\nThe lamp starts on.\nIt is turned off after 1/2 of a minute.\nIt is turned back on at 3/4 of a minute.\nIt is turned off again at 7/8 of a minute.\nThen turned back on again at 15/16 of a minute.\nAnd so on…\n\nDoes the lamp end up off or on after 1 minute?\nConstruct an infinite staircase as follows.\n\n\nStart with one step that is 1m long and rises 1m. The total length is 2m.\nNow add another step. So now, each step is 0.5m long and rises 0.5m. The total length of the staircase is still 2m.\nContinue in this fashion as shown in the graph below. At each iteration, the staircase as \\(n\\) steps, each one runs \\(\\frac{1}{n}\\) meters and rises \\(\\frac{1}{n}\\) meters and so the total length of the staircase is always 2m.\n\n\n\nviewof n = Inputs.range([1, 100], {value: 4, step: 1, label: \"Number of steps (n)\"})\n\n\n\n\n\n\n\n\nstairPoints = {\n  const pts = [{x: 0, y: 0}];\n  for (let i = 0; i &lt; n; i++) {\n    const y0 = i / n;\n    const x1 = (i + 1) / n;\n    const y1 = (i + 1) / n;\n    pts.push({x: x1, y: y0});\n    pts.push({x: x1, y: y1});\n  }\n  return pts;\n}\n\n\n\n\n\n\n\ndiagPoints = [{x: 0, y: 0}, {x: 1, y: 1}]\n\n\n\n\n\n\n\nstairLength = {\n  let total = 0;\n  for (let i = 1; i &lt; stairPoints.length; i++) {\n    const dx = stairPoints[i].x - stairPoints[i - 1].x;\n    const dy = stairPoints[i].y - stairPoints[i - 1].y;\n    total += Math.hypot(dx, dy);\n  }\n  return total;\n}\n\n\n\n\n\n\n\ndiagLength = Math.hypot(1, 1)\n\n\n\n\n\n\n\nPlot.plot({\n  width: 420,\n  height: 420,\n  aspectRatio: 1,\n  x: {domain: [0, 1], label: \"x\"},\n  y: {domain: [0, 1], label: \"y\"},\n  style: {background: \"transparent\"},\n  marks: [\n    Plot.line(diagPoints, {\n      x: \"x\", y: \"y\",\n      stroke: \"var(--bs-body-color)\",\n      strokeWidth: 2,\n      strokeDasharray: \"6,4\"\n    }),\n    Plot.line(stairPoints, {\n      x: \"x\", y: \"y\",\n      stroke: \"#e63946\",\n      strokeWidth: 2.5\n    }),\n    Plot.frame({stroke: \"var(--bs-border-color, gray)\"})\n  ]\n})\n\n\n\n\n\n\n\nThe process results in a staircase with infinitely many steps that has a total length of 2m. Therefore the length of the diagonal shown in the diagram must also be 2m. Do you agree?",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_index.html#big-idea",
-    "href": "notes/unit1_index.html#big-idea",
-    "title": "Limits & Continuity - Introduction",
-    "section": "Big Idea",
-    "text": "Big Idea\nParadoxes or controversies are not allowed in mathematics. They are the result of a lack of clarity. Either the question has not been posed clearly, terms have not been clearly defined, or assumptions have not been clearly stated.\nThe key idea that we will need before we can proceed to our main goals is the limit. In this unit, we will define limits, develop our conceptual understanding of them, and determine some rules and algebraic procedures that can be used to compute some types of limits precisely.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_2.html",
-    "href": "notes/unit1_2.html",
-    "title": "Limit Properties",
-    "section": "",
-    "text": "Now that we have some intuition about what a limit of a function is and what it means for a function to be continuous, we can dig a little deeper into how these ideas work and how they can be applied.\nFirst, let’s consider what happens when we take the limit of a combination of functions. If we know that \\(\\lim_{x\\to a}f(x)=L\\) and \\(\\lim_{x\\to a}g(x)=M\\), can we figure out what happens when we compute the limit of some combination of \\(f(x)\\) and \\(g(x)\\)? For example, your intuition probably tells you that \\(S(x)=f(x)+g(x)\\) will approach \\(L+M\\) as \\(x\\) approaches \\(a\\), but can we explain why this is correct?\nTake an \\(x\\)-value close to \\(a\\), say \\(x=a+t\\) where \\(t\\) is a small positive or negative number. Since \\(\\lim_{x\\to a}f(x)=L\\) and \\(\\lim_{x\\to a}g(x)=M\\), we know that \\(f(a+t)=L+\\epsilon\\) and \\(g(a+t)=M+\\delta\\), where \\(\\epsilon\\) and \\(\\delta\\) are themselves small — the closer \\(x\\) is to \\(a\\) (the smaller \\(t\\) is), the smaller \\(\\epsilon\\) and \\(\\delta\\) get.\nAdding these together, \\[\\begin{align}\nS(a+t)& =f(a+t)+g(a+t)\\\\\n& =(L+\\epsilon)+(M+\\delta) \\\\\n& =L+M+(\\epsilon+\\delta).\n\\end{align}\\] Since \\(\\epsilon\\) and \\(\\delta\\) are both small, their sum \\(\\epsilon+\\delta\\) is small too.\nNow let \\(x\\) get closer and closer to \\(a\\): \\(t\\) shrinks toward \\(0\\), which forces \\(\\epsilon\\) and \\(\\delta\\) — and therefore \\(\\epsilon+\\delta\\) — to shrink toward \\(0\\) as well. That’s exactly what it means for \\(S(x)=f(x)+g(x)\\) to approach \\(L+M\\) as \\(x\\to a\\).\nSimilar reasoning can help you figure out and explain the properties listed in the following theorem. These properties are listed in terms of two-sided limits, but they also apply to one-sided limits, and limits as \\(x\\to \\pm\\infty\\):\n\n\n\n\n\n\n\nTheorem 1 (Limit Properties) If \\[\\lim_{x\\to a}f(x)=L \\text{ and } \\lim_{x\\to a}g(x)=M,\\] then:\n\n\\(\\displaystyle\\lim_{x\\to a}\\left[f(x)\\pm g(x)\\right]=L\\pm M\\)\n\\(\\displaystyle\\lim_{x\\to a}\\left[f(x)\\cdot g(x)\\right]=L\\cdot M\\)\n\\(\\displaystyle\\lim_{x\\to a}\\left[\\frac{f(x)}{g(x)}\\right]=\\frac{L}{M},~~\\) as long as \\(M\\neq 0\\)\n\n\n\n\n\n\nProblem 1: Using Limit Properties\nThe functions \\(f(x)\\) and \\(g(x)\\) are shown in the graphs below. Assume that the viewing window is large enough to show the end behavior of each function.\n\n\n\n\n\n\n\n\n\n\n\nFind all \\(x\\)-values in the domain of each function where the function is not continuous.\nEvaluate the following limits. If the limit does not exist but the function grows arbitrarily large in magnitude, write \\(\\infty\\) or \\(-\\infty\\). Otherwise, write the value of the limit or DNE.\n\n\n\n\\(\\displaystyle\\lim_{x\\to-\\infty}f(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0}f(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0}g(x)\\)\n\\(\\displaystyle\\lim_{x\\to 2^{-}}g(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0^+}g(3x+2)\\)\n\\(\\displaystyle\\lim_{x\\to -2}\\big(f(x)+g(x)\\big)\\)\n\\(\\displaystyle\\lim_{x\\to 5}\\frac{1}{g(x)}\\)\n\\(\\displaystyle\\lim_{x\\to -\\infty}f(x)g(x)\\)\n\\(\\displaystyle\\lim_{x\\to -\\infty} f(g(x))\\)\n\n\n\n\nProblem 2: Complicated Limit?\nEvaluate the following limit: \\[\\lim_{x\\to 1}\\ln\\left(\\frac{2\\sqrt{x}-1}{e^x\\cdot\\sin(0.5\\pi x^2)}\\right)\\]\n\n\nProblem 3: True/False?\nDecide with your group if you think the following statements are true or false. If you think they are true, explain why. If you think they are false, provide an example showing why they are false.\n\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=L\\) where \\(L\\neq 0\\), and \\(\\lim_{x\\to a}g(x)=0\\), then \\[\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\text{DNE}\\]\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=0\\) and \\(\\lim_{x\\to a}g(x)=0\\), then \\[\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\text{DNE}\\]\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=\\infty\\) and \\(\\lim_{x\\to a}g(x)=\\infty\\), then \\[\\lim_{x\\to a}\\left[f(x)-g(x)\\right]=0\\] d.If \\(\\displaystyle\\lim_{x\\to a}f(x)=0\\) and \\(\\lim_{x\\to a}g(x)=\\infty\\), then \\[\\lim_{x\\to a}f(x)\\cdot g(x)=0\\]",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Limit Properties"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_index.html",
-    "href": "notes/unit0_index.html",
-    "title": "What is Calculus?",
-    "section": "",
-    "text": "Calculus provides us with a framework in which we can measure the effects of change and use this to better understand relationships between variables.\nThere are two main problems we will consider this semester:",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "What is Calculus?"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_index.html#discussion-problem-the-vessel",
-    "href": "notes/unit0_index.html#discussion-problem-the-vessel",
-    "title": "What is Calculus?",
-    "section": "Discussion Problem: The Vessel",
-    "text": "Discussion Problem: The Vessel\nTake the curve\n\\[\nx = r(y) = \\sin\\!\\left(\\frac{\\pi y}{4}\\right) + 1.5, \\qquad 0 \\le y \\le 8,\n\\]\nand spin it around the \\(y\\)-axis. The result is the 8 in. tall, vase-shaped vessel shown below:\n\n// Fine sampling of the wall profile r(y), used only to draw the outline.\nvesselOutlineData = {\n  const yVals = d3.range(0, 8.001, 0.02);\n  return yVals.map((y) =&gt; ({ y, r: r(y) }));\n}\n\n\n\n\n\n\n\nPlot.plot({\n  width: 260,\n  height: 420,\n  x: { domain: [-3, 3], axis: null },\n  y: { domain: [0, 8], label: \"height (in)\" },\n  marks: [\n    Plot.line(vesselOutlineData, { x: (d) =&gt; d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.line(vesselOutlineData, { x: (d) =&gt; -d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0])\n  ]\n})\n\n\n\n\n\n\n\n\nFigure 1: The empty vessel, formed by rotating x = r(y) around the y-axis.\n\n\n\n\nSuppose that the vessel starts out empty. Water is poured in at a constant rate (measured in in\\(^3\\)/sec), chosen so that it takes 20 seconds to completely fill the vessel.\n\nCreate Two Graphs\nBased on the shape of the vessel and the provided information:\n\nSketch a graph of the depth of the water in the vessel versus time as it is filled up.\nSimilarly, sketch a graph showing how fast the depth is increasing versus time.\n\n\n\nCompare & Collaborate\nOnce you have sketched both graphs, compare your work with others at your table.\n\nDiscuss any differences that you see.\nCompare your reasoning and decide as a group which graph you believe is best for both.\nDraw these graphs on the board.\n\n\n\nCheck Your Work\nOnce your answer is up on the board, use the interactive visualization below to reveal the solution.\n\nIn what ways does your group’s graph differ?\nCan you explain any differences? Was there a flaw in your reasoning? Did you have the right idea and your graph just lacked precision?\n\n\n\n\n\n\n\nTipClick to reveal the interactive solution\n\n\n\n\n\n\nfunction r(y) {\n  return Math.sin((Math.PI * y) / 4) + 1.5;\n}\n\nfunction crossSectionArea(y) {\n  const radius = r(y);\n  return Math.PI * radius * radius;\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyMax = 8\nnumSteps = 4000\nstepSize = yMax / numSteps\n\nyGrid = d3.range(0, numSteps + 1).map((i) =&gt; i * stepSize)\nareaGrid = yGrid.map(crossSectionArea)\n\nvolumeGrid = {\n  const cumulative = [0];\n  for (let i = 1; i &lt;= numSteps; i++) {\n    const trapezoid = ((areaGrid[i - 1] + areaGrid[i]) / 2) * stepSize;\n    cumulative.push(cumulative[i - 1] + trapezoid);\n  }\n  return cumulative;\n}\n\ntotalVolume = volumeGrid[numSteps]\n\n// Choose the fill rate so that it takes a specified amount of time to fill.\nfillRate = totalVolume / 20\ntotalTime = 20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction depthAtTime(t) {\n  const targetVolume = fillRate * t;\n  const i = d3.bisectLeft(volumeGrid, targetVolume);\n  if (i &lt;= 0) return 0;\n  if (i &gt;= volumeGrid.length) return yMax;\n  const v0 = volumeGrid[i - 1], v1 = volumeGrid[i];\n  const y0 = yGrid[i - 1], y1 = yGrid[i];\n  const frac = v1 === v0 ? 0 : (targetVolume - v0) / (v1 - v0);\n  return y0 + frac * (y1 - y0);\n}\n\n// dy/dt = (dV/dt) / A(y) = fillRate / crossSectionArea(y(t)).\nfunction rateAtTime(t) {\n  const y = depthAtTime(t);\n  return fillRate / crossSectionArea(y);\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnumSamples = 300\ntSeries = d3.range(0, numSamples + 1).map((i) =&gt; (a * i) / numSamples)\ndepthSeries = tSeries.map((t) =&gt; ({ t, depth: depthAtTime(t) }))\nrateSeries = tSeries.map((t) =&gt; ({ t, rate: rateAtTime(t) }))\ncurrentDepth = depthAtTime(a)\nwaterSlice = vesselOutlineData.filter((d) =&gt; d.y &lt;= currentDepth)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrateMax = 4.5\nrateScaleFactor = yMax / rateMax\nscaledRateSeries = rateSeries.map((d) =&gt; ({ t: d.t, scaledRate: d.rate * rateScaleFactor }))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 220,\n  height: 320,\n  style: { background: \"transparent\" },\n  x: { domain: [-3, 3], axis: null },\n  y: { domain: [0, yMax], label: \"depth (in)\" },\n  marks: [\n    Plot.areaX(waterSlice, { y: \"y\", x1: (d) =&gt; -d.r, x2: (d) =&gt; d.r, fill: \"#8ecae6\", fillOpacity: 0.8 }),\n    Plot.line(vesselOutlineData, { x: (d) =&gt; d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.line(vesselOutlineData, { x: (d) =&gt; -d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([currentDepth], { stroke: \"steelblue\", strokeDasharray: \"4,2\" })\n  ]\n})\nPlot.plot({\n  width: 380,\n  height: 320,\n  style: { background: \"transparent\" },\n  x: { domain: [0, totalTime], label: \"time (sec)\" },\n  y: { domain: [0, yMax], label: \"depth (in)\" },\n  marks: [\n    // Explicit left axis: once we add the custom right-side axis below,\n    // Plot stops auto-generating its usual default axis, so the left\n    // one has to be added by hand too or it disappears entirely.\n    Plot.axisY({ anchor: \"left\", label: \"depth (in)\" }),\n    Plot.axisY({\n      anchor: \"right\",\n      label: \"rate (in/sec)\",\n      ticks: [0, 1.5, 3, 4.5].map((v) =&gt; v * rateScaleFactor),\n      tickFormat: (v) =&gt; (v / rateScaleFactor).toFixed(1)\n    }),\n    Plot.line(depthSeries, { x: \"t\", y: \"depth\", stroke: \"steelblue\", strokeWidth: 2 }),\n    Plot.dot([{ t: a, depth: currentDepth }], { x: \"t\", y: \"depth\", fill: \"steelblue\", r: 4 }),\n    Plot.line(scaledRateSeries, { x: \"t\", y: \"scaledRate\", stroke: \"firebrick\", strokeWidth: 2 }),\n    Plot.dot([{ t: a, scaledRate: rateAtTime(a) * rateScaleFactor }], { x: \"t\", y: \"scaledRate\", fill: \"firebrick\", r: 4 })\n  ]\n})\nmd`**At t = ${a.toFixed(2)} sec, the water is ${currentDepth.toFixed(2)} in deep.**`\nhtml`&lt;div style=\"display:flex; gap:1.5rem; justify-content:center; align-items:center; font-size:0.9rem;\"&gt;\n  &lt;span style=\"display:flex; align-items:center; gap:6px;\"&gt;\n    &lt;span style=\"display:inline-block; width:14px; height:14px; background:steelblue; border-radius:2px;\"&gt;&lt;/span&gt;\n    Depth (in)\n  &lt;/span&gt;\n  &lt;span style=\"display:flex; align-items:center; gap:6px;\"&gt;\n    &lt;span style=\"display:inline-block; width:14px; height:14px; background:firebrick; border-radius:2px;\"&gt;&lt;/span&gt;\n    Rate of depth increase (in/sec)\n  &lt;/span&gt;\n&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nviewof a = Inputs.range(\n  [0, totalTime],\n  {\n    value: totalTime / 2,\n    step: totalTime / 400,\n    label: \"Time:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\nWrap-Up\nThe first graph you created showing depth vs. time is an example of an accumulation problem; the depth increased as the water flowed in and our goal was to figure out the total depth reached at each moment as the water accumulated. We will see later this semester (Unit 5) that the integral is the right mathematical tool for accumulation problems.\nThe second graph you created is an example of a rate problem; the goal was to understand how quickly the depth of the water was increasing at each moment. We will see in Unit 2 that the derivative is the right mathematical tool for rate problems.\nOur goal this semester is to carefully define each of these tools, understand how they work, deduce some computational rules, and see how they can be applied to problems in a wide array of fields. Ultimately, our work will reveal that these two problems are closely connected, and that relationship will be explained in the Fundamental Theorem of Calculus.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "What is Calculus?"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_1.html",
-    "href": "notes/unit0_1.html",
-    "title": "Functions & Their Properties",
-    "section": "",
-    "text": "As noted in the course introduction, this semester’s main concepts are tools for understanding relationships between variables. So, before we dive into developing these ideas, we need to have a good understanding of what we mean mathematically by relationships between variables.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "Functions & Their Properties"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_1.html#problem-1-sleep-and-productivity",
-    "href": "notes/unit0_1.html#problem-1-sleep-and-productivity",
-    "title": "Functions & Their Properties",
-    "section": "Problem 1: Sleep and Productivity",
-    "text": "Problem 1: Sleep and Productivity\n\n\n\n\n\n\nNoteBefore the problem:\n\n\n\n\n\nMost of the time, we will be interested in relationships where one variable is a function of another. Appropriately, such relationships are called functions.\nWhat criteria does a relationship have to meet in order for it to be a function? Discuss it with your group.\n\n\n\nOver the summer, Tom kept track of how his sleep habits affected his work productivity. Each week, he recorded the average number of hours of sleep he got each night as well as the average number of hours he was productive each workday. The data for the first 6 weeks is recorded below:\n\n\n\nWeek\n1\n2\n3\n4\n5\n6\n\n\n\n\nAvg. sleep (hrs/night)\n8\n7\n6.5\n7\n5.5\n5\n\n\nAvg. productivity (hrs/workday)\n8.5\n8\n7.5\n7.25\n7\n6\n\n\n\nThe table establishes relationships among the three variables (week, average amount of sleep, and average productivity). According to the table, is:\n\nTom’s average productivity a function of the week?\nTom’s average amount of sleep a function of the week?\nTom’s average productivity a function of his average amount of sleep?",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "Functions & Their Properties"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_1.html#problem-2-the-pomegranate",
-    "href": "notes/unit0_1.html#problem-2-the-pomegranate",
-    "title": "Functions & Their Properties",
-    "section": "Problem 2: The Pomegranate",
-    "text": "Problem 2: The Pomegranate\n\n\n\n\n\n\nNoteBefore the problem:\n\n\n\n\n\nWhen trying to understand a function, it is often useful to start by determining its domain and range. Discuss what these terms mean with your group.\nNote: In some cases, the domain of a function will be explicitly included as part of the rule defining the function. In other cases, the domain will be implied by the rule or the context in which the rule is given.\n\n\n\nA pomegranate is thrown from ground level straight up into the air at time \\(t=0\\) with an initial velocity of 64 feet per second. The function \\(h(t) = -16t^2 + 64t\\) gives the pomegranate’s height \\(t\\) seconds after it was thrown until it hits the ground. Determine the domain and range for the function \\(h(t)\\).",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "Functions & Their Properties"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_1.html#problem-3-matching-rates-of-change",
-    "href": "notes/unit0_1.html#problem-3-matching-rates-of-change",
-    "title": "Functions & Their Properties",
-    "section": "Problem 3: Matching Rates of Change",
-    "text": "Problem 3: Matching Rates of Change\n\n\n\n\n\n\nNoteBefore the problem:\n\n\n\n\n\nRecall that we are interested in figuring out ways of measuring change. One simple way to measure change is to calculate the average rate of change of a function over a given interval.\nWhat is the formula for computing average rate of change? What does it tell us about the function? What does it tell us about the graph of the function? Discuss with your group\n\n\n\nSome data for three different functions is provided in the table below.\n\n\n\n\\(t\\)\n0\n0.75\n1.25\n\n\n\n\n\\(f(t)\\)\n40\n31\n15\n\n\n\\(g(t)\\)\n70\n42\n31\n\n\n\\(h(t)\\)\n65\n53\n45\n\n\n\nFor each description below, decide if any of the functions from the data table could fit the description.\n\nThe speed of a car (in mph) \\(t\\) seconds after it begins decelerating at a constant rate.\nThe position of a watermelon (in feet above the ground) \\(t\\) seconds after the physics department drops it off the top of the DMTI building.\nThe temperature of a cup of coffee (in °C) after it has been sitting on a counter for \\(t\\) hours. (We expect the temperature of the coffee to decrease more slowly over time.)",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "Functions & Their Properties"
-    ]
-  },
-  {
-    "objectID": "notes/files/unit2_5.html",
-    "href": "notes/files/unit2_5.html",
+    "objectID": "notes/unit2_5.html",
+    "href": "notes/unit2_5.html",
     "title": "The Second Derivative",
     "section": "",
-    "text": "We already have a good understanding of functions with constant slope. These are linear functions, and their graphs are straight lines. If the slope is positive, the function is increasing; if the slope is negative, the function is decreasing.\nOver the past few sections, we developed a way to measure the slope of a function when the slope is not constant: the derivative \\(f'(x)\\) tells us the slope of \\(f(x)\\) at each point. When the slope of a function is always changing, its graph is no longer a straight line. Instead, the graph bends and curves.\nIn this section, we will measure how the slope itself is changing. Since \\(f'(x)\\) is a function, we can take its derivative to find the rate of change of the slope of \\(f(x)\\).\n\nDefinition 1 (The Second Derivative) The second derivative of \\(f(x)\\), written \\(f''(x)\\), is the derivative of \\(f'(x)\\): \\[f''(x)=\\lim_{h\\to 0}\\frac{f'(x+h)-f'(x)}{h}.\\] The value \\(f''(a)\\) measures the instantaneous rate of change of the slope of \\(f(x)\\) at \\(x=a\\).\n\nOur goal is to use \\(f''(x)\\) to understand how the graph of \\(f(x)\\) is curved, in the same way that we use \\(f'(x)\\) to understand where \\(f(x)\\) is increasing or decreasing."
+    "text": "We already have a good understanding of functions with constant slope. These are linear functions. If the slope is positive, the function is increasing; if the slope is negative, the function is decreasing.\nOver the past few sections, we developed a way to measure the slope of a function when the slope is not constant. The derivative \\(f'(x)\\) tells us the slope of \\(f(x)\\) at each point. When the slope of a function is always changing, the graph is no longer a straight line, it will bend and curve.\nIn this section, we discuss \\(f''(x)\\), the second derivative of \\(f(x)\\). Since \\(f'(x)\\) is itself a function, we can take its derivative to find the rate of change of the slope of \\(f(x)\\).\n\nDefinition 1 (The Second Derivative) The second derivative of \\(f(x)\\), written \\(f''(x)\\), is the derivative of \\(f'(x)\\). The value \\(f''(a)\\) measures the instantaneous rate of change of the slope of \\(f(x)\\) at \\(x=a\\).\n\nWhile the values of \\(f'(x)\\) tell us where \\(f(x)\\) is increasing, decreasing or constant, the values of \\(f''(x)\\) will tell us where \\(f'(x)\\) is increasing, decreasing or constant. This will allow us to use \\(f''(x)\\) to determine how \\(f(x)\\) is curved. We call this property the concavity of \\(f(x)\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "The Second Derivative"
+    ]
   },
   {
-    "objectID": "notes/files/unit2_5.html#problem-1---motion-and-curvature",
-    "href": "notes/files/unit2_5.html#problem-1---motion-and-curvature",
+    "objectID": "notes/unit2_5.html#problem-1---motion-and-curvature",
+    "href": "notes/unit2_5.html#problem-1---motion-and-curvature",
     "title": "The Second Derivative",
     "section": "Problem 1 - Motion and Curvature",
-    "text": "Problem 1 - Motion and Curvature\nSketch a graph for each of the functions described below.\n\nA car is stopped at a stoplight. The light turns green and the car begins to accelerate straight ahead. Let \\(A(t)\\) be the distance the car travels \\(t\\) seconds after the light turns green.\nA car is headed straight towards the same stoplight on the cross street. The light turns red and the car begins to decelerate. Let \\(B(t)\\) be the car’s distance from the stoplight \\(t\\) seconds after the light turns red.\nA cyclist is passing through the same intersection as the cars. The cyclist pays no attention to the color of the light and cruises through the intersection with no acceleration or deceleration. Let \\(C(t)\\) be the distance the cyclist travels \\(t\\) seconds after the light changes."
-  },
-  {
-    "objectID": "notes/files/unit2_5.html#problem-2---slope-and-shape",
-    "href": "notes/files/unit2_5.html#problem-2---slope-and-shape",
-    "title": "The Second Derivative",
-    "section": "Problem 2 - Slope and Shape",
-    "text": "Problem 2 - Slope and Shape\nEach row of the table contains conditions on \\(f'(x)\\) and \\(f''(x)\\) which are true on an interval. Fill in the blanks with one or two words that describe what these conditions tell us about the slope of \\(f(x)\\) and the graph of \\(f(x)\\). Then draw a curve showing the shape of the graph of \\(f(x)\\) that fits this description.\n\n\n\n\n\n\n\n\n\nIf …\nthen the slope of \\(f(x)\\) is …\nthe graph of \\(f(x)\\) is …\nand looks like …\n\n\n\n\n\\(f'(x)=0\\)\n__________\n__________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)=0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)=0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)&gt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)&gt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)&lt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)&lt;0\\)\n__________ and __________\n__________ and __________"
-  },
-  {
-    "objectID": "notes/files/unit2_5.html#problem-3---signs-of-f-f-and-f",
-    "href": "notes/files/unit2_5.html#problem-3---signs-of-f-f-and-f",
-    "title": "The Second Derivative",
-    "section": "Problem 3 - Signs of \\(f\\), \\(f'\\), and \\(f''\\)",
-    "text": "Problem 3 - Signs of \\(f\\), \\(f'\\), and \\(f''\\)\nThe function \\(f(x)\\) is shown in the graph below.\n\n\n\nGraph of \\(f(x)\\)\n\n\nDetermine if \\(f\\), \\(f'\\), and \\(f''\\) are positive, negative, or zero at each of the four labeled points."
-  },
-  {
-    "objectID": "notes/files/unit2_5.html#problem-4---using-the-second-derivative-to-assess-estimates",
-    "href": "notes/files/unit2_5.html#problem-4---using-the-second-derivative-to-assess-estimates",
-    "title": "The Second Derivative",
-    "section": "Problem 4 - Using the Second Derivative to Assess Estimates",
-    "text": "Problem 4 - Using the Second Derivative to Assess Estimates\nThe CFCs in the atmosphere above the US have been reduced from a high of 1915 parts per trillion (ppt) in 2000 to 1640 ppt in 2014. The reduction over this time has been approximately linear. Let \\(C(t)\\) be the concentration of CFCs in ppt \\(t\\) years after 2000.\n\nFind \\(C(14)\\).\nEstimate \\(C'(14)\\).\nAccording to the information given, what is a formula approximating \\(C(t)\\) on the interval \\(0\\leq t\\leq 14\\)?\nUse your formula to approximate \\(C(20)\\).\nSuppose that further analysis shows that \\(C''(t)&lt;0\\) on the interval \\(14\\leq t\\leq 20\\). Is your estimate from part d too high or too low? Explain."
-  },
-  {
-    "objectID": "notes/files/unit2_3.html",
-    "href": "notes/files/unit2_3.html",
-    "title": "The Derivative Function",
-    "section": "",
-    "text": "Last time, we defined the derivative of a function \\(f(x)\\) at a single point \\(x=a\\). The value \\(f'(a)\\) measures the instantaneous rate of change of \\(f(x)\\) at \\(x=a\\), which we can see graphically as the slope of the line tangent to the graph of \\(f(x)\\) at that point.\nIn our first discussion problem, we estimated \\(f'(a)\\) for the function \\(f(x)=0.5x(x-3)(x-5)\\) at the points \\(x=0, 1, 2, 3, 4,\\) and \\(5\\). Each of these estimates gave us one number describing the slope of \\(f(x)\\) at one point. But there is nothing special about these six points: we could estimate the slope of \\(f(x)\\) at any point \\(x=a\\) in the same way.\nIf we can find \\(f'(a)\\) for every value of \\(a\\), then we have a rule that takes each input \\(x\\) and returns the slope of \\(f(x)\\) at that point. In other words, \\(f'\\) is itself a function!\n\n\nThe interactive graphs below show this idea in action. On the left is the graph of \\(f(x)=0.5x(x-3)(x-5)\\), with the six points from our previous discussion problem labeled. On the right, the values \\((a, f'(a))\\) for those six points are plotted as open circles.\nUse the slider to move the tangent line along the graph of \\(f(x)\\). Each time the tangent line stops at a new point, the point \\((a, f'(a))\\) is added to the graph on the right. As you fill in more and more points, watch how the values we found last time are connected into a complete picture of the graph of \\(f'(x)\\).\n\nf = (x) =&gt; 0.5 * x * (x - 3) * (x - 5)\nfp = (x) =&gt; 1.5 * x * x - 8 * x + 7.5\n\n// Viewing window (shared x-range for both graphs; slider uses the same range)\nxMin = -0.5\nxMax = 5.5\nknownA = [0, 1, 2, 3, 4, 5]\nfCurve = d3.range(xMin, xMax + 1e-9, 0.02).map((x) =&gt; ({ x, y: f(x) }))\n\n// Store of traced points. Depends only on the reset button, so it is\n// recreated (emptied) on each click and otherwise persists across slider moves.\ntracedStore = {\n  reset;\n  return new Map();\n}\n\n// Add the current slider position to the store (keyed to avoid duplicates)\ntraced = {\n  tracedStore.set(a.toFixed(1), { x: a, y: fp(a) });\n  return Array.from(tracedStore.values());\n}\n\ntangentLine = [xMin, xMax].map((x) =&gt; ({ x, y: f(a) + fp(a) * (x - a) }))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 420,\n  height: 380,\n  style: { background: \"transparent\" },\n  x: { domain: [xMin, xMax], label: \"x\" },\n  y: { domain: [-6, 6], label: \"f(x)\" },\n  grid: true,\n  marks: [\n    Plot.ruleX([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleX([a], { stroke: \"gray\", strokeDasharray: \"4,4\" }),\n    Plot.line(fCurve, { x: \"x\", y: \"y\", stroke: \"steelblue\", strokeWidth: 2.5, clip: true }),\n    Plot.line(tangentLine, { x: \"x\", y: \"y\", stroke: \"#e76f51\", strokeWidth: 2, clip: true }),\n    Plot.dot(knownA, { x: (d) =&gt; d, y: (d) =&gt; f(d), fill: \"var(--bs-body-color)\", r: 3.5 }),\n    Plot.text(knownA, {\n      x: (d) =&gt; d,\n      y: (d) =&gt; f(d),\n      text: (d) =&gt; `(${d}, ${Math.round(f(d))})`, // round avoids printing f(3) as \"-0\"\n      dy: -12,\n      fill: \"var(--bs-body-color)\",\n      stroke: \"var(--bs-body-bg)\",\n      strokeWidth: 4,\n      paintOrder: \"stroke\"\n    }),\n    Plot.dot([a], { x: (d) =&gt; d, y: (d) =&gt; f(d), fill: \"#e76f51\", r: 5.5 })\n  ]\n})\nPlot.plot({\n  width: 420,\n  height: 380,\n  style: { background: \"transparent\" },\n  x: { domain: [xMin, xMax], label: \"x\" },\n  y: { domain: [-4, 12], label: \"f′(x)\" },\n  grid: true,\n  marks: [\n    Plot.ruleX([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleX([a], { stroke: \"gray\", strokeDasharray: \"4,4\" }),\n    Plot.dot(traced, { x: \"x\", y: \"y\", fill: \"#e76f51\", r: 3, clip: true }),\n    Plot.dot(knownA, { x: (d) =&gt; d, y: (d) =&gt; fp(d), stroke: \"var(--bs-body-color)\", strokeWidth: 2, r: 6 }),\n    Plot.dot([a], { x: (d) =&gt; d, y: (d) =&gt; fp(d), fill: \"#e76f51\", stroke: \"var(--bs-body-color)\", r: 6, clip: true })\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhtml`&lt;p style=\"text-align:center; font-size:1.1em; margin-bottom:0;\"&gt;\n  At &lt;i&gt;x&lt;/i&gt; = ${a.toFixed(1)}, the slope of the tangent line is\n  &lt;b&gt;${fp(a).toFixed(2)}&lt;/b&gt;.\n&lt;/p&gt;`\n\n\n\n\n\n\n\n\nviewof a = Inputs.range([xMin, xMax], { value: 0, step: 0.1, label: \"Tangent point (a)\" })\n\n\n\n\n\n\n\nviewof reset = Inputs.button(\"Clear traced points\")\n\n\n\n\n\n\n\nWe call this new function the derivative function, or simply the derivative, of \\(f(x)\\). Its formula comes directly from our definition of the derivative at a point: we just replace the specific point \\(a\\) with a variable input \\(x\\).\n\nDefinition 1 (The Derivative Function) The derivative of \\(f(x)\\) is the function \\[f'(x)=\\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}.\\] The domain of \\(f'(x)\\) consists of all values of \\(x\\) for which this limit exists."
-  },
-  {
-    "objectID": "notes/files/unit2_3.html#from-points-to-a-function",
-    "href": "notes/files/unit2_3.html#from-points-to-a-function",
-    "title": "The Derivative Function",
-    "section": "",
-    "text": "The interactive graphs below show this idea in action. On the left is the graph of \\(f(x)=0.5x(x-3)(x-5)\\), with the six points from our previous discussion problem labeled. On the right, the values \\((a, f'(a))\\) for those six points are plotted as open circles.\nUse the slider to move the tangent line along the graph of \\(f(x)\\). Each time the tangent line stops at a new point, the point \\((a, f'(a))\\) is added to the graph on the right. As you fill in more and more points, watch how the values we found last time are connected into a complete picture of the graph of \\(f'(x)\\).\n\nf = (x) =&gt; 0.5 * x * (x - 3) * (x - 5)\nfp = (x) =&gt; 1.5 * x * x - 8 * x + 7.5\n\n// Viewing window (shared x-range for both graphs; slider uses the same range)\nxMin = -0.5\nxMax = 5.5\nknownA = [0, 1, 2, 3, 4, 5]\nfCurve = d3.range(xMin, xMax + 1e-9, 0.02).map((x) =&gt; ({ x, y: f(x) }))\n\n// Store of traced points. Depends only on the reset button, so it is\n// recreated (emptied) on each click and otherwise persists across slider moves.\ntracedStore = {\n  reset;\n  return new Map();\n}\n\n// Add the current slider position to the store (keyed to avoid duplicates)\ntraced = {\n  tracedStore.set(a.toFixed(1), { x: a, y: fp(a) });\n  return Array.from(tracedStore.values());\n}\n\ntangentLine = [xMin, xMax].map((x) =&gt; ({ x, y: f(a) + fp(a) * (x - a) }))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 420,\n  height: 380,\n  style: { background: \"transparent\" },\n  x: { domain: [xMin, xMax], label: \"x\" },\n  y: { domain: [-6, 6], label: \"f(x)\" },\n  grid: true,\n  marks: [\n    Plot.ruleX([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleX([a], { stroke: \"gray\", strokeDasharray: \"4,4\" }),\n    Plot.line(fCurve, { x: \"x\", y: \"y\", stroke: \"steelblue\", strokeWidth: 2.5, clip: true }),\n    Plot.line(tangentLine, { x: \"x\", y: \"y\", stroke: \"#e76f51\", strokeWidth: 2, clip: true }),\n    Plot.dot(knownA, { x: (d) =&gt; d, y: (d) =&gt; f(d), fill: \"var(--bs-body-color)\", r: 3.5 }),\n    Plot.text(knownA, {\n      x: (d) =&gt; d,\n      y: (d) =&gt; f(d),\n      text: (d) =&gt; `(${d}, ${Math.round(f(d))})`, // round avoids printing f(3) as \"-0\"\n      dy: -12,\n      fill: \"var(--bs-body-color)\",\n      stroke: \"var(--bs-body-bg)\",\n      strokeWidth: 4,\n      paintOrder: \"stroke\"\n    }),\n    Plot.dot([a], { x: (d) =&gt; d, y: (d) =&gt; f(d), fill: \"#e76f51\", r: 5.5 })\n  ]\n})\nPlot.plot({\n  width: 420,\n  height: 380,\n  style: { background: \"transparent\" },\n  x: { domain: [xMin, xMax], label: \"x\" },\n  y: { domain: [-4, 12], label: \"f′(x)\" },\n  grid: true,\n  marks: [\n    Plot.ruleX([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleX([a], { stroke: \"gray\", strokeDasharray: \"4,4\" }),\n    Plot.dot(traced, { x: \"x\", y: \"y\", fill: \"#e76f51\", r: 3, clip: true }),\n    Plot.dot(knownA, { x: (d) =&gt; d, y: (d) =&gt; fp(d), stroke: \"var(--bs-body-color)\", strokeWidth: 2, r: 6 }),\n    Plot.dot([a], { x: (d) =&gt; d, y: (d) =&gt; fp(d), fill: \"#e76f51\", stroke: \"var(--bs-body-color)\", r: 6, clip: true })\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhtml`&lt;p style=\"text-align:center; font-size:1.1em; margin-bottom:0;\"&gt;\n  At &lt;i&gt;x&lt;/i&gt; = ${a.toFixed(1)}, the slope of the tangent line is\n  &lt;b&gt;${fp(a).toFixed(2)}&lt;/b&gt;.\n&lt;/p&gt;`\n\n\n\n\n\n\n\n\nviewof a = Inputs.range([xMin, xMax], { value: 0, step: 0.1, label: \"Tangent point (a)\" })\n\n\n\n\n\n\n\nviewof reset = Inputs.button(\"Clear traced points\")\n\n\n\n\n\n\n\nWe call this new function the derivative function, or simply the derivative, of \\(f(x)\\). Its formula comes directly from our definition of the derivative at a point: we just replace the specific point \\(a\\) with a variable input \\(x\\).\n\nDefinition 1 (The Derivative Function) The derivative of \\(f(x)\\) is the function \\[f'(x)=\\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}.\\] The domain of \\(f'(x)\\) consists of all values of \\(x\\) for which this limit exists."
-  },
-  {
-    "objectID": "notes/files/unit2_3.html#problem-1---sketching-derivatives-from-graphs",
-    "href": "notes/files/unit2_3.html#problem-1---sketching-derivatives-from-graphs",
-    "title": "The Derivative Function",
-    "section": "Problem 1 - Sketching Derivatives from Graphs",
-    "text": "Problem 1 - Sketching Derivatives from Graphs\nSketch the graph of the derivative for each of the following functions:"
-  },
-  {
-    "objectID": "notes/files/unit2_3.html#problem-2---which-is-the-derivative",
-    "href": "notes/files/unit2_3.html#problem-2---which-is-the-derivative",
-    "title": "The Derivative Function",
-    "section": "Problem 2 - Which Is the Derivative?",
-    "text": "Problem 2 - Which Is the Derivative?\nThe functions \\(f(x)\\) and \\(g(x)\\) are shown below. One is the derivative of the other. Determine which one is which.\n\n\n\nGraphs of \\(f(x)\\) and \\(g(x)\\)"
-  },
-  {
-    "objectID": "notes/files/unit2_3.html#problem-3---derivative-functions-using-limits",
-    "href": "notes/files/unit2_3.html#problem-3---derivative-functions-using-limits",
-    "title": "The Derivative Function",
-    "section": "Problem 3 - Derivative Functions Using Limits",
-    "text": "Problem 3 - Derivative Functions Using Limits\nUse the definition of the derivative to find \\(f'(x)\\) for each of the following functions:\n\n\\(f(x)=\\frac{1}{x+1}\\)\n\\(f(x)=x^3\\)\n\\(f(x)=ax^2+bx+c\\), where \\(a\\), \\(b\\), and \\(c\\) are constants\n\\(f(x)=\\sqrt{x}\\)"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Currently, this site is maintained by Prof. Kevin Duke at American University. Reach out to Prof. Duke if you find any mistakes or have any questions."
-  },
-  {
-    "objectID": "exam_practice/index.html",
-    "href": "exam_practice/index.html",
-    "title": "Practice Exam Problems",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Math 221 Course Notes",
-    "section": "",
-    "text": "Welcome! This site hosts course notes and discussion/practice problems for Math 221 (Calculus 1) at American University.\nIt will be continuously updated and changed throughout the Fall 2026 semester as we work our way through the course material – so visit frequently!"
-  },
-  {
-    "objectID": "notes/files/unit2_4.html",
-    "href": "notes/files/unit2_4.html",
-    "title": "Interpreting the Derivative",
-    "section": "",
-    "text": "When \\(f(t)\\) measures the position of an object in motion at time \\(t\\), the instantaneous rate of change \\(f'(a)\\) has a familiar meaning: it is the object’s instantaneous velocity at the moment \\(t=a\\). But derivatives show up in many contexts that have nothing to do with motion. What does the instantaneous rate of change mean when \\(f(x)\\) measures a population, a cost, the amount of rainfall, or the fuel efficiency of a car?\nIn general, the derivative of \\(y=f(x)\\) measures how sensitive the output \\(y\\) is to small, local changes in the input \\(x\\). If \\(f'(a)\\) is large in magnitude, then even a small change in \\(x\\) near \\(x=a\\) produces a large change in \\(y\\). If \\(f'(a)\\) is close to \\(0\\), then small changes in \\(x\\) near \\(x=a\\) barely affect \\(y\\) at all.\nThis gives us a practical way to interpret \\(f'(a)\\) in any context: we use it to estimate how much \\(y\\) changes when \\(x\\) changes by a small amount. Since \\(f'(a)\\) is the limit of average rates of change \\(\\frac{\\Delta y}{\\Delta x}\\) over smaller and smaller intervals around \\(x=a\\), for a small change \\(\\Delta x\\) we expect \\[\\frac{\\Delta y}{\\Delta x}\\approx f'(a).\\] Multiplying both sides by \\(\\Delta x\\) gives us the key relationship for this section.\n\n\n\n\n\n\nNotePractical Interpretation of \\(f'(a)\\)\n\n\n\nIf \\(x\\) changes from \\(x=a\\) to \\(x=a+\\Delta x\\), where \\(\\Delta x\\) is small, then the corresponding change in \\(y=f(x)\\) is approximately \\[\\Delta y \\approx f'(a)\\,\\Delta x.\\] In particular, the units of \\(f'(a)\\) are the units of \\(y\\) per unit of \\(x\\).\n\n\nKeep in mind that this is a local estimate: it is only reliable when \\(\\Delta x\\) is small, because the rate of change of \\(f(x)\\) may be quite different at points far away from \\(x=a\\)."
-  },
-  {
-    "objectID": "notes/files/unit2_4.html#problem-1---interpreting-a-derivative",
-    "href": "notes/files/unit2_4.html#problem-1---interpreting-a-derivative",
-    "title": "Interpreting the Derivative",
-    "section": "Problem 1 - Interpreting a Derivative",
-    "text": "Problem 1 - Interpreting a Derivative\nLet \\(r(t)\\) be the total amount of rain (in inches) that had fallen in D.C. during the \\(t\\) hours following noon on September 10. Suppose \\(r'(4)=2\\). Provide a reasonable practical interpretation for this equation by filling in the blanks below:\n\nApproximately __________ inches of rain fell between __________ and __________."
-  },
-  {
-    "objectID": "notes/files/unit2_4.html#problem-2---units-of-the-derivative",
-    "href": "notes/files/unit2_4.html#problem-2---units-of-the-derivative",
-    "title": "Interpreting the Derivative",
-    "section": "Problem 2 - Units of the Derivative",
-    "text": "Problem 2 - Units of the Derivative\nLet \\(g(v)\\) be the fuel efficiency, in miles per gallon, of a car going \\(v\\) miles per hour.\n\nWhat are the units of \\(g'(v)\\)?\nWhat is a practical interpretation of the equation \\(g'(55)=-0.54\\)?"
-  },
-  {
-    "objectID": "notes/files/unit2_4.html#problem-3---interpreting-function-notation",
-    "href": "notes/files/unit2_4.html#problem-3---interpreting-function-notation",
-    "title": "Interpreting the Derivative",
-    "section": "Problem 3 - Interpreting Function Notation",
-    "text": "Problem 3 - Interpreting Function Notation\nLet \\(W(h)\\) be an invertible function that models how many gallons of water an oak tree of height \\(h\\) feet consumes on a hot summer day. Give practical interpretations for each of the following equations.\n\n\\(W(50)=70\\)\n\\(W^{-1}(60)=40\\)\n\\(W'(5)=3\\)\n\\((W^{-1})'(20)=0.5\\)"
-  },
-  {
-    "objectID": "notes/files/unit2_4.html#problem-4---translating-information-into-notation",
-    "href": "notes/files/unit2_4.html#problem-4---translating-information-into-notation",
-    "title": "Interpreting the Derivative",
-    "section": "Problem 4 - Translating Information into Notation",
-    "text": "Problem 4 - Translating Information into Notation\nAs an object travels away from earth, the weight of the object decreases. Let \\(w=f(d)\\) be the weight of an object, in Newtons, at a distance of \\(d\\) kilometers above the earth’s surface.\nSuppose that an object 800 km above the surface of the earth weighs 700 Newtons. When the object travels one km further, the weight decreases by about 0.2 Newtons. Which of the following mathematical statements are consistent with this information?\n\n\n\\(f(800)=700\\)\n\\(f(700)=800\\)\n\\(f^{-1}(700)=800\\)\n\\(f'(800)=-0.2\\)\n\\(f'(700)=-0.2\\)\n\\(f'(800)=0.2\\)\n\\((f^{-1})'(0.2)=-800\\)\n\\((f^{-1})'(800)=-5\\)\n\\((f^{-1})'(700)=-5\\)"
-  },
-  {
-    "objectID": "notes/index.html",
-    "href": "notes/index.html",
-    "title": "Course Notes",
-    "section": "",
-    "text": "During class this semester, we will spend most of our time working on and discussing problems. There will be assigned readings for each class that will help you prepare for these discussions.\nReading mathematics is a skill that is just as essential as doing and communicating mathematics. Class is meant to accompany the reading, not substitute for it. Together, they’ll help you build an initial understanding of concepts and surface the questions worth bringing to class\nMake sure you have pencil and paper out when reading and during discussion. Take notes, jot down questions, and try to work through examples on your own before seeing them worked out by others. If you get stuck or have no clue where to start—great! Make a note of it and let’s talk about it.\nWhen you wait for others to solve problems for you, you miss out on all the critical thinking, which can lead to a false sense of understanding. In my experience, you learn far more from actively trying on your own and failing than passively following along and never being wrong.\nSo, in short, to get the most out of class this semester:\n\nCome prepared!\nBe engaged!\nMake mistakes!\nAsk questions!",
-    "crumbs": [
-      "Course Notes",
-      "Home"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_2.html",
-    "href": "notes/unit0_2.html",
-    "title": "Modeling with Families of Functions",
-    "section": "",
-    "text": "A mathematical model is an abstract mathematical representation of some object, idea, or relationship that exists in the real world. Creating a mathematical model usually involves making some simplifying assumptions about whatever it is we are trying to represent. Using data from measurements or other observations, we try to distill the essential properties that we want our model to capture. We use mathematical models to make estimate or predict, weigh and compare decisions, simulate experiments, and try to discover properties that may otherwise be difficult or costly to observe.\nBe careful when drawing conclusions! Always consider the simplifying assumptions that were made when the model was created. Did we ignore anything that may impact our findings? Under what conditions is it reasonable to believe that the assumptions we made are realistic? These are all important things to include when communicating what you have learned in its real world context.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "Families of Functions"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_2.html#what-should-you-know",
-    "href": "notes/unit0_2.html#what-should-you-know",
-    "title": "Modeling with Families of Functions",
-    "section": "What should you know?",
-    "text": "What should you know?\nThe following families of functions are frequently used as the basis for mathematical models. How well do you know them? We will need to be able to:\n\nSolve equations involving each of these types of functions.\nRecognize properties of the function from its formula.\n\nIt is very helpful if you are familiar enough with each of these families of functions to be able to “see” what the graph looks like and sketch it out by hand without relying on a graphing tool.\n\nLinear Functions\nOur first question in creating a mathematical model for a relationship is often is it linear? Linear models are simple to understand and easy to work with. Our intuition often relies on linear thinking.\nThere are two common ways of writing a linear formula:\n\\[\\begin{align}\n&f(x)=mx+b & (\\text{Slope-Intercept Form}) \\\\\n&f(x)=m(x-x_0)+y_0 & (\\text{Point-Slope Form})\n\\end{align}\\]\n\n\nPower Functions\nUseful when modeling something that is strictly increasing or decreasing, but not in a linear way.\nThe formula is: \\[f(x)=k x^p\\] where the power, \\(p\\), can be any real number.\n\n\nAbsolute Value Function\nUseful when you only need the magnitude of a value: \\[ f(x)=|x|\\]\n\n\nExponential Functions\nWe say a quantity is increasing or decreasing exponentially when it always changes by the same factor over each unit of time.\nThere are two different ways of writing exponential functions:\n\\[f(x)=ab^x = a(1+r)^x\\]\nwhere \\(a\\) is the initial value, \\(b\\) is the growth factor, and \\(r\\) is the growth rate,\n\\[f(x)=ae^{rx}\\]\nwhere again \\(r\\) is the continuous or relative growth rate and again \\(a\\) is the initial value.\n\n\nLogarithmic Functions\nLogarithms provide the inverse relationship for exponential growth. They are useful because they can convert something changing on an exponential scale to a linear scale.\nThe formula is: \\[f(x)=\\log_b(x)\\] where \\(b\\) is the base of the logarithm.\nMost often, we will use: \\[\\begin{align}\n&f(x)=\\log(x) & (\\text{common log, } b=10)\\\\\n&f(x)=\\ln(x) & (\\text{natural log, } b=e)\n\\end{align}\\]\n\n\nTrigonometric Functions\nFrequently used when trying to model quantities that vary periodically. Also useful in problems involving geometry.\nThe three main trigonometric functions are:\n\\[f(x) = \\sin(x),~ f(x) = \\cos(x),~ f(x) = \\tan(x)\\]\nAlso useful are the corresponding reciprocal functions:\n\\[f(x) = \\csc(x) = \\frac{1}{\\sin(x)},~ f(x) = \\sec(x) = \\frac{1}{\\cos(x)},\nf(x) = \\cot(x) = \\frac{1}{\\tan(x)}\\]\nAnd inverse functions: \\[f(x) = \\arcsin(x) = \\sin^{-1}(x),\n~f(x) = \\arccos(x) = \\cos^{-1}(x),\n~f(x) = \\arctan(x) = \\tan^{-1}(x)\\]\n\n\nPolynomial Functions\nWe use polynomials to model relationships that have one or more local extrema.\nThe two common ways of writing polynomials are:\n\\[\\begin{align}\n&f(x)=a_nx^n +a_{n-1}x^{n-1}+\\ldots +a_1x + a_0 & (\\text{Standard form}) \\\\[5pt]\n&f(x)=a(x-z_1)^{m_1}(x-z_2)^{m_2}\\cdot\\ldots\\cdot(x-z_k)^{m_k}\n& (\\text{Factored form})\n\\end{align}\\]\nIn standard form, the \\(a_k\\)s are called coefficients; \\(n\\) is the degree of the polynomial and \\(a_n\\) is referred to as the leading coefficient.\nIn factored form, the \\(z_k\\)s are the zeros or roots of the polynomial and the \\(m_k\\)s are their multiplicities; \\(a\\) is the leading coefficient.\n\n\nRational Functions\nRational functions are useful when the relationship has asymptotic behavior. There are two kinds of asymptotes:\n\nvertical asymptotes: the magnitude of the output value increases without bound near a particular input value\nhorizontal asymptotes: the output value of the function approaches a specific value as the input tends towards \\(\\pm\\infty\\).\n\nRational functions can be written as \\[ f(x)=\\frac{p(x)}{q(x)} \\] where \\(p(x)\\) and \\(q(x)\\) are polynomials.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "Families of Functions"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_2.html#problem-1-population-growth-model",
-    "href": "notes/unit0_2.html#problem-1-population-growth-model",
-    "title": "Modeling with Families of Functions",
-    "section": "Problem 1: Population Growth Model",
-    "text": "Problem 1: Population Growth Model\nThe table below gives the population, measured in 1000s of people, of three different cities in 2010, 2012, and 2016. The data has been rounded.\n\n\n\nYear\n2010\n2012\n2016\n\n\n\n\nCity A\n59.8\n61.8\n77.8\n\n\nCity B\n60.1\n68.7\n85.9\n\n\nCity C\n50.2\n54.3\n63.5\n\n\n\n\nThe population of one of these cities is growing linearly and one is growing exponentially. Determine which cities fit each type of growth and find formulas modeling their populations.\n\nThe third city’s population can be modeled using a function of the form \\[f(t)=a+kt^p.\\] Find the values of the parameters in this model.\nUsing your models, determine when each city’s population will reach 100,000.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "Families of Functions"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_2.html#problem-2-water-temperature",
-    "href": "notes/unit0_2.html#problem-2-water-temperature",
-    "title": "Modeling with Families of Functions",
-    "section": "Problem 2: Water Temperature",
-    "text": "Problem 2: Water Temperature\nEmily enjoys swimming at a nearby beach. The temperature of the water throughout the course of the year can be modeled with a sinusoidal function. Currently, the water is 44\\(^\\circ\\)F, which is the coldest it will be all year. The water will reach its warmest temperature of 80\\(^\\circ\\)F 180 days from now.\nLet \\(T(x)\\) be the sinusoidal function modeling the temperature of the water \\(x\\) days from now.\n\nSketch a graph of \\(T(x)\\). Determine the amplitude, midline, and period.\nWrite a formula for \\(T(x)\\).\nAccording to this model, what is the expected temperature of the water 30 days from now?\nEmily will only go swimming when the temperature of the water is above 74\\(^\\circ\\)F. How long does Emily have to wait before the water reaches this temperature? (Show all algebraic work.)\nHow many days will the water temperature stay above 74\\(^\\circ\\)F? Explain your reasoning.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "Families of Functions"
-    ]
-  },
-  {
-    "objectID": "notes/unit0_2.html#problem-3-polynomials-and-rational-functions",
-    "href": "notes/unit0_2.html#problem-3-polynomials-and-rational-functions",
-    "title": "Modeling with Families of Functions",
-    "section": "Problem 3: Polynomials and Rational Functions",
-    "text": "Problem 3: Polynomials and Rational Functions\n\nLet \\(f(x) = x^4 - 4x^2\\). Sketch a graph of \\(f(x)\\). Make sure to show all \\(x\\)-intercepts and the end behavior. Use Desmos to check your answer.\nLet \\(g(x)\\) be the polynomial shown below. Find a formula for \\(g(x)\\) assuming it has the smallest possible degree.\n\n\n\n\n\n\n\nFigure 1: Graph of \\(g(x)\\)\n\n\n\n\nLet \\(f(x)\\) and \\(g(x)\\) be the functions from parts (a) and (b). Find all vertical and horizontal asymptotes for the function \\[\nh(x) = \\frac{g(x)}{f(x)}.\n\\]",
-    "crumbs": [
-      "Course Notes",
-      "Unit 0: Introduction & Review",
-      "Families of Functions"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_1.html",
-    "href": "notes/unit1_1.html",
-    "title": "Limits & Continuity - Definitions and Intuition",
-    "section": "",
-    "text": "When computing a limit, we are trying to determine the end result of an indefinite process. Like with the light switch example in the Unit 1 Overview, some indefinite processes do not yield a final outcome. In these cases, we say that the limit of the process does not exist.\nIn other instances, like with the value of \\(0.999\\ldots\\), we will be able to see that the outcomes of the process (\\(0.9\\), \\(0.99\\), \\(0.999\\), \\(\\ldots\\)) become infinitesimally close to a specific value and we define this value to be the limit of the process.\nThe process we are interested in here is the value a function \\(f(x)\\) approaches as \\(x\\) approaches a particular input value \\(x=a\\) or as \\(x\\) tends towards \\(\\infty\\) or \\(-\\infty\\). We use the following notation when trying to compute the limit in this context: \\[\\lim_{x\\to a}f(x).\\]\nNote that \\(\\displaystyle\\lim_{x\\to a}f(x)\\) and \\(f(a)\\) are asking two different questions:\n\n\\(\\displaystyle\\lim_{x\\to a}f(x)\\) is asking us to examine the behavior of the output values of \\(f\\) as the input values get closer and closer to \\(x=a\\); at no point in this process do we plug in \\(x=a\\).\n\\(f(a)\\) is asking for the output value that we get when we plug in \\(x=a\\).\n\nIn some cases, these questions have the same answer. We say that the function is continuous at \\(x=a\\) when this happens. In other cases, they do not. But it is always important to keep in mind that these are two distinct questions!\nHere are some formal definitions for the different kinds of limits we will use in this context:\n\nDefinition 1 (Limit) For a given real number \\(a\\), we write that \\[\\lim_{x\\to a}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that is sufficiently close to, but not equal to \\(a\\). In this case, we say that the limit of \\(f(x)\\) as \\(x\\) approaches \\(a\\) exists and equals \\(L\\).\n\n\nDefinition 2 (Limits at Infinity) We write that \\[\\lim_{x\\to \\infty}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in sufficiently large values for \\(x\\).\nWe write \\[\\lim_{x\\to -\\infty}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in negative values for \\(x\\) that are sufficiently large in magnitude.\nIn these cases, we say that the limit of \\(f(x)\\) as \\(x\\) approaches infinity or negative infinity exists and equals \\(L\\).\n\n\nDefinition 3 For a given real number \\(a\\), we write that \\[\\lim_{x\\to a^+}f(x)=L\\] if there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that sufficiently close to, but greater than \\(a\\).\nWe write that \\[\\lim_{x\\to a^-}f(x)=L\\] if there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that sufficiently close to, but less than \\(a\\).\nIn these cases, we say that the limit of \\(f(x)\\) as \\(x\\) approaches a from the right (\\(x\\to a^+\\)), or from the left (\\(x\\to a^-\\)), exists and equals \\(L\\).\n\n\n\nLet \\(f(x)\\) be the function shown in the graph below.\n\n\n\n\n\n\nFigure 1: Graph of \\(f(x)\\)\n\n\n\nEvaluate each of the following limits or indicate they do not exist by writing DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\n\n(a) \\(\\displaystyle\\lim_{x\\to 0}f(x)\\)\n\n\n(b) \\(\\displaystyle\\lim_{x\\to -\\infty}f(x)\\)\n\n\n\n\n(c) \\(\\displaystyle\\lim_{x\\to -3^+}f(x)\\)\n\n\n(d) \\(\\displaystyle\\lim_{x\\to -3^-}f(x)\\)\n\n\n\n\n(e) \\(\\displaystyle\\lim_{x\\to 2}f(x)\\)\n\n\n(f) \\(\\displaystyle\\lim_{x\\to \\infty}f(x)\\)\n\n\n\n\n\n\nLet \\(f(x) = \\dfrac{x^2+2x-3}{x+1}\\) and \\(g(x) = \\dfrac{x^2-2x-3}{x+1}\\).\n\nFill out the following table of values:\n\n\n\n\n\\(x\\)\n-1.1\n-1.01\n-1.001\n-0.999\n-0.99\n-0.9\n\n\n\n\n\\(f(x)\\)\n\n\n\n\n\n\n\n\n\\(g(x)\\)\n\n\n\n\n\n\n\n\n\n\nUse the table to guess the value of the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\n\n\ni. \\(\\lim_{x\\to -1^-} f(x)\\)\n\n\nii. \\(\\lim_{x\\to -1^+} f(x)\\)\n\n\niii. \\(\\lim_{x\\to -1} f(x)\\)\n\n\n\n\niv. \\(\\lim_{x\\to -1^-} g(x)\\)\n\n\nv. \\(\\lim_{x\\to -1^-} g(x)\\)\n\n\nvi. \\(\\lim_{x\\to -1} g(x)\\)",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Definitions & Intuition"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_1.html#definition-of-a-limit",
-    "href": "notes/unit1_1.html#definition-of-a-limit",
-    "title": "Limits & Continuity - Definitions and Intuition",
-    "section": "",
-    "text": "When computing a limit, we are trying to determine the end result of an indefinite process. Like with the light switch example in the Unit 1 Overview, some indefinite processes do not yield a final outcome. In these cases, we say that the limit of the process does not exist.\nIn other instances, like with the value of \\(0.999\\ldots\\), we will be able to see that the outcomes of the process (\\(0.9\\), \\(0.99\\), \\(0.999\\), \\(\\ldots\\)) become infinitesimally close to a specific value and we define this value to be the limit of the process.\nThe process we are interested in here is the value a function \\(f(x)\\) approaches as \\(x\\) approaches a particular input value \\(x=a\\) or as \\(x\\) tends towards \\(\\infty\\) or \\(-\\infty\\). We use the following notation when trying to compute the limit in this context: \\[\\lim_{x\\to a}f(x).\\]\nNote that \\(\\displaystyle\\lim_{x\\to a}f(x)\\) and \\(f(a)\\) are asking two different questions:\n\n\\(\\displaystyle\\lim_{x\\to a}f(x)\\) is asking us to examine the behavior of the output values of \\(f\\) as the input values get closer and closer to \\(x=a\\); at no point in this process do we plug in \\(x=a\\).\n\\(f(a)\\) is asking for the output value that we get when we plug in \\(x=a\\).\n\nIn some cases, these questions have the same answer. We say that the function is continuous at \\(x=a\\) when this happens. In other cases, they do not. But it is always important to keep in mind that these are two distinct questions!\nHere are some formal definitions for the different kinds of limits we will use in this context:\n\nDefinition 1 (Limit) For a given real number \\(a\\), we write that \\[\\lim_{x\\to a}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that is sufficiently close to, but not equal to \\(a\\). In this case, we say that the limit of \\(f(x)\\) as \\(x\\) approaches \\(a\\) exists and equals \\(L\\).\n\n\nDefinition 2 (Limits at Infinity) We write that \\[\\lim_{x\\to \\infty}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in sufficiently large values for \\(x\\).\nWe write \\[\\lim_{x\\to -\\infty}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in negative values for \\(x\\) that are sufficiently large in magnitude.\nIn these cases, we say that the limit of \\(f(x)\\) as \\(x\\) approaches infinity or negative infinity exists and equals \\(L\\).\n\n\nDefinition 3 For a given real number \\(a\\), we write that \\[\\lim_{x\\to a^+}f(x)=L\\] if there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that sufficiently close to, but greater than \\(a\\).\nWe write that \\[\\lim_{x\\to a^-}f(x)=L\\] if there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that sufficiently close to, but less than \\(a\\).\nIn these cases, we say that the limit of \\(f(x)\\) as \\(x\\) approaches a from the right (\\(x\\to a^+\\)), or from the left (\\(x\\to a^-\\)), exists and equals \\(L\\).\n\n\n\nLet \\(f(x)\\) be the function shown in the graph below.\n\n\n\n\n\n\nFigure 1: Graph of \\(f(x)\\)\n\n\n\nEvaluate each of the following limits or indicate they do not exist by writing DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\n\n(a) \\(\\displaystyle\\lim_{x\\to 0}f(x)\\)\n\n\n(b) \\(\\displaystyle\\lim_{x\\to -\\infty}f(x)\\)\n\n\n\n\n(c) \\(\\displaystyle\\lim_{x\\to -3^+}f(x)\\)\n\n\n(d) \\(\\displaystyle\\lim_{x\\to -3^-}f(x)\\)\n\n\n\n\n(e) \\(\\displaystyle\\lim_{x\\to 2}f(x)\\)\n\n\n(f) \\(\\displaystyle\\lim_{x\\to \\infty}f(x)\\)\n\n\n\n\n\n\nLet \\(f(x) = \\dfrac{x^2+2x-3}{x+1}\\) and \\(g(x) = \\dfrac{x^2-2x-3}{x+1}\\).\n\nFill out the following table of values:\n\n\n\n\n\\(x\\)\n-1.1\n-1.01\n-1.001\n-0.999\n-0.99\n-0.9\n\n\n\n\n\\(f(x)\\)\n\n\n\n\n\n\n\n\n\\(g(x)\\)\n\n\n\n\n\n\n\n\n\n\nUse the table to guess the value of the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\n\n\ni. \\(\\lim_{x\\to -1^-} f(x)\\)\n\n\nii. \\(\\lim_{x\\to -1^+} f(x)\\)\n\n\niii. \\(\\lim_{x\\to -1} f(x)\\)\n\n\n\n\niv. \\(\\lim_{x\\to -1^-} g(x)\\)\n\n\nv. \\(\\lim_{x\\to -1^-} g(x)\\)\n\n\nvi. \\(\\lim_{x\\to -1} g(x)\\)",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Definitions & Intuition"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_1.html#definition-of-continuity",
-    "href": "notes/unit1_1.html#definition-of-continuity",
-    "title": "Limits & Continuity - Definitions and Intuition",
-    "section": "Definition of Continuity",
-    "text": "Definition of Continuity\nOne property we frequently look for in functions is their continuity. This is a particular nice property to have if \\(y=f(x)\\) is the model for some real world relationship. If \\(f\\) is continuous at \\(x=a\\) and \\(f(a)=b\\), then we know that sufficiently small errors in our input value (e.g. maybe \\(a\\) gets rounded to the nearest 0.01) will produce an output value that is within some desired margin of error around \\(b\\).\nIn terms of limits, as noted above, knowing a function is continuous at \\(x=a\\) makes evaluating the limit really easy—all we have to do in this case is plug in \\(x=a\\).\nHere is our formal definition:\n\nDefinition 4 (Continuity) We say that \\(f(x)\\) is continuous at \\(x=a\\) if \\[\\lim_{x\\to a}f(x)=f(a)\\]\n\n\nProblem 3: Making a Piecewise Function Continuous\nLet\n\\[\nh(x) = \\begin{cases} ax^2+2 & \\text{if } x&lt;1 \\\\ 4 & \\text{if } x=1 \\\\ -3x+b & \\text{if } x&gt;1 \\end{cases}\n\\]\n\nHere is a link to a graph of \\(h(x)\\) in Desmos. Use the sliders to help you guess the values of \\(a\\) and \\(b\\) that make \\(h(x)\\) continuous at \\(x=1\\).\nVerify your answer to part (a) algebraically.\n\n\n\nProblem 4: Drug Decay\nA 0.6 mL dose of a drug is administered to a patient steadily for half a second. At the end of this time, the quantity \\(Q\\) of the drug in the body starts to decay exponentially. The continuous decay rate of the drug is 0.2% per second.\n\nLet \\(Q(t)\\) be the amount of drug in the body \\(t\\) seconds after the drug began to be administered. Do you expect \\(Q(t)\\) to be continuous for \\(t&gt;0\\)?\nFind a formula for \\(Q(t)\\).",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Definitions & Intuition"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_3.html",
-    "href": "notes/unit1_3.html",
-    "title": "Evaluating Limits Using Algebra",
-    "section": "",
-    "text": "Graphs and data tables are helpful for developing our intuition about limits. They can be used as the basis for making a reasonable guess as to whether \\(\\displaystyle\\lim_{x\\to a}f(x)\\) exists and estimating its value if it does. However, these approaches fall short of providing conclusive proof.\nWhen using a computational tool to create a data table or graph, we are limited by its level of precision (it can only compute a certain number of decimal places) and its finite-ness. Making a conclusion about some indefinite process based on a finite number of measurements can be treacherous, even when done carefully!\nToday, we will go over some analytical and algebraic approaches that are more robust and can be used in certain cases to show why a limit does or does not exist and determine its value.\nBefore we proceed: Remember that if we know the function is continuous at \\(x=a\\), all we have to do is plug in to evaluate \\(\\displaystyle\\lim_{x\\to a}f(x)\\)! This works, for example, if \\(f(x)\\) can be written as the combination of elementary functions and \\(x=a\\) is in its domain1\nThe algebraic techniques discussed here are for analyzing what happens when \\(a\\) is not in the domain of \\(f(x)\\), particularly when we arrive at indeterminate forms when trying to use limit properties.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Evaluating Limits Using Algebra"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_3.html#problem-1-factoring",
-    "href": "notes/unit1_3.html#problem-1-factoring",
-    "title": "Evaluating Limits Using Algebra",
-    "section": "Problem 1: Factoring",
-    "text": "Problem 1: Factoring\nFind the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\\(\\displaystyle\\lim_{r\\to 3} \\frac{r^2-9}{r^2+r-12}\\)\n\\(\\displaystyle\\lim_{x\\to 1} \\frac{x+1}{x^2+3x-4}\\)\n\\(\\displaystyle\\lim_{h\\to 0} \\frac{(3+h)^2-9}{h}\\)\n\\(\\displaystyle\\lim_{a\\to 0} \\frac{\\frac{1}{4+a}-\\frac{1}{4}}{a}\\)",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Evaluating Limits Using Algebra"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_3.html#problem-2-change-of-variables",
-    "href": "notes/unit1_3.html#problem-2-change-of-variables",
-    "title": "Evaluating Limits Using Algebra",
-    "section": "Problem 2: Change of Variables",
-    "text": "Problem 2: Change of Variables\nUse the hints to evaluate the following limits.\n\n\\(\\displaystyle\\lim_{x\\to 0}\\frac{e^{4x}-e^{3x}}{e^x-1}\\) (Hint: Let \\(t=e^x\\) and rewrite the entire limit in terms of \\(t\\).)\n\\(\\displaystyle\\lim_{w\\to 4}\\frac{w-4}{\\sqrt{w}-2}\\) (Hint: Let \\(t=\\sqrt{w}\\) and rewrite the entire limit in terms of \\(t\\).)",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Evaluating Limits Using Algebra"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_3.html#problem-3-comparing-end-behavior",
-    "href": "notes/unit1_3.html#problem-3-comparing-end-behavior",
-    "title": "Evaluating Limits Using Algebra",
-    "section": "Problem 3: Comparing End Behavior",
-    "text": "Problem 3: Comparing End Behavior\nEvaluate the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\\(\\displaystyle\\lim_{x\\to\\infty}\\frac{7x^2+x+11}{2x-3x^2}\\)\n\\(\\displaystyle\\lim_{t\\to -\\infty}\\frac{t^3-3t}{t^2-1}\\)\n\\(\\displaystyle\\lim_{x\\to\\infty}\\frac{72}{1+2(0.9)^x}\\)\n\\(\\displaystyle\\lim_{z\\to\\infty}z^2e^{-z}\\)",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Evaluating Limits Using Algebra"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_3.html#problem-4-squeeze-theorem",
-    "href": "notes/unit1_3.html#problem-4-squeeze-theorem",
-    "title": "Evaluating Limits Using Algebra",
-    "section": "Problem 4: Squeeze Theorem",
-    "text": "Problem 4: Squeeze Theorem\n\nLet \\(f(x)=\\sin(\\pi/x)\\) and consider \\(\\displaystyle\\lim_{x\\to 0^+}f(x)\\).\nFirst, compute the value of \\(\\sin(\\pi/x)\\) at \\(x = 0.1,\\ 0.01,\\ 0.001,\\) and \\(0.0001\\).\n\n\n\n\\(x\\)\n\\(0.1\\)\n\\(0.01\\)\n\\(0.001\\)\n\\(0.0001\\)\n\n\n\n\n\\(f(x)\\)\n\n\n\n\n\n\n\nBased on this, can we conclude \\[\\lim_{x\\to 0^+} \\sin(\\pi/x) = 0?\\]\nNow let \\(f(x)=x\\sin(\\pi/x)\\) and consider \\(\\displaystyle\\lim_{x\\to 0^+}f(x)\\).\nIs the following argument using our limit properties correct/reasonable:\n\\[\n\\begin{align}\n\\lim_{x\\to 0^+}x\\sin(\\pi/x) & = \\lim_{x\\to 0^+}x \\cdot \\lim_{x\\to 0+}\\sin(\\pi/x) \\\\\n& = 0 \\cdot \\lim_{x\\to 0^+}\\sin(\\pi/x) \\\\\n\\end{align}\n\\]\nSince anything multiplied by 0 is 0, the limit must be equal to 0.\nIf either argument above is flawed, try to correct and improve it!",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Evaluating Limits Using Algebra"
-    ]
-  },
-  {
-    "objectID": "notes/unit1_3.html#footnotes",
-    "href": "notes/unit1_3.html#footnotes",
-    "title": "Evaluating Limits Using Algebra",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThough, we do have to be careful if \\(x=a\\) is on the boundary of the domain; then it only applies to the appropriate one-sided limit.↩︎",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Limits & Continuity",
-      "Evaluating Limits Using Algebra"
-    ]
-  },
-  {
-    "objectID": "notes/unit2_1.html",
-    "href": "notes/unit2_1.html",
-    "title": "Instantaneous Velocity",
-    "section": "",
-    "text": "Problem 1: Ranking Velocities\nA person throws an object up into the air from a bridge. Its height above the ground \\(t\\) seconds after it is thrown is given by the function \\[h(t)=-16t^2+50t+36.\\] The graph of this function is shown below.\n\n\n\nClick here to open this graph in Desmos\n\n\n\nRank the following from least to greatest:\n\nA. The average velocity on \\(0\\leq t\\leq 1\\)\nB. The average velocity on \\(2\\leq t\\leq 3\\)\nC. The instantaneous velocity at \\(t=0\\)\nD. The instantaneous velocity at \\(t=1\\)\nE. The instantaneous velocity at \\(t=2\\)\nF. The instantaneous velocity at \\(t=3\\)\n\nIs there ever a moment when the velocity is \\(0\\)? If so, when?\n\n\n\nProblem 2: Estimating an Instantaneous Velocity\nUsing the same height function from Problem 2, \\[h(t)=-16t^2+50t+36,\\] shown again below,\n\n\nCompute the average velocity of the object over each of the following intervals:\n\n\\(1\\leq t\\leq 1.1\\)\n\\(1\\leq t\\leq 1.01\\)\n\\(1\\leq t\\leq 1.001\\)\n\\(0.9\\leq t\\leq 1\\)\n\\(0.99\\leq t\\leq 1\\)\n\\(0.999\\leq t\\leq 1\\)\n\nBased on your answers to part (a), what do you think the instantaneous velocity of the object is at \\(t=1\\)?\n\n\n\nProblem 3: From Average to Instantaneous\nContinuing with Problem 3, compute the value of the following limit: \\[\\lim_{t\\to 1}\\frac{h(t)-h(1)}{t-1}\\]\nExplain the significance of the value you found — how does it relate to your answers in Problem 3?",
+    "text": "Problem 1 - Motion and Curvature\nSketch a graph for each of the functions described below.\n\nA car is stopped at a stoplight. The light turns green and the car begins to accelerate straight ahead. Let \\(A(t)\\) be the distance the car travels \\(t\\) seconds after the light turns green.\nA car is headed straight towards the same stoplight on the cross street. The light turns red and the car begins to decelerate. Let \\(B(t)\\) be the car’s distance from the stoplight \\(t\\) seconds after the light turns red.\nA cyclist is passing through the same intersection as the cars. The cyclist pays no attention to the color of the light and cruises through the intersection with no acceleration or deceleration. Let \\(C(t)\\) be the distance the cyclist travels \\(t\\) seconds after the light changes.",
     "crumbs": [
       "Course Notes",
       "Unit 2: The Derivative",
-      "Instantaneous Velocity"
+      "The Second Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_5.html#problem-2---slope-and-shape",
+    "href": "notes/unit2_5.html#problem-2---slope-and-shape",
+    "title": "The Second Derivative",
+    "section": "Problem 2 - Slope and Shape",
+    "text": "Problem 2 - Slope and Shape\nEach row of the table contains conditions on \\(f'(x)\\) and \\(f''(x)\\) which are true on an interval. Fill in the blanks with one or two words that describe what these conditions tell us about the slope of \\(f(x)\\) and the graph of \\(f(x)\\). Then draw a curve showing the shape of the graph of \\(f(x)\\) that fits this description.\n\n\n\n\n\n\n\n\n\nIf …\nthen the slope of \\(f(x)\\) is …\nthe graph of \\(f(x)\\) is …\nand looks like …\n\n\n\n\n\\(f'(x)=0\\)\n__________\n__________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)=0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)=0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)&gt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)&gt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)&lt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)&lt;0\\)\n__________ and __________\n__________ and __________",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "The Second Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_5.html#problem-3---signs-of-f-f-and-f",
+    "href": "notes/unit2_5.html#problem-3---signs-of-f-f-and-f",
+    "title": "The Second Derivative",
+    "section": "Problem 3 - Signs of \\(f\\), \\(f'\\), and \\(f''\\)",
+    "text": "Problem 3 - Signs of \\(f\\), \\(f'\\), and \\(f''\\)\nThe function \\(f(x)\\) is shown in the graph below.\n\n\n\nGraph of \\(f(x)\\)\n\n\nDetermine if \\(f\\), \\(f'\\), and \\(f''\\) are positive, negative, or zero at each of the four labeled points.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "The Second Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_5.html#problem-4---using-the-second-derivative-to-assess-estimates",
+    "href": "notes/unit2_5.html#problem-4---using-the-second-derivative-to-assess-estimates",
+    "title": "The Second Derivative",
+    "section": "Problem 4 - Using the Second Derivative to Assess Estimates",
+    "text": "Problem 4 - Using the Second Derivative to Assess Estimates\nThe CFCs in the atmosphere above the US have been reduced from a high of 1915 parts per trillion (ppt) in 2000 to 1640 ppt in 2014. The reduction over this time has been approximately linear. Let \\(C(t)\\) be the concentration of CFCs in ppt \\(t\\) years after 2000.\n\nFind \\(C(14)\\).\nEstimate \\(C'(14)\\).\nAccording to the information given, what is a formula approximating \\(C(t)\\) on the interval \\(0\\leq t\\leq 14\\)?\nUse your formula to approximate \\(C(20)\\).\nSuppose that further analysis shows that \\(C''(t)&lt;0\\) on the interval \\(14\\leq t\\leq 20\\). Is your estimate from part d too high or too low? Explain.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "The Second Derivative"
     ]
   },
   {
@@ -657,63 +144,648 @@
     ]
   },
   {
-    "objectID": "notes/unit2_5.html",
-    "href": "notes/unit2_5.html",
+    "objectID": "notes/unit2_1.html",
+    "href": "notes/unit2_1.html",
+    "title": "Instantaneous Velocity",
+    "section": "",
+    "text": "Problem 1: Ranking Velocities\nA person throws an object up into the air from a bridge. Its height above the ground \\(t\\) seconds after it is thrown is given by the function \\[h(t)=-16t^2+50t+36.\\] The graph of this function is shown below.\n\n\n\nClick here to open this graph in Desmos\n\n\n\nRank the following from least to greatest:\n\nA. The average velocity on \\(0\\leq t\\leq 1\\)\nB. The average velocity on \\(2\\leq t\\leq 3\\)\nC. The instantaneous velocity at \\(t=0\\)\nD. The instantaneous velocity at \\(t=1\\)\nE. The instantaneous velocity at \\(t=2\\)\nF. The instantaneous velocity at \\(t=3\\)\n\nIs there ever a moment when the velocity is \\(0\\)? If so, when?\n\n\n\nProblem 2: Estimating an Instantaneous Velocity\nUsing the same height function from Problem 2, \\[h(t)=-16t^2+50t+36,\\] shown again below,\n\n\nCompute the average velocity of the object over each of the following intervals:\n\n\\(1\\leq t\\leq 1.1\\)\n\\(1\\leq t\\leq 1.01\\)\n\\(1\\leq t\\leq 1.001\\)\n\\(0.9\\leq t\\leq 1\\)\n\\(0.99\\leq t\\leq 1\\)\n\\(0.999\\leq t\\leq 1\\)\n\nBased on your answers to part (a), what do you think the instantaneous velocity of the object is at \\(t=1\\)?\n\n\n\nProblem 3: From Average to Instantaneous\nContinuing with Problem 3, compute the value of the following limit: \\[\\lim_{t\\to 1}\\frac{h(t)-h(1)}{t-1}\\]\nExplain the significance of the value you found — how does it relate to your answers in Problem 3?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Instantaneous Velocity"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html",
+    "href": "notes/unit1_3.html",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "",
+    "text": "Graphs and data tables are helpful for developing our intuition about limits. They can be used as the basis for making a reasonable guess as to whether \\(\\displaystyle\\lim_{x\\to a}f(x)\\) exists and estimating its value if it does. However, these approaches fall short of providing conclusive proof.\nWhen using a computational tool to create a data table or graph, we are limited by its level of precision (it can only compute a certain number of decimal places) and its finite-ness. Making a conclusion about some indefinite process based on a finite number of measurements can be treacherous, even when done carefully!\nToday, we will go over some analytical and algebraic approaches that are more robust and can be used in certain cases to show why a limit does or does not exist and determine its value.\nBefore we proceed: Remember that if we know the function is continuous at \\(x=a\\), all we have to do is plug in to evaluate \\(\\displaystyle\\lim_{x\\to a}f(x)\\)! This works, for example, if \\(f(x)\\) can be written as the combination of elementary functions and \\(x=a\\) is in its domain1\nThe algebraic techniques discussed here are for analyzing what happens when \\(a\\) is not in the domain of \\(f(x)\\), particularly when we arrive at indeterminate forms when trying to use limit properties.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#problem-1-factoring",
+    "href": "notes/unit1_3.html#problem-1-factoring",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Problem 1: Factoring",
+    "text": "Problem 1: Factoring\nFind the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\\(\\displaystyle\\lim_{r\\to 3} \\frac{r^2-9}{r^2+r-12}\\)\n\\(\\displaystyle\\lim_{x\\to 1} \\frac{x+1}{x^2+3x-4}\\)\n\\(\\displaystyle\\lim_{h\\to 0} \\frac{(3+h)^2-9}{h}\\)\n\\(\\displaystyle\\lim_{a\\to 0} \\frac{\\frac{1}{4+a}-\\frac{1}{4}}{a}\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#problem-2-change-of-variables",
+    "href": "notes/unit1_3.html#problem-2-change-of-variables",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Problem 2: Change of Variables",
+    "text": "Problem 2: Change of Variables\nUse the hints to evaluate the following limits.\n\n\\(\\displaystyle\\lim_{x\\to 0}\\frac{e^{4x}-e^{3x}}{e^x-1}\\) (Hint: Let \\(t=e^x\\) and rewrite the entire limit in terms of \\(t\\).)\n\\(\\displaystyle\\lim_{w\\to 4}\\frac{w-4}{\\sqrt{w}-2}\\) (Hint: Let \\(t=\\sqrt{w}\\) and rewrite the entire limit in terms of \\(t\\).)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#problem-3-comparing-end-behavior",
+    "href": "notes/unit1_3.html#problem-3-comparing-end-behavior",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Problem 3: Comparing End Behavior",
+    "text": "Problem 3: Comparing End Behavior\nEvaluate the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\\(\\displaystyle\\lim_{x\\to\\infty}\\frac{7x^2+x+11}{2x-3x^2}\\)\n\\(\\displaystyle\\lim_{t\\to -\\infty}\\frac{t^3-3t}{t^2-1}\\)\n\\(\\displaystyle\\lim_{x\\to\\infty}\\frac{72}{1+2(0.9)^x}\\)\n\\(\\displaystyle\\lim_{z\\to\\infty}z^2e^{-z}\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#problem-4-squeeze-theorem",
+    "href": "notes/unit1_3.html#problem-4-squeeze-theorem",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Problem 4: Squeeze Theorem",
+    "text": "Problem 4: Squeeze Theorem\n\nLet \\(f(x)=\\sin(\\pi/x)\\) and consider \\(\\displaystyle\\lim_{x\\to 0^+}f(x)\\).\nFirst, compute the value of \\(\\sin(\\pi/x)\\) at \\(x = 0.1,\\ 0.01,\\ 0.001,\\) and \\(0.0001\\).\n\n\n\n\\(x\\)\n\\(0.1\\)\n\\(0.01\\)\n\\(0.001\\)\n\\(0.0001\\)\n\n\n\n\n\\(f(x)\\)\n\n\n\n\n\n\n\nBased on this, can we conclude \\[\\lim_{x\\to 0^+} \\sin(\\pi/x) = 0?\\]\nNow let \\(f(x)=x\\sin(\\pi/x)\\) and consider \\(\\displaystyle\\lim_{x\\to 0^+}f(x)\\).\nIs the following argument using our limit properties correct/reasonable:\n\\[\n\\begin{align}\n\\lim_{x\\to 0^+}x\\sin(\\pi/x) & = \\lim_{x\\to 0^+}x \\cdot \\lim_{x\\to 0+}\\sin(\\pi/x) \\\\\n& = 0 \\cdot \\lim_{x\\to 0^+}\\sin(\\pi/x) \\\\\n\\end{align}\n\\]\nSince anything multiplied by 0 is 0, the limit must be equal to 0.\nIf either argument above is flawed, try to correct and improve it!",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_3.html#footnotes",
+    "href": "notes/unit1_3.html#footnotes",
+    "title": "Evaluating Limits Using Algebra",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThough, we do have to be careful if \\(x=a\\) is on the boundary of the domain; then it only applies to the appropriate one-sided limit.↩︎",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Evaluating Limits Using Algebra"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_1.html",
+    "href": "notes/unit1_1.html",
+    "title": "Limits & Continuity - Definitions and Intuition",
+    "section": "",
+    "text": "When computing a limit, we are trying to determine the end result of an indefinite process. Like with the light switch example in the Unit 1 Overview, some indefinite processes do not yield a final outcome. In these cases, we say that the limit of the process does not exist.\nIn other instances, like with the value of \\(0.999\\ldots\\), we will be able to see that the outcomes of the process (\\(0.9\\), \\(0.99\\), \\(0.999\\), \\(\\ldots\\)) become infinitesimally close to a specific value and we define this value to be the limit of the process.\nThe process we are interested in here is the value a function \\(f(x)\\) approaches as \\(x\\) approaches a particular input value \\(x=a\\) or as \\(x\\) tends towards \\(\\infty\\) or \\(-\\infty\\). We use the following notation when trying to compute the limit in this context: \\[\\lim_{x\\to a}f(x).\\]\nNote that \\(\\displaystyle\\lim_{x\\to a}f(x)\\) and \\(f(a)\\) are asking two different questions:\n\n\\(\\displaystyle\\lim_{x\\to a}f(x)\\) is asking us to examine the behavior of the output values of \\(f\\) as the input values get closer and closer to \\(x=a\\); at no point in this process do we plug in \\(x=a\\).\n\\(f(a)\\) is asking for the output value that we get when we plug in \\(x=a\\).\n\nIn some cases, these questions have the same answer. We say that the function is continuous at \\(x=a\\) when this happens. In other cases, they do not. But it is always important to keep in mind that these are two distinct questions!\nHere are some formal definitions for the different kinds of limits we will use in this context:\n\nDefinition 1 (Limit) For a given real number \\(a\\), we write that \\[\\lim_{x\\to a}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that is sufficiently close to, but not equal to \\(a\\). In this case, we say that the limit of \\(f(x)\\) as \\(x\\) approaches \\(a\\) exists and equals \\(L\\).\n\n\nDefinition 2 (Limits at Infinity) We write that \\[\\lim_{x\\to \\infty}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in sufficiently large values for \\(x\\).\nWe write \\[\\lim_{x\\to -\\infty}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in negative values for \\(x\\) that are sufficiently large in magnitude.\nIn these cases, we say that the limit of \\(f(x)\\) as \\(x\\) approaches infinity or negative infinity exists and equals \\(L\\).\n\n\nDefinition 3 For a given real number \\(a\\), we write that \\[\\lim_{x\\to a^+}f(x)=L\\] if there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that sufficiently close to, but greater than \\(a\\).\nWe write that \\[\\lim_{x\\to a^-}f(x)=L\\] if there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that sufficiently close to, but less than \\(a\\).\nIn these cases, we say that the limit of \\(f(x)\\) as \\(x\\) approaches a from the right (\\(x\\to a^+\\)), or from the left (\\(x\\to a^-\\)), exists and equals \\(L\\).\n\n\n\nLet \\(f(x)\\) be the function shown in the graph below.\n\n\n\n\n\n\nFigure 1: Graph of \\(f(x)\\)\n\n\n\nEvaluate each of the following limits or indicate they do not exist by writing DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\n\n(a) \\(\\displaystyle\\lim_{x\\to 0}f(x)\\)\n\n\n(b) \\(\\displaystyle\\lim_{x\\to -\\infty}f(x)\\)\n\n\n\n\n(c) \\(\\displaystyle\\lim_{x\\to -3^+}f(x)\\)\n\n\n(d) \\(\\displaystyle\\lim_{x\\to -3^-}f(x)\\)\n\n\n\n\n(e) \\(\\displaystyle\\lim_{x\\to 2}f(x)\\)\n\n\n(f) \\(\\displaystyle\\lim_{x\\to \\infty}f(x)\\)\n\n\n\n\n\n\nLet \\(f(x) = \\dfrac{x^2+2x-3}{x+1}\\) and \\(g(x) = \\dfrac{x^2-2x-3}{x+1}\\).\n\nFill out the following table of values:\n\n\n\n\n\\(x\\)\n-1.1\n-1.01\n-1.001\n-0.999\n-0.99\n-0.9\n\n\n\n\n\\(f(x)\\)\n\n\n\n\n\n\n\n\n\\(g(x)\\)\n\n\n\n\n\n\n\n\n\n\nUse the table to guess the value of the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\n\n\ni. \\(\\lim_{x\\to -1^-} f(x)\\)\n\n\nii. \\(\\lim_{x\\to -1^+} f(x)\\)\n\n\niii. \\(\\lim_{x\\to -1} f(x)\\)\n\n\n\n\niv. \\(\\lim_{x\\to -1^-} g(x)\\)\n\n\nv. \\(\\lim_{x\\to -1^-} g(x)\\)\n\n\nvi. \\(\\lim_{x\\to -1} g(x)\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Definitions & Intuition"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_1.html#definition-of-a-limit",
+    "href": "notes/unit1_1.html#definition-of-a-limit",
+    "title": "Limits & Continuity - Definitions and Intuition",
+    "section": "",
+    "text": "When computing a limit, we are trying to determine the end result of an indefinite process. Like with the light switch example in the Unit 1 Overview, some indefinite processes do not yield a final outcome. In these cases, we say that the limit of the process does not exist.\nIn other instances, like with the value of \\(0.999\\ldots\\), we will be able to see that the outcomes of the process (\\(0.9\\), \\(0.99\\), \\(0.999\\), \\(\\ldots\\)) become infinitesimally close to a specific value and we define this value to be the limit of the process.\nThe process we are interested in here is the value a function \\(f(x)\\) approaches as \\(x\\) approaches a particular input value \\(x=a\\) or as \\(x\\) tends towards \\(\\infty\\) or \\(-\\infty\\). We use the following notation when trying to compute the limit in this context: \\[\\lim_{x\\to a}f(x).\\]\nNote that \\(\\displaystyle\\lim_{x\\to a}f(x)\\) and \\(f(a)\\) are asking two different questions:\n\n\\(\\displaystyle\\lim_{x\\to a}f(x)\\) is asking us to examine the behavior of the output values of \\(f\\) as the input values get closer and closer to \\(x=a\\); at no point in this process do we plug in \\(x=a\\).\n\\(f(a)\\) is asking for the output value that we get when we plug in \\(x=a\\).\n\nIn some cases, these questions have the same answer. We say that the function is continuous at \\(x=a\\) when this happens. In other cases, they do not. But it is always important to keep in mind that these are two distinct questions!\nHere are some formal definitions for the different kinds of limits we will use in this context:\n\nDefinition 1 (Limit) For a given real number \\(a\\), we write that \\[\\lim_{x\\to a}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that is sufficiently close to, but not equal to \\(a\\). In this case, we say that the limit of \\(f(x)\\) as \\(x\\) approaches \\(a\\) exists and equals \\(L\\).\n\n\nDefinition 2 (Limits at Infinity) We write that \\[\\lim_{x\\to \\infty}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in sufficiently large values for \\(x\\).\nWe write \\[\\lim_{x\\to -\\infty}f(x)=L\\] when there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in negative values for \\(x\\) that are sufficiently large in magnitude.\nIn these cases, we say that the limit of \\(f(x)\\) as \\(x\\) approaches infinity or negative infinity exists and equals \\(L\\).\n\n\nDefinition 3 For a given real number \\(a\\), we write that \\[\\lim_{x\\to a^+}f(x)=L\\] if there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that sufficiently close to, but greater than \\(a\\).\nWe write that \\[\\lim_{x\\to a^-}f(x)=L\\] if there is a real number \\(L\\) such that the values of \\(f(x)\\) can be made arbitrarily close to \\(L\\) by plugging in any \\(x\\) value that sufficiently close to, but less than \\(a\\).\nIn these cases, we say that the limit of \\(f(x)\\) as \\(x\\) approaches a from the right (\\(x\\to a^+\\)), or from the left (\\(x\\to a^-\\)), exists and equals \\(L\\).\n\n\n\nLet \\(f(x)\\) be the function shown in the graph below.\n\n\n\n\n\n\nFigure 1: Graph of \\(f(x)\\)\n\n\n\nEvaluate each of the following limits or indicate they do not exist by writing DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\n\n(a) \\(\\displaystyle\\lim_{x\\to 0}f(x)\\)\n\n\n(b) \\(\\displaystyle\\lim_{x\\to -\\infty}f(x)\\)\n\n\n\n\n(c) \\(\\displaystyle\\lim_{x\\to -3^+}f(x)\\)\n\n\n(d) \\(\\displaystyle\\lim_{x\\to -3^-}f(x)\\)\n\n\n\n\n(e) \\(\\displaystyle\\lim_{x\\to 2}f(x)\\)\n\n\n(f) \\(\\displaystyle\\lim_{x\\to \\infty}f(x)\\)\n\n\n\n\n\n\nLet \\(f(x) = \\dfrac{x^2+2x-3}{x+1}\\) and \\(g(x) = \\dfrac{x^2-2x-3}{x+1}\\).\n\nFill out the following table of values:\n\n\n\n\n\\(x\\)\n-1.1\n-1.01\n-1.001\n-0.999\n-0.99\n-0.9\n\n\n\n\n\\(f(x)\\)\n\n\n\n\n\n\n\n\n\\(g(x)\\)\n\n\n\n\n\n\n\n\n\n\nUse the table to guess the value of the following limits. If the limit does not exist, write DNE, \\(\\infty\\), or \\(-\\infty\\) as appropriate.\n\n\n\n\ni. \\(\\lim_{x\\to -1^-} f(x)\\)\n\n\nii. \\(\\lim_{x\\to -1^+} f(x)\\)\n\n\niii. \\(\\lim_{x\\to -1} f(x)\\)\n\n\n\n\niv. \\(\\lim_{x\\to -1^-} g(x)\\)\n\n\nv. \\(\\lim_{x\\to -1^-} g(x)\\)\n\n\nvi. \\(\\lim_{x\\to -1} g(x)\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Definitions & Intuition"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_1.html#definition-of-continuity",
+    "href": "notes/unit1_1.html#definition-of-continuity",
+    "title": "Limits & Continuity - Definitions and Intuition",
+    "section": "Definition of Continuity",
+    "text": "Definition of Continuity\nOne property we frequently look for in functions is their continuity. This is a particular nice property to have if \\(y=f(x)\\) is the model for some real world relationship. If \\(f\\) is continuous at \\(x=a\\) and \\(f(a)=b\\), then we know that sufficiently small errors in our input value (e.g. maybe \\(a\\) gets rounded to the nearest 0.01) will produce an output value that is within some desired margin of error around \\(b\\).\nIn terms of limits, as noted above, knowing a function is continuous at \\(x=a\\) makes evaluating the limit really easy—all we have to do in this case is plug in \\(x=a\\).\nHere is our formal definition:\n\nDefinition 4 (Continuity) We say that \\(f(x)\\) is continuous at \\(x=a\\) if \\[\\lim_{x\\to a}f(x)=f(a)\\]\n\n\nProblem 3: Making a Piecewise Function Continuous\nLet\n\\[\nh(x) = \\begin{cases} ax^2+2 & \\text{if } x&lt;1 \\\\ 4 & \\text{if } x=1 \\\\ -3x+b & \\text{if } x&gt;1 \\end{cases}\n\\]\n\nHere is a link to a graph of \\(h(x)\\) in Desmos. Use the sliders to help you guess the values of \\(a\\) and \\(b\\) that make \\(h(x)\\) continuous at \\(x=1\\).\nVerify your answer to part (a) algebraically.\n\n\n\nProblem 4: Drug Decay\nA 0.6 mL dose of a drug is administered to a patient steadily for half a second. At the end of this time, the quantity \\(Q\\) of the drug in the body starts to decay exponentially. The continuous decay rate of the drug is 0.2% per second.\n\nLet \\(Q(t)\\) be the amount of drug in the body \\(t\\) seconds after the drug began to be administered. Do you expect \\(Q(t)\\) to be continuous for \\(t&gt;0\\)?\nFind a formula for \\(Q(t)\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Definitions & Intuition"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_2.html",
+    "href": "notes/unit0_2.html",
+    "title": "Modeling with Families of Functions",
+    "section": "",
+    "text": "A mathematical model is an abstract mathematical representation of some object, idea, or relationship that exists in the real world. Creating a mathematical model usually involves making some simplifying assumptions about whatever it is we are trying to represent. Using data from measurements or other observations, we try to distill the essential properties that we want our model to capture. We use mathematical models to make estimate or predict, weigh and compare decisions, simulate experiments, and try to discover properties that may otherwise be difficult or costly to observe.\nBe careful when drawing conclusions! Always consider the simplifying assumptions that were made when the model was created. Did we ignore anything that may impact our findings? Under what conditions is it reasonable to believe that the assumptions we made are realistic? These are all important things to include when communicating what you have learned in its real world context.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_2.html#what-should-you-know",
+    "href": "notes/unit0_2.html#what-should-you-know",
+    "title": "Modeling with Families of Functions",
+    "section": "What should you know?",
+    "text": "What should you know?\nThe following families of functions are frequently used as the basis for mathematical models. How well do you know them? We will need to be able to:\n\nSolve equations involving each of these types of functions.\nRecognize properties of the function from its formula.\n\nIt is very helpful if you are familiar enough with each of these families of functions to be able to “see” what the graph looks like and sketch it out by hand without relying on a graphing tool.\n\nLinear Functions\nOur first question in creating a mathematical model for a relationship is often is it linear? Linear models are simple to understand and easy to work with. Our intuition often relies on linear thinking.\nThere are two common ways of writing a linear formula:\n\\[\\begin{align}\n&f(x)=mx+b & (\\text{Slope-Intercept Form}) \\\\\n&f(x)=m(x-x_0)+y_0 & (\\text{Point-Slope Form})\n\\end{align}\\]\n\n\nPower Functions\nUseful when modeling something that is strictly increasing or decreasing, but not in a linear way.\nThe formula is: \\[f(x)=k x^p\\] where the power, \\(p\\), can be any real number.\n\n\nAbsolute Value Function\nUseful when you only need the magnitude of a value: \\[ f(x)=|x|\\]\n\n\nExponential Functions\nWe say a quantity is increasing or decreasing exponentially when it always changes by the same factor over each unit of time.\nThere are two different ways of writing exponential functions:\n\\[f(x)=ab^x = a(1+r)^x\\]\nwhere \\(a\\) is the initial value, \\(b\\) is the growth factor, and \\(r\\) is the growth rate,\n\\[f(x)=ae^{rx}\\]\nwhere again \\(r\\) is the continuous or relative growth rate and again \\(a\\) is the initial value.\n\n\nLogarithmic Functions\nLogarithms provide the inverse relationship for exponential growth. They are useful because they can convert something changing on an exponential scale to a linear scale.\nThe formula is: \\[f(x)=\\log_b(x)\\] where \\(b\\) is the base of the logarithm.\nMost often, we will use: \\[\\begin{align}\n&f(x)=\\log(x) & (\\text{common log, } b=10)\\\\\n&f(x)=\\ln(x) & (\\text{natural log, } b=e)\n\\end{align}\\]\n\n\nTrigonometric Functions\nFrequently used when trying to model quantities that vary periodically. Also useful in problems involving geometry.\nThe three main trigonometric functions are:\n\\[f(x) = \\sin(x),~ f(x) = \\cos(x),~ f(x) = \\tan(x)\\]\nAlso useful are the corresponding reciprocal functions:\n\\[f(x) = \\csc(x) = \\frac{1}{\\sin(x)},~ f(x) = \\sec(x) = \\frac{1}{\\cos(x)},\nf(x) = \\cot(x) = \\frac{1}{\\tan(x)}\\]\nAnd inverse functions: \\[f(x) = \\arcsin(x) = \\sin^{-1}(x),\n~f(x) = \\arccos(x) = \\cos^{-1}(x),\n~f(x) = \\arctan(x) = \\tan^{-1}(x)\\]\n\n\nPolynomial Functions\nWe use polynomials to model relationships that have one or more local extrema.\nThe two common ways of writing polynomials are:\n\\[\\begin{align}\n&f(x)=a_nx^n +a_{n-1}x^{n-1}+\\ldots +a_1x + a_0 & (\\text{Standard form}) \\\\[5pt]\n&f(x)=a(x-z_1)^{m_1}(x-z_2)^{m_2}\\cdot\\ldots\\cdot(x-z_k)^{m_k}\n& (\\text{Factored form})\n\\end{align}\\]\nIn standard form, the \\(a_k\\)s are called coefficients; \\(n\\) is the degree of the polynomial and \\(a_n\\) is referred to as the leading coefficient.\nIn factored form, the \\(z_k\\)s are the zeros or roots of the polynomial and the \\(m_k\\)s are their multiplicities; \\(a\\) is the leading coefficient.\n\n\nRational Functions\nRational functions are useful when the relationship has asymptotic behavior. There are two kinds of asymptotes:\n\nvertical asymptotes: the magnitude of the output value increases without bound near a particular input value\nhorizontal asymptotes: the output value of the function approaches a specific value as the input tends towards \\(\\pm\\infty\\).\n\nRational functions can be written as \\[ f(x)=\\frac{p(x)}{q(x)} \\] where \\(p(x)\\) and \\(q(x)\\) are polynomials.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_2.html#problem-1-population-growth-model",
+    "href": "notes/unit0_2.html#problem-1-population-growth-model",
+    "title": "Modeling with Families of Functions",
+    "section": "Problem 1: Population Growth Model",
+    "text": "Problem 1: Population Growth Model\nThe table below gives the population, measured in 1000s of people, of three different cities in 2010, 2012, and 2016. The data has been rounded.\n\n\n\nYear\n2010\n2012\n2016\n\n\n\n\nCity A\n59.8\n61.8\n77.8\n\n\nCity B\n60.1\n68.7\n85.9\n\n\nCity C\n50.2\n54.3\n63.5\n\n\n\n\nThe population of one of these cities is growing linearly and one is growing exponentially. Determine which cities fit each type of growth and find formulas modeling their populations.\n\nThe third city’s population can be modeled using a function of the form \\[f(t)=a+kt^p.\\] Find the values of the parameters in this model.\nUsing your models, determine when each city’s population will reach 100,000.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_2.html#problem-2-water-temperature",
+    "href": "notes/unit0_2.html#problem-2-water-temperature",
+    "title": "Modeling with Families of Functions",
+    "section": "Problem 2: Water Temperature",
+    "text": "Problem 2: Water Temperature\nEmily enjoys swimming at a nearby beach. The temperature of the water throughout the course of the year can be modeled with a sinusoidal function. Currently, the water is 44\\(^\\circ\\)F, which is the coldest it will be all year. The water will reach its warmest temperature of 80\\(^\\circ\\)F 180 days from now.\nLet \\(T(x)\\) be the sinusoidal function modeling the temperature of the water \\(x\\) days from now.\n\nSketch a graph of \\(T(x)\\). Determine the amplitude, midline, and period.\nWrite a formula for \\(T(x)\\).\nAccording to this model, what is the expected temperature of the water 30 days from now?\nEmily will only go swimming when the temperature of the water is above 74\\(^\\circ\\)F. How long does Emily have to wait before the water reaches this temperature? (Show all algebraic work.)\nHow many days will the water temperature stay above 74\\(^\\circ\\)F? Explain your reasoning.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_2.html#problem-3-polynomials-and-rational-functions",
+    "href": "notes/unit0_2.html#problem-3-polynomials-and-rational-functions",
+    "title": "Modeling with Families of Functions",
+    "section": "Problem 3: Polynomials and Rational Functions",
+    "text": "Problem 3: Polynomials and Rational Functions\n\nLet \\(f(x) = x^4 - 4x^2\\). Sketch a graph of \\(f(x)\\). Make sure to show all \\(x\\)-intercepts and the end behavior. Use Desmos to check your answer.\nLet \\(g(x)\\) be the polynomial shown below. Find a formula for \\(g(x)\\) assuming it has the smallest possible degree.\n\n\n\n\n\n\n\nFigure 1: Graph of \\(g(x)\\)\n\n\n\n\nLet \\(f(x)\\) and \\(g(x)\\) be the functions from parts (a) and (b). Find all vertical and horizontal asymptotes for the function \\[\nh(x) = \\frac{g(x)}{f(x)}.\n\\]",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Families of Functions"
+    ]
+  },
+  {
+    "objectID": "notes/index.html",
+    "href": "notes/index.html",
+    "title": "Course Notes",
+    "section": "",
+    "text": "During class this semester, we will spend most of our time working on and discussing problems. There will be assigned readings for each class that will help you prepare for these discussions.\nReading mathematics is a skill that is just as essential as doing and communicating mathematics. Class is meant to accompany the reading, not substitute for it. Together, they’ll help you build an initial understanding of concepts and surface the questions worth bringing to class\nMake sure you have pencil and paper out when reading and during discussion. Take notes, jot down questions, and try to work through examples on your own before seeing them worked out by others. If you get stuck or have no clue where to start—great! Make a note of it and let’s talk about it.\nWhen you wait for others to solve problems for you, you miss out on all the critical thinking, which can lead to a false sense of understanding. In my experience, you learn far more from actively trying on your own and failing than passively following along and never being wrong.\nSo, in short, to get the most out of class this semester:\n\nCome prepared!\nBe engaged!\nMake mistakes!\nAsk questions!",
+    "crumbs": [
+      "Course Notes",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "notes/files/unit2_4.html",
+    "href": "notes/files/unit2_4.html",
+    "title": "Interpreting the Derivative",
+    "section": "",
+    "text": "When \\(f(t)\\) measures the position of an object in motion at time \\(t\\), the instantaneous rate of change \\(f'(a)\\) has a familiar meaning: it is the object’s instantaneous velocity at the moment \\(t=a\\). But derivatives show up in many contexts that have nothing to do with motion. What does the instantaneous rate of change mean when \\(f(x)\\) measures a population, a cost, the amount of rainfall, or the fuel efficiency of a car?\nIn general, the derivative of \\(y=f(x)\\) measures how sensitive the output \\(y\\) is to small, local changes in the input \\(x\\). If \\(f'(a)\\) is large in magnitude, then even a small change in \\(x\\) near \\(x=a\\) produces a large change in \\(y\\). If \\(f'(a)\\) is close to \\(0\\), then small changes in \\(x\\) near \\(x=a\\) barely affect \\(y\\) at all.\nThis gives us a practical way to interpret \\(f'(a)\\) in any context: we use it to estimate how much \\(y\\) changes when \\(x\\) changes by a small amount. Since \\(f'(a)\\) is the limit of average rates of change \\(\\frac{\\Delta y}{\\Delta x}\\) over smaller and smaller intervals around \\(x=a\\), for a small change \\(\\Delta x\\) we expect \\[\\frac{\\Delta y}{\\Delta x}\\approx f'(a).\\] Multiplying both sides by \\(\\Delta x\\) gives us the key relationship for this section.\n\n\n\n\n\n\nNotePractical Interpretation of \\(f'(a)\\)\n\n\n\nIf \\(x\\) changes from \\(x=a\\) to \\(x=a+\\Delta x\\), where \\(\\Delta x\\) is small, then the corresponding change in \\(y=f(x)\\) is approximately \\[\\Delta y \\approx f'(a)\\,\\Delta x.\\] In particular, the units of \\(f'(a)\\) are the units of \\(y\\) per unit of \\(x\\).\n\n\nKeep in mind that this is a local estimate: it is only reliable when \\(\\Delta x\\) is small, because the rate of change of \\(f(x)\\) may be quite different at points far away from \\(x=a\\)."
+  },
+  {
+    "objectID": "notes/files/unit2_4.html#problem-1---interpreting-a-derivative",
+    "href": "notes/files/unit2_4.html#problem-1---interpreting-a-derivative",
+    "title": "Interpreting the Derivative",
+    "section": "Problem 1 - Interpreting a Derivative",
+    "text": "Problem 1 - Interpreting a Derivative\nLet \\(r(t)\\) be the total amount of rain (in inches) that had fallen in D.C. during the \\(t\\) hours following noon on September 10. Suppose \\(r'(4)=2\\). Provide a reasonable practical interpretation for this equation by filling in the blanks below:\n\nApproximately __________ inches of rain fell between __________ and __________."
+  },
+  {
+    "objectID": "notes/files/unit2_4.html#problem-2---units-of-the-derivative",
+    "href": "notes/files/unit2_4.html#problem-2---units-of-the-derivative",
+    "title": "Interpreting the Derivative",
+    "section": "Problem 2 - Units of the Derivative",
+    "text": "Problem 2 - Units of the Derivative\nLet \\(g(v)\\) be the fuel efficiency, in miles per gallon, of a car going \\(v\\) miles per hour.\n\nWhat are the units of \\(g'(v)\\)?\nWhat is a practical interpretation of the equation \\(g'(55)=-0.54\\)?"
+  },
+  {
+    "objectID": "notes/files/unit2_4.html#problem-3---interpreting-function-notation",
+    "href": "notes/files/unit2_4.html#problem-3---interpreting-function-notation",
+    "title": "Interpreting the Derivative",
+    "section": "Problem 3 - Interpreting Function Notation",
+    "text": "Problem 3 - Interpreting Function Notation\nLet \\(W(h)\\) be an invertible function that models how many gallons of water an oak tree of height \\(h\\) feet consumes on a hot summer day. Give practical interpretations for each of the following equations.\n\n\\(W(50)=70\\)\n\\(W^{-1}(60)=40\\)\n\\(W'(5)=3\\)\n\\((W^{-1})'(20)=0.5\\)"
+  },
+  {
+    "objectID": "notes/files/unit2_4.html#problem-4---translating-information-into-notation",
+    "href": "notes/files/unit2_4.html#problem-4---translating-information-into-notation",
+    "title": "Interpreting the Derivative",
+    "section": "Problem 4 - Translating Information into Notation",
+    "text": "Problem 4 - Translating Information into Notation\nAs an object travels away from earth, the weight of the object decreases. Let \\(w=f(d)\\) be the weight of an object, in Newtons, at a distance of \\(d\\) kilometers above the earth’s surface.\nSuppose that an object 800 km above the surface of the earth weighs 700 Newtons. When the object travels one km further, the weight decreases by about 0.2 Newtons. Which of the following mathematical statements are consistent with this information?\n\n\n\\(f(800)=700\\)\n\\(f(700)=800\\)\n\\(f^{-1}(700)=800\\)\n\\(f'(800)=-0.2\\)\n\\(f'(700)=-0.2\\)\n\\(f'(800)=0.2\\)\n\\((f^{-1})'(0.2)=-800\\)\n\\((f^{-1})'(800)=-5\\)\n\\((f^{-1})'(700)=-5\\)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Math 221 Course Notes",
+    "section": "",
+    "text": "Welcome! This site hosts course notes and discussion/practice problems for Math 221 (Calculus 1) at American University.\nIt will be continuously updated and changed throughout the Fall 2026 semester as we work our way through the course material – so visit frequently!"
+  },
+  {
+    "objectID": "exam_practice/index.html",
+    "href": "exam_practice/index.html",
+    "title": "Practice Exam Problems",
+    "section": "",
+    "text": "See the old exam archive for old Calc 1 exams to use as practice exam problems.\nAs you prepare for exams, remember:\n\nThe Calc 1 instructors change from semester to semester, so the focus of the exam content may change a little as well. Most of the old exams were written based on the textbook we currently use (or maybe an older edition). The exam coverage is usually about the same as it is this semester:\n\nExam 1: Ch.1 & Ch. 2\nExam 2: Ch.3 & Ch. 4\nFinal: Ch. 1–6\n\nYour exams this semester will reflect what we have focused on in class.\nOne significant difference this semester is that calculators are not allowed during in-class exams. So, if you feel like you would need a calculator to complete a certain problem, expect something a little different this semester. A similar problem may be asked in a different way so that a calculator is not required.\nSome of the exams have answer keys. Don’t look at the answer keys! When you complete a problem, make sure you can explain both how to do it and why your approach is correct. You should be confident that your answer is correct without having to look at the answer key. If you are not sure, talk to me or post a question on our discussion board!\nOn the midterms, you may have a 3in x 5in note card (or a similar sized piece of paper) with whatever notes you would like on the front and back. For the final, you may have one 8.5in x 11in piece of paper with notes on one side.",
+    "crumbs": [
+      "Course Notes",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Currently, this site is maintained by Prof. Kevin Duke at American University. Reach out to Prof. Duke if you find any mistakes or have any questions."
+  },
+  {
+    "objectID": "notes/files/unit2_3.html",
+    "href": "notes/files/unit2_3.html",
+    "title": "The Derivative Function",
+    "section": "",
+    "text": "Last time, we defined the derivative of a function \\(f(x)\\) at a single point \\(x=a\\). The value \\(f'(a)\\) measures the instantaneous rate of change of \\(f(x)\\) at \\(x=a\\), which we can see graphically as the slope of the line tangent to the graph of \\(f(x)\\) at that point.\nIn our first discussion problem, we estimated \\(f'(a)\\) for the function \\(f(x)=0.5x(x-3)(x-5)\\) at the points \\(x=0, 1, 2, 3, 4,\\) and \\(5\\). Each of these estimates gave us one number describing the slope of \\(f(x)\\) at one point. But there is nothing special about these six points: we could estimate the slope of \\(f(x)\\) at any point \\(x=a\\) in the same way.\nIf we can find \\(f'(a)\\) for every value of \\(a\\), then we have a rule that takes each input \\(x\\) and returns the slope of \\(f(x)\\) at that point. In other words, \\(f'\\) is itself a function!\n\n\nThe interactive graphs below show this idea in action. On the left is the graph of \\(f(x)=0.5x(x-3)(x-5)\\), with the six points from our previous discussion problem labeled. On the right, the values \\((a, f'(a))\\) for those six points are plotted as open circles.\nUse the slider to move the tangent line along the graph of \\(f(x)\\). Each time the tangent line stops at a new point, the point \\((a, f'(a))\\) is added to the graph on the right. As you fill in more and more points, watch how the values we found last time are connected into a complete picture of the graph of \\(f'(x)\\).\n\nf = (x) =&gt; 0.5 * x * (x - 3) * (x - 5)\nfp = (x) =&gt; 1.5 * x * x - 8 * x + 7.5\n\n// Viewing window (shared x-range for both graphs; slider uses the same range)\nxMin = -0.5\nxMax = 5.5\nknownA = [0, 1, 2, 3, 4, 5]\nfCurve = d3.range(xMin, xMax + 1e-9, 0.02).map((x) =&gt; ({ x, y: f(x) }))\n\n// Store of traced points. Depends only on the reset button, so it is\n// recreated (emptied) on each click and otherwise persists across slider moves.\ntracedStore = {\n  reset;\n  return new Map();\n}\n\n// Add the current slider position to the store (keyed to avoid duplicates)\ntraced = {\n  tracedStore.set(a.toFixed(1), { x: a, y: fp(a) });\n  return Array.from(tracedStore.values());\n}\n\ntangentLine = [xMin, xMax].map((x) =&gt; ({ x, y: f(a) + fp(a) * (x - a) }))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 420,\n  height: 380,\n  style: { background: \"transparent\" },\n  x: { domain: [xMin, xMax], label: \"x\" },\n  y: { domain: [-6, 6], label: \"f(x)\" },\n  grid: true,\n  marks: [\n    Plot.ruleX([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleX([a], { stroke: \"gray\", strokeDasharray: \"4,4\" }),\n    Plot.line(fCurve, { x: \"x\", y: \"y\", stroke: \"steelblue\", strokeWidth: 2.5, clip: true }),\n    Plot.line(tangentLine, { x: \"x\", y: \"y\", stroke: \"#e76f51\", strokeWidth: 2, clip: true }),\n    Plot.dot(knownA, { x: (d) =&gt; d, y: (d) =&gt; f(d), fill: \"var(--bs-body-color)\", r: 3.5 }),\n    Plot.text(knownA, {\n      x: (d) =&gt; d,\n      y: (d) =&gt; f(d),\n      text: (d) =&gt; `(${d}, ${Math.round(f(d))})`, // round avoids printing f(3) as \"-0\"\n      dy: -12,\n      fill: \"var(--bs-body-color)\",\n      stroke: \"var(--bs-body-bg)\",\n      strokeWidth: 4,\n      paintOrder: \"stroke\"\n    }),\n    Plot.dot([a], { x: (d) =&gt; d, y: (d) =&gt; f(d), fill: \"#e76f51\", r: 5.5 })\n  ]\n})\nPlot.plot({\n  width: 420,\n  height: 380,\n  style: { background: \"transparent\" },\n  x: { domain: [xMin, xMax], label: \"x\" },\n  y: { domain: [-4, 12], label: \"f′(x)\" },\n  grid: true,\n  marks: [\n    Plot.ruleX([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleX([a], { stroke: \"gray\", strokeDasharray: \"4,4\" }),\n    Plot.dot(traced, { x: \"x\", y: \"y\", fill: \"#e76f51\", r: 3, clip: true }),\n    Plot.dot(knownA, { x: (d) =&gt; d, y: (d) =&gt; fp(d), stroke: \"var(--bs-body-color)\", strokeWidth: 2, r: 6 }),\n    Plot.dot([a], { x: (d) =&gt; d, y: (d) =&gt; fp(d), fill: \"#e76f51\", stroke: \"var(--bs-body-color)\", r: 6, clip: true })\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhtml`&lt;p style=\"text-align:center; font-size:1.1em; margin-bottom:0;\"&gt;\n  At &lt;i&gt;x&lt;/i&gt; = ${a.toFixed(1)}, the slope of the tangent line is\n  &lt;b&gt;${fp(a).toFixed(2)}&lt;/b&gt;.\n&lt;/p&gt;`\n\n\n\n\n\n\n\n\nviewof a = Inputs.range([xMin, xMax], { value: 0, step: 0.1, label: \"Tangent point (a)\" })\n\n\n\n\n\n\n\nviewof reset = Inputs.button(\"Clear traced points\")\n\n\n\n\n\n\n\nWe call this new function the derivative function, or simply the derivative, of \\(f(x)\\). Its formula comes directly from our definition of the derivative at a point: we just replace the specific point \\(a\\) with a variable input \\(x\\).\n\nDefinition 1 (The Derivative Function) The derivative of \\(f(x)\\) is the function \\[f'(x)=\\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}.\\] The domain of \\(f'(x)\\) consists of all values of \\(x\\) for which this limit exists."
+  },
+  {
+    "objectID": "notes/files/unit2_3.html#from-points-to-a-function",
+    "href": "notes/files/unit2_3.html#from-points-to-a-function",
+    "title": "The Derivative Function",
+    "section": "",
+    "text": "The interactive graphs below show this idea in action. On the left is the graph of \\(f(x)=0.5x(x-3)(x-5)\\), with the six points from our previous discussion problem labeled. On the right, the values \\((a, f'(a))\\) for those six points are plotted as open circles.\nUse the slider to move the tangent line along the graph of \\(f(x)\\). Each time the tangent line stops at a new point, the point \\((a, f'(a))\\) is added to the graph on the right. As you fill in more and more points, watch how the values we found last time are connected into a complete picture of the graph of \\(f'(x)\\).\n\nf = (x) =&gt; 0.5 * x * (x - 3) * (x - 5)\nfp = (x) =&gt; 1.5 * x * x - 8 * x + 7.5\n\n// Viewing window (shared x-range for both graphs; slider uses the same range)\nxMin = -0.5\nxMax = 5.5\nknownA = [0, 1, 2, 3, 4, 5]\nfCurve = d3.range(xMin, xMax + 1e-9, 0.02).map((x) =&gt; ({ x, y: f(x) }))\n\n// Store of traced points. Depends only on the reset button, so it is\n// recreated (emptied) on each click and otherwise persists across slider moves.\ntracedStore = {\n  reset;\n  return new Map();\n}\n\n// Add the current slider position to the store (keyed to avoid duplicates)\ntraced = {\n  tracedStore.set(a.toFixed(1), { x: a, y: fp(a) });\n  return Array.from(tracedStore.values());\n}\n\ntangentLine = [xMin, xMax].map((x) =&gt; ({ x, y: f(a) + fp(a) * (x - a) }))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 420,\n  height: 380,\n  style: { background: \"transparent\" },\n  x: { domain: [xMin, xMax], label: \"x\" },\n  y: { domain: [-6, 6], label: \"f(x)\" },\n  grid: true,\n  marks: [\n    Plot.ruleX([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleX([a], { stroke: \"gray\", strokeDasharray: \"4,4\" }),\n    Plot.line(fCurve, { x: \"x\", y: \"y\", stroke: \"steelblue\", strokeWidth: 2.5, clip: true }),\n    Plot.line(tangentLine, { x: \"x\", y: \"y\", stroke: \"#e76f51\", strokeWidth: 2, clip: true }),\n    Plot.dot(knownA, { x: (d) =&gt; d, y: (d) =&gt; f(d), fill: \"var(--bs-body-color)\", r: 3.5 }),\n    Plot.text(knownA, {\n      x: (d) =&gt; d,\n      y: (d) =&gt; f(d),\n      text: (d) =&gt; `(${d}, ${Math.round(f(d))})`, // round avoids printing f(3) as \"-0\"\n      dy: -12,\n      fill: \"var(--bs-body-color)\",\n      stroke: \"var(--bs-body-bg)\",\n      strokeWidth: 4,\n      paintOrder: \"stroke\"\n    }),\n    Plot.dot([a], { x: (d) =&gt; d, y: (d) =&gt; f(d), fill: \"#e76f51\", r: 5.5 })\n  ]\n})\nPlot.plot({\n  width: 420,\n  height: 380,\n  style: { background: \"transparent\" },\n  x: { domain: [xMin, xMax], label: \"x\" },\n  y: { domain: [-4, 12], label: \"f′(x)\" },\n  grid: true,\n  marks: [\n    Plot.ruleX([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0], { stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleX([a], { stroke: \"gray\", strokeDasharray: \"4,4\" }),\n    Plot.dot(traced, { x: \"x\", y: \"y\", fill: \"#e76f51\", r: 3, clip: true }),\n    Plot.dot(knownA, { x: (d) =&gt; d, y: (d) =&gt; fp(d), stroke: \"var(--bs-body-color)\", strokeWidth: 2, r: 6 }),\n    Plot.dot([a], { x: (d) =&gt; d, y: (d) =&gt; fp(d), fill: \"#e76f51\", stroke: \"var(--bs-body-color)\", r: 6, clip: true })\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhtml`&lt;p style=\"text-align:center; font-size:1.1em; margin-bottom:0;\"&gt;\n  At &lt;i&gt;x&lt;/i&gt; = ${a.toFixed(1)}, the slope of the tangent line is\n  &lt;b&gt;${fp(a).toFixed(2)}&lt;/b&gt;.\n&lt;/p&gt;`\n\n\n\n\n\n\n\n\nviewof a = Inputs.range([xMin, xMax], { value: 0, step: 0.1, label: \"Tangent point (a)\" })\n\n\n\n\n\n\n\nviewof reset = Inputs.button(\"Clear traced points\")\n\n\n\n\n\n\n\nWe call this new function the derivative function, or simply the derivative, of \\(f(x)\\). Its formula comes directly from our definition of the derivative at a point: we just replace the specific point \\(a\\) with a variable input \\(x\\).\n\nDefinition 1 (The Derivative Function) The derivative of \\(f(x)\\) is the function \\[f'(x)=\\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}.\\] The domain of \\(f'(x)\\) consists of all values of \\(x\\) for which this limit exists."
+  },
+  {
+    "objectID": "notes/files/unit2_3.html#problem-1---sketching-derivatives-from-graphs",
+    "href": "notes/files/unit2_3.html#problem-1---sketching-derivatives-from-graphs",
+    "title": "The Derivative Function",
+    "section": "Problem 1 - Sketching Derivatives from Graphs",
+    "text": "Problem 1 - Sketching Derivatives from Graphs\nSketch the graph of the derivative for each of the following functions:"
+  },
+  {
+    "objectID": "notes/files/unit2_3.html#problem-2---which-is-the-derivative",
+    "href": "notes/files/unit2_3.html#problem-2---which-is-the-derivative",
+    "title": "The Derivative Function",
+    "section": "Problem 2 - Which Is the Derivative?",
+    "text": "Problem 2 - Which Is the Derivative?\nThe functions \\(f(x)\\) and \\(g(x)\\) are shown below. One is the derivative of the other. Determine which one is which.\n\n\n\nGraphs of \\(f(x)\\) and \\(g(x)\\)"
+  },
+  {
+    "objectID": "notes/files/unit2_3.html#problem-3---derivative-functions-using-limits",
+    "href": "notes/files/unit2_3.html#problem-3---derivative-functions-using-limits",
+    "title": "The Derivative Function",
+    "section": "Problem 3 - Derivative Functions Using Limits",
+    "text": "Problem 3 - Derivative Functions Using Limits\nUse the definition of the derivative to find \\(f'(x)\\) for each of the following functions:\n\n\\(f(x)=\\frac{1}{x+1}\\)\n\\(f(x)=x^3\\)\n\\(f(x)=ax^2+bx+c\\), where \\(a\\), \\(b\\), and \\(c\\) are constants\n\\(f(x)=\\sqrt{x}\\)"
+  },
+  {
+    "objectID": "notes/files/unit2_5.html",
+    "href": "notes/files/unit2_5.html",
     "title": "The Second Derivative",
     "section": "",
-    "text": "We already have a good understanding of functions with constant slope. These are linear functions. If the slope is positive, the function is increasing; if the slope is negative, the function is decreasing.\nOver the past few sections, we developed a way to measure the slope of a function when the slope is not constant. The derivative \\(f'(x)\\) tells us the slope of \\(f(x)\\) at each point. When the slope of a function is always changing, the graph is no longer a straight line, it will bend and curve.\nIn this section, we discuss \\(f''(x)\\), the second derivative of \\(f(x)\\). Since \\(f'(x)\\) is itself a function, we can take its derivative to find the rate of change of the slope of \\(f(x)\\).\n\nDefinition 1 (The Second Derivative) The second derivative of \\(f(x)\\), written \\(f''(x)\\), is the derivative of \\(f'(x)\\). The value \\(f''(a)\\) measures the instantaneous rate of change of the slope of \\(f(x)\\) at \\(x=a\\).\n\nWhile the values of \\(f'(x)\\) tell us where \\(f(x)\\) is increasing, decreasing or constant, the values of \\(f''(x)\\) will tell us where \\(f'(x)\\) is increasing, decreasing or constant. This will allow us to use \\(f''(x)\\) to determine how \\(f(x)\\) is curved. We call this property the concavity of \\(f(x)\\).",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "The Second Derivative"
-    ]
+    "text": "We already have a good understanding of functions with constant slope. These are linear functions, and their graphs are straight lines. If the slope is positive, the function is increasing; if the slope is negative, the function is decreasing.\nOver the past few sections, we developed a way to measure the slope of a function when the slope is not constant: the derivative \\(f'(x)\\) tells us the slope of \\(f(x)\\) at each point. When the slope of a function is always changing, its graph is no longer a straight line. Instead, the graph bends and curves.\nIn this section, we will measure how the slope itself is changing. Since \\(f'(x)\\) is a function, we can take its derivative to find the rate of change of the slope of \\(f(x)\\).\n\nDefinition 1 (The Second Derivative) The second derivative of \\(f(x)\\), written \\(f''(x)\\), is the derivative of \\(f'(x)\\): \\[f''(x)=\\lim_{h\\to 0}\\frac{f'(x+h)-f'(x)}{h}.\\] The value \\(f''(a)\\) measures the instantaneous rate of change of the slope of \\(f(x)\\) at \\(x=a\\).\n\nOur goal is to use \\(f''(x)\\) to understand how the graph of \\(f(x)\\) is curved, in the same way that we use \\(f'(x)\\) to understand where \\(f(x)\\) is increasing or decreasing."
   },
   {
-    "objectID": "notes/unit2_5.html#problem-1---motion-and-curvature",
-    "href": "notes/unit2_5.html#problem-1---motion-and-curvature",
+    "objectID": "notes/files/unit2_5.html#problem-1---motion-and-curvature",
+    "href": "notes/files/unit2_5.html#problem-1---motion-and-curvature",
     "title": "The Second Derivative",
     "section": "Problem 1 - Motion and Curvature",
-    "text": "Problem 1 - Motion and Curvature\nSketch a graph for each of the functions described below.\n\nA car is stopped at a stoplight. The light turns green and the car begins to accelerate straight ahead. Let \\(A(t)\\) be the distance the car travels \\(t\\) seconds after the light turns green.\nA car is headed straight towards the same stoplight on the cross street. The light turns red and the car begins to decelerate. Let \\(B(t)\\) be the car’s distance from the stoplight \\(t\\) seconds after the light turns red.\nA cyclist is passing through the same intersection as the cars. The cyclist pays no attention to the color of the light and cruises through the intersection with no acceleration or deceleration. Let \\(C(t)\\) be the distance the cyclist travels \\(t\\) seconds after the light changes.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "The Second Derivative"
-    ]
+    "text": "Problem 1 - Motion and Curvature\nSketch a graph for each of the functions described below.\n\nA car is stopped at a stoplight. The light turns green and the car begins to accelerate straight ahead. Let \\(A(t)\\) be the distance the car travels \\(t\\) seconds after the light turns green.\nA car is headed straight towards the same stoplight on the cross street. The light turns red and the car begins to decelerate. Let \\(B(t)\\) be the car’s distance from the stoplight \\(t\\) seconds after the light turns red.\nA cyclist is passing through the same intersection as the cars. The cyclist pays no attention to the color of the light and cruises through the intersection with no acceleration or deceleration. Let \\(C(t)\\) be the distance the cyclist travels \\(t\\) seconds after the light changes."
   },
   {
-    "objectID": "notes/unit2_5.html#problem-2---slope-and-shape",
-    "href": "notes/unit2_5.html#problem-2---slope-and-shape",
+    "objectID": "notes/files/unit2_5.html#problem-2---slope-and-shape",
+    "href": "notes/files/unit2_5.html#problem-2---slope-and-shape",
     "title": "The Second Derivative",
     "section": "Problem 2 - Slope and Shape",
-    "text": "Problem 2 - Slope and Shape\nEach row of the table contains conditions on \\(f'(x)\\) and \\(f''(x)\\) which are true on an interval. Fill in the blanks with one or two words that describe what these conditions tell us about the slope of \\(f(x)\\) and the graph of \\(f(x)\\). Then draw a curve showing the shape of the graph of \\(f(x)\\) that fits this description.\n\n\n\n\n\n\n\n\n\nIf …\nthen the slope of \\(f(x)\\) is …\nthe graph of \\(f(x)\\) is …\nand looks like …\n\n\n\n\n\\(f'(x)=0\\)\n__________\n__________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)=0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)=0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)&gt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)&gt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)&lt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)&lt;0\\)\n__________ and __________\n__________ and __________",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: The Derivative",
-      "The Second Derivative"
-    ]
+    "text": "Problem 2 - Slope and Shape\nEach row of the table contains conditions on \\(f'(x)\\) and \\(f''(x)\\) which are true on an interval. Fill in the blanks with one or two words that describe what these conditions tell us about the slope of \\(f(x)\\) and the graph of \\(f(x)\\). Then draw a curve showing the shape of the graph of \\(f(x)\\) that fits this description.\n\n\n\n\n\n\n\n\n\nIf …\nthen the slope of \\(f(x)\\) is …\nthe graph of \\(f(x)\\) is …\nand looks like …\n\n\n\n\n\\(f'(x)=0\\)\n__________\n__________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)=0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)=0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)&gt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)&gt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&gt;0\\) and \\(f''(x)&lt;0\\)\n__________ and __________\n__________ and __________\n\n\n\n\\(f'(x)&lt;0\\) and \\(f''(x)&lt;0\\)\n__________ and __________\n__________ and __________"
   },
   {
-    "objectID": "notes/unit2_5.html#problem-3---signs-of-f-f-and-f",
-    "href": "notes/unit2_5.html#problem-3---signs-of-f-f-and-f",
+    "objectID": "notes/files/unit2_5.html#problem-3---signs-of-f-f-and-f",
+    "href": "notes/files/unit2_5.html#problem-3---signs-of-f-f-and-f",
     "title": "The Second Derivative",
     "section": "Problem 3 - Signs of \\(f\\), \\(f'\\), and \\(f''\\)",
-    "text": "Problem 3 - Signs of \\(f\\), \\(f'\\), and \\(f''\\)\nThe function \\(f(x)\\) is shown in the graph below.\n\n\n\nGraph of \\(f(x)\\)\n\n\nDetermine if \\(f\\), \\(f'\\), and \\(f''\\) are positive, negative, or zero at each of the four labeled points.",
+    "text": "Problem 3 - Signs of \\(f\\), \\(f'\\), and \\(f''\\)\nThe function \\(f(x)\\) is shown in the graph below.\n\n\n\nGraph of \\(f(x)\\)\n\n\nDetermine if \\(f\\), \\(f'\\), and \\(f''\\) are positive, negative, or zero at each of the four labeled points."
+  },
+  {
+    "objectID": "notes/files/unit2_5.html#problem-4---using-the-second-derivative-to-assess-estimates",
+    "href": "notes/files/unit2_5.html#problem-4---using-the-second-derivative-to-assess-estimates",
+    "title": "The Second Derivative",
+    "section": "Problem 4 - Using the Second Derivative to Assess Estimates",
+    "text": "Problem 4 - Using the Second Derivative to Assess Estimates\nThe CFCs in the atmosphere above the US have been reduced from a high of 1915 parts per trillion (ppt) in 2000 to 1640 ppt in 2014. The reduction over this time has been approximately linear. Let \\(C(t)\\) be the concentration of CFCs in ppt \\(t\\) years after 2000.\n\nFind \\(C(14)\\).\nEstimate \\(C'(14)\\).\nAccording to the information given, what is a formula approximating \\(C(t)\\) on the interval \\(0\\leq t\\leq 14\\)?\nUse your formula to approximate \\(C(20)\\).\nSuppose that further analysis shows that \\(C''(t)&lt;0\\) on the interval \\(14\\leq t\\leq 20\\). Is your estimate from part d too high or too low? Explain."
+  },
+  {
+    "objectID": "notes/unit0_1.html",
+    "href": "notes/unit0_1.html",
+    "title": "Functions & Their Properties",
+    "section": "",
+    "text": "As noted in the course introduction, this semester’s main concepts are tools for understanding relationships between variables. So, before we dive into developing these ideas, we need to have a good understanding of what we mean mathematically by relationships between variables.",
     "crumbs": [
       "Course Notes",
-      "Unit 2: The Derivative",
-      "The Second Derivative"
+      "Unit 0: Introduction & Review",
+      "Functions & Their Properties"
     ]
   },
   {
-    "objectID": "notes/unit2_5.html#problem-4---using-the-second-derivative-to-assess-estimates",
-    "href": "notes/unit2_5.html#problem-4---using-the-second-derivative-to-assess-estimates",
-    "title": "The Second Derivative",
-    "section": "Problem 4 - Using the Second Derivative to Assess Estimates",
-    "text": "Problem 4 - Using the Second Derivative to Assess Estimates\nThe CFCs in the atmosphere above the US have been reduced from a high of 1915 parts per trillion (ppt) in 2000 to 1640 ppt in 2014. The reduction over this time has been approximately linear. Let \\(C(t)\\) be the concentration of CFCs in ppt \\(t\\) years after 2000.\n\nFind \\(C(14)\\).\nEstimate \\(C'(14)\\).\nAccording to the information given, what is a formula approximating \\(C(t)\\) on the interval \\(0\\leq t\\leq 14\\)?\nUse your formula to approximate \\(C(20)\\).\nSuppose that further analysis shows that \\(C''(t)&lt;0\\) on the interval \\(14\\leq t\\leq 20\\). Is your estimate from part d too high or too low? Explain.",
+    "objectID": "notes/unit0_1.html#problem-1-sleep-and-productivity",
+    "href": "notes/unit0_1.html#problem-1-sleep-and-productivity",
+    "title": "Functions & Their Properties",
+    "section": "Problem 1: Sleep and Productivity",
+    "text": "Problem 1: Sleep and Productivity\n\n\n\n\n\n\nNoteBefore the problem:\n\n\n\n\n\nMost of the time, we will be interested in relationships where one variable is a function of another. Appropriately, such relationships are called functions.\nWhat criteria does a relationship have to meet in order for it to be a function? Discuss it with your group.\n\n\n\nOver the summer, Tom kept track of how his sleep habits affected his work productivity. Each week, he recorded the average number of hours of sleep he got each night as well as the average number of hours he was productive each workday. The data for the first 6 weeks is recorded below:\n\n\n\nWeek\n1\n2\n3\n4\n5\n6\n\n\n\n\nAvg. sleep (hrs/night)\n8\n7\n6.5\n7\n5.5\n5\n\n\nAvg. productivity (hrs/workday)\n8.5\n8\n7.5\n7.25\n7\n6\n\n\n\nThe table establishes relationships among the three variables (week, average amount of sleep, and average productivity). According to the table, is:\n\nTom’s average productivity a function of the week?\nTom’s average amount of sleep a function of the week?\nTom’s average productivity a function of his average amount of sleep?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Functions & Their Properties"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_1.html#problem-2-the-pomegranate",
+    "href": "notes/unit0_1.html#problem-2-the-pomegranate",
+    "title": "Functions & Their Properties",
+    "section": "Problem 2: The Pomegranate",
+    "text": "Problem 2: The Pomegranate\n\n\n\n\n\n\nNoteBefore the problem:\n\n\n\n\n\nWhen trying to understand a function, it is often useful to start by determining its domain and range. Discuss what these terms mean with your group.\nNote: In some cases, the domain of a function will be explicitly included as part of the rule defining the function. In other cases, the domain will be implied by the rule or the context in which the rule is given.\n\n\n\nA pomegranate is thrown from ground level straight up into the air at time \\(t=0\\) with an initial velocity of 64 feet per second. The function \\(h(t) = -16t^2 + 64t\\) gives the pomegranate’s height \\(t\\) seconds after it was thrown until it hits the ground. Determine the domain and range for the function \\(h(t)\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Functions & Their Properties"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_1.html#problem-3-matching-rates-of-change",
+    "href": "notes/unit0_1.html#problem-3-matching-rates-of-change",
+    "title": "Functions & Their Properties",
+    "section": "Problem 3: Matching Rates of Change",
+    "text": "Problem 3: Matching Rates of Change\n\n\n\n\n\n\nNoteBefore the problem:\n\n\n\n\n\nRecall that we are interested in figuring out ways of measuring change. One simple way to measure change is to calculate the average rate of change of a function over a given interval.\nWhat is the formula for computing average rate of change? What does it tell us about the function? What does it tell us about the graph of the function? Discuss with your group\n\n\n\nSome data for three different functions is provided in the table below.\n\n\n\n\\(t\\)\n0\n0.75\n1.25\n\n\n\n\n\\(f(t)\\)\n40\n31\n15\n\n\n\\(g(t)\\)\n70\n42\n31\n\n\n\\(h(t)\\)\n65\n53\n45\n\n\n\nFor each description below, decide if any of the functions from the data table could fit the description.\n\nThe speed of a car (in mph) \\(t\\) seconds after it begins decelerating at a constant rate.\nThe position of a watermelon (in feet above the ground) \\(t\\) seconds after the physics department drops it off the top of the DMTI building.\nThe temperature of a cup of coffee (in °C) after it has been sitting on a counter for \\(t\\) hours. (We expect the temperature of the coffee to decrease more slowly over time.)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "Functions & Their Properties"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_index.html",
+    "href": "notes/unit0_index.html",
+    "title": "What is Calculus?",
+    "section": "",
+    "text": "Calculus provides us with a framework in which we can measure the effects of change and use this to better understand relationships between variables.\nThere are two main problems we will consider this semester:",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "What is Calculus?"
+    ]
+  },
+  {
+    "objectID": "notes/unit0_index.html#discussion-problem-the-vessel",
+    "href": "notes/unit0_index.html#discussion-problem-the-vessel",
+    "title": "What is Calculus?",
+    "section": "Discussion Problem: The Vessel",
+    "text": "Discussion Problem: The Vessel\nTake the curve\n\\[\nx = r(y) = \\sin\\!\\left(\\frac{\\pi y}{4}\\right) + 1.5, \\qquad 0 \\le y \\le 8,\n\\]\nand spin it around the \\(y\\)-axis. The result is the 8 in. tall, vase-shaped vessel shown below:\n\n// Fine sampling of the wall profile r(y), used only to draw the outline.\nvesselOutlineData = {\n  const yVals = d3.range(0, 8.001, 0.02);\n  return yVals.map((y) =&gt; ({ y, r: r(y) }));\n}\n\n\n\n\n\n\n\nPlot.plot({\n  width: 260,\n  height: 420,\n  x: { domain: [-3, 3], axis: null },\n  y: { domain: [0, 8], label: \"height (in)\" },\n  marks: [\n    Plot.line(vesselOutlineData, { x: (d) =&gt; d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.line(vesselOutlineData, { x: (d) =&gt; -d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([0])\n  ]\n})\n\n\n\n\n\n\n\n\nFigure 1: The empty vessel, formed by rotating x = r(y) around the y-axis.\n\n\n\n\nSuppose that the vessel starts out empty. Water is poured in at a constant rate (measured in in\\(^3\\)/sec), chosen so that it takes 20 seconds to completely fill the vessel.\n\nCreate Two Graphs\nBased on the shape of the vessel and the provided information:\n\nSketch a graph of the depth of the water in the vessel versus time as it is filled up.\nSimilarly, sketch a graph showing how fast the depth is increasing versus time.\n\n\n\nCompare & Collaborate\nOnce you have sketched both graphs, compare your work with others at your table.\n\nDiscuss any differences that you see.\nCompare your reasoning and decide as a group which graph you believe is best for both.\nDraw these graphs on the board.\n\n\n\nCheck Your Work\nOnce your answer is up on the board, use the interactive visualization below to reveal the solution.\n\nIn what ways does your group’s graph differ?\nCan you explain any differences? Was there a flaw in your reasoning? Did you have the right idea and your graph just lacked precision?\n\n\n\n\n\n\n\nTipClick to reveal the interactive solution\n\n\n\n\n\n\nfunction r(y) {\n  return Math.sin((Math.PI * y) / 4) + 1.5;\n}\n\nfunction crossSectionArea(y) {\n  const radius = r(y);\n  return Math.PI * radius * radius;\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyMax = 8\nnumSteps = 4000\nstepSize = yMax / numSteps\n\nyGrid = d3.range(0, numSteps + 1).map((i) =&gt; i * stepSize)\nareaGrid = yGrid.map(crossSectionArea)\n\nvolumeGrid = {\n  const cumulative = [0];\n  for (let i = 1; i &lt;= numSteps; i++) {\n    const trapezoid = ((areaGrid[i - 1] + areaGrid[i]) / 2) * stepSize;\n    cumulative.push(cumulative[i - 1] + trapezoid);\n  }\n  return cumulative;\n}\n\ntotalVolume = volumeGrid[numSteps]\n\n// Choose the fill rate so that it takes a specified amount of time to fill.\nfillRate = totalVolume / 20\ntotalTime = 20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction depthAtTime(t) {\n  const targetVolume = fillRate * t;\n  const i = d3.bisectLeft(volumeGrid, targetVolume);\n  if (i &lt;= 0) return 0;\n  if (i &gt;= volumeGrid.length) return yMax;\n  const v0 = volumeGrid[i - 1], v1 = volumeGrid[i];\n  const y0 = yGrid[i - 1], y1 = yGrid[i];\n  const frac = v1 === v0 ? 0 : (targetVolume - v0) / (v1 - v0);\n  return y0 + frac * (y1 - y0);\n}\n\n// dy/dt = (dV/dt) / A(y) = fillRate / crossSectionArea(y(t)).\nfunction rateAtTime(t) {\n  const y = depthAtTime(t);\n  return fillRate / crossSectionArea(y);\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnumSamples = 300\ntSeries = d3.range(0, numSamples + 1).map((i) =&gt; (a * i) / numSamples)\ndepthSeries = tSeries.map((t) =&gt; ({ t, depth: depthAtTime(t) }))\nrateSeries = tSeries.map((t) =&gt; ({ t, rate: rateAtTime(t) }))\ncurrentDepth = depthAtTime(a)\nwaterSlice = vesselOutlineData.filter((d) =&gt; d.y &lt;= currentDepth)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrateMax = 4.5\nrateScaleFactor = yMax / rateMax\nscaledRateSeries = rateSeries.map((d) =&gt; ({ t: d.t, scaledRate: d.rate * rateScaleFactor }))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 220,\n  height: 320,\n  style: { background: \"transparent\" },\n  x: { domain: [-3, 3], axis: null },\n  y: { domain: [0, yMax], label: \"depth (in)\" },\n  marks: [\n    Plot.areaX(waterSlice, { y: \"y\", x1: (d) =&gt; -d.r, x2: (d) =&gt; d.r, fill: \"#8ecae6\", fillOpacity: 0.8 }),\n    Plot.line(vesselOutlineData, { x: (d) =&gt; d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.line(vesselOutlineData, { x: (d) =&gt; -d.r, y: \"y\", stroke: \"var(--bs-body-color)\" }),\n    Plot.ruleY([currentDepth], { stroke: \"steelblue\", strokeDasharray: \"4,2\" })\n  ]\n})\nPlot.plot({\n  width: 380,\n  height: 320,\n  style: { background: \"transparent\" },\n  x: { domain: [0, totalTime], label: \"time (sec)\" },\n  y: { domain: [0, yMax], label: \"depth (in)\" },\n  marks: [\n    // Explicit left axis: once we add the custom right-side axis below,\n    // Plot stops auto-generating its usual default axis, so the left\n    // one has to be added by hand too or it disappears entirely.\n    Plot.axisY({ anchor: \"left\", label: \"depth (in)\" }),\n    Plot.axisY({\n      anchor: \"right\",\n      label: \"rate (in/sec)\",\n      ticks: [0, 1.5, 3, 4.5].map((v) =&gt; v * rateScaleFactor),\n      tickFormat: (v) =&gt; (v / rateScaleFactor).toFixed(1)\n    }),\n    Plot.line(depthSeries, { x: \"t\", y: \"depth\", stroke: \"steelblue\", strokeWidth: 2 }),\n    Plot.dot([{ t: a, depth: currentDepth }], { x: \"t\", y: \"depth\", fill: \"steelblue\", r: 4 }),\n    Plot.line(scaledRateSeries, { x: \"t\", y: \"scaledRate\", stroke: \"firebrick\", strokeWidth: 2 }),\n    Plot.dot([{ t: a, scaledRate: rateAtTime(a) * rateScaleFactor }], { x: \"t\", y: \"scaledRate\", fill: \"firebrick\", r: 4 })\n  ]\n})\nmd`**At t = ${a.toFixed(2)} sec, the water is ${currentDepth.toFixed(2)} in deep.**`\nhtml`&lt;div style=\"display:flex; gap:1.5rem; justify-content:center; align-items:center; font-size:0.9rem;\"&gt;\n  &lt;span style=\"display:flex; align-items:center; gap:6px;\"&gt;\n    &lt;span style=\"display:inline-block; width:14px; height:14px; background:steelblue; border-radius:2px;\"&gt;&lt;/span&gt;\n    Depth (in)\n  &lt;/span&gt;\n  &lt;span style=\"display:flex; align-items:center; gap:6px;\"&gt;\n    &lt;span style=\"display:inline-block; width:14px; height:14px; background:firebrick; border-radius:2px;\"&gt;&lt;/span&gt;\n    Rate of depth increase (in/sec)\n  &lt;/span&gt;\n&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nviewof a = Inputs.range(\n  [0, totalTime],\n  {\n    value: totalTime / 2,\n    step: totalTime / 400,\n    label: \"Time:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\nWrap-Up\nThe first graph you created showing depth vs. time is an example of an accumulation problem; the depth increased as the water flowed in and our goal was to figure out the total depth reached at each moment as the water accumulated. We will see later this semester (Unit 5) that the integral is the right mathematical tool for accumulation problems.\nThe second graph you created is an example of a rate problem; the goal was to understand how quickly the depth of the water was increasing at each moment. We will see in Unit 2 that the derivative is the right mathematical tool for rate problems.\nOur goal this semester is to carefully define each of these tools, understand how they work, deduce some computational rules, and see how they can be applied to problems in a wide array of fields. Ultimately, our work will reveal that these two problems are closely connected, and that relationship will be explained in the Fundamental Theorem of Calculus.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 0: Introduction & Review",
+      "What is Calculus?"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_2.html",
+    "href": "notes/unit1_2.html",
+    "title": "Limit Properties",
+    "section": "",
+    "text": "Now that we have some intuition about what a limit of a function is and what it means for a function to be continuous, we can dig a little deeper into how these ideas work and how they can be applied.\nFirst, let’s consider what happens when we take the limit of a combination of functions. If we know that \\(\\lim_{x\\to a}f(x)=L\\) and \\(\\lim_{x\\to a}g(x)=M\\), can we figure out what happens when we compute the limit of some combination of \\(f(x)\\) and \\(g(x)\\)? For example, your intuition probably tells you that \\(S(x)=f(x)+g(x)\\) will approach \\(L+M\\) as \\(x\\) approaches \\(a\\), but can we explain why this is correct?\nTake an \\(x\\)-value close to \\(a\\), say \\(x=a+t\\) where \\(t\\) is a small positive or negative number. Since \\(\\lim_{x\\to a}f(x)=L\\) and \\(\\lim_{x\\to a}g(x)=M\\), we know that \\(f(a+t)=L+\\epsilon\\) and \\(g(a+t)=M+\\delta\\), where \\(\\epsilon\\) and \\(\\delta\\) are themselves small — the closer \\(x\\) is to \\(a\\) (the smaller \\(t\\) is), the smaller \\(\\epsilon\\) and \\(\\delta\\) get.\nAdding these together, \\[\\begin{align}\nS(a+t)& =f(a+t)+g(a+t)\\\\\n& =(L+\\epsilon)+(M+\\delta) \\\\\n& =L+M+(\\epsilon+\\delta).\n\\end{align}\\] Since \\(\\epsilon\\) and \\(\\delta\\) are both small, their sum \\(\\epsilon+\\delta\\) is small too.\nNow let \\(x\\) get closer and closer to \\(a\\): \\(t\\) shrinks toward \\(0\\), which forces \\(\\epsilon\\) and \\(\\delta\\) — and therefore \\(\\epsilon+\\delta\\) — to shrink toward \\(0\\) as well. That’s exactly what it means for \\(S(x)=f(x)+g(x)\\) to approach \\(L+M\\) as \\(x\\to a\\).\nSimilar reasoning can help you figure out and explain the properties listed in the following theorem. These properties are listed in terms of two-sided limits, but they also apply to one-sided limits, and limits as \\(x\\to \\pm\\infty\\):\n\n\n\n\n\n\n\nTheorem 1 (Limit Properties) If \\[\\lim_{x\\to a}f(x)=L \\text{ and } \\lim_{x\\to a}g(x)=M,\\] then:\n\n\\(\\displaystyle\\lim_{x\\to a}\\left[f(x)\\pm g(x)\\right]=L\\pm M\\)\n\\(\\displaystyle\\lim_{x\\to a}\\left[f(x)\\cdot g(x)\\right]=L\\cdot M\\)\n\\(\\displaystyle\\lim_{x\\to a}\\left[\\frac{f(x)}{g(x)}\\right]=\\frac{L}{M},~~\\) as long as \\(M\\neq 0\\)\n\n\n\n\n\n\nProblem 1: Using Limit Properties\nThe functions \\(f(x)\\) and \\(g(x)\\) are shown in the graphs below. Assume that the viewing window is large enough to show the end behavior of each function.\n\n\n\n\n\n\n\n\n\n\n\nFind all \\(x\\)-values in the domain of each function where the function is not continuous.\nEvaluate the following limits. If the limit does not exist but the function grows arbitrarily large in magnitude, write \\(\\infty\\) or \\(-\\infty\\). Otherwise, write the value of the limit or DNE.\n\n\n\n\\(\\displaystyle\\lim_{x\\to-\\infty}f(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0}f(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0}g(x)\\)\n\\(\\displaystyle\\lim_{x\\to 2^{-}}g(x)\\)\n\\(\\displaystyle\\lim_{x\\to 0^+}g(3x+2)\\)\n\\(\\displaystyle\\lim_{x\\to -2}\\big(f(x)+g(x)\\big)\\)\n\\(\\displaystyle\\lim_{x\\to 5}\\frac{1}{g(x)}\\)\n\\(\\displaystyle\\lim_{x\\to -\\infty}f(x)g(x)\\)\n\\(\\displaystyle\\lim_{x\\to -\\infty} f(g(x))\\)\n\n\n\n\nProblem 2: Complicated Limit?\nEvaluate the following limit: \\[\\lim_{x\\to 1}\\ln\\left(\\frac{2\\sqrt{x}-1}{e^x\\cdot\\sin(0.5\\pi x^2)}\\right)\\]\n\n\nProblem 3: True/False?\nDecide with your group if you think the following statements are true or false. If you think they are true, explain why. If you think they are false, provide an example showing why they are false.\n\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=L\\) where \\(L\\neq 0\\), and \\(\\lim_{x\\to a}g(x)=0\\), then \\[\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\text{DNE}\\]\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=0\\) and \\(\\lim_{x\\to a}g(x)=0\\), then \\[\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\text{DNE}\\]\nIf \\(\\displaystyle\\lim_{x\\to a}f(x)=\\infty\\) and \\(\\lim_{x\\to a}g(x)=\\infty\\), then \\[\\lim_{x\\to a}\\left[f(x)-g(x)\\right]=0\\] d.If \\(\\displaystyle\\lim_{x\\to a}f(x)=0\\) and \\(\\lim_{x\\to a}g(x)=\\infty\\), then \\[\\lim_{x\\to a}f(x)\\cdot g(x)=0\\]",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Limit Properties"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_index.html",
+    "href": "notes/unit1_index.html",
+    "title": "Limits & Continuity - Introduction",
+    "section": "",
+    "text": "Creating the proper tools that allow us to measure rate and accumulation require us to grapple with infinities and infinitesimals. Here are some examples that illustrate the logical hurdle these ideas pose:",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_index.html#discussion-problem-infinities-and-infinitesimals",
+    "href": "notes/unit1_index.html#discussion-problem-infinities-and-infinitesimals",
+    "title": "Limits & Continuity - Introduction",
+    "section": "Discussion Problem: Infinities and Infinitesimals",
+    "text": "Discussion Problem: Infinities and Infinitesimals\nDiscuss and try to resolve one or more of the following questions with your group.\n\nConsider a hotel with infinitely many rooms. Currently each room is occupied. A new guest arrives at the front desk and requests a room. Can they be accommodated? If so, how?\nConsider the value \\(0.999\\ldots\\) where there is a 9 in all decimal places. This value is the result of an infinite process:\n\nStart with 0.9\nAdd 9 hundredths to get 0.99\nAdd 9 thousandths to get 0.999\nAnd so on …\n\nAt each step of this process, the value \\(0.99\\ldots 9\\) is getting closer to, but always less than 1. So, \\(0.999\\ldots\\) must be infinitesimally close to, but less than 1. Do you agree?\nSomeone is turning a lamp on and off over the course of 1 minute\n\nThe lamp starts on.\nIt is turned off after 1/2 of a minute.\nIt is turned back on at 3/4 of a minute.\nIt is turned off again at 7/8 of a minute.\nThen turned back on again at 15/16 of a minute.\nAnd so on…\n\nDoes the lamp end up off or on after 1 minute?\nConstruct an infinite staircase as follows.\n\n\nStart with one step that is 1m long and rises 1m. The total length is 2m.\nNow add another step. So now, each step is 0.5m long and rises 0.5m. The total length of the staircase is still 2m.\nContinue in this fashion as shown in the graph below. At each iteration, the staircase as \\(n\\) steps, each one runs \\(\\frac{1}{n}\\) meters and rises \\(\\frac{1}{n}\\) meters and so the total length of the staircase is always 2m.\n\n\n\nviewof n = Inputs.range([1, 100], {value: 4, step: 1, label: \"Number of steps (n)\"})\n\n\n\n\n\n\n\n\nstairPoints = {\n  const pts = [{x: 0, y: 0}];\n  for (let i = 0; i &lt; n; i++) {\n    const y0 = i / n;\n    const x1 = (i + 1) / n;\n    const y1 = (i + 1) / n;\n    pts.push({x: x1, y: y0});\n    pts.push({x: x1, y: y1});\n  }\n  return pts;\n}\n\n\n\n\n\n\n\ndiagPoints = [{x: 0, y: 0}, {x: 1, y: 1}]\n\n\n\n\n\n\n\nstairLength = {\n  let total = 0;\n  for (let i = 1; i &lt; stairPoints.length; i++) {\n    const dx = stairPoints[i].x - stairPoints[i - 1].x;\n    const dy = stairPoints[i].y - stairPoints[i - 1].y;\n    total += Math.hypot(dx, dy);\n  }\n  return total;\n}\n\n\n\n\n\n\n\ndiagLength = Math.hypot(1, 1)\n\n\n\n\n\n\n\nPlot.plot({\n  width: 420,\n  height: 420,\n  aspectRatio: 1,\n  x: {domain: [0, 1], label: \"x\"},\n  y: {domain: [0, 1], label: \"y\"},\n  style: {background: \"transparent\"},\n  marks: [\n    Plot.line(diagPoints, {\n      x: \"x\", y: \"y\",\n      stroke: \"var(--bs-body-color)\",\n      strokeWidth: 2,\n      strokeDasharray: \"6,4\"\n    }),\n    Plot.line(stairPoints, {\n      x: \"x\", y: \"y\",\n      stroke: \"#e63946\",\n      strokeWidth: 2.5\n    }),\n    Plot.frame({stroke: \"var(--bs-border-color, gray)\"})\n  ]\n})\n\n\n\n\n\n\n\nThe process results in a staircase with infinitely many steps that has a total length of 2m. Therefore the length of the diagonal shown in the diagram must also be 2m. Do you agree?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "notes/unit1_index.html#big-idea",
+    "href": "notes/unit1_index.html#big-idea",
+    "title": "Limits & Continuity - Introduction",
+    "section": "Big Idea",
+    "text": "Big Idea\nParadoxes or controversies are not allowed in mathematics. They are the result of a lack of clarity. Either the question has not been posed clearly, terms have not been clearly defined, or assumptions have not been clearly stated.\nThe key idea that we will need before we can proceed to our main goals is the limit. In this unit, we will define limits, develop our conceptual understanding of them, and determine some rules and algebraic procedures that can be used to compute some types of limits precisely.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 1: Limits & Continuity",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_2.html",
+    "href": "notes/unit2_2.html",
+    "title": "Definition of the Derivative",
+    "section": "",
+    "text": "Today, we will generalize our idea of instantaneous velocity. Given any function \\(f(x)\\), we can try to measure its instantaneous rate of change at a given point \\(x=a\\) by computing its average rate of change over smaller and smaller intervals around \\(x=a\\).\nAs the width of these intervals shrinks down to \\(0\\), if the values of the average rate of change appear to be approaching some real number \\(m\\), we will take this value to be our instantaneous rate of change. We call this value the derivative of \\(f(x)\\) at \\(x=a\\) and will use the notation \\(f'(a)\\) to represent it symbolically.\nAs we saw with instantaneous velocity, we can write this definition of \\(f'(a)\\) precisely in terms of limits.\n\nDefinition 1 (Derivative at a Point) The derivative of \\(f(x)\\) at \\(x=a\\), or \\(f'(a)\\), is\n\\[f'(a)=\\lim_{x\\to a}\\frac{f(x)-f(a)}{x-a}\\]\n\nInstead of writing this limit in terms of a point \\(x\\) that is getting closer and closer to \\(a\\) (from both sides), we could also write it in terms of the width (and direction) of the interval on which we are computing the average rate of change. This is equivalent to a change of variables in the previous formula. Letting \\(h=x-a\\), we get:\n\nDefinition 2 (Derivative at a Point - Interval Version) \\[ f'(a)=\\lim_{h\\to 0}\\frac{f(a+h)-f(a)}{h}\\]",
     "crumbs": [
       "Course Notes",
       "Unit 2: The Derivative",
-      "The Second Derivative"
+      "Definition of the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_2.html#problem-1---derivatives-as-slope",
+    "href": "notes/unit2_2.html#problem-1---derivatives-as-slope",
+    "title": "Definition of the Derivative",
+    "section": "Problem 1 - Derivatives as Slope",
+    "text": "Problem 1 - Derivatives as Slope\nThe function \\(f(x)\\) is shown in the graph below.\n\n\n\nGraph of \\(f(x)\\)\n\n\n\nWithout computing anything, try to put the following values in order from least to greatest: \\(f'(0)\\), \\(f'(1)\\), \\(f'(2)\\), \\(f'(3)\\), \\(f'(4)\\), \\(f'(5)\\).\nVerify your work by estimating the values:\n\n\n\n\\(a\\)\n0\n1\n2\n3\n4\n5\n\n\n\n\n\\(f'(a)\\)\n\n\n\n\n\n\n\n\n\nHere is a link to this graph in Desmos. Pick one of the points and zoom in on it. What do you notice happens to the graph as you zoom in?\nUse this observation to help you guess the precise value of \\(f'(a)\\) at this point.\nUse the value you found for \\(f'(a)\\) to write the equation of the line tangent to \\(f(x)\\) at \\(x=a\\). Add it to the graph of \\(f(x)\\) to check your work.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Definition of the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_2.html#problem-2---estimating-derivatives",
+    "href": "notes/unit2_2.html#problem-2---estimating-derivatives",
+    "title": "Definition of the Derivative",
+    "section": "Problem 2 - Estimating Derivatives",
+    "text": "Problem 2 - Estimating Derivatives\nLet \\(f(x)=x^x\\). Using the definition of the derivative and an appropriate table of values, estimate \\(f'(2)\\).\nDo enough computations so that you are reasonably confident your estimate is accurate to 3 decimal places.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Definition of the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_2.html#problem-3---derivatives-as-rates-of-change",
+    "href": "notes/unit2_2.html#problem-3---derivatives-as-rates-of-change",
+    "title": "Definition of the Derivative",
+    "section": "Problem 3 - Derivatives as Rates of Change",
+    "text": "Problem 3 - Derivatives as Rates of Change\nThe data below shows the population for a country over the past ten years in millions:\n\n\n\nTime\n10 Years Ago\n5 Years Ago\nCurrent\n\n\n\n\nPop. (in millions)\n472.4\n496.0\n520.8\n\n\n\n\nAssuming that the population is growing exponentially, find a model \\(P(t)\\) for the population (in millions) \\(t\\) years from now. Write your model in two different ways, \\[P(t)=ab^t \\text{ and } P(t)=ae^{rt}.\\]\nCalculate \\(\\dfrac{P(1)-P(0)}{1-0}\\). Explain what this value represents in the context of the problem.\nEstimate the value of \\(P'(0)\\). Provide reasonable evidence that your estimate is accurate to at least 3 decimal places. Explain what this value means in this context and how it is different from your answer to part b.\nDivide your answers from part b and part c by \\(P(0)\\). What do these values represent in this context?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Definition of the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_2.html#problem-4---derivatives-using-limits",
+    "href": "notes/unit2_2.html#problem-4---derivatives-using-limits",
+    "title": "Definition of the Derivative",
+    "section": "Problem 4 - Derivatives Using Limits",
+    "text": "Problem 4 - Derivatives Using Limits\nUse the limit definition of the derivative to compute each of the following:\n\n\\(f(x)=1-2x\\), \\(f'(10)\\)\n\\(f(x)=x^2+x\\), \\(f'(-2)\\)\n\\(f(x)=\\frac{1}{x+1}\\), \\(f'(1)\\)\n\\(f(x)=\\sqrt{x}\\), \\(f'(9)\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Definition of the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_4.html",
+    "href": "notes/unit2_4.html",
+    "title": "Interpreting the Derivative",
+    "section": "",
+    "text": "When \\(f(t)\\) measures the position of an object in motion at time \\(t\\), the instantaneous rate of change \\(f'(a)\\) has a familiar meaning: it is the object’s instantaneous velocity at the moment \\(t=a\\). But derivatives show up in many contexts that have nothing to do with motion. What does the instantaneous rate of change mean in general when \\(f(x)\\) models the relationship between two variables \\(x\\) and \\(y\\)?\nIn general, the derivative of \\(y=f(x)\\) measures how sensitive the output \\(y\\) is to small, local changes in the input \\(x\\). If \\(f'(a)\\) is large in magnitude, then even a small change in \\(x\\) near \\(x=a\\) produces a large change in \\(y\\). If \\(f'(a)\\) is close to \\(0\\), then small changes in \\(x\\) near \\(x=a\\) barely affect \\(y\\) at all.\n\n\nThis gives us a practical way to interpret \\(f'(a)\\) in any context. We use it to estimate how much \\(y\\) changes when \\(x\\) changes by a small amount. Since \\(f'(a)\\) is the limit of average rates of change \\(\\frac{\\Delta y}{\\Delta x}\\) over smaller and smaller intervals around \\(x=a\\), for a small change \\(\\Delta x\\) we expect \\[\\frac{\\Delta y}{\\Delta x}\\approx f'(a).\\] Multiplying both sides by \\(\\Delta x\\) gives us the key relationship for this section.\n\n\n\n\n\n\nNotePractical Interpretation of \\(f'(a)\\)\n\n\n\nIf \\(x\\) changes from \\(x=a\\) to \\(x=a+\\Delta x\\), where \\(\\Delta x\\) is small, then the corresponding change in \\(y=f(x)\\) is approximately \\[\\Delta y \\approx f'(a)\\,\\Delta x.\\] In particular, the units of \\(f'(a)\\) are the units of \\(y\\) per unit of \\(x\\).\n\n\nKeep in mind that this is a local estimate: it is only reliable when \\(\\Delta x\\) is small, because the rate of change of \\(f(x)\\) may be quite different at points far away from \\(x=a\\).\nHow small does \\(\\Delta x\\) need to be? As we will see, that depends on the context and how sensitive we expect the rate of change to be to changes in \\(x\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Interpreting the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_4.html#practical-interpretation-of-the-derivative",
+    "href": "notes/unit2_4.html#practical-interpretation-of-the-derivative",
+    "title": "Interpreting the Derivative",
+    "section": "",
+    "text": "This gives us a practical way to interpret \\(f'(a)\\) in any context. We use it to estimate how much \\(y\\) changes when \\(x\\) changes by a small amount. Since \\(f'(a)\\) is the limit of average rates of change \\(\\frac{\\Delta y}{\\Delta x}\\) over smaller and smaller intervals around \\(x=a\\), for a small change \\(\\Delta x\\) we expect \\[\\frac{\\Delta y}{\\Delta x}\\approx f'(a).\\] Multiplying both sides by \\(\\Delta x\\) gives us the key relationship for this section.\n\n\n\n\n\n\nNotePractical Interpretation of \\(f'(a)\\)\n\n\n\nIf \\(x\\) changes from \\(x=a\\) to \\(x=a+\\Delta x\\), where \\(\\Delta x\\) is small, then the corresponding change in \\(y=f(x)\\) is approximately \\[\\Delta y \\approx f'(a)\\,\\Delta x.\\] In particular, the units of \\(f'(a)\\) are the units of \\(y\\) per unit of \\(x\\).\n\n\nKeep in mind that this is a local estimate: it is only reliable when \\(\\Delta x\\) is small, because the rate of change of \\(f(x)\\) may be quite different at points far away from \\(x=a\\).\nHow small does \\(\\Delta x\\) need to be? As we will see, that depends on the context and how sensitive we expect the rate of change to be to changes in \\(x\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Interpreting the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_4.html#problem-1---interpreting-a-derivative",
+    "href": "notes/unit2_4.html#problem-1---interpreting-a-derivative",
+    "title": "Interpreting the Derivative",
+    "section": "Problem 1 - Interpreting a Derivative",
+    "text": "Problem 1 - Interpreting a Derivative\nLet \\(r(t)\\) be the total amount of rain (in inches) that had fallen in D.C. during the \\(t\\) hours following noon on a particular September day. Suppose \\(r'(4)=2\\). Provide a reasonable practical interpretation for this equation by filling in the blanks below:\n\nApproximately __________ inches of rain fell between __________ and __________.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Interpreting the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_4.html#problem-2---units-of-the-derivative",
+    "href": "notes/unit2_4.html#problem-2---units-of-the-derivative",
+    "title": "Interpreting the Derivative",
+    "section": "Problem 2 - Units of the Derivative",
+    "text": "Problem 2 - Units of the Derivative\nLet \\(g(v)\\) be the fuel efficiency, in miles per gallon, of a car going \\(v\\) miles per hour.\n\nWhat are the units of \\(g'(v)\\)?\nWhat is a practical interpretation of the equation \\(g'(55)=-0.54\\)?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Interpreting the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_4.html#problem-3---interpreting-function-notation",
+    "href": "notes/unit2_4.html#problem-3---interpreting-function-notation",
+    "title": "Interpreting the Derivative",
+    "section": "Problem 3 - Interpreting Function Notation",
+    "text": "Problem 3 - Interpreting Function Notation\nLet \\(W(h)\\) be an invertible function that models how many gallons of water an oak tree of height \\(h\\) feet consumes on a hot summer day. Give practical interpretations for each of the following equations.\n\n\\(W(50)=70\\)\n\\(W^{-1}(60)=40\\)\n\\(W'(5)=3\\)\n\\((W^{-1})'(20)=0.5\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Interpreting the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_4.html#problem-4---translating-information-into-notation",
+    "href": "notes/unit2_4.html#problem-4---translating-information-into-notation",
+    "title": "Interpreting the Derivative",
+    "section": "Problem 4 - Translating Information into Notation",
+    "text": "Problem 4 - Translating Information into Notation\nAs an object travels away from earth, the weight of the object decreases. Let \\(w=f(d)\\) be the weight of an object, in Newtons, at a distance of \\(d\\) kilometers above the earth’s surface.\nSuppose that an object 800 km above the surface of the earth weighs 700 Newtons. When the object travels one km further, the weight decreases by about 0.2 Newtons. Which of the following mathematical statements are consistent with this information?\n\n\n\\(f(800)=700\\)\n\\(f(700)=800\\)\n\\(f^{-1}(700)=800\\)\n\\(f'(800)=-0.2\\)\n\\(f'(700)=-0.2\\)\n\\(f'(800)=0.2\\)\n\\((f^{-1})'(0.2)=-800\\)\n\\((f^{-1})'(800)=-5\\)\n\\((f^{-1})'(700)=-5\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Interpreting the Derivative"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_6.html",
+    "href": "notes/unit2_6.html",
+    "title": "Differentiability",
+    "section": "",
+    "text": "Definition 1 (Differentiability at a Point) A function \\(f(x)\\) is differentiable at \\(x=a\\) if the limit in the definition of \\(f'(a)\\), \\[\nf'(a) = \\lim_{h\\to 0} \\frac{f(a+h)-f(a)}{h},\n\\] exists. If this limit does not exist, then \\(f(x)\\) is not differentiable at \\(x=a\\).\n\nIf \\(f(x)\\) is differentiable at every point in an interval, we say \\(f(x)\\) is differentiable on that interval. In this section, we explore how differentiability is related to continuity, and how we can recognize from a graph or a formula the points where a function fails to be differentiable.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Differentiability"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_6.html#problem-1---continuity-and-differentiability",
+    "href": "notes/unit2_6.html#problem-1---continuity-and-differentiability",
+    "title": "Differentiability",
+    "section": "Problem 1 - Continuity and Differentiability",
+    "text": "Problem 1 - Continuity and Differentiability\n\n\n\n\n\n\nNoteRecall: Continuity at a Point\n\n\n\nA function \\(f(x)\\) is continuous at \\(x=a\\) if \\(f(a)\\) is defined and \\[\n\\lim_{x\\to a} f(x) = f(a).\n\\]\n\n\nSketch the graph of a function that satisfies each description below. If you think such a graph is not possible, try to explain why.\n\nA function \\(f(x)\\) that is continuous at \\(x=a\\) but not differentiable at \\(x=a\\).\nA function \\(f(x)\\) that is differentiable at \\(x=a\\) but not continuous at \\(x=a\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Differentiability"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_6.html#problem-2---reading-continuity-and-differentiability-from-a-graph",
+    "href": "notes/unit2_6.html#problem-2---reading-continuity-and-differentiability-from-a-graph",
+    "title": "Differentiability",
+    "section": "Problem 2 - Reading Continuity and Differentiability from a Graph",
+    "text": "Problem 2 - Reading Continuity and Differentiability from a Graph\nThe function \\(f(x)\\) is shown in the graph below.\n\n\n\nGraph of \\(f(x)\\)\n\n\n\nList all \\(x\\) values for which \\(f(x)\\) is not continuous.\nList all \\(x\\) values for which \\(f(x)\\) is not differentiable.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Differentiability"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_6.html#problem-3---gravity-above-and-below-the-earths-surface",
+    "href": "notes/unit2_6.html#problem-3---gravity-above-and-below-the-earths-surface",
+    "title": "Differentiability",
+    "section": "Problem 3 - Gravity Above and Below the Earth’s Surface",
+    "text": "Problem 3 - Gravity Above and Below the Earth’s Surface\nThe acceleration due to gravity, \\(g\\), varies with height above the surface of the earth, in a certain way. If you go down below the surface of the earth, \\(g\\) varies in a different way. It can be shown that \\(g\\) is given by \\[\ng = \\begin{cases}\n\\dfrac{GMr}{R^3} & \\text{for } r&lt;R \\\\[2ex]\n\\dfrac{GM}{r^2} & \\text{for } r\\geq R,\n\\end{cases}\n\\] where \\(R\\) is the radius of the earth, \\(M\\) is the mass of the earth, \\(G\\) is the gravitational constant, and \\(r\\) is the distance to the center of the earth.\n\nSketch a graph of \\(g\\) against \\(r\\).\nIs \\(g\\) a continuous function of \\(r\\)? Explain your reasoning.\nIs \\(g\\) a differentiable function of \\(r\\)? Explain your reasoning.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Differentiability"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_6.html#problem-4---zooming-in",
+    "href": "notes/unit2_6.html#problem-4---zooming-in",
+    "title": "Differentiability",
+    "section": "Problem 4 - Zooming In",
+    "text": "Problem 4 - Zooming In\nGraph the function \\(f(x)=\\sqrt{x^2+10^{-35}}\\) in Desmos. Do you think the function is differentiable at \\(x=0\\)? Explain your reasoning.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Differentiability"
+    ]
+  },
+  {
+    "objectID": "notes/unit2_6.html#problem-5---differentiability-of-a-piecewise-function",
+    "href": "notes/unit2_6.html#problem-5---differentiability-of-a-piecewise-function",
+    "title": "Differentiability",
+    "section": "Problem 5 - Differentiability of a Piecewise Function",
+    "text": "Problem 5 - Differentiability of a Piecewise Function\nLet \\[\nf(x) = \\begin{cases}\n(x+1)^2 & \\text{if } x\\leq 1 \\\\\n4x-2 & \\text{if } x&gt;1\n\\end{cases}\n\\]\n\nUsing the limit definition of the derivative, find a formula for \\(f'(x)\\) when \\(x&lt;1\\).\nFind a formula for \\(f'(x)\\) when \\(x&gt;1\\).\nTrue or False: \\(f'(1)=4\\). Explain your reasoning.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 2: The Derivative",
+      "Differentiability"
     ]
   }
 ]
