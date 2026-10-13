@@ -1,0 +1,82 @@
+---
+title: "Computational Rules for Derivatives"
+subtitle: "Unit 3 Overview"
+sidebar: notes
+---
+
+# Introduction
+
+In Unit 2, we used the limit definition of the derivative to find formulas for derivatives. The limit definition always works, but it can be slow and the algebra can get messy, even for fairly simple functions. In this unit, we develop a collection of *rules* that let us find derivatives of functions built from familiar pieces quickly and reliably.
+
+This unit has two goals:
+
+1. **Understanding why the rules work.** Each rule is a consequence of the limit definition of the derivative. Rather than memorizing the rules as a list of facts, we will try to discover each rule ourselves and develop some intuition (graphical, numerical, or algebraic) for why it must be true.
+2. **Using the rules efficiently.** Once we understand a rule, we will practice using it, along with the other rules, to find derivatives accurately and efficiently.
+
+At the end of this unit, you will complete the _Derivative Gateway Quiz_. This assessment will help you demonstrate proficiency in using the derivative rules. It will count towards your quiz grade, but it will be worth a little more than a typical quiz (5 quiz points instead of 1 quiz point).  
+
+# Power Rule
+
+To see how this works, we start with the rule for power functions.
+
+Remember, the rules are _not_ the definition of the derivative. The rules are computational shortcuts that come from the definition of the derivative: 
+
+:::{.callout-note}
+## Recall: The Limit Definition of the Derivative
+The derivative of $f(x)$ is the function
+$$
+f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h},
+$$
+defined at every $x$ where this limit exists. Alternatively, the limit can also be written as
+$$
+f'(x) = \lim_{t\to x} \frac{f(t)-f(x)}{t-x},
+$$
+
+:::
+
+## Problem 1 - Derivatives of Power Functions
+
+a. Use the limit definition of the derivative to find a formula for $f'(x)$ for each of the following functions:
+   $$
+   f(x)=x^5 \qquad f(x)=x^{-1} \qquad f(x)=x^{-2} \qquad f(x)=x^{1/2}
+   $$
+b. Each of the functions in part (a) has the form $f(x)=x^p$ for some constant $p$. Compare the formula you found for each derivative with the formula for the function you started with. Do you notice a pattern? Based on your observations, write down a general formula for the derivative of $f(x)=x^p$.
+
+
+:::{.callout-tip collapse="true"}
+## The Power Rule and Its Justification (click to expand)
+
+:::{#thm-power-rule}
+## Power Rule
+For $f(x)=x^p$, where the constant $p$ is any real number,
+$$
+f'(x) = p\,x^{p-1}.
+$$
+wherever $x^p$ and $x^{p-1}$ are defined.
+:::
+
+Below, we show how this rule follows from the definition of the derivative when $p$ is a positive whole number. We will return to the remaining cases later in the unit.
+
+**Proof for positive whole number powers.** Let $f(x)=x^n$, where $n$ is a positive whole number. Note that
+$$
+(x+h)^n = x^n + n x^{n-1}h +  \cdots + h^n.
+$$
+where every term after the first two contains a factor of $h^2$.
+
+So, the difference quotient for $f(x)=x^n$, can be simplified as 
+$$
+\begin{align}
+\frac{f(x+h)-f(x)}{h} & = \frac{(x+h)^n-x^n}{h}\\ 
+& = \frac{x^n+nx^{n-1}h+\cdots + h^n - x^n}{h} \\
+& = \frac{nx^{n-1}h +\cdots + h^n}{h} \\
+& = nx^{n-1}+\cdots + h^{n-1}
+\end{align}
+$$
+where every term after $nx^{n-1}$ in the last line has a factor of $h$.
+
+Therefore in the limit:
+$$
+f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = \lim_{h\to 0}\left( n x^{n-1}+\cdots + h^{n-1}\right) = nx^{n-1}. \qquad \blacksquare
+$$
+:::
+

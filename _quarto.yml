@@ -60,8 +60,16 @@ website:
               href: notes/unit2_6.qmd
         - section: "Unit 3: Computing Derivatives"
           contents:
-          #  - text: "Overview"
-          #    href: notes/unit3/index.qmd
+            - text: "Introduction"
+              href: notes/unit3_index.qmd
+            - text: "Rules for Power Functions & Polynomials"
+              href: notes/unit3_1.qmd
+            - text: "Rules for Exponential Functions"
+              href: notes/unit3_2.qmd
+            - text: "Rules for Products & Quotients"
+              href: notes/unit3_3.qmd
+            - text: "Rules for Compositions"
+              href: notes/unit3_4.qmd
         - section: "Unit 4: Applications of Derivatives"
           contents:
           #  - text: "Overview"

@@ -1,0 +1,93 @@
+---
+title: "Rules for Exponential Functions"
+subtitle: "Read Section 3.2"
+sidebar: notes
+---
+
+# Introduction
+
+The power rule tells us how to differentiate functions like $x^2$, where the variable is in the *base* and the exponent is constant. It does **not** tell us how to differentiate functions like $2^x$ or $e^x$, where the base is constant and the variable is in the *exponent*. In this section, we use graphs, numerical estimates, and the limit definition to discover a rule for the derivatives of exponential functions.
+
+# Discussion Problems
+
+## Problem 1 - Exponential Functions and Their Derivatives
+Consider a function of the form $f(x)=e^{kx}$, where $k$ is a constant.
+
+a. Sketch a graph of $f(x)$ when $k$ is positive (for example, $k=1$ or $k=2$) and when $k$ is negative (for example, $k=-1$). You may find it helpful to graph $f(x)=e^{kx}$ in [Desmos](https://www.desmos.com/calculator) using a slider for $k$.
+b. For each graph you sketched in part (a), sketch a graph of $f'(x)$.
+c. Compare your graphs of $f'(x)$ to your graphs of $f(x)$. Do they look related in some way? Based on your sketches, what do you think a formula for $f'(x)$ might look like?
+
+## Problem 2 - The Derivative of $e^{kt}$
+Consider an exponential function of the form $f(t)=e^{kt}$.
+
+a. Write out the limit definition for $f'(t)$.
+b. Algebraically manipulate the difference quotient in the limit definition to show that you can factor out an $e^{kt}$. That is, you want to show that $f'(t)=Ce^{kt}$ where
+   $$
+   C=\lim_{h\to 0} \frac{e^{kh}-1}{h}.
+   $$
+c. The constant $C$ depends on the value of $k$. To figure out how it depends on $k$, try estimating the value of $C$ numerically for some different values of $k$.
+
+   At your table, have different people try estimating the limit for different values of $k$ (e.g. $k=-2, -1, -0.5, 0.5, 1, 2$). Do you notice a pattern?
+d. Based on your observations, write down a general formula for $f'(t)$.
+e. Note that $f(t)=b^t$ is the same thing as $f(t)=e^{\ln(b)t}$. Use your formula from part (d) to find a formula for the derivative of $f(t)=b^t$.
+
+## Problem 3 - Practice with the Rules
+Using the derivative rules from Sections 3.1 and 3.2, find the derivative of each of the following functions:
+
+a. $f(t)=5t^2+4e^t$
+b. $p(v)=\sqrt{v}-3^v$
+c. $g(x)=12\cdot 11^x+11\cdot x^{12}$
+d. $q(r)=e^{-2}+e^{-2r}+er^{-2}+re^{-2}$
+
+## Problem 4 - Relative Growth Rate
+A house was originally purchased for \$800,000. Each year after its purchase, the value of the house increases by 5%. Let $V(t)$ be the value of the house $t$ years after it was purchased.
+
+a. Find a formula for $V(t)$.
+b. Find a formula for $V'(t)$.
+c. If we know that the value of our house is currently increasing at a rate of \$8,000 per year, this means something very different if the value of our house is currently \$80,000 compared to \$8,000,000. For this reason, we often use the *relative growth rate* of a function to describe how a value is changing.
+
+   The relative growth rate of a function $V(t)$ is defined to be $V'(t)/V(t)$. Find the relative growth rate for the formula you found in part (a).
+d. Suppose you bought the house in 2015 and you would like to know how the value of the house was changing in 2020. Each of the following computations would give you some information about this:
+   $$
+   V'(5) \qquad\qquad V(6)-V(5) \qquad\qquad \frac{V'(5)}{V(5)} \qquad\qquad \frac{V(6)-V(5)}{V(5)}
+   $$
+   Find the value of each expression. How are they related? How are they different? Try to explain the practical significance of each value.
+
+# Justifying the Rules
+
+:::{.callout-tip collapse="true"}
+## Derivatives of Exponential Functions (click to expand)
+
+:::{#thm-exp-rules}
+## Derivatives of Exponential Functions
+For any constant $k$ and any constant $b>0$,
+$$
+\frac{d}{dt}\left[e^{kt}\right] = k\,e^{kt}
+\qquad\text{and}\qquad
+\frac{d}{dt}\left[b^{t}\right] = (\ln b)\,b^{t}.
+$$
+:::
+
+In Problem 2, we showed with the limit definition that $f(t)=e^{kt}$ has derivative $f'(t)=Ce^{kt}$, where
+$$
+C=\lim_{h\to 0} \frac{e^{kh}-1}{h},
+$$
+and we estimated $C$ numerically. Here we find $C$ exactly.
+
+**The number $e$.** The key fact we need is
+$$
+\lim_{u\to 0}\frac{e^{u}-1}{u} = 1.
+$$
+This limit is the slope of the graph of $y=e^x$ at $x=0$ (write out the limit definition of the derivative of $e^x$ at $x=0$ to see why). It is exactly this property, a slope of 1 at $x=0$, that singles out the number $e\approx 2.718$ among all possible bases for an exponential function.
+
+**Finding $C$.** If $k=0$, then $e^{kt}=1$ is constant, so its derivative is $0 = 0\cdot e^{0\cdot t}$ and the formula holds. If $k\neq 0$, substitute $u=kh$. As $h\to 0$, we also have $u\to 0$, so
+$$
+C=\lim_{h\to 0} \frac{e^{kh}-1}{h} = \lim_{h\to 0} k\cdot\frac{e^{kh}-1}{kh} = k\lim_{u\to 0}\frac{e^{u}-1}{u} = k\cdot 1 = k.
+$$
+Therefore $\dfrac{d}{dt}\left[e^{kt}\right] = k\,e^{kt}$.
+
+**Other bases.** For $b>0$, we can write $b^t = e^{(\ln b)t}$. Applying the formula above with $k=\ln b$,
+$$
+\frac{d}{dt}\left[b^{t}\right] = \frac{d}{dt}\left[e^{(\ln b)t}\right] = (\ln b)\,e^{(\ln b)t} = (\ln b)\,b^t. \qquad \blacksquare
+$$
+:::

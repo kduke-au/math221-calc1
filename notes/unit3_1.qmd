@@ -1,0 +1,89 @@
+---
+title: "Rules for Power Functions & Polynomials"
+subtitle: "Read Section 3.1"
+sidebar: notes
+---
+
+# Introduction
+
+In the [Unit 3 Overview](unit3_index.qmd), we discovered the power rule by computing the derivatives of several power functions with the limit definition and looking for a pattern.
+
+:::{.callout-note}
+## Recall: The Power Rule
+If $f(x)=x^p$ where the constant $p$ is any real number, then
+$$
+f'(x) = p\,x^{p-1}.
+$$
+:::
+
+In this section, we add a few more rules to the power rule that, when combined, allow us to compute the derivative of a polynomial.
+
+# Discussion Problems
+
+## Problem 1 - Sums and Constant Multiples
+
+a. Find the equations of the lines tangent to $y=x^2$ and $y=x^3$ at $x=1$.
+b. What do you expect the equation of the line tangent to $y=x^2+x^3$ at $x=1$ to be? Why? Check your prediction by graphing $y=x^2+x^3$ and your predicted tangent line in [Desmos](https://www.desmos.com/calculator).
+c. Consider $f(x)=4x^2$.
+    i. What does multiplying by 4 do to the graph of $y=x^2$?
+    ii. What effect do you expect multiplying by 4 to have on the slope of the graph of $y=x^2$? For example, what do you expect the slope of $f(x)=4x^2$ to be at $x=1$?
+    iii. Check your prediction by graphing $f(x)$ and the tangent line you predict in [Desmos](https://www.desmos.com/calculator).
+
+## Problem 2 - Analyzing a Polynomial
+Let $f(x)=x^4-2x^2$.
+
+a. Use the derivative rules we have discussed to find formulas for $f'(x)$ and $f''(x)$.
+b. Find the exact values for the intervals where $f(x)$ is increasing and decreasing.
+c. Find the exact values for the intervals where $f(x)$ is concave up and concave down.
+d. Graph $f(x)$ in [Desmos](https://www.desmos.com/calculator). Are the features of the graph consistent with your answers to parts (b) and (c)?
+
+## Problem 3 - Practice with the Rules
+Besides the power rule, what other rules for computing derivatives are listed in Section 3.1? Use all of the rules from this section to compute the derivatives of each of the following functions.
+
+*Note: It may be useful to write some of these in a different way before you try to compute the derivative.*
+
+a. $f(x)=5x^3-\dfrac{7}{\sqrt{x}}$
+b. $h(t)=e^2+et^e$
+c. $g(v)=\dfrac{v^6-v^2+1}{v^3}$
+
+# Justifying the Rules
+
+:::{.callout-tip collapse="true"}
+## Constant, Constant Multiple, and Sum/Difference Rules (click to expand)
+
+:::{#thm-rules-3-1}
+## Derivative Rules from Section 3.1
+Suppose $f(x)$ and $g(x)$ are differentiable and $c$ is a constant. Then:
+
+1. **Constant Rule:** If $f(x)=c$ where $c$ is a constant, then $f'(x) = 0$
+2. **Constant Multiple Rule:** $\left[c\,f(x)\right]' = c\,f'(x)$
+3. **Sum and Difference Rules:** $\left[f(x)\pm g(x)\right]' = f'(x)\pm g'(x)$
+:::
+
+Each rule follows from the limit definition of the derivative together with the limit laws from Unit 1.
+
+**Constant Rule.** If $f(x)=c$, then $f(x+h)-f(x)=c-c=0$ for every $h\neq 0$, so
+$$
+f'(x) = \lim_{h\to 0}\frac{0}{h} = \lim_{h\to 0} 0 = 0.
+$$
+
+**Constant Multiple Rule.** If $g(x)=c\,f(x)$, then
+$$
+\begin{aligned}
+g'(x) &= \lim_{h\to 0}\frac{c\,f(x+h)-c\,f(x)}{h} = \lim_{h\to 0} c\cdot\frac{f(x+h)-f(x)}{h} \\[5pt]
+&= c\lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = c\,f'(x).
+\end{aligned}
+$$
+Note that in this computation, we have used the limit law that we can factor a constant outside of the limit.
+
+**Sum/Difference Rule.** If $s(x)=f(x)\pm g(x)$, then
+$$
+\begin{aligned}
+s'(x) &= \lim_{h\to 0}\frac{\big(f(x+h)\pm g(x+h)\big)-\big(f(x)\pm g(x)\big)}{h} \\[1ex]
+&= \lim_{h\to 0}\left(\frac{f(x+h)-f(x)}{h} \pm \frac{g(x+h)-g(x)}{h}\right) \\[1ex]
+&= \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} \pm \lim_{h\to 0}\frac{g(x+h)-g(x)}{h} = f'(x)\pm g'(x).
+\end{aligned}
+$$
+The third equality uses the limit law that the limit of a sum is the sum of the limits. This law only applies when both limits exist, which is why we need $f$ and $g$ to be differentiable.
+
+:::
