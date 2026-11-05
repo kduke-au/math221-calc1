@@ -1,0 +1,284 @@
+---
+title: "Linear Approximation"
+subtitle: "Read Section 3.9"
+sidebar: notes
+---
+
+# Introduction
+
+_Tangent lines_ have come up several times in relation to the idea of the derivative. In Unit 2, we used them to understand the derivative as the slope of a curve at a point, and in Unit 3 we developed rules that make finding them quick. But what are tangent lines actually *good for*?
+
+:::{.callout-note}
+## Recall: The Tangent Line
+The line tangent to the graph of $f(x)$ at $x=a$ passes through the point $\big(a,f(a)\big)$ and has slope $f'(a)$. Its equation is
+$$
+y = f(a) + f'(a)(x-a).
+$$
+:::
+
+When you zoom in far enough on the graph of a function at a point where it is differentiable, the graph looks more and more like a straight line, and that line is the tangent line. This means that near $x=a$, we can use the tangent line in place of the function itself:
+$$
+f(x) \approx f(a) + f'(a)(x-a) \qquad \text{for } x \text{ near } a.
+$$
+This is called the **linear approximation** (or *tangent line approximation*) of $f(x)$ near $x=a$. Linear functions are about the simplest functions there are to evaluate and solve, so replacing a complicated function with a line, even just locally, can be very useful.
+
+In this section, we will see that the tangent line is not just *a* good linear approximation for $f(x)$ near $x=a$. In a precise sense, it is the **best local linear approximation**.
+
+# Discussion Problems
+
+## Problem 1 - Estimating a Square Root
+
+In this problem, we will estimate $\sqrt{1.2}$ *without* using a calculator or other computational tool. Let $f(x)=\sqrt{x}$.
+
+a. Find $L_a(x)$, the line tangent to $f(x)=\sqrt{x}$ at $x=a$, where $a$ is selected so that
+    i. $a$ is close to $1.2$, and
+    ii. $a$ is a "nice" number, so that $f(a)$ and $f'(a)$ are easy to calculate.
+b. Use your tangent line to estimate the value of $\sqrt{1.2}$.
+c. Now, use [Desmos](https://www.desmos.com/calculator) to graph $f(x)$ and the tangent line you found. Determine the error in your approximation. (We calculate the error as $E(1.2) = \text{Actual Value} - \text{Estimated Value}$.)
+d. In what sense is the tangent line you found, $L_a(x)$, the best local linear approximation for $f(x)$ near $x=a$? Graph other lines through the point $\big(a,f(a)\big)$. What makes the tangent line the best approximation?
+e. Use a table of values to estimate
+$$
+\lim_{x\to a}\frac{E(x)}{x-a} \qquad\text{and}\qquad \lim_{x\to a}\frac{E(x)}{(x-a)^2}.
+$$
+In class, we will talk about how the first limit characterizes what we mean by "best." The second limit gives us a sense of how large the error in our approximation will be for $x$-values close to $a$: it is roughly proportional to $(x-a)^2$.
+
+:::: {.callout-note collapse="true"}
+## Explore: which line is best? (try this after part (d))
+
+The graph shows $f(x)=\sqrt{x}$ near the point $(1,1)$ together with a line through $(1,1)$ whose slope you control. The second slider zooms in on the point $(1,1)$. Try several different slopes. For each one, zoom all the way in. Which slope makes the line and the curve impossible to tell apart, no matter how far you zoom? Watch the value of $\dfrac{E(x)}{x-1}$ below the graph as you zoom.
+
+```{ojs}
+//| echo: false
+sqrtF = (x) => Math.sqrt(x)
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof laSlope = Inputs.range([0, 1], {value: 0.8, step: 0.01, label: "Slope of line"})
+```
+
+```{ojs}
+//| echo: false
+viewof laZoom = Inputs.range([0, 4], {value: 0, step: 0.1, label: "Zoom level"})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+laWin = 0.5 * 10 ** (-laZoom)
+```
+
+```{ojs}
+//| echo: false
+laCurve = d3.range(0, 201).map((i) => {
+  const x = 1 - laWin + (2 * laWin * i) / 200;
+  return {x, y: sqrtF(x)};
+})
+```
+
+```{ojs}
+//| echo: false
+laLine = [1 - laWin, 1 + laWin].map((x) => ({x, y: 1 + laSlope * (x - 1)}))
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 380,
+  height: 380,
+  marginLeft: 60,
+  style: {background: "transparent"},
+  x: {domain: [1 - laWin, 1 + laWin], label: "x", grid: true, ticks: 5},
+  y: {domain: [1 - laWin, 1 + laWin], label: "y", grid: true, ticks: 5},
+  marks: [
+    Plot.line(laCurve, {x: "x", y: "y", stroke: "var(--bs-body-color)", strokeWidth: 2, clip: true}),
+    Plot.line(laLine, {x: "x", y: "y", stroke: "#e63946", strokeWidth: 2, strokeDasharray: "6,4", clip: true}),
+    Plot.dot([{x: 1, y: 1}], {x: "x", y: "y", r: 5, fill: "#e63946"})
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+laReadout = {
+  const x = 1 + laWin / 2;
+  const E = sqrtF(x) - (1 + laSlope * (x - 1));
+  return {x, E, ratio: E / (x - 1)};
+}
+```
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center;">
+  Viewing window: ${(1 - laWin).toPrecision(6)} ≤ x ≤ ${(1 + laWin).toPrecision(6)}<br>
+  At x = ${laReadout.x.toPrecision(6)}: &nbsp;
+  E(x) ≈ ${laReadout.E.toExponential(3)} &nbsp;&nbsp;|&nbsp;&nbsp;
+  <b style="color:#e63946;">E(x)/(x − 1) ≈ ${laReadout.ratio.toFixed(4)}</b>
+</p>`
+```
+::::
+
+## Problem 2 - Estimating a Logarithm
+
+a. Use linear approximation to estimate $\ln(0.9)$ without using a calculator or other computational tool.
+b. Sketch a graph (again, no computational tools!) that illustrates the procedure you used. Is your estimate for $\ln(0.9)$ an overestimate or an underestimate?
+
+## Problem 3 - Interpreting a Linear Approximation
+
+A patient is receiving a drug through an IV. Let $A(t)$ represent the amount of the drug (in mg) present in the patient's body $t$ minutes after they started receiving the drug.
+
+a. Suppose $A(10)=80$. Give a practical interpretation of this equation in words.
+b. Suppose $A'(10)=6$. Give a practical interpretation of this equation in words.
+c. Use the information given in parts (a) and (b) to write the equation of the line tangent to the graph of $A(t)$ at $t=10$.
+d. Suppose that $A'(t)>0$ and $A''(t)<0$ for all values of $t$. Draw a graph showing $A(t)$ and the line tangent to $A(t)$ at $t=10$.
+e. Estimate the amount of the drug present in the patient's body after 11 minutes. Is your estimate greater than or less than the actual amount of the drug present in the patient's body?
+f. Estimate when the patient will have 90 mg of the drug present in their system. Is this estimate before or after the actual time when the patient will have this amount of the drug in their system?
+
+## Problem 4 - The Speed of Sound
+
+The speed of sound in air depends on the temperature of the air according to the function
+$$
+f(T)=331.3 \sqrt{1 + \frac{T}{273.15}},
+$$
+giving the speed in meters per second, with the temperature $T$ measured in degrees Celsius.
+
+a. Find the linear approximation for $f(T)$ at $T=0$.
+b. The standard scientific temperature used in many computations is 15$^\circ$C. Use the linear approximation to estimate the speed of sound in air that is 15$^\circ$C. What is the error in the approximation?
+c. Use [Desmos](https://www.desmos.com/calculator) to create a graph showing both $f(T)$ and the linear approximation you found in part (a). On what interval do you think the linear formula is a reasonable approximation for the speed of sound?
+
+## Problem 5 - Solving Equations with Tangent Lines
+
+Approximating nonlinear behavior with linear behavior can be very useful in computational algorithms. One example of this is using linear approximation to approximate solutions to equations involving nonlinear functions.
+
+For example, it is easy to solve the equation $p(x)=0$ when $p(x)$ is a linear function, and there is a relatively simple formula (the quadratic formula) that tells us how to find the solutions when $p(x)$ is a quadratic function. There are much longer and more complicated formulas for finding the solutions when $p(x)$ is a third or fourth degree polynomial. For fifth or higher degree polynomials, there is no general formula that tells us how to find the solutions!
+
+So, in general, if we want to solve an equation like $p(x)=0$, where
+$$
+p(x)=x^5+x+1,
+$$
+often the best we can do is estimate the solutions numerically. Below, we will see how linear approximation lets us get accurate approximations in just a few steps.
+
+a. First, compute $p(-1)$ and $p(0)$. Why do we know there is a solution to $p(x)=0$ between $x=-1$ and $x=0$?
+b. Let's start with $x_0 = -1$ as our initial guess for the solution to $p(x)=0$.
+    - Find $L_0(x)$, the line tangent to $p(x)$ at $x=-1$.
+    - Solve $L_0(x)=0$. Call the solution to this equation $x_1$.
+    - Graph $L_0(x)$ and $p(x)$. Is $x_1$ a better approximation for the solution to $p(x)=0$ than $x_0=-1$?
+c. Now repeat what you did in part (b), starting from $x_1$:
+    - Find $L_1(x)$, the line tangent to $p(x)$ at $x=x_1$.
+    - Solve $L_1(x)=0$. Call the solution to this equation $x_2$.
+    - Graph $p(x)$, $L_0(x)$, and $L_1(x)$. Is $x_2$ a better approximation for the solution to $p(x)=0$ than $x_1$ and $x_0$?
+d. What will happen if we continue to repeat this process?
+
+:::: {.callout-note collapse="true"}
+## Explore: repeating the process (try this after part (d))
+
+Use the slider to choose how many times to repeat the process from parts (b) and (c), starting from $x_0=-1$. Each dashed line is a tangent line $L_k(x)$, and the point where it crosses the $x$-axis is the next approximation $x_{k+1}$. The table shows each approximation and the value of $p$ there. How quickly does $p(x_k)$ get close to $0$?
+
+```{ojs}
+//| echo: false
+nwP = (x) => x ** 5 + x + 1
+```
+
+```{ojs}
+//| echo: false
+nwDP = (x) => 5 * x ** 4 + 1
+```
+
+```{ojs}
+//| echo: false
+nwCurve = d3.range(-1.3, 0.3001, 0.005).map((x) => ({x, y: nwP(x)}))
+```
+
+::: {style="display:flex; justify-content:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof nwSteps = Inputs.range([0, 5], {value: 0, step: 1, label: "Number of steps"})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+nwIter = {
+  const xs = [-1];
+  for (let k = 0; k < nwSteps; k++) {
+    const x = xs[k];
+    xs.push(x - nwP(x) / nwDP(x));
+  }
+  return xs;
+}
+```
+
+```{ojs}
+//| echo: false
+nwTangents = nwIter.slice(0, -1).flatMap((a, k) =>
+  [-1.3, 0.3].map((x) => ({k: `L${k}`, x, y: nwP(a) + nwDP(a) * (x - a)}))
+)
+```
+
+```{ojs}
+//| echo: false
+nwDrops = nwIter.slice(1).map((x) => ({x, y1: 0, y2: nwP(x)}))
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 420,
+  height: 360,
+  style: {background: "transparent"},
+  x: {domain: [-1.3, 0.3], label: "x", grid: true},
+  y: {domain: [-3, 2], label: "y", grid: true},
+  marks: [
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)", strokeOpacity: 0.5}),
+    Plot.line(nwCurve, {x: "x", y: "y", stroke: "var(--bs-body-color)", strokeWidth: 2, clip: true}),
+    Plot.line(nwTangents, {x: "x", y: "y", z: "k", stroke: "#1d70b8", strokeWidth: 1.5, strokeDasharray: "6,4", clip: true}),
+    Plot.ruleX(nwDrops, {x: "x", y1: "y1", y2: "y2", stroke: "#1d70b8", strokeOpacity: 0.6}),
+    Plot.dot(nwIter.map((x) => ({x, y: 0})), {x: "x", y: "y", r: 4, fill: "#e63946"})
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+Inputs.table(
+  nwIter.map((x, k) => ({k, x: x.toFixed(10), p: nwP(x).toExponential(3)})),
+  {
+    header: {k: "k", x: "x_k", p: "p(x_k)"},
+    sort: null,
+    select: false,
+    width: {k: 40}
+  }
+)
+```
+::::
+
+The procedure in Problem 5 is called **Newton's Method**. Versions of it are used by calculators and computer software to solve equations that can't be solved exactly by hand.
+
+# Why the Tangent Line Is the Best
+
+:::{.callout-tip collapse="true" icon="false"}
+## The Tangent Line Is the Only Line with $\lim_{x\to a}\frac{E(x)}{x-a}=0$
+
+Every line that passes through the point $\big(a,f(a)\big)$ has an equation of the form $y = f(a) + m(x-a)$ for some slope $m$. All of these lines give the *exact* value of $f$ at $x=a$, so to decide which is best, we have to look at how the error behaves for $x$ *near* $a$.
+
+**Justification:** The error in using the line with slope $m$ to approximate $f(x)$ is
+$$
+E(x) = f(x) - \big(f(a) + m(x-a)\big).
+$$
+Dividing by $x-a$ gives
+$$
+\frac{E(x)}{x-a} = \frac{f(x)-f(a)}{x-a} - m.
+$$
+The first term is a difference quotient, so as $x\to a$ it approaches $f'(a)$. This means
+$$
+\lim_{x\to a}\frac{E(x)}{x-a} = f'(a) - m.
+$$
+This limit equals $0$ if and only if $m=f'(a)$, that is, exactly when the line is the tangent line.
+
+For any other line, the error $E(x)$ shrinks to $0$ at about the same rate as $x-a$ does. For the tangent line, the error shrinks to $0$ *faster* than $x-a$. That is the sense in which the tangent line is the best local linear approximation. $\qquad \blacksquare$
+:::

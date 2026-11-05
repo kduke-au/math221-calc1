@@ -1,0 +1,112 @@
+---
+title: "Derivatives of Trigonometric Functions"
+subtitle: "Read Section 3.5"
+sidebar: notes
+---
+
+# Introduction
+
+Trigonometric functions are the basic building blocks for modeling anything that repeats: seasons, tides, sound waves, and oscillating springs. In this section, we use graphs to discover the derivatives of $\sin(x)$ and $\cos(x)$, then combine them with the rules from earlier in this unit to differentiate the other trigonometric functions and more complicated combinations.
+
+Throughout this section, angles are measured in **radians**. The derivative formulas we discover depend on this choice.
+
+# Discussion Problems
+
+## Problem 1 - Graphs of Two Familiar Functions
+Use the graphs of $f(x)$ and $g(x)$ to answer the questions below.
+
+a. The graph of $f(x)$ is shown below.
+
+   ![Graph of $f(x)$](images/Graph7a_1.png){width=60%}
+
+    i. Use the graph to estimate the value of $f'(\pi/2)$.
+    ii. Plot the value of $f'(\pi/2)$ and then sketch the graph of the rest of $f'(x)$.
+    iii. Guess a formula for $f(x)$ and $f'(x)$.
+
+b. The graph of $g(x)$ is shown below.
+
+   ![Graph of $g(x)$](images/Graph7a_2.png){width=60%}
+
+    i. Use the graph to estimate the value of $g'(0)$.
+    ii. Plot the value of $g'(0)$ and then sketch the graph of the rest of $g'(x)$.
+    iii. Guess a formula for $g(x)$ and $g'(x)$.
+
+## Problem 2 - The Derivative of Tangent
+The function $\tan(x)$ is shown in the graph below.
+
+![Graph of $\tan(x)$](images/Graph7a_3.png){width=60%}
+
+a. Use the graph to estimate the value of $\left.\dfrac{d}{dx}\left[\tan(x)\right]\right|_{x=0}$.
+b. Plot the value of $\left.\dfrac{d}{dx}\left[\tan(x)\right]\right|_{x=0}$ and then sketch the graph of the rest of $\dfrac{d}{dx}\left[\tan(x)\right]$.
+c. Write $\tan(x)$ in terms of $\sin(x)$ and $\cos(x)$. Use derivative rules to find a formula for $\dfrac{d}{dx}\left[\tan(x)\right]$.
+
+## Problem 3 - Carbon Dioxide in the Atmosphere
+Data collected for the concentration of CO$_2$ in the atmosphere is shown in the graph below:
+
+![Monthly mean CO$_2$ concentration at Mauna Loa, 1958–2019](images/Graph7a_4.png){width=60%}
+
+Let
+$$
+C(t)=3.5\sin\left(\frac{\pi t}{6}\right)+381+\frac{t}{6}
+$$
+be a model for the concentration of carbon dioxide (in ppm) in the air $t$ months after December 1, 2005.
+
+a. Find the values of $C(3)$, $C'(3)$, and $C''(3)$.
+b. What do these values tell you about the concentration of carbon dioxide in the air?
+
+## Problem 4 - Practice with the Rules
+Find the derivatives of the following functions.
+
+a. $f(x)=\sec(x)$
+b. $g(x)=e^{-\sin(x)}$
+c. $h(x)=\sin(2x)\cos(3x)$
+d. $r(x)=\dfrac{x}{1+\cos^2(x)}$
+
+# Justifying the Rules
+
+:::{.callout-tip collapse="true"}
+## Derivatives of Sine, Cosine, and Tangent (click to expand)
+
+:::{#thm-trig-derivatives}
+## Derivatives of Trigonometric Functions
+When $x$ is measured in radians,
+$$
+\frac{d}{dx}\left[\sin(x)\right] = \cos(x), \qquad
+\frac{d}{dx}\left[\cos(x)\right] = -\sin(x), \qquad
+\frac{d}{dx}\left[\tan(x)\right] = \frac{1}{\cos^2(x)}.
+$$
+:::
+
+**Two key limits.** The formal justification rely on two limits:
+$$
+\lim_{h\to 0}\frac{\sin(h)}{h} = 1
+\qquad\text{and}\qquad
+\lim_{h\to 0}\frac{\cos(h)-1}{h} = 0.
+$$
+
+These limits are equivalent to finding the slopes of $\sin(x)$ and $\cos(x)$ at $x=0$. 
+You can estimate them numerically or read them from the graphs in Problem 1, and they can be justified carefully with a geometric argument (based on the definitions of $\sin(x)$ and $\cos(x)$) and the Squeeze Theorem. 
+
+Note: The first limit equals 1 only when $h$ is measured in radians, which is why radians are essential here.
+
+**Sine.** Using the angle addition formula $\sin(x+h)=\sin(x)\cos(h)+\cos(x)\sin(h)$,
+$$
+\begin{aligned}
+\frac{\sin(x+h)-\sin(x)}{h} &= \frac{\sin(x)\cos(h)+\cos(x)\sin(h)-\sin(x)}{h} \\[1ex]
+&= \sin(x)\cdot\frac{\cos(h)-1}{h} + \cos(x)\cdot\frac{\sin(h)}{h}.
+\end{aligned}
+$$
+As $h\to 0$, this approaches $\sin(x)\cdot 0 + \cos(x)\cdot 1 = \cos(x)$.
+
+**Cosine.** Using the angle addition formula $\cos(x+h)=\cos(x)\cos(h)-\sin(x)\sin(h)$,
+$$
+\frac{\cos(x+h)-\cos(x)}{h} = \cos(x)\cdot\frac{\cos(h)-1}{h} - \sin(x)\cdot\frac{\sin(h)}{h},
+$$
+which approaches $\cos(x)\cdot 0 - \sin(x)\cdot 1 = -\sin(x)$ as $h\to 0$.
+
+**Tangent.** Writing $\tan(x)=\dfrac{\sin(x)}{\cos(x)}$ and using the quotient rule,
+$$
+\frac{d}{dx}\left[\tan(x)\right] = \frac{\cos(x)\cos(x)-\sin(x)\big(-\sin(x)\big)}{\cos^2(x)} = \frac{\cos^2(x)+\sin^2(x)}{\cos^2(x)} = \frac{1}{\cos^2(x)}.
+$$
+The last step uses the Pythagorean identity $\sin^2(x)+\cos^2(x)=1$. $\blacksquare$
+:::

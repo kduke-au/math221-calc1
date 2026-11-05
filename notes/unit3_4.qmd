@@ -85,27 +85,19 @@ $$
 $$
 :::
 
-**Why the chain rule makes sense.** Suppose $z=f(y)$ and $y=g(x)$. A small change $\Delta x$ in $x$ produces a change $\Delta y$ in $y$, which in turn produces a change $\Delta z$ in $z$. When $\Delta y\neq 0$,
-$$
-\frac{\Delta z}{\Delta x} = \frac{\Delta z}{\Delta y}\cdot\frac{\Delta y}{\Delta x}.
-$$
-As $\Delta x\to 0$, we also have $\Delta y\to 0$ (since $g$ is continuous), so the left side approaches $\dfrac{dz}{dx}$ and the right side approaches $\dfrac{dz}{dy}\cdot\dfrac{dy}{dx}$.
+**Why the chain rule makes sense.** Suppose $z=f(y)$ and $y=g(x)$ and both functions are differentiable. A small change $\Delta x$ in $x$ produces a small change $\Delta y$ in $y$, which in turn produces a small change $\Delta z$ in $z$. 
 
-This argument is not quite a complete proof: for some functions, $\Delta y$ can equal 0 for values of $\Delta x$ arbitrarily close to 0, and then we cannot divide by $\Delta y$. A fully rigorous proof handles this case separately, but the argument above captures the essential idea.
+From our discussion of the derivative in Unit 2, we know that $\Delta y\approx g'(x)\cdot \Delta x$ and $\Delta z\approx f'(y)\cdot \Delta y$. _Chaining_ these effects together then, we get:
+$$ 
+\Delta z \approx f'(y)\cdot g'(x) \cdot \Delta x 
+$$
 
-**Returning to the Power Rule: Fractional Powers.** Let $n$ be a positive whole number, let $x>0$, and let $u(x)=x^{1/n}$. Assuming $u$ is differentiable, we can differentiate both sides of the equation
+So, for the average rate of change of $z$ with respect to $x$, we have:
+
 $$
-\big(u(x)\big)^n = x
+\dfrac{\Delta z}{\Delta x}\approx f'(y)\cdot g'(x)
 $$
-using the chain rule on the left side:
-$$
-n\big(u(x)\big)^{n-1}\cdot u'(x) = 1
-\qquad\Longrightarrow\qquad
-u'(x) = \frac{1}{n\left(x^{1/n}\right)^{n-1}} = \frac{1}{n}\,x^{\frac{1}{n}-1}.
-$$
-More generally, for a whole number $m$ (positive or negative), write $x^{m/n} = \left(x^{1/n}\right)^m$. Applying the chain rule together with the power rule for whole number powers,
-$$
-\frac{d}{dx}\left[x^{m/n}\right] = m\left(x^{1/n}\right)^{m-1}\cdot\frac{1}{n}\,x^{\frac{1}{n}-1} = \frac{m}{n}\,x^{\frac{m-1}{n}+\frac{1}{n}-1} = \frac{m}{n}\,x^{\frac{m}{n}-1},
-$$
-which is exactly what the power rule predicts for the power $p=m/n$. The power rule for irrational powers, such as $x^{\pi}$, can be justified once we know the derivative of $\ln x$ (Section 3.6), by writing $x^{p}=e^{p\ln x}$. $\blacksquare$
+
+To obtain the instantaneous rate of change, we take the limit of $\dfrac{\Delta z}{\Delta x}$ as $\Delta x \to 0$. The approximations get better and better as $\Delta x$ gets smaller, and in the limit, we get that the instantaneous rate of change equals $f'(y)g'(x)=f'(g(x))g'(x)$.
+
 :::

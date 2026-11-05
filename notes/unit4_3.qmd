@@ -1,0 +1,180 @@
+---
+title: "Using the First and Second Derivatives"
+subtitle: "Read Section 4.1"
+sidebar: notes
+---
+
+# Introduction
+
+In this section, we put together just about everything we have discussed so far this semester! The goal is to determine as many important features of the behavior of a function $f(x)$ as we can, working *without* any aid from computational tools.
+
+Important features include:
+
+- domain and range,
+- continuity and differentiability,
+- intervals where $f(x)$ is increasing or decreasing,
+- concavity,
+- points where these behaviors change, like relative extrema and inflection points, and
+- end behavior: what happens to $f(x)$ as $x$ approaches the boundaries of the domain of $f(x)$?
+
+Ultimately, we want to learn as much about $f(x)$ as we can from its formula and the formulas of its derivatives, so that we can sketch a complete graph of $f(x)$.
+
+:::{.callout-note}
+## Recall: What the Derivatives Tell Us
+- If $f'(x)>0$ on an interval, then $f(x)$ is **increasing** on that interval. If $f'(x)<0$ on an interval, then $f(x)$ is **decreasing** on that interval.
+- If $f''(x)>0$ on an interval, then $f(x)$ is **concave up** on that interval. If $f''(x)<0$ on an interval, then $f(x)$ is **concave down** on that interval.
+:::
+
+:::{.callout-note}
+## Definitions: Points Where Behavior Changes
+- A **critical point** of $f(x)$ is a point $x=p$ in the domain of $f(x)$ where $f'(p)=0$ or $f'(p)$ is undefined.
+- $f(x)$ has a **local (relative) maximum** at $x=p$ if $f(p)\geq f(x)$ for all $x$ near $p$, and a **local (relative) minimum** at $x=p$ if $f(p)\leq f(x)$ for all $x$ near $p$. Together, these are called **local (relative) extrema**.
+- An **inflection point** of $f(x)$ is a point $x=p$ in the domain of $f(x)$ where the concavity of $f(x)$ changes.
+:::
+
+# Discussion Problems
+
+## Problem 1 - A Familiar Shape
+
+Let $f(x)=e^{-x^2}$.
+
+a. Find the domain of $f(x)$, and determine where $f(x)$ is continuous and where it is differentiable.
+b. Find $f'(x)$ and $f''(x)$.
+c. Determine where $f(x)$ is increasing and where it is decreasing.
+d. Determine where $f(x)$ is concave up and where it is concave down.
+e. Does $f(x)$ have any relative extrema? Any inflection points? If so, where?
+f. Determine the end behavior of $f(x)$. That is, find $\displaystyle\lim_{x\to\infty} f(x)$ and $\displaystyle\lim_{x\to-\infty} f(x)$.
+g. Sketch a complete graph of $f(x)$ that illustrates its important features. Have you seen this graph before? Where?
+
+## Problem 2 - A Polynomial
+
+Let $f(x)=3x^4-4x^3+6$.
+
+Repeat the steps from Problem 1, parts (a)–(f), for this function. Then use the information you gathered to sketch a complete graph of $f(x)$. Make sure your graph clearly shows where $f(x)$ is increasing, decreasing, concave up, and concave down.
+
+## Problem 3 - A Family of Functions
+
+Let $f(x)=x-b\ln(x)$, where $b$ is a positive constant.
+
+Repeat the steps from Problem 1, parts (a)–(f), for this function. Then use the information you gathered to sketch a complete graph of $f(x)$. Some things to keep in mind:
+
+- Your answers will depend on $b$. Label the important features of your graph in terms of $b$.
+- Pay close attention to the domain. What are the "boundaries" of the domain that you need to check for the end behavior?
+- What is the concavity of $f(x)$ at each of its critical points? How could you use this to decide whether a critical point is a local maximum or a local minimum?
+
+:::: {.callout-note collapse="true"}
+## Explore: changing $b$ (try this after the problem)
+
+Use the slider to change the value of $b$. The red point marks the critical point of $f(x)$. Use the checkboxes to add the graphs of $f'(x)$ and $f''(x)$. How do the signs of $f'(x)$ and $f''(x)$ match up with the shape of the graph of $f(x)$?
+
+```{ojs}
+//| echo: false
+p3xs = d3.range(0.02, 10.0001, 0.02)
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof p3b = Inputs.range([0.5, 4], {value: 2, step: 0.1, label: "b"})
+```
+
+```{ojs}
+//| echo: false
+viewof p3show = Inputs.checkbox(["f′(x)", "f″(x)"], {label: "Also show"})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+p3data = p3xs.flatMap((x) => [
+  {x, y: x - p3b * Math.log(x), fn: "f(x)"},
+  {x, y: 1 - p3b / x, fn: "f′(x)"},
+  {x, y: p3b / x ** 2, fn: "f″(x)"}
+]).filter((d) => d.fn === "f(x)" || p3show.includes(d.fn))
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 420,
+  height: 360,
+  style: {background: "transparent"},
+  x: {domain: [0, 10], label: "x", grid: true},
+  y: {domain: [-3, 8], label: "y", grid: true},
+  color: {
+    domain: ["f(x)", "f′(x)", "f″(x)"],
+    range: ["var(--bs-body-color)", "#1d70b8", "#2a9d8f"],
+    legend: true
+  },
+  marks: [
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)", strokeOpacity: 0.5}),
+    Plot.ruleX([0], {stroke: "var(--bs-body-color)", strokeOpacity: 0.5}),
+    Plot.line(p3data.filter((d) => d.fn !== "f(x)"), {
+      x: "x", y: "y", z: "fn", stroke: "fn",
+      strokeWidth: 1.5,
+      strokeDasharray: "6,4",
+      clip: true
+    }),
+    Plot.line(p3data.filter((d) => d.fn === "f(x)"), {
+      x: "x", y: "y", stroke: "fn", strokeWidth: 2.5, clip: true
+    }),
+    Plot.dot([{x: p3b, y: p3b - p3b * Math.log(p3b)}], {x: "x", y: "y", r: 5, fill: "#e63946"})
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center;">
+  <b style="color:#e63946;">Critical point: x = ${p3b.toFixed(1)}, f(x) ≈ ${(p3b - p3b * Math.log(p3b)).toFixed(3)}</b>
+</p>`
+```
+
+Note how the value of the minimum changes as $b$ increases; $y_{\text{min}}$, the $y$-value of the minimum can be found by plugging the $x$-value of the minimum, $x_{\text{min}}$, into $f(x)$. In the problem, you should have found that:
+$$
+(x_{\text{min}}, y_{\text{min}})=(b,b(1-\ln(b)))
+$$ 
+This tells us how a particular feature of the function, in this case the local min, depends on the parameter $b$. 
+We can use this relationship to understand how the minimum changes as the parameter changes. 
+
+For example, since $\ln(x)$ is an increasing function that equals 1 when $x=e$, we can see that $y_\text{min}$ will be positive if $0<b<e$ and it will be negative if $b>e$. 
+
+We could also find the rate of change of $y_\text{min}$ with respect to $b$ to understand how small changes in the parameter $b$ will impact the value of $y_\text{min}$; e.g., will $y_\text{min}$ increase or decrease as $b$ increases, is there a largest or smallest value $y_\text{min}$ can have, etc.
+::::
+
+## Problem 4 - Reading Derivatives from a Graph
+
+The graph of the function $f(x)$ is shown below.
+
+![](images/unit4_3_graph.svg){.invert-dark fig-alt="Graph of f(x) with labeled points A through G on the x-axis. The graph decreases and levels off with a horizontal tangent at B, continues decreasing to touch the x-axis at D, rises to a peak at F, and then falls, crossing the x-axis at G." width="70%" fig-align="center"}
+
+a. Find all critical points of $f(x)$. Determine whether each critical point is a local maximum, a local minimum, or neither.
+b. Find all inflection points of $f(x)$.
+c. Now suppose $f(x)=g'(x)$ for some function $g(x)$. Find all critical points of $g(x)$. Determine whether each critical point is a local maximum, a local minimum, or neither.
+d. Find all inflection points of $g(x)$.
+
+# Summary: Local Extrema and Inflection Points
+
+:::{.callout-tip collapse="true" icon="false"}
+## Using $f'(x)$ and $f''(x)$ to Classify Points (click to expand)
+
+As you worked through the problems, you may have noticed that every local extremum occurred at a critical point of $f(x)$, and that we can use $f'(x)$ or $f''(x)$ to try to determine whether a critical point is a local extremum. Here is a summary of those observations that is useful to remember.
+
+**Using the first derivative.** If $x=a$ is a critical point of $f(x)$, then $f(x)$ has a local extremum at $x=a$ if $f'(x)$ changes sign at $x=a$:
+
+- If $f'(x)$ changes from negative to positive at $x=a$, then $f(x)$ has a local minimum at $x=a$.
+- If $f'(x)$ changes from positive to negative at $x=a$, then $f(x)$ has a local maximum at $x=a$.
+
+**Using the second derivative.** We can also determine whether $f(x)$ has a local extremum at a critical point if we know the concavity of $f(x)$ near the critical point. If $x=a$ is a critical point of $f(x)$ and
+
+- $f''(a)$ is positive, then $f(x)$ is concave up near $x=a$, so $f(x)$ must have a local minimum at $x=a$.
+- $f''(a)$ is negative, then $f(x)$ is concave down near $x=a$, so $f(x)$ must have a local maximum at $x=a$.
+
+**Inflection points.** You may have also noticed that just because $x=a$ is a critical point of $f'(x)$ (that is, $f''(a)$ is $0$ or undefined), it is not guaranteed that $x=a$ is an inflection point of $f(x)$. You have to check whether the concavity actually changes there. So,
+
+$$
+x=a \text{ is an inflection point of } f(x) \text{ if and only if } f''(x) \text{ changes sign at } x=a.
+$$
+:::

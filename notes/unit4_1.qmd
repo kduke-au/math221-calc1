@@ -1,0 +1,101 @@
+---
+title: "Implicit Differentiation & Related Rates"
+subtitle: "Read Section 3.7"
+sidebar: notes
+---
+
+# Introduction
+
+So far, every curve we have differentiated has been the graph of a function given by an explicit formula $y=f(x)$. However, many curves are described by an *equation* relating $x$ and $y$, like the circle $x^2+y^2=9$. A curve like this is not the graph of a single function (it fails the vertical line test), but near most of its points it *looks like* the graph of a function. So it still makes sense to ask about the slope of its tangent line.
+
+In this section, we develop **implicit differentiation**, a technique for finding $\dfrac{dy}{dx}$ directly from an equation relating $x$ and $y$, without first solving for $y$. The key ingredient is the chain rule.
+
+:::{.callout-note}
+## Recall: The Chain Rule
+If $y=f(u)$ and $u=g(x)$, then
+$$
+\frac{dy}{dx} = \frac{dy}{du}\cdot\frac{du}{dx}, \qquad\text{or equivalently,}\qquad \frac{d}{dx}\Big[f\big(g(x)\big)\Big] = f'\big(g(x)\big)\,g'(x).
+$$
+:::
+
+
+# Discussion Problems
+
+## Problem 1 - Slopes on a Circle
+
+Consider the curve given by the equation $x^2+y^2=9$.
+
+a. Sketch a graph of this curve.
+b. Check that $(-1,-2\sqrt{2})$ is a point on this curve.
+c. Find the slope of the curve at the point $(-1,-2\sqrt{2})$ in two ways:
+    i. By solving the equation above to find an explicit formula for $y$ as a function of $x$ near this point, and then taking the derivative.
+    ii. By using implicit differentiation to take the derivative of both sides of the equation, and then solving for $\dfrac{dy}{dx}$.
+
+## Problem 2 - A Complicated Curve
+
+Consider the curve given by the equation $(x^2+y^2)^2=8x^2-4y^2$.
+
+a. Use [Desmos](https://www.desmos.com/calculator) to graph the curve. (Just type it in exactly as it appears above.)
+b. There are a few points on the curve where the slope is undefined. What are the coordinates of these points? (You should be able to see the $y$-coordinate from the graph and then figure out the $x$-coordinates algebraically.)
+c. Check that the point $(1,1)$ is on the curve.
+d. Find the slope of the curve at the point $(1,1)$.
+
+## Problem 3 - Finding Tangent Lines
+
+Consider the curve $x^2+2y+y^2x=4$.
+
+a. Find a formula for $\dfrac{dy}{dx}$.
+b. Find all points on the curve with $x=2$.
+c. Find the equation of the line (or lines) tangent to the curve at $x=2$.
+d. Graph the curve with the tangent lines in [Desmos](https://www.desmos.com/calculator).
+
+## Problem 4 - Related Rates: Cylinders
+
+Often in applications, we have an equation relating several variables, and each of these variables depends on some other variable, like time. Implicit differentiation can be used to find relationships between the rates of change of each of the variables. In this problem, we look at some examples relating the volume, radius, and height of a cylinder.
+
+a. To start, what is the equation relating the volume $V$, radius $R$, and height $H$ of a cylinder?
+b. Suppose $V$, $H$, and $R$ are all functions of time $t$. Find an equation relating $\dfrac{dV}{dt}$, $\dfrac{dH}{dt}$, and $\dfrac{dR}{dt}$.
+c. During the height of a storm, water from a gutter rushes into a cylindrical rain barrel at a rate of 30 ft$^3$/hr. Suppose the rain barrel is 1.5 ft in radius and 4 ft tall. How fast is the depth of the water in the barrel rising at this moment?
+d. A ruptured oil tanker causes a thin cylindrical oil slick on the surface of the ocean. Once the spill has stopped, the volume of the oil slick remains constant, but the slick continues to spread out on the surface of the ocean. After a little while, the radius of the slick is 150 meters and it is expanding by 0.1 meters/min. If its thickness at this moment is 0.02 meters, how fast is the thickness of the slick changing? Is it increasing or decreasing?
+e. When you heat up a cylindrical marshmallow in a microwave, the marshmallow expands impressively. Suppose that after 10 seconds in the microwave,
+    - the marshmallow is 2 inches tall and its height is increasing at a rate of 0.1 in/sec, and
+    - the marshmallow is 1 inch in diameter and its diameter is increasing at a rate of 0.2 in/sec.
+
+    What is the volume of the marshmallow, and how fast is it increasing?
+
+:::{.callout-tip collapse="true"}
+## A Strategy for Related Rates Problems (click to expand)
+
+1. **Identify the quantities.** Draw a picture if possible. Name each quantity with a variable, and decide which ones are changing and which are constant.
+2. **Relate the quantities.** Write an equation relating the variables that is true *at every moment in time*, not just at the moment you care about.
+3. **Differentiate with respect to the independent variable.** Often, like in this problem, the independent variable is time. Take $\dfrac{d}{dt}$ of both sides, using the chain rule on every variable that depends on $t$.
+4. **Substitute.** Now plug in the values for the variables and their rates given at the moment of interest.
+5. **Solve and interpret.** Solve for the unknown rate, and check that its units and sign make sense in context.
+
+**Note:** A common mistake is plugging in values for a quantity that is changing *before* differentiating (step 4 before step 3). If you replace a changing quantity with a number, you change it from a variable to a constant. Its derivative becomes $0$, and the information about its rate of change is lost.
+:::
+
+# How Implicit Differentiation Works
+
+Below is an explanation of what is really going on when we use implicit differentiation.
+
+:::{.callout-tip collapse="true" icon="false"}
+## Differentiating an Expression Involving $y$
+
+When we use implicit differentiation, we are assuming that near the point of interest, the curve is the graph of some differentiable function $y=f(x)$, even if we don't know a formula for $f$.
+
+With this assumption, an expression like $y^2$ is really the composition $\big(f(x)\big)^2$. By the chain rule,
+$$
+\frac{d}{dx}\big[y^2\big] = \frac{d}{dx}\Big[\big(f(x)\big)^2\Big] = 2f(x)\,f'(x) = 2y\,\frac{dy}{dx}.
+$$
+
+More generally, for any differentiable function $g$,
+$$
+\frac{d}{dx}\big[g(y)\big] = g'(y)\,\frac{dy}{dx}.
+$$
+
+So, the chain rule is why a factor of $\dfrac{dy}{dx}$ appears every time we differentiate an expression involving $y$; $\dfrac{dy}{dx}$ is our notation for the implicit derivative of our implicit function.
+
+If the expression is _explicitly_ written out in terms of the independent variable $x$, then we can use the appropriate derivative rules to write out the derivative explicitly.
+:::
+

@@ -70,10 +70,20 @@ website:
               href: notes/unit3_3.qmd
             - text: "Rules for Compositions"
               href: notes/unit3_4.qmd
+            - text: "Rules for Trigonometric Functions"
+              href: notes/unit3_5.qmd
+            - text: "Rules for Inverse Functions"
+              href: notes/unit3_6.qmd                            
         - section: "Unit 4: Applications of Derivatives"
           contents:
-          #  - text: "Overview"
-          #    href: notes/unit4/index.qmd
+            - text: "Introduction"
+              href: notes/unit4_index.qmd
+            - text: "Implicit Differentiation"
+              href: notes/unit4_1.qmd
+            - text: "Linear Approximation"
+              href: notes/unit4_2.qmd
+            - text: "Using Derivatives"
+              href: notes/unit4_3.qmd              
         - section: "Unit 5: The Definite Integral"
           contents:
             # - text: "Overview"

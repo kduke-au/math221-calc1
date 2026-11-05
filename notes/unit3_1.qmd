@@ -48,42 +48,49 @@ c. $g(v)=\dfrac{v^6-v^2+1}{v^3}$
 
 # Justifying the Rules
 
-:::{.callout-tip collapse="true"}
-## Constant, Constant Multiple, and Sum/Difference Rules (click to expand)
+Below are arguments showing how each of the rules from this section follow from the definition of the derivative and the limit laws from [Unit 1](unit1_2.qmd).
 
-:::{#thm-rules-3-1}
-## Derivative Rules from Section 3.1
-Suppose $f(x)$ and $g(x)$ are differentiable and $c$ is a constant. Then:
 
-1. **Constant Rule:** If $f(x)=c$ where $c$ is a constant, then $f'(x) = 0$
-2. **Constant Multiple Rule:** $\left[c\,f(x)\right]' = c\,f'(x)$
-3. **Sum and Difference Rules:** $\left[f(x)\pm g(x)\right]' = f'(x)\pm g'(x)$
+
+:::{.callout-tip collapse="true" icon="false"}
+## Constant Rule 
+
+If $f(x)=c$, then $f'(x)=0$.
+
+**Justification:** 
+$$
+f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = \lim_{h\to 0} \frac{c-c}{h} = 0. \qquad \blacksquare
+$$
+
 :::
 
-Each rule follows from the limit definition of the derivative together with the limit laws from Unit 1.
+:::{.callout-tip collapse="true" icon="false"}
+## Constant Multiple Rule 
 
-**Constant Rule.** If $f(x)=c$, then $f(x+h)-f(x)=c-c=0$ for every $h\neq 0$, so
-$$
-f'(x) = \lim_{h\to 0}\frac{0}{h} = \lim_{h\to 0} 0 = 0.
-$$
+If $g(x)=c\,f(x)$, then $g'(x)=c\,f'(x)$.
 
-**Constant Multiple Rule.** If $g(x)=c\,f(x)$, then
+**Justification:**
 $$
 \begin{aligned}
 g'(x) &= \lim_{h\to 0}\frac{c\,f(x+h)-c\,f(x)}{h} = \lim_{h\to 0} c\cdot\frac{f(x+h)-f(x)}{h} \\[5pt]
 &= c\lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = c\,f'(x).
 \end{aligned}
 $$
-Note that in this computation, we have used the limit law that we can factor a constant outside of the limit.
+Note that in this computation, we have used the limit law that we can factor a constant outside of the limit. $\qquad \blacksquare$
+:::
 
-**Sum/Difference Rule.** If $s(x)=f(x)\pm g(x)$, then
+:::{.callout-tip collapse="true" icon="false"}
+## Sum/Difference Rule 
+
+If $s(x)=f(x)\pm g(x)$, then $s'(x)=f'(x)\pm g'(x)$.
+
+**Justification:**
 $$
 \begin{aligned}
 s'(x) &= \lim_{h\to 0}\frac{\big(f(x+h)\pm g(x+h)\big)-\big(f(x)\pm g(x)\big)}{h} \\[1ex]
 &= \lim_{h\to 0}\left(\frac{f(x+h)-f(x)}{h} \pm \frac{g(x+h)-g(x)}{h}\right) \\[1ex]
-&= \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} \pm \lim_{h\to 0}\frac{g(x+h)-g(x)}{h} = f'(x)\pm g'(x).
+&= \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} \pm \lim_{h\to 0}\frac{g(x+h)-g(x)}{h} \\[1ex] &= f'(x)\pm g'(x).
 \end{aligned}
 $$
-The third equality uses the limit law that the limit of a sum is the sum of the limits. This law only applies when both limits exist, which is why we need $f$ and $g$ to be differentiable.
-
+Moving from the second to third line uses the limit law that the limit of a sum is the sum of the limits when both limits exist. So, this rule only applies for $x$ values where both $f$ and $g$ are differentiable. $\qquad \blacksquare$
 :::

@@ -1,0 +1,181 @@
+---
+title: "Applications of the Derivative"
+subtitle: "Unit 4 Overview"
+sidebar: notes
+---
+
+# Introduction
+
+In Unit 2, we developed the *concept* of the derivative as an instantaneous rate of change. In Unit 3, we developed *rules* that let us compute derivatives quickly. In this unit, we combine these two to see how we can use derivatives to try and understand several different types of applied problems.
+
+Many questions about a changing quantity can be answered using derivatives. In this unit, we focus on the following questions:
+
+1. **How fast?** If two quantities are related and one of them is changing, how fast is the other one changing?
+2. **About how much?** If we know the value of a function and its rate of change at one input, can we estimate its value at nearby inputs?
+3. **What shape?** What do the first and second derivatives tell us about where the graph of a function rises, falls, and bends? Or, if we know what shape we want a function to have, can we select the right parameters to match those criteria?  
+4. **What's best?** Where does a function reach its largest or smallest value?
+
+The main challenge in this unit is usually *not* computing a derivative. Instead, it is **modeling**: translating a situation into functions and equations, deciding which application of derivatives answers the question being asked, and interpreting the result in the proper context.
+
+For example, consider the following problem:
+
+# Problem 1 - Building a Box
+
+A box with an open top is made from a 12 in $\times$ 12 in square sheet of cardboard by cutting a square with side length $x$ inches out of each corner and folding up the sides.
+
+a. Sketch the sheet with the corners removed and label the dimensions of the finished box in terms of $x$. Write a formula for the volume $V(x)$ of the box. What values of $x$ make sense in this context?
+
+b. **How fast?** Imagine an animation in which the cut size $x$ grows steadily at a rate of 0.5 inches per second. How fast is the volume of the box changing at the moment when $x=1$? *(Hint: What does $V'(1)$ measure, and what are its units?)*
+
+c. **About how much?** Find $V(1)$ and $V'(1)$. Use these two values, *without* plugging $1.1$ into your formula for $V$, to estimate $V(1.1)$. Then compute $V(1.1)$ directly. How good was your estimate? Why do you think it worked as well as it did?
+
+d. **What shape?** For which values of $x$ is $V$ increasing? Decreasing? Explain, in terms of the physical box, why the volume can't keep increasing forever as $x$ grows.
+
+e. **What's best?** What cut size gives the box with the largest possible volume? How do you *know* your answer is the largest, and not just larger than the values you happened to try?
+
+::::: {.callout-note collapse="true"}
+## Explore: build the box (try this after the problem)
+
+Drag the slider to change the cut size $x$. The picture on the left shows the cardboard sheet with the corners removed (the flaps that fold up are shaded light blue, and the base of the box is shaded dark blue). The graph on the right shows the volume $V(x)$ along with the tangent line at your chosen value of $x$.
+
+```{ojs}
+//| echo: false
+boxV = (x) => x * (12 - 2 * x) ** 2
+```
+
+```{ojs}
+//| echo: false
+boxDV = (x) => (12 - 2 * x) * (12 - 6 * x)
+```
+
+```{ojs}
+//| echo: false
+boxCurve = d3.range(0, 6.001, 0.02).map((x) => ({x, V: boxV(x)}))
+```
+
+::: {style="display:flex; justify-content:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof cut = Inputs.range([0, 6], {
+  value: 1,
+  step: 0.05,
+  label: "Cut size x (in)",
+  format: (x) => x.toFixed(2)
+})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+net = {
+  const s = 12, x = cut;
+  return {
+    corners: [[0, 0], [s - x, 0], [0, s - x], [s - x, s - x]].map(([a, b]) => ({
+      x1: a, x2: a + x, y1: b, y2: b + x
+    })),
+    flaps: [
+      {x1: x, x2: s - x, y1: 0, y2: x},
+      {x1: x, x2: s - x, y1: s - x, y2: s},
+      {x1: 0, x2: x, y1: x, y2: s - x},
+      {x1: s - x, x2: s, y1: x, y2: s - x}
+    ],
+    base: [{x1: x, x2: s - x, y1: x, y2: s - x}]
+  };
+}
+```
+
+```{ojs}
+//| echo: false
+tangentPts = {
+  const m = boxDV(cut), V0 = boxV(cut);
+  return [cut - 1, cut + 1].map((x) => ({x, V: V0 + m * (x - cut)}));
+}
+```
+
+::: {layout-ncol=2}
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 300,
+  height: 300,
+  margin: 10,
+  style: {background: "transparent"},
+  x: {domain: [0, 12], axis: null},
+  y: {domain: [0, 12], axis: null},
+  marks: [
+    Plot.rect(net.corners, {
+      x1: "x1", x2: "x2", y1: "y1", y2: "y2",
+      fill: "none",
+      stroke: "var(--bs-body-color)",
+      strokeOpacity: 0.4,
+      strokeDasharray: "3,3"
+    }),
+    Plot.rect(net.flaps, {
+      x1: "x1", x2: "x2", y1: "y1", y2: "y2",
+      fill: "#8ecae6",
+      stroke: "var(--bs-body-color)"
+    }),
+    Plot.rect(net.base, {
+      x1: "x1", x2: "x2", y1: "y1", y2: "y2",
+      fill: "#219ebc",
+      stroke: "var(--bs-body-color)"
+    })
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 340,
+  height: 300,
+  style: {background: "transparent"},
+  x: {domain: [0, 6], label: "cut size x (in)", grid: true},
+  y: {domain: [0, 150], label: "volume V (in³)", grid: true},
+  marks: [
+    Plot.line(boxCurve, {x: "x", y: "V", stroke: "var(--bs-body-color)", strokeWidth: 2}),
+    Plot.line(tangentPts, {
+      x: "x", y: "V",
+      stroke: "#e63946",
+      strokeWidth: 2,
+      strokeDasharray: "6,4",
+      clip: true
+    }),
+    Plot.dot([{x: cut, V: boxV(cut)}], {x: "x", y: "V", r: 5, fill: "#e63946"})
+  ]
+})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center; margin-top:8px;">
+  Box dimensions: ${(12 - 2 * cut).toFixed(2)} in × ${(12 - 2 * cut).toFixed(2)} in × ${cut.toFixed(2)} in<br>
+  <b>V(x) ≈ ${boxV(cut).toFixed(1)} in³</b> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <b style="color:#e63946;">slope of tangent line: V′(x) ≈ ${boxDV(cut).toFixed(1)} in³ per in</b>
+</p>`
+```
+
+Things to look for as you drag the slider:
+
+- How does the tangent line compare to the curve near the red point? How does this relate to your estimate in part (c)?
+- What is happening to the tangent line near the value of $x$ that gives the largest volume?
+- How do the shapes of the box change between small values of $x$, the "best" value of $x$, and large values of $x$?
+:::::
+
+# Looking Ahead
+
+Each part of Problem 1 previews an idea we will develop in this unit:
+
+| Question | Problem 1 | What we'll study |
+|:---|:---:|:---|
+| How fast? | (b) | Implicit differentiation and related rates |
+| About how much? | (c) | Linear approximation |
+| What shape? | (d) | Critical points, extrema, and curve sketching |
+| What's best? | (e) | Optimization |
+
+Throughout the unit, keep asking yourself the same question we asked in Problem 1: *What is the question really asking for, and which derivative tells me that?*
