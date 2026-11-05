@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://kduke-au.github.io/math221-calc1/notes/unit4_index.html</loc>
+    <lastmod>2026-10-27T11:27:06.001Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kduke-au.github.io/math221-calc1/notes/unit4_2.html</loc>
+    <lastmod>2026-11-05T12:19:33.490Z</lastmod>
+  </url>
+  <url>
     <loc>https://kduke-au.github.io/math221-calc1/notes/unit3_index.html</loc>
     <lastmod>2026-10-13T11:10:58.112Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kduke-au.github.io/math221-calc1/notes/unit3_5.html</loc>
+    <lastmod>2026-11-05T12:47:33.164Z</lastmod>
   </url>
   <url>
     <loc>https://kduke-au.github.io/math221-calc1/notes/unit3_3.html</loc>
@@ -10,7 +22,7 @@
   </url>
   <url>
     <loc>https://kduke-au.github.io/math221-calc1/notes/unit3_1.html</loc>
-    <lastmod>2026-10-13T11:26:34.781Z</lastmod>
+    <lastmod>2026-10-14T11:25:56.070Z</lastmod>
   </url>
   <url>
     <loc>https://kduke-au.github.io/math221-calc1/notes/unit2_6.html</loc>
@@ -102,6 +114,18 @@
   </url>
   <url>
     <loc>https://kduke-au.github.io/math221-calc1/notes/unit3_4.html</loc>
-    <lastmod>2026-10-13T10:35:44.271Z</lastmod>
+    <lastmod>2026-11-05T12:42:39.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kduke-au.github.io/math221-calc1/notes/unit3_6.html</loc>
+    <lastmod>2026-11-05T12:19:30.766Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kduke-au.github.io/math221-calc1/notes/unit4_1.html</loc>
+    <lastmod>2026-11-04T15:06:18.639Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kduke-au.github.io/math221-calc1/notes/unit4_3.html</loc>
+    <lastmod>2026-11-05T13:12:23.058Z</lastmod>
   </url>
 </urlset>

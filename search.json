@@ -1,5 +1,89 @@
 [
   {
+    "objectID": "notes/unit4_index.html",
+    "href": "notes/unit4_index.html",
+    "title": "Applications of the Derivative",
+    "section": "",
+    "text": "Introduction\nIn Unit 2, we developed the concept of the derivative as an instantaneous rate of change. In Unit 3, we developed rules that let us compute derivatives quickly. In this unit, we combine these two to see how we can use derivatives to try and understand several different types of applied problems.\nMany questions about a changing quantity can be answered using derivatives. In this unit, we focus on the following questions:\n\nHow fast? If two quantities are related and one of them is changing, how fast is the other one changing?\nAbout how much? If we know the value of a function and its rate of change at one input, can we estimate its value at nearby inputs?\nWhat shape? What do the first and second derivatives tell us about where the graph of a function rises, falls, and bends? Or, if we know what shape we want a function to have, can we select the right parameters to match those criteria?\n\nWhat’s best? Where does a function reach its largest or smallest value?\n\nThe main challenge in this unit is usually not computing a derivative. Instead, it is modeling: translating a situation into functions and equations, deciding which application of derivatives answers the question being asked, and interpreting the result in the proper context.\nFor example, consider the following problem:\n\n\nProblem 1 - Building a Box\nA box with an open top is made from a 12 in \\(\\times\\) 12 in square sheet of cardboard by cutting a square with side length \\(x\\) inches out of each corner and folding up the sides.\n\nSketch the sheet with the corners removed and label the dimensions of the finished box in terms of \\(x\\). Write a formula for the volume \\(V(x)\\) of the box. What values of \\(x\\) make sense in this context?\nHow fast? Imagine an animation in which the cut size \\(x\\) grows steadily at a rate of 0.5 inches per second. How fast is the volume of the box changing at the moment when \\(x=1\\)? (Hint: What does \\(V'(1)\\) measure, and what are its units?)\nAbout how much? Find \\(V(1)\\) and \\(V'(1)\\). Use these two values, without plugging \\(1.1\\) into your formula for \\(V\\), to estimate \\(V(1.1)\\). Then compute \\(V(1.1)\\) directly. How good was your estimate? Why do you think it worked as well as it did?\nWhat shape? For which values of \\(x\\) is \\(V\\) increasing? Decreasing? Explain, in terms of the physical box, why the volume can’t keep increasing forever as \\(x\\) grows.\nWhat’s best? What cut size gives the box with the largest possible volume? How do you know your answer is the largest, and not just larger than the values you happened to try?\n\n\n\n\n\n\n\nNoteExplore: build the box (try this after the problem)\n\n\n\n\n\nDrag the slider to change the cut size \\(x\\). The picture on the left shows the cardboard sheet with the corners removed (the flaps that fold up are shaded light blue, and the base of the box is shaded dark blue). The graph on the right shows the volume \\(V(x)\\) along with the tangent line at your chosen value of \\(x\\).\n\nboxV = (x) =&gt; x * (12 - 2 * x) ** 2\n\n\n\n\n\n\n\nboxDV = (x) =&gt; (12 - 2 * x) * (12 - 6 * x)\n\n\n\n\n\n\n\nboxCurve = d3.range(0, 6.001, 0.02).map((x) =&gt; ({x, V: boxV(x)}))\n\n\n\n\n\n\n\n\nviewof cut = Inputs.range([0, 6], {\n  value: 1,\n  step: 0.05,\n  label: \"Cut size x (in)\",\n  format: (x) =&gt; x.toFixed(2)\n})\n\n\n\n\n\n\n\n\nnet = {\n  const s = 12, x = cut;\n  return {\n    corners: [[0, 0], [s - x, 0], [0, s - x], [s - x, s - x]].map(([a, b]) =&gt; ({\n      x1: a, x2: a + x, y1: b, y2: b + x\n    })),\n    flaps: [\n      {x1: x, x2: s - x, y1: 0, y2: x},\n      {x1: x, x2: s - x, y1: s - x, y2: s},\n      {x1: 0, x2: x, y1: x, y2: s - x},\n      {x1: s - x, x2: s, y1: x, y2: s - x}\n    ],\n    base: [{x1: x, x2: s - x, y1: x, y2: s - x}]\n  };\n}\n\n\n\n\n\n\n\ntangentPts = {\n  const m = boxDV(cut), V0 = boxV(cut);\n  return [cut - 1, cut + 1].map((x) =&gt; ({x, V: V0 + m * (x - cut)}));\n}\n\n\n\n\n\n\nPlot.plot({\n  width: 300,\n  height: 300,\n  margin: 10,\n  style: {background: \"transparent\"},\n  x: {domain: [0, 12], axis: null},\n  y: {domain: [0, 12], axis: null},\n  marks: [\n    Plot.rect(net.corners, {\n      x1: \"x1\", x2: \"x2\", y1: \"y1\", y2: \"y2\",\n      fill: \"none\",\n      stroke: \"var(--bs-body-color)\",\n      strokeOpacity: 0.4,\n      strokeDasharray: \"3,3\"\n    }),\n    Plot.rect(net.flaps, {\n      x1: \"x1\", x2: \"x2\", y1: \"y1\", y2: \"y2\",\n      fill: \"#8ecae6\",\n      stroke: \"var(--bs-body-color)\"\n    }),\n    Plot.rect(net.base, {\n      x1: \"x1\", x2: \"x2\", y1: \"y1\", y2: \"y2\",\n      fill: \"#219ebc\",\n      stroke: \"var(--bs-body-color)\"\n    })\n  ]\n})\nPlot.plot({\n  width: 340,\n  height: 300,\n  style: {background: \"transparent\"},\n  x: {domain: [0, 6], label: \"cut size x (in)\", grid: true},\n  y: {domain: [0, 150], label: \"volume V (in³)\", grid: true},\n  marks: [\n    Plot.line(boxCurve, {x: \"x\", y: \"V\", stroke: \"var(--bs-body-color)\", strokeWidth: 2}),\n    Plot.line(tangentPts, {\n      x: \"x\", y: \"V\",\n      stroke: \"#e63946\",\n      strokeWidth: 2,\n      strokeDasharray: \"6,4\",\n      clip: true\n    }),\n    Plot.dot([{x: cut, V: boxV(cut)}], {x: \"x\", y: \"V\", r: 5, fill: \"#e63946\"})\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhtml`&lt;p style=\"text-align:center; margin-top:8px;\"&gt;\n  Box dimensions: ${(12 - 2 * cut).toFixed(2)} in × ${(12 - 2 * cut).toFixed(2)} in × ${cut.toFixed(2)} in&lt;br&gt;\n  &lt;b&gt;V(x) ≈ ${boxV(cut).toFixed(1)} in³&lt;/b&gt; &nbsp;&nbsp;|&nbsp;&nbsp;\n  &lt;b style=\"color:#e63946;\"&gt;slope of tangent line: V′(x) ≈ ${boxDV(cut).toFixed(1)} in³ per in&lt;/b&gt;\n&lt;/p&gt;`\n\n\n\n\n\n\nThings to look for as you drag the slider:\n\nHow does the tangent line compare to the curve near the red point? How does this relate to your estimate in part (c)?\nWhat is happening to the tangent line near the value of \\(x\\) that gives the largest volume?\nHow do the shapes of the box change between small values of \\(x\\), the “best” value of \\(x\\), and large values of \\(x\\)?\n\n\n\n\n\n\nLooking Ahead\nEach part of Problem 1 previews an idea we will develop in this unit:\n\n\n\nQuestion\nProblem 1\nWhat we’ll study\n\n\n\n\nHow fast?\n(b)\nImplicit differentiation and related rates\n\n\nAbout how much?\n(c)\nLinear approximation\n\n\nWhat shape?\n(d)\nCritical points, extrema, and curve sketching\n\n\nWhat’s best?\n(e)\nOptimization\n\n\n\nThroughout the unit, keep asking yourself the same question we asked in Problem 1: What is the question really asking for, and which derivative tells me that?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_2.html",
+    "href": "notes/unit4_2.html",
+    "title": "Linear Approximation",
+    "section": "",
+    "text": "Tangent lines have come up several times in relation to the idea of the derivative. In Unit 2, we used them to understand the derivative as the slope of a curve at a point, and in Unit 3 we developed rules that make finding them quick. But what are tangent lines actually good for?\n\n\n\n\n\n\nNoteRecall: The Tangent Line\n\n\n\nThe line tangent to the graph of \\(f(x)\\) at \\(x=a\\) passes through the point \\(\\big(a,f(a)\\big)\\) and has slope \\(f'(a)\\). Its equation is \\[\ny = f(a) + f'(a)(x-a).\n\\]\n\n\nWhen you zoom in far enough on the graph of a function at a point where it is differentiable, the graph looks more and more like a straight line, and that line is the tangent line. This means that near \\(x=a\\), we can use the tangent line in place of the function itself: \\[\nf(x) \\approx f(a) + f'(a)(x-a) \\qquad \\text{for } x \\text{ near } a.\n\\] This is called the linear approximation (or tangent line approximation) of \\(f(x)\\) near \\(x=a\\). Linear functions are about the simplest functions there are to evaluate and solve, so replacing a complicated function with a line, even just locally, can be very useful.\nIn this section, we will see that the tangent line is not just a good linear approximation for \\(f(x)\\) near \\(x=a\\). In a precise sense, it is the best local linear approximation.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Linear Approximation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_2.html#problem-1---estimating-a-square-root",
+    "href": "notes/unit4_2.html#problem-1---estimating-a-square-root",
+    "title": "Linear Approximation",
+    "section": "Problem 1 - Estimating a Square Root",
+    "text": "Problem 1 - Estimating a Square Root\nIn this problem, we will estimate \\(\\sqrt{1.2}\\) without using a calculator or other computational tool. Let \\(f(x)=\\sqrt{x}\\).\n\nFind \\(L_a(x)\\), the line tangent to \\(f(x)=\\sqrt{x}\\) at \\(x=a\\), where \\(a\\) is selected so that\n\n\\(a\\) is close to \\(1.2\\), and\n\\(a\\) is a “nice” number, so that \\(f(a)\\) and \\(f'(a)\\) are easy to calculate.\n\nUse your tangent line to estimate the value of \\(\\sqrt{1.2}\\).\nNow, use Desmos to graph \\(f(x)\\) and the tangent line you found. Determine the error in your approximation. (We calculate the error as \\(E(1.2) = \\text{Actual Value} - \\text{Estimated Value}\\).)\nIn what sense is the tangent line you found, \\(L_a(x)\\), the best local linear approximation for \\(f(x)\\) near \\(x=a\\)? Graph other lines through the point \\(\\big(a,f(a)\\big)\\). What makes the tangent line the best approximation?\nUse a table of values to estimate \\[\n\\lim_{x\\to a}\\frac{E(x)}{x-a} \\qquad\\text{and}\\qquad \\lim_{x\\to a}\\frac{E(x)}{(x-a)^2}.\n\\] In class, we will talk about how the first limit characterizes what we mean by “best.” The second limit gives us a sense of how large the error in our approximation will be for \\(x\\)-values close to \\(a\\): it is roughly proportional to \\((x-a)^2\\).\n\n\n\n\n\n\n\nNoteExplore: which line is best? (try this after part (d))\n\n\n\n\n\nThe graph shows \\(f(x)=\\sqrt{x}\\) near the point \\((1,1)\\) together with a line through \\((1,1)\\) whose slope you control. The second slider zooms in on the point \\((1,1)\\). Try several different slopes. For each one, zoom all the way in. Which slope makes the line and the curve impossible to tell apart, no matter how far you zoom? Watch the value of \\(\\dfrac{E(x)}{x-1}\\) below the graph as you zoom.\n\nsqrtF = (x) =&gt; Math.sqrt(x)\n\n\n\n\n\n\n\n\nviewof laSlope = Inputs.range([0, 1], {value: 0.8, step: 0.01, label: \"Slope of line\"})\n\n\n\n\n\n\n\nviewof laZoom = Inputs.range([0, 4], {value: 0, step: 0.1, label: \"Zoom level\"})\n\n\n\n\n\n\n\n\nlaWin = 0.5 * 10 ** (-laZoom)\n\n\n\n\n\n\n\nlaCurve = d3.range(0, 201).map((i) =&gt; {\n  const x = 1 - laWin + (2 * laWin * i) / 200;\n  return {x, y: sqrtF(x)};\n})\n\n\n\n\n\n\n\nlaLine = [1 - laWin, 1 + laWin].map((x) =&gt; ({x, y: 1 + laSlope * (x - 1)}))\n\n\n\n\n\n\n\nPlot.plot({\n  width: 380,\n  height: 380,\n  marginLeft: 60,\n  style: {background: \"transparent\"},\n  x: {domain: [1 - laWin, 1 + laWin], label: \"x\", grid: true, ticks: 5},\n  y: {domain: [1 - laWin, 1 + laWin], label: \"y\", grid: true, ticks: 5},\n  marks: [\n    Plot.line(laCurve, {x: \"x\", y: \"y\", stroke: \"var(--bs-body-color)\", strokeWidth: 2, clip: true}),\n    Plot.line(laLine, {x: \"x\", y: \"y\", stroke: \"#e63946\", strokeWidth: 2, strokeDasharray: \"6,4\", clip: true}),\n    Plot.dot([{x: 1, y: 1}], {x: \"x\", y: \"y\", r: 5, fill: \"#e63946\"})\n  ]\n})\n\n\n\n\n\n\n\nlaReadout = {\n  const x = 1 + laWin / 2;\n  const E = sqrtF(x) - (1 + laSlope * (x - 1));\n  return {x, E, ratio: E / (x - 1)};\n}\n\n\n\n\n\n\n\nhtml`&lt;p style=\"text-align:center;\"&gt;\n  Viewing window: ${(1 - laWin).toPrecision(6)} ≤ x ≤ ${(1 + laWin).toPrecision(6)}&lt;br&gt;\n  At x = ${laReadout.x.toPrecision(6)}: &nbsp;\n  E(x) ≈ ${laReadout.E.toExponential(3)} &nbsp;&nbsp;|&nbsp;&nbsp;\n  &lt;b style=\"color:#e63946;\"&gt;E(x)/(x − 1) ≈ ${laReadout.ratio.toFixed(4)}&lt;/b&gt;\n&lt;/p&gt;`",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Linear Approximation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_2.html#problem-2---estimating-a-logarithm",
+    "href": "notes/unit4_2.html#problem-2---estimating-a-logarithm",
+    "title": "Linear Approximation",
+    "section": "Problem 2 - Estimating a Logarithm",
+    "text": "Problem 2 - Estimating a Logarithm\n\nUse linear approximation to estimate \\(\\ln(0.9)\\) without using a calculator or other computational tool.\nSketch a graph (again, no computational tools!) that illustrates the procedure you used. Is your estimate for \\(\\ln(0.9)\\) an overestimate or an underestimate?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Linear Approximation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_2.html#problem-3---interpreting-a-linear-approximation",
+    "href": "notes/unit4_2.html#problem-3---interpreting-a-linear-approximation",
+    "title": "Linear Approximation",
+    "section": "Problem 3 - Interpreting a Linear Approximation",
+    "text": "Problem 3 - Interpreting a Linear Approximation\nA patient is receiving a drug through an IV. Let \\(A(t)\\) represent the amount of the drug (in mg) present in the patient’s body \\(t\\) minutes after they started receiving the drug.\n\nSuppose \\(A(10)=80\\). Give a practical interpretation of this equation in words.\nSuppose \\(A'(10)=6\\). Give a practical interpretation of this equation in words.\nUse the information given in parts (a) and (b) to write the equation of the line tangent to the graph of \\(A(t)\\) at \\(t=10\\).\nSuppose that \\(A'(t)&gt;0\\) and \\(A''(t)&lt;0\\) for all values of \\(t\\). Draw a graph showing \\(A(t)\\) and the line tangent to \\(A(t)\\) at \\(t=10\\).\nEstimate the amount of the drug present in the patient’s body after 11 minutes. Is your estimate greater than or less than the actual amount of the drug present in the patient’s body?\nEstimate when the patient will have 90 mg of the drug present in their system. Is this estimate before or after the actual time when the patient will have this amount of the drug in their system?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Linear Approximation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_2.html#problem-4---the-speed-of-sound",
+    "href": "notes/unit4_2.html#problem-4---the-speed-of-sound",
+    "title": "Linear Approximation",
+    "section": "Problem 4 - The Speed of Sound",
+    "text": "Problem 4 - The Speed of Sound\nThe speed of sound in air depends on the temperature of the air according to the function \\[\nf(T)=331.3 \\sqrt{1 + \\frac{T}{273.15}},\n\\] giving the speed in meters per second, with the temperature \\(T\\) measured in degrees Celsius.\n\nFind the linear approximation for \\(f(T)\\) at \\(T=0\\).\nThe standard scientific temperature used in many computations is 15\\(^\\circ\\)C. Use the linear approximation to estimate the speed of sound in air that is 15\\(^\\circ\\)C. What is the error in the approximation?\nUse Desmos to create a graph showing both \\(f(T)\\) and the linear approximation you found in part (a). On what interval do you think the linear formula is a reasonable approximation for the speed of sound?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Linear Approximation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_2.html#problem-5---solving-equations-with-tangent-lines",
+    "href": "notes/unit4_2.html#problem-5---solving-equations-with-tangent-lines",
+    "title": "Linear Approximation",
+    "section": "Problem 5 - Solving Equations with Tangent Lines",
+    "text": "Problem 5 - Solving Equations with Tangent Lines\nApproximating nonlinear behavior with linear behavior can be very useful in computational algorithms. One example of this is using linear approximation to approximate solutions to equations involving nonlinear functions.\nFor example, it is easy to solve the equation \\(p(x)=0\\) when \\(p(x)\\) is a linear function, and there is a relatively simple formula (the quadratic formula) that tells us how to find the solutions when \\(p(x)\\) is a quadratic function. There are much longer and more complicated formulas for finding the solutions when \\(p(x)\\) is a third or fourth degree polynomial. For fifth or higher degree polynomials, there is no general formula that tells us how to find the solutions!\nSo, in general, if we want to solve an equation like \\(p(x)=0\\), where \\[\np(x)=x^5+x+1,\n\\] often the best we can do is estimate the solutions numerically. Below, we will see how linear approximation lets us get accurate approximations in just a few steps.\n\nFirst, compute \\(p(-1)\\) and \\(p(0)\\). Why do we know there is a solution to \\(p(x)=0\\) between \\(x=-1\\) and \\(x=0\\)?\nLet’s start with \\(x_0 = -1\\) as our initial guess for the solution to \\(p(x)=0\\).\n\nFind \\(L_0(x)\\), the line tangent to \\(p(x)\\) at \\(x=-1\\).\nSolve \\(L_0(x)=0\\). Call the solution to this equation \\(x_1\\).\nGraph \\(L_0(x)\\) and \\(p(x)\\). Is \\(x_1\\) a better approximation for the solution to \\(p(x)=0\\) than \\(x_0=-1\\)?\n\nNow repeat what you did in part (b), starting from \\(x_1\\):\n\nFind \\(L_1(x)\\), the line tangent to \\(p(x)\\) at \\(x=x_1\\).\nSolve \\(L_1(x)=0\\). Call the solution to this equation \\(x_2\\).\nGraph \\(p(x)\\), \\(L_0(x)\\), and \\(L_1(x)\\). Is \\(x_2\\) a better approximation for the solution to \\(p(x)=0\\) than \\(x_1\\) and \\(x_0\\)?\n\nWhat will happen if we continue to repeat this process?\n\n\n\n\n\n\n\nNoteExplore: repeating the process (try this after part (d))\n\n\n\n\n\nUse the slider to choose how many times to repeat the process from parts (b) and (c), starting from \\(x_0=-1\\). Each dashed line is a tangent line \\(L_k(x)\\), and the point where it crosses the \\(x\\)-axis is the next approximation \\(x_{k+1}\\). The table shows each approximation and the value of \\(p\\) there. How quickly does \\(p(x_k)\\) get close to \\(0\\)?\n\nnwP = (x) =&gt; x ** 5 + x + 1\n\n\n\n\n\n\n\nnwDP = (x) =&gt; 5 * x ** 4 + 1\n\n\n\n\n\n\n\nnwCurve = d3.range(-1.3, 0.3001, 0.005).map((x) =&gt; ({x, y: nwP(x)}))\n\n\n\n\n\n\n\n\nviewof nwSteps = Inputs.range([0, 5], {value: 0, step: 1, label: \"Number of steps\"})\n\n\n\n\n\n\n\n\nnwIter = {\n  const xs = [-1];\n  for (let k = 0; k &lt; nwSteps; k++) {\n    const x = xs[k];\n    xs.push(x - nwP(x) / nwDP(x));\n  }\n  return xs;\n}\n\n\n\n\n\n\n\nnwTangents = nwIter.slice(0, -1).flatMap((a, k) =&gt;\n  [-1.3, 0.3].map((x) =&gt; ({k: `L${k}`, x, y: nwP(a) + nwDP(a) * (x - a)}))\n)\n\n\n\n\n\n\n\nnwDrops = nwIter.slice(1).map((x) =&gt; ({x, y1: 0, y2: nwP(x)}))\n\n\n\n\n\n\n\nPlot.plot({\n  width: 420,\n  height: 360,\n  style: {background: \"transparent\"},\n  x: {domain: [-1.3, 0.3], label: \"x\", grid: true},\n  y: {domain: [-3, 2], label: \"y\", grid: true},\n  marks: [\n    Plot.ruleY([0], {stroke: \"var(--bs-body-color)\", strokeOpacity: 0.5}),\n    Plot.line(nwCurve, {x: \"x\", y: \"y\", stroke: \"var(--bs-body-color)\", strokeWidth: 2, clip: true}),\n    Plot.line(nwTangents, {x: \"x\", y: \"y\", z: \"k\", stroke: \"#1d70b8\", strokeWidth: 1.5, strokeDasharray: \"6,4\", clip: true}),\n    Plot.ruleX(nwDrops, {x: \"x\", y1: \"y1\", y2: \"y2\", stroke: \"#1d70b8\", strokeOpacity: 0.6}),\n    Plot.dot(nwIter.map((x) =&gt; ({x, y: 0})), {x: \"x\", y: \"y\", r: 4, fill: \"#e63946\"})\n  ]\n})\n\n\n\n\n\n\n\nInputs.table(\n  nwIter.map((x, k) =&gt; ({k, x: x.toFixed(10), p: nwP(x).toExponential(3)})),\n  {\n    header: {k: \"k\", x: \"x_k\", p: \"p(x_k)\"},\n    sort: null,\n    select: false,\n    width: {k: 40}\n  }\n)\n\n\n\n\n\n\n\n\n\nThe procedure in Problem 5 is called Newton’s Method. Versions of it are used by calculators and computer software to solve equations that can’t be solved exactly by hand.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Linear Approximation"
+    ]
+  },
+  {
     "objectID": "notes/unit3_index.html",
     "href": "notes/unit3_index.html",
     "title": "Computational Rules for Derivatives",
@@ -21,6 +105,66 @@
       "Course Notes",
       "Unit 3: Computing Derivatives",
       "Introduction"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_5.html",
+    "href": "notes/unit3_5.html",
+    "title": "Derivatives of Trigonometric Functions",
+    "section": "",
+    "text": "Trigonometric functions are the basic building blocks for modeling anything that repeats: seasons, tides, sound waves, and oscillating springs. In this section, we use graphs to discover the derivatives of \\(\\sin(x)\\) and \\(\\cos(x)\\), then combine them with the rules from earlier in this unit to differentiate the other trigonometric functions and more complicated combinations.\nThroughout this section, angles are measured in radians. The derivative formulas we discover depend on this choice.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Trigonometric Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_5.html#problem-1---graphs-of-two-familiar-functions",
+    "href": "notes/unit3_5.html#problem-1---graphs-of-two-familiar-functions",
+    "title": "Derivatives of Trigonometric Functions",
+    "section": "Problem 1 - Graphs of Two Familiar Functions",
+    "text": "Problem 1 - Graphs of Two Familiar Functions\nUse the graphs of \\(f(x)\\) and \\(g(x)\\) to answer the questions below.\n\nThe graph of \\(f(x)\\) is shown below.\n\n\n\nGraph of \\(f(x)\\)\n\n\n\nUse the graph to estimate the value of \\(f'(\\pi/2)\\).\nPlot the value of \\(f'(\\pi/2)\\) and then sketch the graph of the rest of \\(f'(x)\\).\nGuess a formula for \\(f(x)\\) and \\(f'(x)\\).\n\nThe graph of \\(g(x)\\) is shown below.\n\n\n\nGraph of \\(g(x)\\)\n\n\n\nUse the graph to estimate the value of \\(g'(0)\\).\nPlot the value of \\(g'(0)\\) and then sketch the graph of the rest of \\(g'(x)\\).\nGuess a formula for \\(g(x)\\) and \\(g'(x)\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Trigonometric Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_5.html#problem-2---the-derivative-of-tangent",
+    "href": "notes/unit3_5.html#problem-2---the-derivative-of-tangent",
+    "title": "Derivatives of Trigonometric Functions",
+    "section": "Problem 2 - The Derivative of Tangent",
+    "text": "Problem 2 - The Derivative of Tangent\nThe function \\(\\tan(x)\\) is shown in the graph below.\n\n\n\nGraph of \\(\\tan(x)\\)\n\n\n\nUse the graph to estimate the value of \\(\\left.\\dfrac{d}{dx}\\left[\\tan(x)\\right]\\right|_{x=0}\\).\nPlot the value of \\(\\left.\\dfrac{d}{dx}\\left[\\tan(x)\\right]\\right|_{x=0}\\) and then sketch the graph of the rest of \\(\\dfrac{d}{dx}\\left[\\tan(x)\\right]\\).\nWrite \\(\\tan(x)\\) in terms of \\(\\sin(x)\\) and \\(\\cos(x)\\). Use derivative rules to find a formula for \\(\\dfrac{d}{dx}\\left[\\tan(x)\\right]\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Trigonometric Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_5.html#problem-3---carbon-dioxide-in-the-atmosphere",
+    "href": "notes/unit3_5.html#problem-3---carbon-dioxide-in-the-atmosphere",
+    "title": "Derivatives of Trigonometric Functions",
+    "section": "Problem 3 - Carbon Dioxide in the Atmosphere",
+    "text": "Problem 3 - Carbon Dioxide in the Atmosphere\nData collected for the concentration of CO\\(_2\\) in the atmosphere is shown in the graph below:\n\n\n\nMonthly mean CO\\(_2\\) concentration at Mauna Loa, 1958–2019\n\n\nLet \\[\nC(t)=3.5\\sin\\left(\\frac{\\pi t}{6}\\right)+381+\\frac{t}{6}\n\\] be a model for the concentration of carbon dioxide (in ppm) in the air \\(t\\) months after December 1, 2005.\n\nFind the values of \\(C(3)\\), \\(C'(3)\\), and \\(C''(3)\\).\nWhat do these values tell you about the concentration of carbon dioxide in the air?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Trigonometric Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_5.html#problem-4---practice-with-the-rules",
+    "href": "notes/unit3_5.html#problem-4---practice-with-the-rules",
+    "title": "Derivatives of Trigonometric Functions",
+    "section": "Problem 4 - Practice with the Rules",
+    "text": "Problem 4 - Practice with the Rules\nFind the derivatives of the following functions.\n\n\\(f(x)=\\sec(x)\\)\n\\(g(x)=e^{-\\sin(x)}\\)\n\\(h(x)=\\sin(2x)\\cos(3x)\\)\n\\(r(x)=\\dfrac{x}{1+\\cos^2(x)}\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Trigonometric Functions"
     ]
   },
   {
@@ -1058,6 +1202,198 @@
       "Course Notes",
       "Unit 3: Computing Derivatives",
       "Rules for Compositions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_6.html",
+    "href": "notes/unit3_6.html",
+    "title": "Derivatives of Inverse Functions",
+    "section": "",
+    "text": "Many important functions are defined as the inverse of another function: \\(\\ln(x)\\) is the inverse of \\(e^x\\), and \\(\\arcsin(x)\\) is the inverse of (a restricted piece of) \\(\\sin(x)\\). In this section, we use the graph of a function and its inverse, together with the chain rule, to discover a general formula for the derivative of an inverse function. We then use that formula to find the derivatives of \\(\\ln(x)\\) and the inverse trigonometric functions, and finally complete the power rule for every real power.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Inverse Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_6.html#problem-1---tangent-lines-and-inverse-functions",
+    "href": "notes/unit3_6.html#problem-1---tangent-lines-and-inverse-functions",
+    "title": "Derivatives of Inverse Functions",
+    "section": "Problem 1 - Tangent Lines and Inverse Functions",
+    "text": "Problem 1 - Tangent Lines and Inverse Functions\nThe graph below shows the functions \\(f(x)\\), \\(f^{-1}(x)\\), and the line tangent to \\(f(x)\\) at a certain point.\n\n\n\nGraphs of \\(f(x)\\), \\(f^{-1}(x)\\), and the tangent line \\(y=0.5(x-3)+4\\)\n\n\nUse this information to answer the following questions.\n\nWhat is \\(f(3)\\)?\nWhat is \\(f'(3)\\)?\nUsing the information given about \\(f(x)\\), we can figure out the slope of \\(f^{-1}(x)\\) at a certain point.\n\nAt what point can we figure out the slope of \\(f^{-1}(x)\\)?\nWhat is the slope of \\(f^{-1}(x)\\) at this point? How do you know?\n\nWrite out the equation of the line tangent to \\(f^{-1}(x)\\) at the point you found in part (c). Show that the line tangent to \\(f^{-1}(x)\\) at this point is the inverse of the tangent line for \\(f(x)\\) shown in the graph.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Inverse Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_6.html#problem-2---a-general-formula",
+    "href": "notes/unit3_6.html#problem-2---a-general-formula",
+    "title": "Derivatives of Inverse Functions",
+    "section": "Problem 2 - A General Formula",
+    "text": "Problem 2 - A General Formula\nRecall that when we compose a function with its inverse, the rules cancel each other out. That is, for \\(x\\) values in the range of \\(f\\), \\[\nf\\big(f^{-1}(x)\\big)=x.\n\\]\n\nTake the derivative of both sides of this equation. (You will have to use the chain rule on the left-hand side.)\nYour answer to part (a) gives you a new equation involving \\((f^{-1})'(x)\\). Rearrange this equation to get a general formula for \\((f^{-1})'(x)\\).\nNote that if \\(f(x)=x^n\\) for some whole number \\(n\\), then \\(f\\) is invertible on the interval \\(x\\geq 0\\) and on this interval, \\(f^{-1}(x)=x^{1/n}\\). Use the general formula from part (b) for the derivative of \\(f^{-1}(x)\\) and simplify to verify that the power rule works for roots.\nNote that \\(f(x)=e^x\\) is invertible on \\(\\mathbb R\\), with \\(f^{-1}(x)=\\ln(x)\\). Use the general formula from part (b) for the derivative of \\(f^{-1}(x)\\) and simplify to arrive at the formula for \\(\\dfrac{d}{dx}\\left[\\ln(x)\\right]\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Inverse Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_6.html#problem-3---inverse-trigonometric-functions",
+    "href": "notes/unit3_6.html#problem-3---inverse-trigonometric-functions",
+    "title": "Derivatives of Inverse Functions",
+    "section": "Problem 3 - Inverse Trigonometric Functions",
+    "text": "Problem 3 - Inverse Trigonometric Functions\nRecall that if \\(-1\\leq x\\leq 1\\), \\(\\theta=\\arcsin(x)\\) is defined as the angle \\(-\\pi/2\\leq \\theta \\leq \\pi/2\\) such that \\(\\sin(\\theta)=x\\). This relationship between \\(\\theta\\) and \\(x\\) can be represented geometrically using a right triangle.\n\n\n\nA right triangle with angle \\(\\theta\\), hypotenuse 1, and side \\(x\\) opposite \\(\\theta\\)\n\n\n\nLet \\(f^{-1}(x)=\\arcsin(x)\\). What is \\(f(x)\\)? Use the general formula from Problem 2 to write out a formula for \\(\\dfrac{d}{dx}\\left[\\arcsin(x)\\right]\\).\nSimplify the formula you found in part (a) using the right triangle shown above. Your final answer should not have any trig or inverse trig functions in it.\nYou can follow a similar process to find the derivatives of \\(\\arctan(x)\\) and \\(\\arccos(x)\\). What are \\(\\dfrac{d}{dx}\\left[\\arctan(x)\\right]\\) and \\(\\dfrac{d}{dx}\\left[\\arccos(x)\\right]\\)?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Inverse Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_6.html#problem-4---practice-with-the-rules",
+    "href": "notes/unit3_6.html#problem-4---practice-with-the-rules",
+    "title": "Derivatives of Inverse Functions",
+    "section": "Problem 4 - Practice with the Rules",
+    "text": "Problem 4 - Practice with the Rules\nFind the derivatives of the following functions:\n\n\\(g(x)=x\\ln(x)\\)\n\\(f(x)=\\ln(2x^4+1)\\)\n\\(h(x)=e^{\\arctan(kx)}\\)\n\\(r(x)=\\dfrac{\\arcsin(x)}{\\sin(x)}\\)",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Inverse Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit3_6.html#problem-5---bonus-problem",
+    "href": "notes/unit3_6.html#problem-5---bonus-problem",
+    "title": "Derivatives of Inverse Functions",
+    "section": "Problem 5 - Bonus Problem",
+    "text": "Problem 5 - Bonus Problem\nNote that a function of the form \\(f(x)^{g(x)}\\) can be rewritten in the form \\[\n\\left(e^{\\ln\\left(f(x)\\right)}\\right)^{g(x)}=e^{g(x)\\ln\\left(f(x)\\right)}.\n\\] Use this observation to:\n\nProve that for any function of the form \\(f(x)=x^k\\), where \\(k\\) is any real number not equal to 0, \\(f'(x)=kx^{k-1}\\).\nFind a formula for the derivative of \\(f(x)=x^x\\).\nFind a formula for the derivative of \\(f(x)=\\left(\\dfrac{4}{x}\\right)^x\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 3: Computing Derivatives",
+      "Rules for Inverse Functions"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_1.html",
+    "href": "notes/unit4_1.html",
+    "title": "Implicit Differentiation & Related Rates",
+    "section": "",
+    "text": "So far, every curve we have differentiated has been the graph of a function given by an explicit formula \\(y=f(x)\\). However, many curves are described by an equation relating \\(x\\) and \\(y\\), like the circle \\(x^2+y^2=9\\). A curve like this is not the graph of a single function (it fails the vertical line test), but near most of its points it looks like the graph of a function. So it still makes sense to ask about the slope of its tangent line.\nIn this section, we develop implicit differentiation, a technique for finding \\(\\dfrac{dy}{dx}\\) directly from an equation relating \\(x\\) and \\(y\\), without first solving for \\(y\\). The key ingredient is the chain rule.\n\n\n\n\n\n\nNoteRecall: The Chain Rule\n\n\n\nIf \\(y=f(u)\\) and \\(u=g(x)\\), then \\[\n\\frac{dy}{dx} = \\frac{dy}{du}\\cdot\\frac{du}{dx}, \\qquad\\text{or equivalently,}\\qquad \\frac{d}{dx}\\Big[f\\big(g(x)\\big)\\Big] = f'\\big(g(x)\\big)\\,g'(x).\n\\]",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Implicit Differentiation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_1.html#problem-1---slopes-on-a-circle",
+    "href": "notes/unit4_1.html#problem-1---slopes-on-a-circle",
+    "title": "Implicit Differentiation & Related Rates",
+    "section": "Problem 1 - Slopes on a Circle",
+    "text": "Problem 1 - Slopes on a Circle\nConsider the curve given by the equation \\(x^2+y^2=9\\).\n\nSketch a graph of this curve.\nCheck that \\((-1,-2\\sqrt{2})\\) is a point on this curve.\nFind the slope of the curve at the point \\((-1,-2\\sqrt{2})\\) in two ways:\n\nBy solving the equation above to find an explicit formula for \\(y\\) as a function of \\(x\\) near this point, and then taking the derivative.\nBy using implicit differentiation to take the derivative of both sides of the equation, and then solving for \\(\\dfrac{dy}{dx}\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Implicit Differentiation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_1.html#problem-2---a-complicated-curve",
+    "href": "notes/unit4_1.html#problem-2---a-complicated-curve",
+    "title": "Implicit Differentiation & Related Rates",
+    "section": "Problem 2 - A Complicated Curve",
+    "text": "Problem 2 - A Complicated Curve\nConsider the curve given by the equation \\((x^2+y^2)^2=8x^2-4y^2\\).\n\nUse Desmos to graph the curve. (Just type it in exactly as it appears above.)\nThere are a few points on the curve where the slope is undefined. What are the coordinates of these points? (You should be able to see the \\(y\\)-coordinate from the graph and then figure out the \\(x\\)-coordinates algebraically.)\nCheck that the point \\((1,1)\\) is on the curve.\nFind the slope of the curve at the point \\((1,1)\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Implicit Differentiation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_1.html#problem-3---finding-tangent-lines",
+    "href": "notes/unit4_1.html#problem-3---finding-tangent-lines",
+    "title": "Implicit Differentiation & Related Rates",
+    "section": "Problem 3 - Finding Tangent Lines",
+    "text": "Problem 3 - Finding Tangent Lines\nConsider the curve \\(x^2+2y+y^2x=4\\).\n\nFind a formula for \\(\\dfrac{dy}{dx}\\).\nFind all points on the curve with \\(x=2\\).\nFind the equation of the line (or lines) tangent to the curve at \\(x=2\\).\nGraph the curve with the tangent lines in Desmos.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Implicit Differentiation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_1.html#problem-4---related-rates-cylinders",
+    "href": "notes/unit4_1.html#problem-4---related-rates-cylinders",
+    "title": "Implicit Differentiation & Related Rates",
+    "section": "Problem 4 - Related Rates: Cylinders",
+    "text": "Problem 4 - Related Rates: Cylinders\nOften in applications, we have an equation relating several variables, and each of these variables depends on some other variable, like time. Implicit differentiation can be used to find relationships between the rates of change of each of the variables. In this problem, we look at some examples relating the volume, radius, and height of a cylinder.\n\nTo start, what is the equation relating the volume \\(V\\), radius \\(R\\), and height \\(H\\) of a cylinder?\nSuppose \\(V\\), \\(H\\), and \\(R\\) are all functions of time \\(t\\). Find an equation relating \\(\\dfrac{dV}{dt}\\), \\(\\dfrac{dH}{dt}\\), and \\(\\dfrac{dR}{dt}\\).\nDuring the height of a storm, water from a gutter rushes into a cylindrical rain barrel at a rate of 30 ft\\(^3\\)/hr. Suppose the rain barrel is 1.5 ft in radius and 4 ft tall. How fast is the depth of the water in the barrel rising at this moment?\nA ruptured oil tanker causes a thin cylindrical oil slick on the surface of the ocean. Once the spill has stopped, the volume of the oil slick remains constant, but the slick continues to spread out on the surface of the ocean. After a little while, the radius of the slick is 150 meters and it is expanding by 0.1 meters/min. If its thickness at this moment is 0.02 meters, how fast is the thickness of the slick changing? Is it increasing or decreasing?\nWhen you heat up a cylindrical marshmallow in a microwave, the marshmallow expands impressively. Suppose that after 10 seconds in the microwave,\n\nthe marshmallow is 2 inches tall and its height is increasing at a rate of 0.1 in/sec, and\nthe marshmallow is 1 inch in diameter and its diameter is increasing at a rate of 0.2 in/sec.\n\nWhat is the volume of the marshmallow, and how fast is it increasing?\n\n\n\n\n\n\n\nTipA Strategy for Related Rates Problems (click to expand)\n\n\n\n\n\n\nIdentify the quantities. Draw a picture if possible. Name each quantity with a variable, and decide which ones are changing and which are constant.\nRelate the quantities. Write an equation relating the variables that is true at every moment in time, not just at the moment you care about.\nDifferentiate with respect to the independent variable. Often, like in this problem, the independent variable is time. Take \\(\\dfrac{d}{dt}\\) of both sides, using the chain rule on every variable that depends on \\(t\\).\nSubstitute. Now plug in the values for the variables and their rates given at the moment of interest.\nSolve and interpret. Solve for the unknown rate, and check that its units and sign make sense in context.\n\nNote: A common mistake is plugging in values for a quantity that is changing before differentiating (step 4 before step 3). If you replace a changing quantity with a number, you change it from a variable to a constant. Its derivative becomes \\(0\\), and the information about its rate of change is lost.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Implicit Differentiation"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_3.html",
+    "href": "notes/unit4_3.html",
+    "title": "Using the First and Second Derivatives",
+    "section": "",
+    "text": "In this section, we put together just about everything we have discussed so far this semester! The goal is to determine as many important features of the behavior of a function \\(f(x)\\) as we can, working without any aid from computational tools.\nImportant features include:\n\ndomain and range,\ncontinuity and differentiability,\nintervals where \\(f(x)\\) is increasing or decreasing,\nconcavity,\npoints where these behaviors change, like relative extrema and inflection points, and\nend behavior: what happens to \\(f(x)\\) as \\(x\\) approaches the boundaries of the domain of \\(f(x)\\)?\n\nUltimately, we want to learn as much about \\(f(x)\\) as we can from its formula and the formulas of its derivatives, so that we can sketch a complete graph of \\(f(x)\\).\n\n\n\n\n\n\nNoteRecall: What the Derivatives Tell Us\n\n\n\n\nIf \\(f'(x)&gt;0\\) on an interval, then \\(f(x)\\) is increasing on that interval. If \\(f'(x)&lt;0\\) on an interval, then \\(f(x)\\) is decreasing on that interval.\nIf \\(f''(x)&gt;0\\) on an interval, then \\(f(x)\\) is concave up on that interval. If \\(f''(x)&lt;0\\) on an interval, then \\(f(x)\\) is concave down on that interval.\n\n\n\n\n\n\n\n\n\nNoteDefinitions: Points Where Behavior Changes\n\n\n\n\nA critical point of \\(f(x)\\) is a point \\(x=p\\) in the domain of \\(f(x)\\) where \\(f'(p)=0\\) or \\(f'(p)\\) is undefined.\n\\(f(x)\\) has a local (relative) maximum at \\(x=p\\) if \\(f(p)\\geq f(x)\\) for all \\(x\\) near \\(p\\), and a local (relative) minimum at \\(x=p\\) if \\(f(p)\\leq f(x)\\) for all \\(x\\) near \\(p\\). Together, these are called local (relative) extrema.\nAn inflection point of \\(f(x)\\) is a point \\(x=p\\) in the domain of \\(f(x)\\) where the concavity of \\(f(x)\\) changes.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Using Derivatives"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_3.html#problem-1---a-familiar-shape",
+    "href": "notes/unit4_3.html#problem-1---a-familiar-shape",
+    "title": "Using the First and Second Derivatives",
+    "section": "Problem 1 - A Familiar Shape",
+    "text": "Problem 1 - A Familiar Shape\nLet \\(f(x)=e^{-x^2}\\).\n\nFind the domain of \\(f(x)\\), and determine where \\(f(x)\\) is continuous and where it is differentiable.\nFind \\(f'(x)\\) and \\(f''(x)\\).\nDetermine where \\(f(x)\\) is increasing and where it is decreasing.\nDetermine where \\(f(x)\\) is concave up and where it is concave down.\nDoes \\(f(x)\\) have any relative extrema? Any inflection points? If so, where?\nDetermine the end behavior of \\(f(x)\\). That is, find \\(\\displaystyle\\lim_{x\\to\\infty} f(x)\\) and \\(\\displaystyle\\lim_{x\\to-\\infty} f(x)\\).\nSketch a complete graph of \\(f(x)\\) that illustrates its important features. Have you seen this graph before? Where?",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Using Derivatives"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_3.html#problem-2---a-polynomial",
+    "href": "notes/unit4_3.html#problem-2---a-polynomial",
+    "title": "Using the First and Second Derivatives",
+    "section": "Problem 2 - A Polynomial",
+    "text": "Problem 2 - A Polynomial\nLet \\(f(x)=3x^4-4x^3+6\\).\nRepeat the steps from Problem 1, parts (a)–(f), for this function. Then use the information you gathered to sketch a complete graph of \\(f(x)\\). Make sure your graph clearly shows where \\(f(x)\\) is increasing, decreasing, concave up, and concave down.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Using Derivatives"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_3.html#problem-3---a-family-of-functions",
+    "href": "notes/unit4_3.html#problem-3---a-family-of-functions",
+    "title": "Using the First and Second Derivatives",
+    "section": "Problem 3 - A Family of Functions",
+    "text": "Problem 3 - A Family of Functions\nLet \\(f(x)=x-b\\ln(x)\\), where \\(b\\) is a positive constant.\nRepeat the steps from Problem 1, parts (a)–(f), for this function. Then use the information you gathered to sketch a complete graph of \\(f(x)\\). Some things to keep in mind:\n\nYour answers will depend on \\(b\\). Label the important features of your graph in terms of \\(b\\).\nPay close attention to the domain. What are the “boundaries” of the domain that you need to check for the end behavior?\nWhat is the concavity of \\(f(x)\\) at each of its critical points? How could you use this to decide whether a critical point is a local maximum or a local minimum?\n\n\n\n\n\n\n\nNoteExplore: changing \\(b\\) (try this after the problem)\n\n\n\n\n\nUse the slider to change the value of \\(b\\). The red point marks the critical point of \\(f(x)\\). Use the checkboxes to add the graphs of \\(f'(x)\\) and \\(f''(x)\\). How do the signs of \\(f'(x)\\) and \\(f''(x)\\) match up with the shape of the graph of \\(f(x)\\)?\n\np3xs = d3.range(0.02, 10.0001, 0.02)\n\n\n\n\n\n\n\n\nviewof p3b = Inputs.range([0.5, 4], {value: 2, step: 0.1, label: \"b\"})\n\n\n\n\n\n\n\nviewof p3show = Inputs.checkbox([\"f′(x)\", \"f″(x)\"], {label: \"Also show\"})\n\n\n\n\n\n\n\n\np3data = p3xs.flatMap((x) =&gt; [\n  {x, y: x - p3b * Math.log(x), fn: \"f(x)\"},\n  {x, y: 1 - p3b / x, fn: \"f′(x)\"},\n  {x, y: p3b / x ** 2, fn: \"f″(x)\"}\n]).filter((d) =&gt; d.fn === \"f(x)\" || p3show.includes(d.fn))\n\n\n\n\n\n\n\nPlot.plot({\n  width: 420,\n  height: 360,\n  style: {background: \"transparent\"},\n  x: {domain: [0, 10], label: \"x\", grid: true},\n  y: {domain: [-3, 8], label: \"y\", grid: true},\n  color: {\n    domain: [\"f(x)\", \"f′(x)\", \"f″(x)\"],\n    range: [\"var(--bs-body-color)\", \"#1d70b8\", \"#2a9d8f\"],\n    legend: true\n  },\n  marks: [\n    Plot.ruleY([0], {stroke: \"var(--bs-body-color)\", strokeOpacity: 0.5}),\n    Plot.ruleX([0], {stroke: \"var(--bs-body-color)\", strokeOpacity: 0.5}),\n    Plot.line(p3data.filter((d) =&gt; d.fn !== \"f(x)\"), {\n      x: \"x\", y: \"y\", z: \"fn\", stroke: \"fn\",\n      strokeWidth: 1.5,\n      strokeDasharray: \"6,4\",\n      clip: true\n    }),\n    Plot.line(p3data.filter((d) =&gt; d.fn === \"f(x)\"), {\n      x: \"x\", y: \"y\", stroke: \"fn\", strokeWidth: 2.5, clip: true\n    }),\n    Plot.dot([{x: p3b, y: p3b - p3b * Math.log(p3b)}], {x: \"x\", y: \"y\", r: 5, fill: \"#e63946\"})\n  ]\n})\n\n\n\n\n\n\n\nhtml`&lt;p style=\"text-align:center;\"&gt;\n  &lt;b style=\"color:#e63946;\"&gt;Critical point: x = ${p3b.toFixed(1)}, f(x) ≈ ${(p3b - p3b * Math.log(p3b)).toFixed(3)}&lt;/b&gt;\n&lt;/p&gt;`\n\n\n\n\n\n\nNote how the value of the minimum changes as \\(b\\) increases; \\(y_{\\text{min}}\\), the \\(y\\)-value of the minimum can be found by plugging the \\(x\\)-value of the minimum, \\(x_{\\text{min}}\\), into \\(f(x)\\). In the problem, you should have found that: \\[\n(x_{\\text{min}}, y_{\\text{min}})=(b,b(1-\\ln(b)))\n\\] This tells us how a particular feature of the function, in this case the local min, depends on the parameter \\(b\\). We can use this relationship to understand how the minimum changes as the parameter changes.\nFor example, since \\(\\ln(x)\\) is an increasing function that equals 1 when \\(x=e\\), we can see that \\(y_\\text{min}\\) will be positive if \\(0&lt;b&lt;e\\) and it will be negative if \\(b&gt;e\\).\nWe could also find the rate of change of \\(y_\\text{min}\\) with respect to \\(b\\) to understand how small changes in the parameter \\(b\\) will impact the value of \\(y_\\text{min}\\); e.g., will \\(y_\\text{min}\\) increase or decrease as \\(b\\) increases, is there a largest or smallest value \\(y_\\text{min}\\) can have, etc.",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Using Derivatives"
+    ]
+  },
+  {
+    "objectID": "notes/unit4_3.html#problem-4---reading-derivatives-from-a-graph",
+    "href": "notes/unit4_3.html#problem-4---reading-derivatives-from-a-graph",
+    "title": "Using the First and Second Derivatives",
+    "section": "Problem 4 - Reading Derivatives from a Graph",
+    "text": "Problem 4 - Reading Derivatives from a Graph\nThe graph of the function \\(f(x)\\) is shown below.\n\n\n\n\n\n\nFind all critical points of \\(f(x)\\). Determine whether each critical point is a local maximum, a local minimum, or neither.\nFind all inflection points of \\(f(x)\\).\nNow suppose \\(f(x)=g'(x)\\) for some function \\(g(x)\\). Find all critical points of \\(g(x)\\). Determine whether each critical point is a local maximum, a local minimum, or neither.\nFind all inflection points of \\(g(x)\\).",
+    "crumbs": [
+      "Course Notes",
+      "Unit 4: Applications of Derivatives",
+      "Using Derivatives"
     ]
   }
 ]

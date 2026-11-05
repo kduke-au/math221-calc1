@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Linear Approximation – Math 221 - Calculus I</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee46beb70aa31211458725bc788f2241.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Math 221 - Calculus I</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../notes/index.html" aria-current="page"> 
+<span class="menu-text">Course Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../exam_practice/index.html"> 
+<span class="menu-text">Practice Exam Problems</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">Questions?</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit4_index.html">Unit 4: Applications of Derivatives</a></li><li class="breadcrumb-item"><a href="../notes/unit4_2.html">Linear Approximation</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 0: Introduction &amp; Review</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit0_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is Calculus?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit0_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions &amp; Their Properties</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit0_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Families of Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 1: Limits &amp; Continuity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit1_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit1_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Definitions &amp; Intuition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit1_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limit Properties</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit1_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluating Limits Using Algebra</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 2: The Derivative</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instantaneous Velocity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Definition of the Derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Derivative Function</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreting the Derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Second Derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differentiability</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 3: Computing Derivatives</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Power Functions &amp; Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Exponential Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Products &amp; Quotients</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Compositions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Trigonometric Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Inverse Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 4: Applications of Derivatives</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Implicit Differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Linear Approximation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Derivatives</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Unit 5: The Definite Integral</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Unit 6: Antiderivatives</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#discussion-problems" id="toc-discussion-problems" class="nav-link" data-scroll-target="#discussion-problems">Discussion Problems</a>
+  <ul class="collapse">
+  <li><a href="#problem-1---estimating-a-square-root" id="toc-problem-1---estimating-a-square-root" class="nav-link" data-scroll-target="#problem-1---estimating-a-square-root">Problem 1 - Estimating a Square Root</a></li>
+  <li><a href="#problem-2---estimating-a-logarithm" id="toc-problem-2---estimating-a-logarithm" class="nav-link" data-scroll-target="#problem-2---estimating-a-logarithm">Problem 2 - Estimating a Logarithm</a></li>
+  <li><a href="#problem-3---interpreting-a-linear-approximation" id="toc-problem-3---interpreting-a-linear-approximation" class="nav-link" data-scroll-target="#problem-3---interpreting-a-linear-approximation">Problem 3 - Interpreting a Linear Approximation</a></li>
+  <li><a href="#problem-4---the-speed-of-sound" id="toc-problem-4---the-speed-of-sound" class="nav-link" data-scroll-target="#problem-4---the-speed-of-sound">Problem 4 - The Speed of Sound</a></li>
+  <li><a href="#problem-5---solving-equations-with-tangent-lines" id="toc-problem-5---solving-equations-with-tangent-lines" class="nav-link" data-scroll-target="#problem-5---solving-equations-with-tangent-lines">Problem 5 - Solving Equations with Tangent Lines</a></li>
+  </ul></li>
+  <li><a href="#why-the-tangent-line-is-the-best" id="toc-why-the-tangent-line-is-the-best" class="nav-link" data-scroll-target="#why-the-tangent-line-is-the-best">Why the Tangent Line Is the Best</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit4_index.html">Unit 4: Applications of Derivatives</a></li><li class="breadcrumb-item"><a href="../notes/unit4_2.html">Linear Approximation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Linear Approximation</h1>
+<p class="subtitle lead">Read Section 3.9</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p><em>Tangent lines</em> have come up several times in relation to the idea of the derivative. In Unit 2, we used them to understand the derivative as the slope of a curve at a point, and in Unit 3 we developed rules that make finding them quick. But what are tangent lines actually <em>good for</em>?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Recall: The Tangent Line
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The line tangent to the graph of <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=a\)</span> passes through the point <span class="math inline">\(\big(a,f(a)\big)\)</span> and has slope <span class="math inline">\(f'(a)\)</span>. Its equation is <span class="math display">\[
+y = f(a) + f'(a)(x-a).
+\]</span></p>
+</div>
+</div>
+<p>When you zoom in far enough on the graph of a function at a point where it is differentiable, the graph looks more and more like a straight line, and that line is the tangent line. This means that near <span class="math inline">\(x=a\)</span>, we can use the tangent line in place of the function itself: <span class="math display">\[
+f(x) \approx f(a) + f'(a)(x-a) \qquad \text{for } x \text{ near } a.
+\]</span> This is called the <strong>linear approximation</strong> (or <em>tangent line approximation</em>) of <span class="math inline">\(f(x)\)</span> near <span class="math inline">\(x=a\)</span>. Linear functions are about the simplest functions there are to evaluate and solve, so replacing a complicated function with a line, even just locally, can be very useful.</p>
+<p>In this section, we will see that the tangent line is not just <em>a</em> good linear approximation for <span class="math inline">\(f(x)\)</span> near <span class="math inline">\(x=a\)</span>. In a precise sense, it is the <strong>best local linear approximation</strong>.</p>
+</section>
+<section id="discussion-problems" class="level1">
+<h1>Discussion Problems</h1>
+<section id="problem-1---estimating-a-square-root" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1---estimating-a-square-root">Problem 1 - Estimating a Square Root</h2>
+<p>In this problem, we will estimate <span class="math inline">\(\sqrt{1.2}\)</span> <em>without</em> using a calculator or other computational tool. Let <span class="math inline">\(f(x)=\sqrt{x}\)</span>.</p>
+<ol type="a">
+<li>Find <span class="math inline">\(L_a(x)\)</span>, the line tangent to <span class="math inline">\(f(x)=\sqrt{x}\)</span> at <span class="math inline">\(x=a\)</span>, where <span class="math inline">\(a\)</span> is selected so that
+<ol type="i">
+<li><span class="math inline">\(a\)</span> is close to <span class="math inline">\(1.2\)</span>, and</li>
+<li><span class="math inline">\(a\)</span> is a “nice” number, so that <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f'(a)\)</span> are easy to calculate.</li>
+</ol></li>
+<li>Use your tangent line to estimate the value of <span class="math inline">\(\sqrt{1.2}\)</span>.</li>
+<li>Now, use <a href="https://www.desmos.com/calculator">Desmos</a> to graph <span class="math inline">\(f(x)\)</span> and the tangent line you found. Determine the error in your approximation. (We calculate the error as <span class="math inline">\(E(1.2) = \text{Actual Value} - \text{Estimated Value}\)</span>.)</li>
+<li>In what sense is the tangent line you found, <span class="math inline">\(L_a(x)\)</span>, the best local linear approximation for <span class="math inline">\(f(x)\)</span> near <span class="math inline">\(x=a\)</span>? Graph other lines through the point <span class="math inline">\(\big(a,f(a)\big)\)</span>. What makes the tangent line the best approximation?</li>
+<li>Use a table of values to estimate <span class="math display">\[
+\lim_{x\to a}\frac{E(x)}{x-a} \qquad\text{and}\qquad \lim_{x\to a}\frac{E(x)}{(x-a)^2}.
+\]</span> In class, we will talk about how the first limit characterizes what we mean by “best.” The second limit gives us a sense of how large the error in our approximation will be for <span class="math inline">\(x\)</span>-values close to <span class="math inline">\(a\)</span>: it is roughly proportional to <span class="math inline">\((x-a)^2\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Explore: which line is best? (try this after part (d))
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The graph shows <span class="math inline">\(f(x)=\sqrt{x}\)</span> near the point <span class="math inline">\((1,1)\)</span> together with a line through <span class="math inline">\((1,1)\)</span> whose slope you control. The second slider zooms in on the point <span class="math inline">\((1,1)\)</span>. Try several different slopes. For each one, zoom all the way in. Which slope makes the line and the curve impossible to tell apart, no matter how far you zoom? Watch the value of <span class="math inline">\(\dfrac{E(x)}{x-1}\)</span> below the graph as you zoom.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="51" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 50;"><span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>sqrtF <span class="op">=</span> (x) <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; align-items:center; margin-top:12px;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="58" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 57;"><span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>viewof laSlope <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="fl">0.8</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Slope of line"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="63" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 62;"><span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>viewof laZoom <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Zoom level"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="70" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 69;"><span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>laWin <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> <span class="dv">10</span> <span class="op">**</span> (<span class="op">-</span>laZoom)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="75" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 74;"><span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>laCurve <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">201</span>)<span class="op">.</span><span class="fu">map</span>((i) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> x <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> laWin <span class="op">+</span> (<span class="dv">2</span> <span class="op">*</span> laWin <span class="op">*</span> i) <span class="op">/</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="fu">sqrtF</span>(x)}<span class="op">;</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="83" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 82;"><span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>laLine <span class="op">=</span> [<span class="dv">1</span> <span class="op">-</span> laWin<span class="op">,</span> <span class="dv">1</span> <span class="op">+</span> laWin]<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">1</span> <span class="op">+</span> laSlope <span class="op">*</span> (x <span class="op">-</span> <span class="dv">1</span>)}))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="88" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 87;"><span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">380</span><span class="op">,</span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">380</span><span class="op">,</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">60</span><span class="op">,</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span>}<span class="op">,</span></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">1</span> <span class="op">-</span> laWin<span class="op">,</span> <span class="dv">1</span> <span class="op">+</span> laWin]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">ticks</span><span class="op">:</span> <span class="dv">5</span>}<span class="op">,</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">1</span> <span class="op">-</span> laWin<span class="op">,</span> <span class="dv">1</span> <span class="op">+</span> laWin]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">ticks</span><span class="op">:</span> <span class="dv">5</span>}<span class="op">,</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(laCurve<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(laLine<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e63946"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([{<span class="dt">x</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">1</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#e63946"</span>})</span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-7" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb8" data-startfrom="105" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 104;"><span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>laReadout <span class="op">=</span> {</span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> x <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> laWin <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> <span class="cn">E</span> <span class="op">=</span> <span class="fu">sqrtF</span>(x) <span class="op">-</span> (<span class="dv">1</span> <span class="op">+</span> laSlope <span class="op">*</span> (x <span class="op">-</span> <span class="dv">1</span>))<span class="op">;</span></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {x<span class="op">,</span> <span class="cn">E</span><span class="op">,</span> <span class="dt">ratio</span><span class="op">:</span> <span class="cn">E</span> <span class="op">/</span> (x <span class="op">-</span> <span class="dv">1</span>)}<span class="op">;</span></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-8" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb9" data-startfrom="114" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 113;"><span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="text-align:center;"&gt;</span></span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a><span class="vs">  Viewing window: </span><span class="sc">${</span>(<span class="dv">1</span> <span class="op">-</span> laWin)<span class="op">.</span><span class="fu">toPrecision</span>(<span class="dv">6</span>)<span class="sc">}</span><span class="vs"> ≤ x ≤ </span><span class="sc">${</span>(<span class="dv">1</span> <span class="op">+</span> laWin)<span class="op">.</span><span class="fu">toPrecision</span>(<span class="dv">6</span>)<span class="sc">}</span><span class="vs">&lt;br&gt;</span></span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a><span class="vs">  At x = </span><span class="sc">${</span>laReadout<span class="op">.</span><span class="at">x</span><span class="op">.</span><span class="fu">toPrecision</span>(<span class="dv">6</span>)<span class="sc">}</span><span class="vs">: &amp;nbsp;</span></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a><span class="vs">  E(x) ≈ </span><span class="sc">${</span>laReadout<span class="op">.</span><span class="at">E</span><span class="op">.</span><span class="fu">toExponential</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs"> &amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;</span></span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;b style="color:#e63946;"&gt;E(x)/(x − 1) ≈ </span><span class="sc">${</span>laReadout<span class="op">.</span><span class="at">ratio</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;</span></span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-9" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-2---estimating-a-logarithm" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2---estimating-a-logarithm">Problem 2 - Estimating a Logarithm</h2>
+<ol type="a">
+<li>Use linear approximation to estimate <span class="math inline">\(\ln(0.9)\)</span> without using a calculator or other computational tool.</li>
+<li>Sketch a graph (again, no computational tools!) that illustrates the procedure you used. Is your estimate for <span class="math inline">\(\ln(0.9)\)</span> an overestimate or an underestimate?</li>
+</ol>
+</section>
+<section id="problem-3---interpreting-a-linear-approximation" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3---interpreting-a-linear-approximation">Problem 3 - Interpreting a Linear Approximation</h2>
+<p>A patient is receiving a drug through an IV. Let <span class="math inline">\(A(t)\)</span> represent the amount of the drug (in mg) present in the patient’s body <span class="math inline">\(t\)</span> minutes after they started receiving the drug.</p>
+<ol type="a">
+<li>Suppose <span class="math inline">\(A(10)=80\)</span>. Give a practical interpretation of this equation in words.</li>
+<li>Suppose <span class="math inline">\(A'(10)=6\)</span>. Give a practical interpretation of this equation in words.</li>
+<li>Use the information given in parts (a) and (b) to write the equation of the line tangent to the graph of <span class="math inline">\(A(t)\)</span> at <span class="math inline">\(t=10\)</span>.</li>
+<li>Suppose that <span class="math inline">\(A'(t)&gt;0\)</span> and <span class="math inline">\(A''(t)&lt;0\)</span> for all values of <span class="math inline">\(t\)</span>. Draw a graph showing <span class="math inline">\(A(t)\)</span> and the line tangent to <span class="math inline">\(A(t)\)</span> at <span class="math inline">\(t=10\)</span>.</li>
+<li>Estimate the amount of the drug present in the patient’s body after 11 minutes. Is your estimate greater than or less than the actual amount of the drug present in the patient’s body?</li>
+<li>Estimate when the patient will have 90 mg of the drug present in their system. Is this estimate before or after the actual time when the patient will have this amount of the drug in their system?</li>
+</ol>
+</section>
+<section id="problem-4---the-speed-of-sound" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4---the-speed-of-sound">Problem 4 - The Speed of Sound</h2>
+<p>The speed of sound in air depends on the temperature of the air according to the function <span class="math display">\[
+f(T)=331.3 \sqrt{1 + \frac{T}{273.15}},
+\]</span> giving the speed in meters per second, with the temperature <span class="math inline">\(T\)</span> measured in degrees Celsius.</p>
+<ol type="a">
+<li>Find the linear approximation for <span class="math inline">\(f(T)\)</span> at <span class="math inline">\(T=0\)</span>.</li>
+<li>The standard scientific temperature used in many computations is 15<span class="math inline">\(^\circ\)</span>C. Use the linear approximation to estimate the speed of sound in air that is 15<span class="math inline">\(^\circ\)</span>C. What is the error in the approximation?</li>
+<li>Use <a href="https://www.desmos.com/calculator">Desmos</a> to create a graph showing both <span class="math inline">\(f(T)\)</span> and the linear approximation you found in part (a). On what interval do you think the linear formula is a reasonable approximation for the speed of sound?</li>
+</ol>
+</section>
+<section id="problem-5---solving-equations-with-tangent-lines" class="level2">
+<h2 class="anchored" data-anchor-id="problem-5---solving-equations-with-tangent-lines">Problem 5 - Solving Equations with Tangent Lines</h2>
+<p>Approximating nonlinear behavior with linear behavior can be very useful in computational algorithms. One example of this is using linear approximation to approximate solutions to equations involving nonlinear functions.</p>
+<p>For example, it is easy to solve the equation <span class="math inline">\(p(x)=0\)</span> when <span class="math inline">\(p(x)\)</span> is a linear function, and there is a relatively simple formula (the quadratic formula) that tells us how to find the solutions when <span class="math inline">\(p(x)\)</span> is a quadratic function. There are much longer and more complicated formulas for finding the solutions when <span class="math inline">\(p(x)\)</span> is a third or fourth degree polynomial. For fifth or higher degree polynomials, there is no general formula that tells us how to find the solutions!</p>
+<p>So, in general, if we want to solve an equation like <span class="math inline">\(p(x)=0\)</span>, where <span class="math display">\[
+p(x)=x^5+x+1,
+\]</span> often the best we can do is estimate the solutions numerically. Below, we will see how linear approximation lets us get accurate approximations in just a few steps.</p>
+<ol type="a">
+<li>First, compute <span class="math inline">\(p(-1)\)</span> and <span class="math inline">\(p(0)\)</span>. Why do we know there is a solution to <span class="math inline">\(p(x)=0\)</span> between <span class="math inline">\(x=-1\)</span> and <span class="math inline">\(x=0\)</span>?</li>
+<li>Let’s start with <span class="math inline">\(x_0 = -1\)</span> as our initial guess for the solution to <span class="math inline">\(p(x)=0\)</span>.
+<ul>
+<li>Find <span class="math inline">\(L_0(x)\)</span>, the line tangent to <span class="math inline">\(p(x)\)</span> at <span class="math inline">\(x=-1\)</span>.</li>
+<li>Solve <span class="math inline">\(L_0(x)=0\)</span>. Call the solution to this equation <span class="math inline">\(x_1\)</span>.</li>
+<li>Graph <span class="math inline">\(L_0(x)\)</span> and <span class="math inline">\(p(x)\)</span>. Is <span class="math inline">\(x_1\)</span> a better approximation for the solution to <span class="math inline">\(p(x)=0\)</span> than <span class="math inline">\(x_0=-1\)</span>?</li>
+</ul></li>
+<li>Now repeat what you did in part (b), starting from <span class="math inline">\(x_1\)</span>:
+<ul>
+<li>Find <span class="math inline">\(L_1(x)\)</span>, the line tangent to <span class="math inline">\(p(x)\)</span> at <span class="math inline">\(x=x_1\)</span>.</li>
+<li>Solve <span class="math inline">\(L_1(x)=0\)</span>. Call the solution to this equation <span class="math inline">\(x_2\)</span>.</li>
+<li>Graph <span class="math inline">\(p(x)\)</span>, <span class="math inline">\(L_0(x)\)</span>, and <span class="math inline">\(L_1(x)\)</span>. Is <span class="math inline">\(x_2\)</span> a better approximation for the solution to <span class="math inline">\(p(x)=0\)</span> than <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_0\)</span>?</li>
+</ul></li>
+<li>What will happen if we continue to repeat this process?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Explore: repeating the process (try this after part (d))
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the slider to choose how many times to repeat the process from parts (b) and (c), starting from <span class="math inline">\(x_0=-1\)</span>. Each dashed line is a tangent line <span class="math inline">\(L_k(x)\)</span>, and the point where it crosses the <span class="math inline">\(x\)</span>-axis is the next approximation <span class="math inline">\(x_{k+1}\)</span>. The table shows each approximation and the value of <span class="math inline">\(p\)</span> there. How quickly does <span class="math inline">\(p(x_k)\)</span> get close to <span class="math inline">\(0\)</span>?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb10" data-startfrom="181" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 180;"><span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>nwP <span class="op">=</span> (x) <span class="kw">=&gt;</span> x <span class="op">**</span> <span class="dv">5</span> <span class="op">+</span> x <span class="op">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-10" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb11" data-startfrom="186" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 185;"><span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a>nwDP <span class="op">=</span> (x) <span class="kw">=&gt;</span> <span class="dv">5</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-11" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb12" data-startfrom="191" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 190;"><span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>nwCurve <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="op">-</span><span class="fl">1.3</span><span class="op">,</span> <span class="fl">0.3001</span><span class="op">,</span> <span class="fl">0.005</span>)<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="fu">nwP</span>(x)}))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-12" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div style="display:flex; justify-content:center; margin-top:12px;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb13" data-startfrom="198" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 197;"><span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a>viewof nwSteps <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Number of steps"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-13" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb14" data-startfrom="205" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 204;"><span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a>nwIter <span class="op">=</span> {</span>
+<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> xs <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb14-207"><a href="#cb14-207" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> nwSteps<span class="op">;</span> k<span class="op">++</span>) {</span>
+<span id="cb14-208"><a href="#cb14-208" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> x <span class="op">=</span> xs[k]<span class="op">;</span></span>
+<span id="cb14-209"><a href="#cb14-209" aria-hidden="true" tabindex="-1"></a>    xs<span class="op">.</span><span class="fu">push</span>(x <span class="op">-</span> <span class="fu">nwP</span>(x) <span class="op">/</span> <span class="fu">nwDP</span>(x))<span class="op">;</span></span>
+<span id="cb14-210"><a href="#cb14-210" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-211"><a href="#cb14-211" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> xs<span class="op">;</span></span>
+<span id="cb14-212"><a href="#cb14-212" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-14" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb15" data-startfrom="217" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 216;"><span id="cb15-217"><a href="#cb15-217" aria-hidden="true" tabindex="-1"></a>nwTangents <span class="op">=</span> nwIter<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span>)<span class="op">.</span><span class="fu">flatMap</span>((a<span class="op">,</span> k) <span class="kw">=&gt;</span></span>
+<span id="cb15-218"><a href="#cb15-218" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="fl">1.3</span><span class="op">,</span> <span class="fl">0.3</span>]<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({<span class="dt">k</span><span class="op">:</span> <span class="vs">`L</span><span class="sc">${</span>k<span class="sc">}</span><span class="vs">`</span><span class="op">,</span> x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="fu">nwP</span>(a) <span class="op">+</span> <span class="fu">nwDP</span>(a) <span class="op">*</span> (x <span class="op">-</span> a)}))</span>
+<span id="cb15-219"><a href="#cb15-219" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-15" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb16" data-startfrom="224" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 223;"><span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a>nwDrops <span class="op">=</span> nwIter<span class="op">.</span><span class="fu">slice</span>(<span class="dv">1</span>)<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="fu">nwP</span>(x)}))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-16" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb17" data-startfrom="229" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 228;"><span id="cb17-229"><a href="#cb17-229" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb17-230"><a href="#cb17-230" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">420</span><span class="op">,</span></span>
+<span id="cb17-231"><a href="#cb17-231" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">360</span><span class="op">,</span></span>
+<span id="cb17-232"><a href="#cb17-232" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span>}<span class="op">,</span></span>
+<span id="cb17-233"><a href="#cb17-233" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">1.3</span><span class="op">,</span> <span class="fl">0.3</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb17-234"><a href="#cb17-234" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb17-235"><a href="#cb17-235" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb17-236"><a href="#cb17-236" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">strokeOpacity</span><span class="op">:</span> <span class="fl">0.5</span>})<span class="op">,</span></span>
+<span id="cb17-237"><a href="#cb17-237" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(nwCurve<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb17-238"><a href="#cb17-238" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(nwTangents<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#1d70b8"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb17-239"><a href="#cb17-239" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>(nwDrops<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"y1"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"y2"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#1d70b8"</span><span class="op">,</span> <span class="dt">strokeOpacity</span><span class="op">:</span> <span class="fl">0.6</span>})<span class="op">,</span></span>
+<span id="cb17-240"><a href="#cb17-240" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(nwIter<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">0</span>}))<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#e63946"</span>})</span>
+<span id="cb17-241"><a href="#cb17-241" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb17-242"><a href="#cb17-242" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-17" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb18" data-startfrom="247" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 246;"><span id="cb18-247"><a href="#cb18-247" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(</span>
+<span id="cb18-248"><a href="#cb18-248" aria-hidden="true" tabindex="-1"></a>  nwIter<span class="op">.</span><span class="fu">map</span>((x<span class="op">,</span> k) <span class="kw">=&gt;</span> ({k<span class="op">,</span> <span class="dt">x</span><span class="op">:</span> x<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">10</span>)<span class="op">,</span> <span class="dt">p</span><span class="op">:</span> <span class="fu">nwP</span>(x)<span class="op">.</span><span class="fu">toExponential</span>(<span class="dv">3</span>)}))<span class="op">,</span></span>
+<span id="cb18-249"><a href="#cb18-249" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb18-250"><a href="#cb18-250" aria-hidden="true" tabindex="-1"></a>    <span class="dt">header</span><span class="op">:</span> {<span class="dt">k</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"x_k"</span><span class="op">,</span> <span class="dt">p</span><span class="op">:</span> <span class="st">"p(x_k)"</span>}<span class="op">,</span></span>
+<span id="cb18-251"><a href="#cb18-251" aria-hidden="true" tabindex="-1"></a>    <span class="dt">sort</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb18-252"><a href="#cb18-252" aria-hidden="true" tabindex="-1"></a>    <span class="dt">select</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb18-253"><a href="#cb18-253" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> {<span class="dt">k</span><span class="op">:</span> <span class="dv">40</span>}</span>
+<span id="cb18-254"><a href="#cb18-254" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-255"><a href="#cb18-255" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-18" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The procedure in Problem 5 is called <strong>Newton’s Method</strong>. Versions of it are used by calculators and computer software to solve equations that can’t be solved exactly by hand.</p>
+</section>
+</section>
+<section id="why-the-tangent-line-is-the-best" class="level1">
+<h1>Why the Tangent Line Is the Best</h1>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>The Tangent Line Is the Only Line with <span class="math inline">\(\lim_{x\to a}\frac{E(x)}{x-a}=0\)</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Every line that passes through the point <span class="math inline">\(\big(a,f(a)\big)\)</span> has an equation of the form <span class="math inline">\(y = f(a) + m(x-a)\)</span> for some slope <span class="math inline">\(m\)</span>. All of these lines give the <em>exact</em> value of <span class="math inline">\(f\)</span> at <span class="math inline">\(x=a\)</span>, so to decide which is best, we have to look at how the error behaves for <span class="math inline">\(x\)</span> <em>near</em> <span class="math inline">\(a\)</span>.</p>
+<p><strong>Justification:</strong> The error in using the line with slope <span class="math inline">\(m\)</span> to approximate <span class="math inline">\(f(x)\)</span> is <span class="math display">\[
+E(x) = f(x) - \big(f(a) + m(x-a)\big).
+\]</span> Dividing by <span class="math inline">\(x-a\)</span> gives <span class="math display">\[
+\frac{E(x)}{x-a} = \frac{f(x)-f(a)}{x-a} - m.
+\]</span> The first term is a difference quotient, so as <span class="math inline">\(x\to a\)</span> it approaches <span class="math inline">\(f'(a)\)</span>. This means <span class="math display">\[
+\lim_{x\to a}\frac{E(x)}{x-a} = f'(a) - m.
+\]</span> This limit equals <span class="math inline">\(0\)</span> if and only if <span class="math inline">\(m=f'(a)\)</span>, that is, exactly when the line is the tangent line.</p>
+<p>For any other line, the error <span class="math inline">\(E(x)\)</span> shrinks to <span class="math inline">\(0\)</span> at about the same rate as <span class="math inline">\(x-a\)</span> does. For the tangent line, the error shrinks to <span class="math inline">\(0\)</span> <em>faster</em> than <span class="math inline">\(x-a\)</span>. That is the sense in which the tangent line is the best local linear approximation. <span class="math inline">\(\qquad \blacksquare\)</span></p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InNxcnRGID0gKHgpID0+IE1hdGguc3FydCh4KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIGxhU2xvcGUgPSBJbnB1dHMucmFuZ2UoWzAsIDFdLCB7dmFsdWU6IDAuOCwgc3RlcDogMC4wMSwgbGFiZWw6IFwiU2xvcGUgb2YgbGluZVwifSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBsYVpvb20gPSBJbnB1dHMucmFuZ2UoWzAsIDRdLCB7dmFsdWU6IDAsIHN0ZXA6IDAuMSwgbGFiZWw6IFwiWm9vbSBsZXZlbFwifSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImxhV2luID0gMC41ICogMTAgKiogKC1sYVpvb20pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJsYUN1cnZlID0gZDMucmFuZ2UoMCwgMjAxKS5tYXAoKGkpID0+IHtcbiAgY29uc3QgeCA9IDEgLSBsYVdpbiArICgyICogbGFXaW4gKiBpKSAvIDIwMDtcbiAgcmV0dXJuIHt4LCB5OiBzcXJ0Rih4KX07XG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibGFMaW5lID0gWzEgLSBsYVdpbiwgMSArIGxhV2luXS5tYXAoKHgpID0+ICh7eCwgeTogMSArIGxhU2xvcGUgKiAoeCAtIDEpfSkpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTciLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB3aWR0aDogMzgwLFxuICBoZWlnaHQ6IDM4MCxcbiAgbWFyZ2luTGVmdDogNjAsXG4gIHN0eWxlOiB7YmFja2dyb3VuZDogXCJ0cmFuc3BhcmVudFwifSxcbiAgeDoge2RvbWFpbjogWzEgLSBsYVdpbiwgMSArIGxhV2luXSwgbGFiZWw6IFwieFwiLCBncmlkOiB0cnVlLCB0aWNrczogNX0sXG4gIHk6IHtkb21haW46IFsxIC0gbGFXaW4sIDEgKyBsYVdpbl0sIGxhYmVsOiBcInlcIiwgZ3JpZDogdHJ1ZSwgdGlja3M6IDV9LFxuICBtYXJrczogW1xuICAgIFBsb3QubGluZShsYUN1cnZlLCB7eDogXCJ4XCIsIHk6IFwieVwiLCBzdHJva2U6IFwidmFyKC0tYnMtYm9keS1jb2xvcilcIiwgc3Ryb2tlV2lkdGg6IDIsIGNsaXA6IHRydWV9KSxcbiAgICBQbG90LmxpbmUobGFMaW5lLCB7eDogXCJ4XCIsIHk6IFwieVwiLCBzdHJva2U6IFwiI2U2Mzk0NlwiLCBzdHJva2VXaWR0aDogMiwgc3Ryb2tlRGFzaGFycmF5OiBcIjYsNFwiLCBjbGlwOiB0cnVlfSksXG4gICAgUGxvdC5kb3QoW3t4OiAxLCB5OiAxfV0sIHt4OiBcInhcIiwgeTogXCJ5XCIsIHI6IDUsIGZpbGw6IFwiI2U2Mzk0NlwifSlcbiAgXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImxhUmVhZG91dCA9IHtcbiAgY29uc3QgeCA9IDEgKyBsYVdpbiAvIDI7XG4gIGNvbnN0IEUgPSBzcXJ0Rih4KSAtICgxICsgbGFTbG9wZSAqICh4IC0gMSkpO1xuICByZXR1cm4ge3gsIEUsIHJhdGlvOiBFIC8gKHggLSAxKX07XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTkiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJodG1sYDxwIHN0eWxlPVwidGV4dC1hbGlnbjpjZW50ZXI7XCI+XG4gIFZpZXdpbmcgd2luZG93OiAkeygxIC0gbGFXaW4pLnRvUHJlY2lzaW9uKDYpfSDiiaQgeCDiiaQgJHsoMSArIGxhV2luKS50b1ByZWNpc2lvbig2KX08YnI+XG4gIEF0IHggPSAke2xhUmVhZG91dC54LnRvUHJlY2lzaW9uKDYpfTogJm5ic3A7XG4gIEUoeCkg4omIICR7bGFSZWFkb3V0LkUudG9FeHBvbmVudGlhbCgzKX0gJm5ic3A7Jm5ic3A7fCZuYnNwOyZuYnNwO1xuICA8YiBzdHlsZT1cImNvbG9yOiNlNjM5NDY7XCI+RSh4KS8oeCDiiJIgMSkg4omIICR7bGFSZWFkb3V0LnJhdGlvLnRvRml4ZWQoNCl9PC9iPlxuPC9wPmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTAiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJud1AgPSAoeCkgPT4geCAqKiA1ICsgeCArIDFcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJud0RQID0gKHgpID0+IDUgKiB4ICoqIDQgKyAxXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibndDdXJ2ZSA9IGQzLnJhbmdlKC0xLjMsIDAuMzAwMSwgMC4wMDUpLm1hcCgoeCkgPT4gKHt4LCB5OiBud1AoeCl9KSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgbndTdGVwcyA9IElucHV0cy5yYW5nZShbMCwgNV0sIHt2YWx1ZTogMCwgc3RlcDogMSwgbGFiZWw6IFwiTnVtYmVyIG9mIHN0ZXBzXCJ9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im53SXRlciA9IHtcbiAgY29uc3QgeHMgPSBbLTFdO1xuICBmb3IgKGxldCBrID0gMDsgayA8IG53U3RlcHM7IGsrKykge1xuICAgIGNvbnN0IHggPSB4c1trXTtcbiAgICB4cy5wdXNoKHggLSBud1AoeCkgLyBud0RQKHgpKTtcbiAgfVxuICByZXR1cm4geHM7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTE1IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibndUYW5nZW50cyA9IG53SXRlci5zbGljZSgwLCAtMSkuZmxhdE1hcCgoYSwgaykgPT5cbiAgWy0xLjMsIDAuM10ubWFwKCh4KSA9PiAoe2s6IGBMJHtrfWAsIHgsIHk6IG53UChhKSArIG53RFAoYSkgKiAoeCAtIGEpfSkpXG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTE2IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibndEcm9wcyA9IG53SXRlci5zbGljZSgxKS5tYXAoKHgpID0+ICh7eCwgeTE6IDAsIHkyOiBud1AoeCl9KSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTciLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB3aWR0aDogNDIwLFxuICBoZWlnaHQ6IDM2MCxcbiAgc3R5bGU6IHtiYWNrZ3JvdW5kOiBcInRyYW5zcGFyZW50XCJ9LFxuICB4OiB7ZG9tYWluOiBbLTEuMywgMC4zXSwgbGFiZWw6IFwieFwiLCBncmlkOiB0cnVlfSxcbiAgeToge2RvbWFpbjogWy0zLCAyXSwgbGFiZWw6IFwieVwiLCBncmlkOiB0cnVlfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJ1bGVZKFswXSwge3N0cm9rZTogXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiLCBzdHJva2VPcGFjaXR5OiAwLjV9KSxcbiAgICBQbG90LmxpbmUobndDdXJ2ZSwge3g6IFwieFwiLCB5OiBcInlcIiwgc3Ryb2tlOiBcInZhcigtLWJzLWJvZHktY29sb3IpXCIsIHN0cm9rZVdpZHRoOiAyLCBjbGlwOiB0cnVlfSksXG4gICAgUGxvdC5saW5lKG53VGFuZ2VudHMsIHt4OiBcInhcIiwgeTogXCJ5XCIsIHo6IFwia1wiLCBzdHJva2U6IFwiIzFkNzBiOFwiLCBzdHJva2VXaWR0aDogMS41LCBzdHJva2VEYXNoYXJyYXk6IFwiNiw0XCIsIGNsaXA6IHRydWV9KSxcbiAgICBQbG90LnJ1bGVYKG53RHJvcHMsIHt4OiBcInhcIiwgeTE6IFwieTFcIiwgeTI6IFwieTJcIiwgc3Ryb2tlOiBcIiMxZDcwYjhcIiwgc3Ryb2tlT3BhY2l0eTogMC42fSksXG4gICAgUGxvdC5kb3QobndJdGVyLm1hcCgoeCkgPT4gKHt4LCB5OiAwfSkpLCB7eDogXCJ4XCIsIHk6IFwieVwiLCByOiA0LCBmaWxsOiBcIiNlNjM5NDZcIn0pXG4gIF1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTE4IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiSW5wdXRzLnRhYmxlKFxuICBud0l0ZXIubWFwKCh4LCBrKSA9PiAoe2ssIHg6IHgudG9GaXhlZCgxMCksIHA6IG53UCh4KS50b0V4cG9uZW50aWFsKDMpfSkpLFxuICB7XG4gICAgaGVhZGVyOiB7azogXCJrXCIsIHg6IFwieF9rXCIsIHA6IFwicCh4X2spXCJ9LFxuICAgIHNvcnQ6IG51bGwsXG4gICAgc2VsZWN0OiBmYWxzZSxcbiAgICB3aWR0aDoge2s6IDQwfVxuICB9XG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2xhU2xvcGUnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnbGFab29tJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ253U3RlcHMnKSJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../notes";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/kduke-au\.github\.io\/math221-calc1\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
