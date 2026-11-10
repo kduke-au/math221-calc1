@@ -1,0 +1,168 @@
+---
+title: "Global Extrema"
+subtitle: "Read Section 4.2"
+sidebar: notes
+---
+
+# Introduction
+
+In the previous section, we used the first and second derivatives to find *local* maximums and minimums: points where a function is larger or smaller than at all *nearby* points. In many applications, though, we want to know something stronger. What is the largest or smallest value a function takes on over an entire interval?
+
+:::{.callout-note}
+## Definitions: Global Extrema
+Let $f(x)$ be a function defined on an interval $I$, and let $p$ be a point in $I$.
+
+- $f(x)$ has a **global (absolute) maximum** on $I$ at $x=p$ if $f(p)\geq f(x)$ for all $x$ in $I$. The value $f(p)$ is called the **global maximum value** of $f(x)$ on $I$.
+- $f(x)$ has a **global (absolute) minimum** on $I$ at $x=p$ if $f(p)\leq f(x)$ for all $x$ in $I$. The value $f(p)$ is called the **global minimum value** of $f(x)$ on $I$.
+
+Together, these are called the **global (absolute) extrema** of $f(x)$ on $I$.
+:::
+
+Notice that whether a function has global extrema depends on the interval $I$ as well as on the function. Global extrema also don't always have to exist!
+
+# Discussion Problems
+
+## Problem 0 - Do Global Extrema Always Exist?
+
+Come up with examples of a function $f(x)$ and an interval $I$ where
+
+a. $f(x)$ has neither a global maximum nor a global minimum on $I$.
+b. $f(x)$ has only one of a global maximum or a global minimum on $I$.
+c. $f(x)$ has both a global maximum and a global minimum on $I$.
+d. $f(x)$ is bounded on $I$ (its values never go above or below some fixed numbers), but $f(x)$ has neither a global maximum nor a global minimum on $I$.
+
+A sketch of the graph of $f(x)$ over $I$ is enough for each example, though see if you can also find formulas. Try using different kinds of intervals: closed intervals like $[a,b]$, open intervals like $(a,b)$, and intervals that go off to infinity. You might also try functions that are not continuous.
+
+What do the examples where global extrema *don't* exist have in common? What would you need to rule out to guarantee that both global extrema exist?
+
+:::{.callout-note}
+## Theorem: The Extreme Value Theorem
+If $f(x)$ is continuous on a closed interval $[a,b]$, then $f(x)$ has both a global maximum and a global minimum on $[a,b]$.
+:::
+
+## Problem 1 - A Polynomial
+
+Let $f(x)=\dfrac{3}{2}x^4+2x^3-6x^2+4$. Find the exact location and value of the global maximum and the global minimum (if they exist) of $f(x)$ on each of the following intervals:
+
+a. $[0,4]$
+b. $(-\infty, \infty)$
+
+## Problem 2 - Open and Infinite Intervals
+
+Find the exact location and value of the global maximum and the global minimum (if they exist) of the function $f(x)=xe^{-x^4}$ on each of the following intervals:
+
+a. $[-1, 0.5]$
+b. $(0,\infty)$
+
+## Problem 3 - A Discontinuous Function
+
+Find the global maximum and the global minimum (if they exist) of the function $f(x)=x+\dfrac{4}{x}$ on each of the following intervals:
+
+a. $[-4, 4]$
+b. $[1,3]$
+
+## Problem 4 - The Peak of an Epidemic
+
+As an epidemic spreads through a population, the number of infected people, $I$, can be expressed as a function of the number of susceptible people, $S$, by
+$$
+I=k\ln\left(\frac{S}{S_0}\right)-S+S_0+I_0,
+$$
+where $k$, $S_0$, and $I_0$ are positive constants. (This relationship comes from the *SIR model* for infectious diseases.)
+
+a. Find the maximum number of infected people.
+b. The constant $k$ is a characteristic of the particular disease. The constants $S_0$ and $I_0$ are the initial values of $S$ and $I$. Which of the following affects the maximum possible value of $I$? Make sure you can explain your answer.
+    - The particular disease, but not how it starts.
+    - How the disease starts, but not the particular disease.
+    - Both the particular disease and how it starts.
+
+:::: {.callout-note collapse="true"}
+## Explore: the peak of the epidemic (try this after the problem)
+
+Use the sliders to change the constants $k$, $S_0$, and $I_0$. The graph shows $I$ as a function of $S$ for $0<S\leq S_0$. As the epidemic progresses, people move out of the susceptible group, so $S$ *decreases* over time: the epidemic starts at the right end of the graph and moves left. The red point marks the largest value of $I$ on the graph.
+
+Which constants change the location of the red point? Which change its height? Is there anything surprising about what happens when $k$ is larger than $S_0$?
+
+```{ojs}
+//| echo: false
+sirI = (S, k, S0, I0) => k * Math.log(S / S0) - S + S0 + I0
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof sirK = Inputs.range([50, 1000], {value: 300, step: 10, label: "k"})
+```
+
+```{ojs}
+//| echo: false
+viewof sirS0 = Inputs.range([100, 1000], {value: 900, step: 10, label: "S₀"})
+```
+
+```{ojs}
+//| echo: false
+viewof sirI0 = Inputs.range([1, 100], {value: 10, step: 1, label: "I₀"})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+sirCurve = d3.range(1, 401).map((i) => {
+  const S = (sirS0 * i) / 400;
+  return {S, I: sirI(S, sirK, sirS0, sirI0)};
+})
+```
+
+```{ojs}
+//| echo: false
+sirPeak = {
+  const S = Math.min(sirK, sirS0);
+  return {S, I: sirI(S, sirK, sirS0, sirI0)};
+}
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 420,
+  height: 360,
+  marginLeft: 50,
+  style: {background: "transparent"},
+  x: {domain: [0, 1000], label: "susceptible people, S", grid: true},
+  y: {domain: [0, Math.max(100, sirPeak.I * 1.15)], label: "infected people, I", grid: true},
+  marks: [
+    Plot.ruleX([sirS0], {stroke: "var(--bs-body-color)", strokeOpacity: 0.4, strokeDasharray: "3,3"}),
+    Plot.line(sirCurve, {x: "S", y: "I", stroke: "var(--bs-body-color)", strokeWidth: 2, clip: true}),
+    Plot.dot([{S: sirS0, I: sirI0}], {x: "S", y: "I", r: 4, fill: "var(--bs-body-color)"}),
+    Plot.dot([sirPeak], {x: "S", y: "I", r: 5, fill: "#e63946"})
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center;">
+  Start of epidemic: (S₀, I₀) = (${sirS0}, ${sirI0})<br>
+  <b style="color:#e63946;">Largest value of I: about ${Math.round(sirPeak.I)} people, when S = ${Math.round(sirPeak.S)}</b>
+</p>`
+```
+::::
+
+# Strategy: Finding Global Extrema
+
+:::{.callout-tip collapse="true" icon="false"}
+## A General Strategy for Finding Global Extrema (click to expand)
+
+**Step 1: Is $f(x)$ continuous on a closed interval $I$?**
+
+- **If yes:** By the Extreme Value Theorem, both global extrema *must* exist, and they occur either at critical points of $f(x)$ in $I$ or at the endpoints of $I$. Find all of the critical points in $I$, and evaluate $f(x)$ at each of them and at the endpoints. The largest of these values is the global maximum, and the smallest is the global minimum.
+
+- **If no:** The global extrema may or may not exist, so we need to look more carefully. Go on to Step 2.
+
+**Step 2: Check the behavior at the "edges."** Determine the end behavior of $f(x)$ on $I$ (what happens as $x$ approaches each endpoint of $I$, or $\pm\infty$), as well as the behavior near any points in $I$ where $f(x)$ is not continuous. This behavior may tell you that one or both of the global extrema do not exist. For example, if $f(x)\to\infty$ anywhere, there is no global maximum.
+
+**Step 3: Look for the extrema that might exist.** If $f(x)$ is bounded from above or from below, a global maximum or global minimum *may* exist. If it does, it must again occur either at an endpoint of $I$ or at a critical point of $f(x)$ in $I$.
+
+**Step 4: Put together a complete argument.** Build a good understanding of $f(x)$ using the ideas from the [previous section](unit4_3.qmd): find all of the critical points, determine whether they are local extrema, and use where $f(x)$ is increasing and decreasing, together with its behavior from Step 2, to give a complete argument for whether or not the global extrema exist and where they occur.
+:::

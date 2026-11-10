@@ -83,7 +83,9 @@ website:
             - text: "Linear Approximation"
               href: notes/unit4_2.qmd
             - text: "Using Derivatives"
-              href: notes/unit4_3.qmd              
+              href: notes/unit4_3.qmd
+            - text: "Finding Global Extrema"
+              href: notes/unit4_4.qmd              
         - section: "Unit 5: The Definite Integral"
           contents:
             # - text: "Overview"
