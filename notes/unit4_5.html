@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Optimization &amp; Modeling – Math 221 - Calculus I</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee46beb70aa31211458725bc788f2241.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4d8cb1baf313fdb3bf5ef6a1e097c47e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Math 221 - Calculus I</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../notes/index.html" aria-current="page"> 
+<span class="menu-text">Course Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../exam_practice/index.html"> 
+<span class="menu-text">Practice Exam Problems</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">Questions?</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit4_index.html">Unit 4: Applications of Derivatives</a></li><li class="breadcrumb-item"><a href="../notes/unit4_5.html">Optimization</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 0: Introduction &amp; Review</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit0_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is Calculus?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit0_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions &amp; Their Properties</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit0_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Families of Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 1: Limits &amp; Continuity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit1_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit1_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Definitions &amp; Intuition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit1_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limit Properties</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit1_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluating Limits Using Algebra</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 2: The Derivative</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instantaneous Velocity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Definition of the Derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Derivative Function</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreting the Derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Second Derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit2_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differentiability</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 3: Computing Derivatives</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Power Functions &amp; Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Exponential Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Products &amp; Quotients</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Compositions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Trigonometric Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit3_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules for Inverse Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unit 4: Applications of Derivatives</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Implicit Differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Approximation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Derivatives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finding Global Extrema</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/unit4_5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Optimization</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Unit 5: The Definite Integral</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Unit 6: Antiderivatives</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#discussion-problems" id="toc-discussion-problems" class="nav-link" data-scroll-target="#discussion-problems">Discussion Problems</a>
+  <ul class="collapse">
+  <li><a href="#problem-1---fencing-along-a-river" id="toc-problem-1---fencing-along-a-river" class="nav-link" data-scroll-target="#problem-1---fencing-along-a-river">Problem 1 - Fencing Along a River</a></li>
+  <li><a href="#problem-2---designing-a-container" id="toc-problem-2---designing-a-container" class="nav-link" data-scroll-target="#problem-2---designing-a-container">Problem 2 - Designing a Container</a></li>
+  <li><a href="#problem-3---the-path-of-a-comet" id="toc-problem-3---the-path-of-a-comet" class="nav-link" data-scroll-target="#problem-3---the-path-of-a-comet">Problem 3 - The Path of a Comet</a></li>
+  <li><a href="#problem-4---the-quietest-spot" id="toc-problem-4---the-quietest-spot" class="nav-link" data-scroll-target="#problem-4---the-quietest-spot">Problem 4 - The Quietest Spot</a></li>
+  <li><a href="#problem-5---setting-a-price" id="toc-problem-5---setting-a-price" class="nav-link" data-scroll-target="#problem-5---setting-a-price">Problem 5 - Setting a Price</a></li>
+  </ul></li>
+  <li><a href="#strategy-solving-optimization-problems" id="toc-strategy-solving-optimization-problems" class="nav-link" data-scroll-target="#strategy-solving-optimization-problems">Strategy: Solving Optimization Problems</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/unit4_index.html">Unit 4: Applications of Derivatives</a></li><li class="breadcrumb-item"><a href="../notes/unit4_5.html">Optimization</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Optimization &amp; Modeling</h1>
+<p class="subtitle lead">Read Section 4.3</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In the <a href="../notes/unit4_4.html">previous section</a>, we developed some strategies for finding the global maximum and minimum of a function on an interval. In this section, we apply that strategy to “real-world” problems.</p>
+<p>The difference is that, in a real-world problem, the first step is creating a suitable mathematical model that can be used to achieve the objective. You usually have some information about what you want to optimize and how it depends on one or more variables, but you have to determine a formula that models this relationship. So, before we can do any calculus, we must:</p>
+<ol type="1">
+<li>Identify the quantity we want to make as large or as small as possible. We will call this the <strong>objective variable</strong>.</li>
+<li>Write the objective variable in terms of the other quantities in the problem.</li>
+<li>Use any <strong>constraints</strong> (relationships between the quantities that must hold) to rewrite the objective variable as a function of a <em>single</em> variable. We will call this our <strong>objective function</strong>.</li>
+<li>Determine the domain for the objective function that makes sense in the context of the problem. We will call this our <strong>feasible interval</strong>.</li>
+</ol>
+<p>Once we have done this, we can reframe our applied problem as a pure math problem we know how to solve: finding the global extrema of a function on an interval.</p>
+</section>
+<section id="discussion-problems" class="level1">
+<h1>Discussion Problems</h1>
+<section id="problem-1---fencing-along-a-river" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1---fencing-along-a-river">Problem 1 - Fencing Along a River</h2>
+<p>A farmer has 100 meters of fence and wants to enclose the largest rectangle possible, with a river forming one side and the fence forming the remaining three sides.</p>
+<ol type="a">
+<li>Sketch the rectangular enclosure, and label the sides of the rectangle with variables.</li>
+<li>Give an equation for the area of the rectangle in terms of your variables.</li>
+<li>Use the constraint on the amount of fencing to write one of your variables in terms of the other.</li>
+<li>Substitute this relationship into your formula for the area of the enclosure. What values of your variable make sense in this context?</li>
+<li>Use this function to find the maximum possible area of the enclosure. How do you know your answer is the <em>global</em> maximum?</li>
+</ol>
+</section>
+<section id="problem-2---designing-a-container" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2---designing-a-container">Problem 2 - Designing a Container</h2>
+<p>You need to design a container that has a volume of 8 ft<span class="math inline">\(^3\)</span>. In order to minimize cost, you would like to use the least amount of material possible. Find the dimensions that minimize the surface area of the container if the container is:</p>
+<ol type="a">
+<li>A closed cylindrical barrel of radius <span class="math inline">\(R\)</span> and height <span class="math inline">\(H\)</span>.</li>
+<li>A closed rectangular box of height <span class="math inline">\(H\)</span> with an <span class="math inline">\(L\times L\)</span> square base.</li>
+</ol>
+<p>For each container, what is the objective variable? What is the constraint? Compare the shapes of your two optimal containers. Do you notice anything interesting?</p>
+</section>
+<section id="problem-3---the-path-of-a-comet" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3---the-path-of-a-comet">Problem 3 - The Path of a Comet</h2>
+<p>Assume that the sun is fixed at the point <span class="math inline">\((0,0)\)</span> in the <span class="math inline">\(xy\)</span>-plane. The path of a comet around the sun is given by the equation <span class="math inline">\(y = x^2 - 0.5\)</span>, where <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are measured in astronomical units. (One astronomical unit is the distance between the sun and the Earth.)</p>
+<ol type="a">
+<li>Use <a href="https://www.desmos.com/calculator">Desmos</a> or another graphing tool to graph the path of the comet.</li>
+<li>Find the coordinates of the point where the comet is closest to the sun.</li>
+<li>If the Earth is at the point <span class="math inline">\((1,0)\)</span> when the comet passes by, what are the coordinates of the point where the comet is closest to the Earth?</li>
+</ol>
+<p><em>Hint:</em> Minimizing a distance <span class="math inline">\(D\)</span> gives the same location as minimizing <span class="math inline">\(D^2\)</span>. Why? Which one is easier to differentiate?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Explore: following the comet (try this after the problem)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Drag the slider to move the comet along its path. The dashed segments show the distance from the comet to the sun (orange) and to the Earth (blue). Can you find the positions where each distance is smallest? Do they match your answers?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="57" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 56;"><span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>cometPath <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="fl">1.5001</span><span class="op">,</span> <span class="fl">0.01</span>)<span class="op">.</span><span class="fu">map</span>((x) <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="fl">0.5</span>}))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div style="display:flex; justify-content:center; margin-top:12px;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="64" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 63;"><span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>viewof cometX <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="fl">1.5</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x-coordinate of comet"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="71" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 70;"><span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>cometPt <span class="op">=</span> ({<span class="dt">x</span><span class="op">:</span> cometX<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cometX <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="fl">0.5</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="76" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 75;"><span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">360</span><span class="op">,</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span>}<span class="op">,</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">1.6</span><span class="op">,</span> <span class="fl">1.6</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x (AU)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="fl">1.9</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"y (AU)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">strokeOpacity</span><span class="op">:</span> <span class="fl">0.4</span>})<span class="op">,</span></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">strokeOpacity</span><span class="op">:</span> <span class="fl">0.4</span>})<span class="op">,</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(cometPath<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">link</span>([{<span class="dt">x1</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> cometPt<span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> cometPt<span class="op">.</span><span class="at">y</span>}]<span class="op">,</span> {</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x1</span><span class="op">:</span> <span class="st">"x1"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"y1"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"x2"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"y2"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#f4a261"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"5,4"</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">link</span>([{<span class="dt">x1</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> cometPt<span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> cometPt<span class="op">.</span><span class="at">y</span>}]<span class="op">,</span> {</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x1</span><span class="op">:</span> <span class="st">"x1"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"y1"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"x2"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"y2"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#1d70b8"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"5,4"</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([{<span class="dt">x</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">0</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">8</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#f4a261"</span>})<span class="op">,</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([{<span class="dt">x</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">0</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">6</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#1d70b8"</span>})<span class="op">,</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([cometPt]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#e63946"</span>})<span class="op">,</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([{<span class="dt">x</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">t</span><span class="op">:</span> <span class="st">"Sun"</span>}<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">t</span><span class="op">:</span> <span class="st">"Earth"</span>}]<span class="op">,</span> {</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="dv">16</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="104" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 103;"><span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="text-align:center;"&gt;</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="vs">  Comet: (</span><span class="sc">${</span>cometPt<span class="op">.</span><span class="at">x</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>cometPt<span class="op">.</span><span class="at">y</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">)&lt;br&gt;</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;b style="color:#f4a261;"&gt;Distance to sun ≈ </span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">hypot</span>(cometPt<span class="op">.</span><span class="at">x</span><span class="op">,</span> cometPt<span class="op">.</span><span class="at">y</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs"> AU&lt;/b&gt;</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="vs">  &amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;b style="color:#1d70b8;"&gt;Distance to Earth ≈ </span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">hypot</span>(cometPt<span class="op">.</span><span class="at">x</span> <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> cometPt<span class="op">.</span><span class="at">y</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs"> AU&lt;/b&gt;</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-5" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-4---the-quietest-spot" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4---the-quietest-spot">Problem 4 - The Quietest Spot</h2>
+<p>The loudness of a sound (in decibels) is inversely proportional to the square of the distance (in meters) from the source of the sound. A fire alarm has speakers at the south and north ends of a 10 meter long hallway. Assume that when you are one meter from the south speaker, the sound from that speaker is 100 decibels. When you are one meter from the north speaker, the sound from that speaker is 120 decibels.</p>
+<ol type="a">
+<li>Write the combined loudness of the speakers, <span class="math inline">\(N\)</span>, as a function of your distance <span class="math inline">\(d\)</span> from the south speaker. What values of <span class="math inline">\(d\)</span> make sense in this context?</li>
+<li>Find the distance from the south speaker where the combined sound of the alarm is softest. Before you compute anything: do you expect this spot to be closer to the south speaker or the north speaker? Why?</li>
+</ol>
+</section>
+<section id="problem-5---setting-a-price" class="level2">
+<h2 class="anchored" data-anchor-id="problem-5---setting-a-price">Problem 5 - Setting a Price</h2>
+<p>A small business sells custom phone cases. If the business charges <span class="math inline">\(p\)</span> dollars per case, then the number of cases it expects to sell each month is given by the <strong>demand function</strong> <span class="math display">\[
+q = 1000e^{-0.05p}.
+\]</span> Each case costs the business $8 to make, and the business also has fixed costs (rent, equipment, etc.) of $500 per month.</p>
+<ol type="a">
+<li>What happens to the demand <span class="math inline">\(q\)</span> as the price <span class="math inline">\(p\)</span> increases? How many cases would the business “sell” if it gave them away for free? Does this make sense?</li>
+<li>The <strong>revenue</strong> is the total amount of money the business takes in from sales. Write the revenue <span class="math inline">\(R\)</span> as a function of the price <span class="math inline">\(p\)</span>.</li>
+<li>Write the total monthly cost <span class="math inline">\(C\)</span> as a function of the price <span class="math inline">\(p\)</span>. <em>(Hint: The cost depends on how many cases are made. How does that depend on <span class="math inline">\(p\)</span>?)</em></li>
+<li>The <strong>profit</strong> is the revenue minus the cost. Write the profit <span class="math inline">\(P\)</span> as a function of the price <span class="math inline">\(p\)</span>.</li>
+<li>What price should the business charge to maximize its monthly profit? What is the maximum profit? How do you know this is the <em>global</em> maximum?</li>
+<li>Suppose the business’s rent goes up, so the fixed costs increase. Does the price that maximizes profit change? What if the cost of making each case increases instead? Explain.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Explore: revenue, cost, and profit (try this after the problem)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Drag the slider to change the price. The graph on the left shows the profit <span class="math inline">\(P(p)\)</span>. Use the toggle to also show the revenue <span class="math inline">\(R(p)\)</span> and the cost <span class="math inline">\(C(p)\)</span>.</p>
+<p>The graph on the right shows the <em>derivatives</em> <span class="math inline">\(R'(p)\)</span> and <span class="math inline">\(C'(p)\)</span>: how fast the revenue and the cost are changing as the price increases. Since <span class="math inline">\(P(p)=R(p)-C(p)\)</span>, the profit’s rate of change is <span class="math inline">\(P'(p)=R'(p)-C'(p)\)</span>. This is the vertical gap between the two curves, shown by the red segment.</p>
+<ul>
+<li>How can you see the profit in the graphs of revenue and cost? Is the price that maximizes profit the same as the price that maximizes revenue?</li>
+<li>When is <span class="math inline">\(R'(p)\)</span> above <span class="math inline">\(C'(p)\)</span>? What does this tell you about the profit? What about when <span class="math inline">\(R'(p)\)</span> is below <span class="math inline">\(C'(p)\)</span>?</li>
+<li>What is happening on the right graph at the price that maximizes profit? Why does this make sense?</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="148" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 147;"><span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>demand <span class="op">=</span> (p) <span class="kw">=&gt;</span> <span class="dv">1000</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span><span class="fl">0.05</span> <span class="op">*</span> p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="153" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 152;"><span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a>profitData <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">0</span><span class="op">,</span> <span class="fl">80.001</span><span class="op">,</span> <span class="fl">0.25</span>)<span class="op">.</span><span class="fu">flatMap</span>((p) <span class="kw">=&gt;</span> {</span>
+<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> q <span class="op">=</span> <span class="fu">demand</span>(p)<span class="op">,</span> R <span class="op">=</span> p <span class="op">*</span> q<span class="op">,</span> C <span class="op">=</span> <span class="dv">8</span> <span class="op">*</span> q <span class="op">+</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [</span>
+<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a>    {p<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> R <span class="op">-</span> C<span class="op">,</span> <span class="dt">fn</span><span class="op">:</span> <span class="st">"profit P(p)"</span>}<span class="op">,</span></span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a>    {p<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> R<span class="op">,</span> <span class="dt">fn</span><span class="op">:</span> <span class="st">"revenue R(p)"</span>}<span class="op">,</span></span>
+<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a>    {p<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> C<span class="op">,</span> <span class="dt">fn</span><span class="op">:</span> <span class="st">"cost C(p)"</span>}</span>
+<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
+<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-7" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb8" data-startfrom="165" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 164;"><span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a>rateData <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">0</span><span class="op">,</span> <span class="fl">80.001</span><span class="op">,</span> <span class="fl">0.25</span>)<span class="op">.</span><span class="fu">flatMap</span>((p) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> q <span class="op">=</span> <span class="fu">demand</span>(p)<span class="op">;</span></span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [</span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>    {p<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> q <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> <span class="fl">0.05</span> <span class="op">*</span> p)<span class="op">,</span> <span class="dt">fn</span><span class="op">:</span> <span class="st">"R′(p)"</span>}<span class="op">,</span></span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>    {p<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.4</span> <span class="op">*</span> q<span class="op">,</span> <span class="dt">fn</span><span class="op">:</span> <span class="st">"C′(p)"</span>}</span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-8" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; align-items:center; margin-top:12px;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb9" data-startfrom="178" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 177;"><span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a>viewof price <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">80</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">15</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Price p ($)"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-9" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb10" data-startfrom="183" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 182;"><span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a>viewof showRC <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">toggle</span>({<span class="dt">label</span><span class="op">:</span> <span class="st">"Show revenue and cost"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="kw">false</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-10" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb11" data-startfrom="190" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 189;"><span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>priceVals <span class="op">=</span> {</span>
+<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> q <span class="op">=</span> <span class="fu">demand</span>(price)<span class="op">,</span> R <span class="op">=</span> price <span class="op">*</span> q<span class="op">,</span> C <span class="op">=</span> <span class="dv">8</span> <span class="op">*</span> q <span class="op">+</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> dR <span class="op">=</span> q <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> <span class="fl">0.05</span> <span class="op">*</span> price)<span class="op">,</span> dC <span class="op">=</span> <span class="op">-</span><span class="fl">0.4</span> <span class="op">*</span> q<span class="op">;</span></span>
+<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {q<span class="op">,</span> R<span class="op">,</span> C<span class="op">,</span> <span class="dt">P</span><span class="op">:</span> R <span class="op">-</span> C<span class="op">,</span> dR<span class="op">,</span> dC<span class="op">,</span> <span class="dt">dP</span><span class="op">:</span> dR <span class="op">-</span> dC}<span class="op">;</span></span>
+<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-11" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb12" data-startfrom="201" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 200;"><span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">340</span><span class="op">,</span></span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">340</span><span class="op">,</span></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">55</span><span class="op">,</span></span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span>}<span class="op">,</span></span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">80</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"price p ($)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">1000</span><span class="op">,</span> <span class="dv">9000</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"dollars per month"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="st">"profit P(p)"</span><span class="op">,</span> <span class="st">"revenue R(p)"</span><span class="op">,</span> <span class="st">"cost C(p)"</span>]<span class="op">,</span></span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a>    <span class="dt">range</span><span class="op">:</span> [<span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="st">"#2a9d8f"</span><span class="op">,</span> <span class="st">"#f4a261"</span>]<span class="op">,</span></span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">strokeOpacity</span><span class="op">:</span> <span class="fl">0.5</span>})<span class="op">,</span></span>
+<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(profitData<span class="op">.</span><span class="fu">filter</span>((d) <span class="kw">=&gt;</span> showRC <span class="op">&amp;&amp;</span> d<span class="op">.</span><span class="at">fn</span> <span class="op">!==</span> <span class="st">"profit P(p)"</span>)<span class="op">,</span> {</span>
+<span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"p"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"fn"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"fn"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(profitData<span class="op">.</span><span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">fn</span> <span class="op">===</span> <span class="st">"profit P(p)"</span>)<span class="op">,</span> {</span>
+<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"p"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"fn"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([price]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e63946"</span><span class="op">,</span> <span class="dt">strokeOpacity</span><span class="op">:</span> <span class="fl">0.5</span>})<span class="op">,</span></span>
+<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([{<span class="dt">p</span><span class="op">:</span> price<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> priceVals<span class="op">.</span><span class="at">P</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"p"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#e63946"</span>})</span>
+<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">340</span><span class="op">,</span></span>
+<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">340</span><span class="op">,</span></span>
+<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">55</span><span class="op">,</span></span>
+<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span>}<span class="op">,</span></span>
+<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">80</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"price p ($)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">600</span><span class="op">,</span> <span class="dv">1100</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"rate of change ($/month per $1 of price)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="st">"R′(p)"</span><span class="op">,</span> <span class="st">"C′(p)"</span>]<span class="op">,</span></span>
+<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a>    <span class="dt">range</span><span class="op">:</span> [<span class="st">"#2a9d8f"</span><span class="op">,</span> <span class="st">"#f4a261"</span>]<span class="op">,</span></span>
+<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"var(--bs-body-color)"</span><span class="op">,</span> <span class="dt">strokeOpacity</span><span class="op">:</span> <span class="fl">0.5</span>})<span class="op">,</span></span>
+<span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(rateData<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"p"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"fn"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"fn"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span><span class="op">,</span> <span class="dt">clip</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">,</span></span>
+<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([price]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e63946"</span><span class="op">,</span> <span class="dt">strokeOpacity</span><span class="op">:</span> <span class="fl">0.3</span>})<span class="op">,</span></span>
+<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">link</span>([{<span class="dt">x1</span><span class="op">:</span> price<span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> priceVals<span class="op">.</span><span class="at">dC</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> price<span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> priceVals<span class="op">.</span><span class="at">dR</span>}]<span class="op">,</span> {</span>
+<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x1</span><span class="op">:</span> <span class="st">"x1"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"y1"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"x2"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"y2"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e63946"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">4</span></span>
+<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([{<span class="dt">p</span><span class="op">:</span> price<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> priceVals<span class="op">.</span><span class="at">dR</span>}<span class="op">,</span> {<span class="dt">p</span><span class="op">:</span> price<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> priceVals<span class="op">.</span><span class="at">dC</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"p"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#e63946"</span>})</span>
+<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-12" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-13" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb13" data-startfrom="257" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 256;"><span id="cb13-257"><a href="#cb13-257" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="text-align:center;"&gt;</span></span>
+<span id="cb13-258"><a href="#cb13-258" aria-hidden="true" tabindex="-1"></a><span class="vs">  At a price of $</span><span class="sc">${</span>price<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs">: the business sells about </span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(priceVals<span class="op">.</span><span class="at">q</span>)<span class="sc">}</span><span class="vs"> cases per month&lt;br&gt;</span></span>
+<span id="cb13-259"><a href="#cb13-259" aria-hidden="true" tabindex="-1"></a><span class="vs">  Revenue ≈ $</span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(priceVals<span class="op">.</span><span class="at">R</span>)<span class="sc">}</span><span class="vs"> &amp;nbsp;|&amp;nbsp; Cost ≈ $</span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(priceVals<span class="op">.</span><span class="at">C</span>)<span class="sc">}</span><span class="vs"> &amp;nbsp;|&amp;nbsp;</span></span>
+<span id="cb13-260"><a href="#cb13-260" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;b style="color:#e63946;"&gt;Profit ≈ $</span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(priceVals<span class="op">.</span><span class="at">P</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;&lt;br&gt;</span></span>
+<span id="cb13-261"><a href="#cb13-261" aria-hidden="true" tabindex="-1"></a><span class="vs">  R′(p) ≈ </span><span class="sc">${</span>priceVals<span class="op">.</span><span class="at">dR</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> &amp;nbsp;|&amp;nbsp; C′(p) ≈ </span><span class="sc">${</span>priceVals<span class="op">.</span><span class="at">dC</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> &amp;nbsp;|&amp;nbsp;</span></span>
+<span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;b style="color:#e63946;"&gt;P′(p) = R′(p) − C′(p) ≈ </span><span class="sc">${</span>priceVals<span class="op">.</span><span class="at">dP</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">&lt;/b&gt;</span></span>
+<span id="cb13-263"><a href="#cb13-263" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-14" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="strategy-solving-optimization-problems" class="level1">
+<h1>Strategy: Solving Optimization Problems</h1>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>A General Strategy for Optimization Problems (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Identify the objective.</strong> What quantity are you trying to maximize or minimize?</li>
+<li><strong>Understand the variables.</strong> Draw a picture if possible. Identify the quantities involved and their units. Decide which quantities are fixed and which can vary. Write a formula for the objective variable in terms of the other variables and constants.</li>
+<li><strong>Use constraints to reduce to one variable.</strong> If the objective variable depends on more than one independent variable, look for relationships between the independent variables. Use them to write the objective variable as a function of a single independent variable.</li>
+<li><strong>Find the feasible interval.</strong> Determine the domain for the objective function that make sense in the context of the problem. Is it closed? Open? Infinite?</li>
+<li><strong>Find the global extremum.</strong> Use the <a href="../notes/unit4_4.html#strategy-finding-global-extrema">strategy from the previous section</a>. If the interval is closed and the function is continuous, compare the values at the critical points and endpoints. Otherwise, use the behavior of the function (where it is increasing and decreasing, and what happens near the ends of the interval) to argue that you have found the global extremum.</li>
+<li><strong>Answer the question that was asked, in context.</strong> Does the problem want the location of the extremum (a price, a set of dimensions), the extreme value itself (a maximum area, a minimum cost), or both? Include units, and check that your answer is reasonable.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImNvbWV0UGF0aCA9IGQzLnJhbmdlKC0xLjUsIDEuNTAwMSwgMC4wMSkubWFwKCh4KSA9PiAoe3gsIHk6IHggKiogMiAtIDAuNX0pKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIGNvbWV0WCA9IElucHV0cy5yYW5nZShbLTEuNSwgMS41XSwge3ZhbHVlOiAtMSwgc3RlcDogMC4wMSwgbGFiZWw6IFwieC1jb29yZGluYXRlIG9mIGNvbWV0XCJ9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiY29tZXRQdCA9ICh7eDogY29tZXRYLCB5OiBjb21ldFggKiogMiAtIDAuNX0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICB3aWR0aDogNDAwLFxuICBoZWlnaHQ6IDM2MCxcbiAgc3R5bGU6IHtiYWNrZ3JvdW5kOiBcInRyYW5zcGFyZW50XCJ9LFxuICB4OiB7ZG9tYWluOiBbLTEuNiwgMS42XSwgbGFiZWw6IFwieCAoQVUpXCIsIGdyaWQ6IHRydWV9LFxuICB5OiB7ZG9tYWluOiBbLTEsIDEuOV0sIGxhYmVsOiBcInkgKEFVKVwiLCBncmlkOiB0cnVlfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJ1bGVYKFswXSwge3N0cm9rZTogXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiLCBzdHJva2VPcGFjaXR5OiAwLjR9KSxcbiAgICBQbG90LnJ1bGVZKFswXSwge3N0cm9rZTogXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiLCBzdHJva2VPcGFjaXR5OiAwLjR9KSxcbiAgICBQbG90LmxpbmUoY29tZXRQYXRoLCB7eDogXCJ4XCIsIHk6IFwieVwiLCBzdHJva2U6IFwidmFyKC0tYnMtYm9keS1jb2xvcilcIiwgc3Ryb2tlV2lkdGg6IDIsIGNsaXA6IHRydWV9KSxcbiAgICBQbG90LmxpbmsoW3t4MTogMCwgeTE6IDAsIHgyOiBjb21ldFB0LngsIHkyOiBjb21ldFB0Lnl9XSwge1xuICAgICAgeDE6IFwieDFcIiwgeTE6IFwieTFcIiwgeDI6IFwieDJcIiwgeTI6IFwieTJcIiwgc3Ryb2tlOiBcIiNmNGEyNjFcIiwgc3Ryb2tlV2lkdGg6IDIsIHN0cm9rZURhc2hhcnJheTogXCI1LDRcIlxuICAgIH0pLFxuICAgIFBsb3QubGluayhbe3gxOiAxLCB5MTogMCwgeDI6IGNvbWV0UHQueCwgeTI6IGNvbWV0UHQueX1dLCB7XG4gICAgICB4MTogXCJ4MVwiLCB5MTogXCJ5MVwiLCB4MjogXCJ4MlwiLCB5MjogXCJ5MlwiLCBzdHJva2U6IFwiIzFkNzBiOFwiLCBzdHJva2VXaWR0aDogMiwgc3Ryb2tlRGFzaGFycmF5OiBcIjUsNFwiXG4gICAgfSksXG4gICAgUGxvdC5kb3QoW3t4OiAwLCB5OiAwfV0sIHt4OiBcInhcIiwgeTogXCJ5XCIsIHI6IDgsIGZpbGw6IFwiI2Y0YTI2MVwifSksXG4gICAgUGxvdC5kb3QoW3t4OiAxLCB5OiAwfV0sIHt4OiBcInhcIiwgeTogXCJ5XCIsIHI6IDYsIGZpbGw6IFwiIzFkNzBiOFwifSksXG4gICAgUGxvdC5kb3QoW2NvbWV0UHRdLCB7eDogXCJ4XCIsIHk6IFwieVwiLCByOiA1LCBmaWxsOiBcIiNlNjM5NDZcIn0pLFxuICAgIFBsb3QudGV4dChbe3g6IDAsIHk6IDAsIHQ6IFwiU3VuXCJ9LCB7eDogMSwgeTogMCwgdDogXCJFYXJ0aFwifV0sIHtcbiAgICAgIHg6IFwieFwiLCB5OiBcInlcIiwgdGV4dDogXCJ0XCIsIGR5OiAxNiwgZmlsbDogXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiXG4gICAgfSlcbiAgXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imh0bWxgPHAgc3R5bGU9XCJ0ZXh0LWFsaWduOmNlbnRlcjtcIj5cbiAgQ29tZXQ6ICgke2NvbWV0UHQueC50b0ZpeGVkKDIpfSwgJHtjb21ldFB0LnkudG9GaXhlZCg0KX0pPGJyPlxuICA8YiBzdHlsZT1cImNvbG9yOiNmNGEyNjE7XCI+RGlzdGFuY2UgdG8gc3VuIOKJiCAke01hdGguaHlwb3QoY29tZXRQdC54LCBjb21ldFB0LnkpLnRvRml4ZWQoNCl9IEFVPC9iPlxuICAmbmJzcDsmbmJzcDt8Jm5ic3A7Jm5ic3A7XG4gIDxiIHN0eWxlPVwiY29sb3I6IzFkNzBiODtcIj5EaXN0YW5jZSB0byBFYXJ0aCDiiYggJHtNYXRoLmh5cG90KGNvbWV0UHQueCAtIDEsIGNvbWV0UHQueSkudG9GaXhlZCg0KX0gQVU8L2I+XG48L3A+YFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZGVtYW5kID0gKHApID0+IDEwMDAgKiBNYXRoLmV4cCgtMC4wNSAqIHApXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTciLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJwcm9maXREYXRhID0gZDMucmFuZ2UoMCwgODAuMDAxLCAwLjI1KS5mbGF0TWFwKChwKSA9PiB7XG4gIGNvbnN0IHEgPSBkZW1hbmQocCksIFIgPSBwICogcSwgQyA9IDggKiBxICsgNTAwO1xuICByZXR1cm4gW1xuICAgIHtwLCB5OiBSIC0gQywgZm46IFwicHJvZml0IFAocClcIn0sXG4gICAge3AsIHk6IFIsIGZuOiBcInJldmVudWUgUihwKVwifSxcbiAgICB7cCwgeTogQywgZm46IFwiY29zdCBDKHApXCJ9XG4gIF07XG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC04IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoicmF0ZURhdGEgPSBkMy5yYW5nZSgwLCA4MC4wMDEsIDAuMjUpLmZsYXRNYXAoKHApID0+IHtcbiAgY29uc3QgcSA9IGRlbWFuZChwKTtcbiAgcmV0dXJuIFtcbiAgICB7cCwgeTogcSAqICgxIC0gMC4wNSAqIHApLCBmbjogXCJS4oCyKHApXCJ9LFxuICAgIHtwLCB5OiAtMC40ICogcSwgZm46IFwiQ+KAsihwKVwifVxuICBdO1xufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtOSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBwcmljZSA9IElucHV0cy5yYW5nZShbMCwgODBdLCB7dmFsdWU6IDE1LCBzdGVwOiAwLjUsIGxhYmVsOiBcIlByaWNlIHAgKCQpXCJ9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBzaG93UkMgPSBJbnB1dHMudG9nZ2xlKHtsYWJlbDogXCJTaG93IHJldmVudWUgYW5kIGNvc3RcIiwgdmFsdWU6IGZhbHNlfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJwcmljZVZhbHMgPSB7XG4gIGNvbnN0IHEgPSBkZW1hbmQocHJpY2UpLCBSID0gcHJpY2UgKiBxLCBDID0gOCAqIHEgKyA1MDA7XG4gIGNvbnN0IGRSID0gcSAqICgxIC0gMC4wNSAqIHByaWNlKSwgZEMgPSAtMC40ICogcTtcbiAgcmV0dXJuIHtxLCBSLCBDLCBQOiBSIC0gQywgZFIsIGRDLCBkUDogZFIgLSBkQ307XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiUGxvdC5wbG90KHtcbiAgd2lkdGg6IDM0MCxcbiAgaGVpZ2h0OiAzNDAsXG4gIG1hcmdpbkxlZnQ6IDU1LFxuICBzdHlsZToge2JhY2tncm91bmQ6IFwidHJhbnNwYXJlbnRcIn0sXG4gIHg6IHtkb21haW46IFswLCA4MF0sIGxhYmVsOiBcInByaWNlIHAgKCQpXCIsIGdyaWQ6IHRydWV9LFxuICB5OiB7ZG9tYWluOiBbLTEwMDAsIDkwMDBdLCBsYWJlbDogXCJkb2xsYXJzIHBlciBtb250aFwiLCBncmlkOiB0cnVlfSxcbiAgY29sb3I6IHtcbiAgICBkb21haW46IFtcInByb2ZpdCBQKHApXCIsIFwicmV2ZW51ZSBSKHApXCIsIFwiY29zdCBDKHApXCJdLFxuICAgIHJhbmdlOiBbXCJ2YXIoLS1icy1ib2R5LWNvbG9yKVwiLCBcIiMyYTlkOGZcIiwgXCIjZjRhMjYxXCJdLFxuICAgIGxlZ2VuZDogdHJ1ZVxuICB9LFxuICBtYXJrczogW1xuICAgIFBsb3QucnVsZVkoWzBdLCB7c3Ryb2tlOiBcInZhcigtLWJzLWJvZHktY29sb3IpXCIsIHN0cm9rZU9wYWNpdHk6IDAuNX0pLFxuICAgIFBsb3QubGluZShwcm9maXREYXRhLmZpbHRlcigoZCkgPT4gc2hvd1JDICYmIGQuZm4gIT09IFwicHJvZml0IFAocClcIiksIHtcbiAgICAgIHg6IFwicFwiLCB5OiBcInlcIiwgejogXCJmblwiLCBzdHJva2U6IFwiZm5cIiwgc3Ryb2tlV2lkdGg6IDEuNSwgc3Ryb2tlRGFzaGFycmF5OiBcIjYsNFwiLCBjbGlwOiB0cnVlXG4gICAgfSksXG4gICAgUGxvdC5saW5lKHByb2ZpdERhdGEuZmlsdGVyKChkKSA9PiBkLmZuID09PSBcInByb2ZpdCBQKHApXCIpLCB7XG4gICAgICB4OiBcInBcIiwgeTogXCJ5XCIsIHN0cm9rZTogXCJmblwiLCBzdHJva2VXaWR0aDogMi41LCBjbGlwOiB0cnVlXG4gICAgfSksXG4gICAgUGxvdC5ydWxlWChbcHJpY2VdLCB7c3Ryb2tlOiBcIiNlNjM5NDZcIiwgc3Ryb2tlT3BhY2l0eTogMC41fSksXG4gICAgUGxvdC5kb3QoW3twOiBwcmljZSwgeTogcHJpY2VWYWxzLlB9XSwge3g6IFwicFwiLCB5OiBcInlcIiwgcjogNSwgZmlsbDogXCIjZTYzOTQ2XCJ9KVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QucGxvdCh7XG4gIHdpZHRoOiAzNDAsXG4gIGhlaWdodDogMzQwLFxuICBtYXJnaW5MZWZ0OiA1NSxcbiAgc3R5bGU6IHtiYWNrZ3JvdW5kOiBcInRyYW5zcGFyZW50XCJ9LFxuICB4OiB7ZG9tYWluOiBbMCwgODBdLCBsYWJlbDogXCJwcmljZSBwICgkKVwiLCBncmlkOiB0cnVlfSxcbiAgeToge2RvbWFpbjogWy02MDAsIDExMDBdLCBsYWJlbDogXCJyYXRlIG9mIGNoYW5nZSAoJC9tb250aCBwZXIgJDEgb2YgcHJpY2UpXCIsIGdyaWQ6IHRydWV9LFxuICBjb2xvcjoge1xuICAgIGRvbWFpbjogW1wiUuKAsihwKVwiLCBcIkPigLIocClcIl0sXG4gICAgcmFuZ2U6IFtcIiMyYTlkOGZcIiwgXCIjZjRhMjYxXCJdLFxuICAgIGxlZ2VuZDogdHJ1ZVxuICB9LFxuICBtYXJrczogW1xuICAgIFBsb3QucnVsZVkoWzBdLCB7c3Ryb2tlOiBcInZhcigtLWJzLWJvZHktY29sb3IpXCIsIHN0cm9rZU9wYWNpdHk6IDAuNX0pLFxuICAgIFBsb3QubGluZShyYXRlRGF0YSwge3g6IFwicFwiLCB5OiBcInlcIiwgejogXCJmblwiLCBzdHJva2U6IFwiZm5cIiwgc3Ryb2tlV2lkdGg6IDIuNSwgY2xpcDogdHJ1ZX0pLFxuICAgIFBsb3QucnVsZVgoW3ByaWNlXSwge3N0cm9rZTogXCIjZTYzOTQ2XCIsIHN0cm9rZU9wYWNpdHk6IDAuM30pLFxuICAgIFBsb3QubGluayhbe3gxOiBwcmljZSwgeTE6IHByaWNlVmFscy5kQywgeDI6IHByaWNlLCB5MjogcHJpY2VWYWxzLmRSfV0sIHtcbiAgICAgIHgxOiBcIngxXCIsIHkxOiBcInkxXCIsIHgyOiBcIngyXCIsIHkyOiBcInkyXCIsIHN0cm9rZTogXCIjZTYzOTQ2XCIsIHN0cm9rZVdpZHRoOiA0XG4gICAgfSksXG4gICAgUGxvdC5kb3QoW3twOiBwcmljZSwgeTogcHJpY2VWYWxzLmRSfSwge3A6IHByaWNlLCB5OiBwcmljZVZhbHMuZEN9XSwge3g6IFwicFwiLCB5OiBcInlcIiwgcjogNCwgZmlsbDogXCIjZTYzOTQ2XCJ9KVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imh0bWxgPHAgc3R5bGU9XCJ0ZXh0LWFsaWduOmNlbnRlcjtcIj5cbiAgQXQgYSBwcmljZSBvZiAkJHtwcmljZS50b0ZpeGVkKDIpfTogdGhlIGJ1c2luZXNzIHNlbGxzIGFib3V0ICR7TWF0aC5yb3VuZChwcmljZVZhbHMucSl9IGNhc2VzIHBlciBtb250aDxicj5cbiAgUmV2ZW51ZSDiiYggJCR7TWF0aC5yb3VuZChwcmljZVZhbHMuUil9ICZuYnNwO3wmbmJzcDsgQ29zdCDiiYggJCR7TWF0aC5yb3VuZChwcmljZVZhbHMuQyl9ICZuYnNwO3wmbmJzcDtcbiAgPGIgc3R5bGU9XCJjb2xvcjojZTYzOTQ2O1wiPlByb2ZpdCDiiYggJCR7TWF0aC5yb3VuZChwcmljZVZhbHMuUCl9PC9iPjxicj5cbiAgUuKAsihwKSDiiYggJHtwcmljZVZhbHMuZFIudG9GaXhlZCgxKX0gJm5ic3A7fCZuYnNwOyBD4oCyKHApIOKJiCAke3ByaWNlVmFscy5kQy50b0ZpeGVkKDEpfSAmbmJzcDt8Jm5ic3A7XG4gIDxiIHN0eWxlPVwiY29sb3I6I2U2Mzk0NjtcIj5Q4oCyKHApID0gUuKAsihwKSDiiJIgQ+KAsihwKSDiiYggJHtwcmljZVZhbHMuZFAudG9GaXhlZCgxKX08L2I+XG48L3A+YFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdjb21ldFgnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncHJpY2UnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnc2hvd1JDJykifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../notes";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/kduke-au\.github\.io\/math221-calc1\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
