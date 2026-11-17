@@ -1,0 +1,279 @@
+---
+title: "Optimization & Modeling"
+subtitle: "Read Section 4.3"
+sidebar: notes
+---
+
+# Introduction
+
+In the [previous section](unit4_4.qmd), we developed some strategies for finding the global maximum and minimum of a function on an interval. In this section, we apply that strategy to "real-world" problems.
+
+The difference is that, in a real-world problem, the first step is creating a suitable mathematical model that can be used to achieve the objective. You usually have some information about what you want to optimize and how it depends on one or more variables, but you have to determine a formula that models this relationship. So, before we can do any calculus, we must:
+
+1. Identify the quantity we want to make as large or as small as possible. We will call this the **objective variable**.
+2. Write the objective variable in terms of the other quantities in the problem.
+3. Use any **constraints** (relationships between the quantities that must hold) to rewrite the objective variable as a function of a *single* variable. We will call this our **objective function**.
+4. Determine the domain for the objective function that makes sense in the context of the problem. We will call this our **feasible interval**.
+
+Once we have done this, we can reframe our applied problem as a pure math problem we know how to solve: finding the global extrema of a function on an interval. 
+
+# Discussion Problems
+
+## Problem 1 - Fencing Along a River
+
+A farmer has 100 meters of fence and wants to enclose the largest rectangle possible, with a river forming one side and the fence forming the remaining three sides.
+
+a. Sketch the rectangular enclosure, and label the sides of the rectangle with variables.
+b. Give an equation for the area of the rectangle in terms of your variables.
+c. Use the constraint on the amount of fencing to write one of your variables in terms of the other.
+d. Substitute this relationship into your formula for the area of the enclosure. What values of your variable make sense in this context?
+e. Use this function to find the maximum possible area of the enclosure. How do you know your answer is the *global* maximum?
+
+## Problem 2 - Designing a Container
+
+You need to design a container that has a volume of 8 ft$^3$. In order to minimize cost, you would like to use the least amount of material possible. Find the dimensions that minimize the surface area of the container if the container is:
+
+a. A closed cylindrical barrel of radius $R$ and height $H$.
+b. A closed rectangular box of height $H$ with an $L\times L$ square base.
+
+For each container, what is the objective variable? What is the constraint? Compare the shapes of your two optimal containers. Do you notice anything interesting?
+
+## Problem 3 - The Path of a Comet
+
+Assume that the sun is fixed at the point $(0,0)$ in the $xy$-plane. The path of a comet around the sun is given by the equation $y = x^2 - 0.5$, where $x$ and $y$ are measured in astronomical units. (One astronomical unit is the distance between the sun and the Earth.)
+
+a. Use [Desmos](https://www.desmos.com/calculator) or another graphing tool to graph the path of the comet.
+b. Find the coordinates of the point where the comet is closest to the sun.
+c. If the Earth is at the point $(1,0)$ when the comet passes by, what are the coordinates of the point where the comet is closest to the Earth?
+
+*Hint:* Minimizing a distance $D$ gives the same location as minimizing $D^2$. Why? Which one is easier to differentiate?
+
+:::: {.callout-note collapse="true"}
+## Explore: following the comet (try this after the problem)
+
+Drag the slider to move the comet along its path. The dashed segments show the distance from the comet to the sun (orange) and to the Earth (blue). Can you find the positions where each distance is smallest? Do they match your answers?
+
+```{ojs}
+//| echo: false
+cometPath = d3.range(-1.5, 1.5001, 0.01).map((x) => ({x, y: x ** 2 - 0.5}))
+```
+
+::: {style="display:flex; justify-content:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof cometX = Inputs.range([-1.5, 1.5], {value: -1, step: 0.01, label: "x-coordinate of comet"})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+cometPt = ({x: cometX, y: cometX ** 2 - 0.5})
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 400,
+  height: 360,
+  style: {background: "transparent"},
+  x: {domain: [-1.6, 1.6], label: "x (AU)", grid: true},
+  y: {domain: [-1, 1.9], label: "y (AU)", grid: true},
+  marks: [
+    Plot.ruleX([0], {stroke: "var(--bs-body-color)", strokeOpacity: 0.4}),
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)", strokeOpacity: 0.4}),
+    Plot.line(cometPath, {x: "x", y: "y", stroke: "var(--bs-body-color)", strokeWidth: 2, clip: true}),
+    Plot.link([{x1: 0, y1: 0, x2: cometPt.x, y2: cometPt.y}], {
+      x1: "x1", y1: "y1", x2: "x2", y2: "y2", stroke: "#f4a261", strokeWidth: 2, strokeDasharray: "5,4"
+    }),
+    Plot.link([{x1: 1, y1: 0, x2: cometPt.x, y2: cometPt.y}], {
+      x1: "x1", y1: "y1", x2: "x2", y2: "y2", stroke: "#1d70b8", strokeWidth: 2, strokeDasharray: "5,4"
+    }),
+    Plot.dot([{x: 0, y: 0}], {x: "x", y: "y", r: 8, fill: "#f4a261"}),
+    Plot.dot([{x: 1, y: 0}], {x: "x", y: "y", r: 6, fill: "#1d70b8"}),
+    Plot.dot([cometPt], {x: "x", y: "y", r: 5, fill: "#e63946"}),
+    Plot.text([{x: 0, y: 0, t: "Sun"}, {x: 1, y: 0, t: "Earth"}], {
+      x: "x", y: "y", text: "t", dy: 16, fill: "var(--bs-body-color)"
+    })
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center;">
+  Comet: (${cometPt.x.toFixed(2)}, ${cometPt.y.toFixed(4)})<br>
+  <b style="color:#f4a261;">Distance to sun ≈ ${Math.hypot(cometPt.x, cometPt.y).toFixed(4)} AU</b>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <b style="color:#1d70b8;">Distance to Earth ≈ ${Math.hypot(cometPt.x - 1, cometPt.y).toFixed(4)} AU</b>
+</p>`
+```
+::::
+
+## Problem 4 - The Quietest Spot
+
+The loudness of a sound (in decibels) is inversely proportional to the square of the distance (in meters) from the source of the sound. A fire alarm has speakers at the south and north ends of a 10 meter long hallway. Assume that when you are one meter from the south speaker, the sound from that speaker is 100 decibels. When you are one meter from the north speaker, the sound from that speaker is 120 decibels.
+
+a. Write the combined loudness of the speakers, $N$, as a function of your distance $d$ from the south speaker. What values of $d$ make sense in this context?
+b. Find the distance from the south speaker where the combined sound of the alarm is softest. Before you compute anything: do you expect this spot to be closer to the south speaker or the north speaker? Why?
+
+## Problem 5 - Setting a Price
+
+A small business sells custom phone cases. If the business charges $p$ dollars per case, then the number of cases it expects to sell each month is given by the **demand function**
+$$
+q = 1000e^{-0.05p}.
+$$
+Each case costs the business \$8 to make, and the business also has fixed costs (rent, equipment, etc.) of \$500 per month.
+
+a. What happens to the demand $q$ as the price $p$ increases? How many cases would the business "sell" if it gave them away for free? Does this make sense?
+b. The **revenue** is the total amount of money the business takes in from sales. Write the revenue $R$ as a function of the price $p$.
+c. Write the total monthly cost $C$ as a function of the price $p$. *(Hint: The cost depends on how many cases are made. How does that depend on $p$?)*
+d. The **profit** is the revenue minus the cost. Write the profit $P$ as a function of the price $p$.
+e. What price should the business charge to maximize its monthly profit? What is the maximum profit? How do you know this is the *global* maximum?
+f. Suppose the business's rent goes up, so the fixed costs increase. Does the price that maximizes profit change? What if the cost of making each case increases instead? Explain.
+
+::::: {.callout-note collapse="true"}
+## Explore: revenue, cost, and profit (try this after the problem)
+
+Drag the slider to change the price. The graph on the left shows the profit $P(p)$. Use the toggle to also show the revenue $R(p)$ and the cost $C(p)$.
+
+The graph on the right shows the *derivatives* $R'(p)$ and $C'(p)$: how fast the revenue and the cost are changing as the price increases. Since $P(p)=R(p)-C(p)$, the profit's rate of change is $P'(p)=R'(p)-C'(p)$. This is the vertical gap between the two curves, shown by the red segment.
+
+- How can you see the profit in the graphs of revenue and cost? Is the price that maximizes profit the same as the price that maximizes revenue?
+- When is $R'(p)$ above $C'(p)$? What does this tell you about the profit? What about when $R'(p)$ is below $C'(p)$?
+- What is happening on the right graph at the price that maximizes profit? Why does this make sense?
+
+```{ojs}
+//| echo: false
+demand = (p) => 1000 * Math.exp(-0.05 * p)
+```
+
+```{ojs}
+//| echo: false
+profitData = d3.range(0, 80.001, 0.25).flatMap((p) => {
+  const q = demand(p), R = p * q, C = 8 * q + 500;
+  return [
+    {p, y: R - C, fn: "profit P(p)"},
+    {p, y: R, fn: "revenue R(p)"},
+    {p, y: C, fn: "cost C(p)"}
+  ];
+})
+```
+
+```{ojs}
+//| echo: false
+rateData = d3.range(0, 80.001, 0.25).flatMap((p) => {
+  const q = demand(p);
+  return [
+    {p, y: q * (1 - 0.05 * p), fn: "R′(p)"},
+    {p, y: -0.4 * q, fn: "C′(p)"}
+  ];
+})
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof price = Inputs.range([0, 80], {value: 15, step: 0.5, label: "Price p ($)"})
+```
+
+```{ojs}
+//| echo: false
+viewof showRC = Inputs.toggle({label: "Show revenue and cost", value: false})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+priceVals = {
+  const q = demand(price), R = price * q, C = 8 * q + 500;
+  const dR = q * (1 - 0.05 * price), dC = -0.4 * q;
+  return {q, R, C, P: R - C, dR, dC, dP: dR - dC};
+}
+```
+
+::: {layout-ncol=2}
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 340,
+  height: 340,
+  marginLeft: 55,
+  style: {background: "transparent"},
+  x: {domain: [0, 80], label: "price p ($)", grid: true},
+  y: {domain: [-1000, 9000], label: "dollars per month", grid: true},
+  color: {
+    domain: ["profit P(p)", "revenue R(p)", "cost C(p)"],
+    range: ["var(--bs-body-color)", "#2a9d8f", "#f4a261"],
+    legend: true
+  },
+  marks: [
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)", strokeOpacity: 0.5}),
+    Plot.line(profitData.filter((d) => showRC && d.fn !== "profit P(p)"), {
+      x: "p", y: "y", z: "fn", stroke: "fn", strokeWidth: 1.5, strokeDasharray: "6,4", clip: true
+    }),
+    Plot.line(profitData.filter((d) => d.fn === "profit P(p)"), {
+      x: "p", y: "y", stroke: "fn", strokeWidth: 2.5, clip: true
+    }),
+    Plot.ruleX([price], {stroke: "#e63946", strokeOpacity: 0.5}),
+    Plot.dot([{p: price, y: priceVals.P}], {x: "p", y: "y", r: 5, fill: "#e63946"})
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 340,
+  height: 340,
+  marginLeft: 55,
+  style: {background: "transparent"},
+  x: {domain: [0, 80], label: "price p ($)", grid: true},
+  y: {domain: [-600, 1100], label: "rate of change ($/month per $1 of price)", grid: true},
+  color: {
+    domain: ["R′(p)", "C′(p)"],
+    range: ["#2a9d8f", "#f4a261"],
+    legend: true
+  },
+  marks: [
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)", strokeOpacity: 0.5}),
+    Plot.line(rateData, {x: "p", y: "y", z: "fn", stroke: "fn", strokeWidth: 2.5, clip: true}),
+    Plot.ruleX([price], {stroke: "#e63946", strokeOpacity: 0.3}),
+    Plot.link([{x1: price, y1: priceVals.dC, x2: price, y2: priceVals.dR}], {
+      x1: "x1", y1: "y1", x2: "x2", y2: "y2", stroke: "#e63946", strokeWidth: 4
+    }),
+    Plot.dot([{p: price, y: priceVals.dR}, {p: price, y: priceVals.dC}], {x: "p", y: "y", r: 4, fill: "#e63946"})
+  ]
+})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center;">
+  At a price of $${price.toFixed(2)}: the business sells about ${Math.round(priceVals.q)} cases per month<br>
+  Revenue ≈ $${Math.round(priceVals.R)} &nbsp;|&nbsp; Cost ≈ $${Math.round(priceVals.C)} &nbsp;|&nbsp;
+  <b style="color:#e63946;">Profit ≈ $${Math.round(priceVals.P)}</b><br>
+  R′(p) ≈ ${priceVals.dR.toFixed(1)} &nbsp;|&nbsp; C′(p) ≈ ${priceVals.dC.toFixed(1)} &nbsp;|&nbsp;
+  <b style="color:#e63946;">P′(p) = R′(p) − C′(p) ≈ ${priceVals.dP.toFixed(1)}</b>
+</p>`
+```
+:::::
+
+# Strategy: Solving Optimization Problems
+
+:::{.callout-tip collapse="true" icon="false"}
+## A General Strategy for Optimization Problems (click to expand)
+
+1. **Identify the objective.** What quantity are you trying to maximize or minimize?
+2. **Understand the variables.**  Draw a picture if possible. Identify the quantities involved and their units. Decide which quantities are fixed and which can vary. Write a formula for the objective variable in terms of the other variables and constants.
+3. **Use constraints to reduce to one variable.** If the objective variable depends on more than one independent variable, look for relationships between the independent variables. Use them to write the objective variable as a function of a single independent variable.
+4. **Find the feasible interval.** Determine the domain for the objective function that make sense in the context of the problem. Is it closed? Open? Infinite?
+5. **Find the global extremum.** Use the [strategy from the previous section](unit4_4.qmd#strategy-finding-global-extrema). If the interval is closed and the function is continuous, compare the values at the critical points and endpoints. Otherwise, use the behavior of the function (where it is increasing and decreasing, and what happens near the ends of the interval) to argue that you have found the global extremum.
+6. **Answer the question that was asked, in context.** Does the problem want the location of the extremum (a price, a set of dimensions), the extreme value itself (a maximum area, a minimum cost), or both? Include units, and check that your answer is reasonable.
+:::

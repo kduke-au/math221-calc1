@@ -85,7 +85,9 @@ website:
             - text: "Using Derivatives"
               href: notes/unit4_3.qmd
             - text: "Finding Global Extrema"
-              href: notes/unit4_4.qmd              
+              href: notes/unit4_4.qmd
+            - text: "Optimization"
+              href: notes/unit4_5.qmd              
         - section: "Unit 5: The Definite Integral"
           contents:
             # - text: "Overview"
