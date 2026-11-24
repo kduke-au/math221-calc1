@@ -90,8 +90,13 @@ website:
               href: notes/unit4_5.qmd              
         - section: "Unit 5: The Definite Integral"
           contents:
-            # - text: "Overview"
-            #   href: notes/unit5/index.qmd
+            - text: "Introduction"
+              href: notes/unit5_index.qmd
+            - text: "Measuring Change from Rates"
+              href: notes/unit5_1.qmd
+            - text: "Definition of the Definite Integral"
+              href: notes/unit5_2.qmd
+            - text: "FTC - Part I"  
         - section: "Unit 6: Antiderivatives"
           contents:
             # - text: "Overview"

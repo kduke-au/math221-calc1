@@ -1,0 +1,374 @@
+---
+title: "Riemann Sums & the Definition of the Definite Integral"
+subtitle: "Read Section 5.2"
+sidebar: notes
+---
+
+# Introduction
+
+In the previous section, we observed that if $v=f(x)$ is the velocity of some object in motion, then the *net* or *signed* area of the region trapped between the curve $v=f(x)$ and the $x$-axis on the interval $[a,b]$ tells us the **displacement** of the object from time $x=a$ to time $x=b$. We estimated this signed area by adding up the areas of rectangles, and saw that using more, narrower rectangles squeezes our overestimates and underestimates closer together.
+
+In this section, we discuss the problem of calculating that signed area more generally, for *any* function $f(x)$. The function doesn't necessarily have to be the rate of change of some quantity. To do this, we first make our method of adding up rectangles precise. Sums of this kind are called **Riemann sums**, and their limit as the rectangles get thinner and thinner is called the **definite integral**.
+
+:::{.callout-note}
+## Definition: Riemann Sums
+To calculate a **Riemann sum** for $f(x)$ on the interval $[a,b]$:
+
+**Step 1: Decide how many rectangles you want to use.**
+
+We will call this $N$, and index the rectangles using $k=1,2,\ldots,N$.
+
+**Step 2: Decide what the widths of the rectangles will be.**
+
+Partition the interval $[a,b]$ into $N$ subintervals. This can be done by selecting $N-1$ points from the interval,
+$$
+x_1 < x_2 < \cdots < x_{N-1},
+$$
+along with $x_0=a$ and $x_N=b$. Then the subinterval corresponding to the base of the $k$-th rectangle is $[x_{k-1},x_k]$, and its width is
+$$
+\Delta x_k = x_k - x_{k-1}.
+$$
+
+*Note:* We frequently choose our rectangles to have *equal* widths. In that case,
+$$
+\Delta x_k = \frac{b-a}{N} \qquad\text{and}\qquad x_k = a + k\cdot\frac{b-a}{N}.
+$$
+
+**Step 3: Choose the heights of the rectangles.**
+
+We choose the height of the $k$-th rectangle by selecting a **sample point** $x_k^*$ from the $k$-th subinterval $[x_{k-1},x_k]$ and using the value $f(x_k^*)$. The Riemann sum is then
+$$
+\sum_{k=1}^{N} f(x_k^*)\,\Delta x_k = f(x_1^*)\,\Delta x_1 + f(x_2^*)\,\Delta x_2 + \cdots + f(x_N^*)\,\Delta x_N.
+$$
+
+*Note:* There are some standard choices for the sample points:
+
+| Sum | Sample point $x_k^*$ |
+|:---|:---|
+| **Left sum** | Always the left endpoint of the subinterval: $x_k^* = x_{k-1}$ |
+| **Right sum** | Always the right endpoint of the subinterval: $x_k^* = x_k$ |
+| **Midpoint sum** | Always the midpoint of the subinterval: $x_k^* = \dfrac{x_{k-1}+x_k}{2}$ |
+| **Upper sum** | Chosen so that $f(x_k^*)$ is the *maximum* value of $f(x)$ on $[x_{k-1},x_k]$ |
+| **Lower sum** | Chosen so that $f(x_k^*)$ is the *minimum* value of $f(x)$ on $[x_{k-1},x_k]$ |
+:::
+
+# Discussion Problems
+
+## Problem 1 - Riemann Sums from a Graph
+
+The function $f(x)$ is shown in the graph below. Let
+$$
+R_n = \sum_{k=1}^{n} f(t_k)\,\Delta t \qquad\text{and}\qquad L_n = \sum_{k=0}^{n-1} f(t_k)\,\Delta t
+$$
+be the right and left Riemann sums for $f(x)$ using $n$ subdivisions of the interval $[0,20]$.
+
+```{ojs}
+//| echo: false
+rootF = (x) => 0.5 * Math.sqrt(5 * x)
+```
+
+```{ojs}
+//| echo: false
+rootCurve = d3.range(0, 20.0001, 0.05).map((x) => ({x, y: rootF(x)}))
+```
+
+::: {style="display:flex; justify-content:center;"}
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 520,
+  height: 320,
+  style: {background: "transparent"},
+  x: {domain: [0, 20]},
+  y: {domain: [0, 6]},
+  marks: [
+    Plot.gridX(d3.range(0, 20.01, 1), {strokeOpacity: 0.12}),
+    Plot.gridY(d3.range(0, 6.01, 0.5), {strokeOpacity: 0.12}),
+    Plot.axisX({ticks: d3.range(0, 20.01, 5), label: "t"}),
+    Plot.axisY({ticks: d3.range(0, 6.01, 1), label: "f(t)"}),
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)"}),
+    Plot.line(rootCurve, {x: "x", y: "y", stroke: "var(--bs-body-color)", strokeWidth: 2})
+  ]
+})
+```
+
+:::
+
+a. Let $n=4$. What are $t_0, t_1, \ldots, t_4$ and $\Delta t$?
+b. Estimate the numerical values of $R_4$ and $L_4$ using the graph of $f(x)$. Draw a picture of what $R_4$ and $L_4$ represent on the graph.
+c. What will happen to the values of $R_n$ and $L_n$ as $n\to\infty$?
+d. How can we represent the values of $\lim\limits_{n\to\infty}R_n$ and $\lim\limits_{n\to\infty}L_n$ on the graph?
+
+::::: {.callout-note collapse="true"}
+## Explore: squeezing $L_n$ and $R_n$ together (try this after the problem)
+
+Use the slider to change the number of subdivisions $n$. Both sums are drawn on the same graph:
+
+- The **light blue** rectangles use the *right* endpoint of each piece, so their total area is $R_n$.
+- The **dark blue** rectangles use the *left* endpoint of each piece, so their total area is $L_n$.
+- The **red** strips show where the right-hand rectangles stick out above the left-hand ones. Their total area is the difference $R_n - L_n$.
+
+::: {style="display:flex; justify-content:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof rootN = Inputs.range([1, 100], {value: 4, step: 1, label: "Number of subdivisions n"})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+rootBars = {
+  const dt = 20 / rootN;
+  return d3.range(rootN).map((k) => {
+    const t1 = k * dt, t2 = t1 + dt;
+    return {t1, t2, left: rootF(t1), right: rootF(t2)};
+  });
+}
+```
+
+```{ojs}
+//| echo: false
+rootL = d3.sum(rootBars, (d) => d.left * (d.t2 - d.t1))
+```
+
+```{ojs}
+//| echo: false
+rootR = d3.sum(rootBars, (d) => d.right * (d.t2 - d.t1))
+```
+
+::: {style="display:flex; justify-content:center;"}
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 600,
+  height: 340,
+  style: {background: "transparent"},
+  x: {domain: [0, 20], label: "t", grid: true},
+  y: {domain: [0, 6], label: "f(t)", grid: true},
+  marks: [
+    Plot.rect(rootBars, {
+      x1: "t1", x2: "t2", y1: 0, y2: "right",
+      fill: "#8ecae6",
+      stroke: rootN <= 50 ? "var(--bs-body-color)" : "none",
+      strokeOpacity: 0.3
+    }),
+    Plot.rect(rootBars, {
+      x1: "t1", x2: "t2", y1: 0, y2: "left",
+      fill: "#219ebc",
+      stroke: rootN <= 50 ? "var(--bs-body-color)" : "none",
+      strokeOpacity: 0.3
+    }),
+    Plot.rect(rootBars, {
+      x1: "t1", x2: "t2", y1: "left", y2: "right",
+      fill: "#e63946",
+      fillOpacity: 0.55
+    }),
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)"}),
+    Plot.line(rootCurve, {x: "x", y: "y", stroke: "var(--bs-body-color)", strokeWidth: 2})
+  ]
+})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center; margin-top:8px;">
+  Δt = ${(20 / rootN).toFixed(3)}<br>
+  <b>L<sub>${rootN}</sub> ≈ ${rootL.toFixed(3)}</b> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <b>R<sub>${rootN}</sub> ≈ ${rootR.toFixed(3)}</b> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <b style="color:#e63946;">R<sub>${rootN}</sub> − L<sub>${rootN}</sub> ≈ ${(rootR - rootL).toFixed(3)}</b>
+</p>`
+```
+
+Things to look for as you drag the slider:
+
+- Which sum is the overestimate and which is the underestimate? How can you tell from the shape of the graph?
+- Imagine sliding all of the red strips to the left until they line up in one column. How tall is that column, and how wide is it? Use this to predict $R_n - L_n$ without adding anything up, and check your prediction with the slider.
+- As $n$ grows, what happens to the red strips? What region do the blue rectangles fill up, and how does this answer part (d)?
+:::::
+
+:::{.callout-tip collapse="true"}
+## Definition: The Definite Integral (click to expand)
+
+Suppose that, as the number of rectangles $N$ goes to infinity (and the widths of all of the rectangles shrink to $0$),
+
+- the limit of the **upper sums** exists,
+- the limit of the **lower sums** exists, and
+- these two limits are equal to each other.
+
+Every Riemann sum is trapped between the lower sum and the upper sum. So in this case, *any* sequence of choices of Riemann sums has a limit as $N\to\infty$, and it always converges to the same value $I$.
+
+When this happens, we say that $f(x)$ is **Riemann integrable** on the interval $[a,b]$, and we call $I$ the value of the **definite integral** of $f(x)$ on $[a,b]$. The notation we use for this value is
+$$
+I = \int_a^b f(x)\,dx.
+$$
+
+**Reading the notation.** Note the similarities between the definite integral notation and the Riemann sum notation:
+$$
+\sum_{k=1}^{N} f(x_k^*)\,\Delta x_k \qquad\longrightarrow\qquad \int_a^b f(x)\,dx
+$$
+
+- The $\displaystyle\int$ sign is a stretched-out "S," for "sum," and replaces $\displaystyle\sum$.
+- $a$ and $b$ are the **limits of integration**: the interval we are adding up over.
+- $f(x)$ is the **integrand**: the function whose values give the heights of the rectangles.
+- $dx$ replaces the width $\Delta x_k$, and tells us which variable we are adding up with respect to.
+
+This is to remind us that the definite integral really is like a Riemann sum where we are using rectangles of infinitesimal widths.
+
+**Area interpretation.** If $f(x)\ge 0$ on $[a,b]$, then $\displaystyle\int_a^b f(x)\,dx$ is the area of the region under the graph of $f$ and above the $x$-axis between $x=a$ and $x=b$.
+
+If $f$ takes both positive and negative values, the rectangles below the $x$-axis have *negative* heights, so they count negatively. In that case, the definite integral measures the *net* or *signed* area of the region between the graph of $f$ and the $x$-axis. Areas above the $x$-axis count positively towards the value of the integral, while areas below the $x$-axis count negatively. So, 
+$$
+\int_a^b f(x)\,dx = (\text{area above the } x\text{-axis}) - (\text{area below the } x\text{-axis}).
+$$
+:::
+
+## Problem 2 - A Function That Is Not Riemann Integrable
+
+Let
+$$
+f(x) = \begin{cases} 1 & \text{if } x \text{ is irrational,} \\ 0 & \text{if } x \text{ is rational.} \end{cases}
+$$
+
+a. Find the value of the upper sum of $f(x)$ on the interval $[0,1]$ with $N$ rectangles.
+b. Find the value of the lower sum of $f(x)$ on the interval $[0,1]$ with $N$ rectangles.
+c. Explain why this function cannot be Riemann integrable.
+
+:::{.callout-note}
+## Which Functions Are Riemann Integrable?
+Fortunately, functions like the one in Problem 2 are unusual. The set of Riemann integrable functions on $[a,b]$ includes:
+
+- every function that is **continuous** on $[a,b]$, and
+- every function that is **piecewise continuous** on $[a,b]$ (continuous except at finitely many jump discontinuities).
+
+Almost every function we will work with in this course falls into one of these two categories.
+:::
+
+## Problem 3 - Estimating an Integral
+
+Consider the function $f(x)=\dfrac{\sin(x)}{x}$.
+
+a. Graph $f(x)$ in [Desmos](https://www.desmos.com/calculator). What does $\displaystyle\int_1^4 f(x)\,dx$ represent in terms of the graph of $f(x)$?
+b. Estimate $\displaystyle\int_1^4 f(x)\,dx$ using
+    i. Left and right Riemann sums with 1 rectangle.
+    ii. Left and right Riemann sums with 3 rectangles.
+    iii. Left and right Riemann sums with 6 rectangles.
+c. How many rectangles do you need to use so that the left and right Riemann sums are within 0.1 of each other?
+
+::::: {.callout-note collapse="true"}
+## Explore: left and right sums for $\sin(x)/x$ (try this after the problem)
+
+Use the slider to change the number of rectangles $n$, and the buttons to switch between the left-hand and right-hand sums. Rectangles above the $x$-axis are shaded blue and count positively. Rectangles below the $x$-axis are shaded red and count negatively.
+
+```{ojs}
+//| echo: false
+sincF = (x) => Math.sin(x) / x
+```
+
+```{ojs}
+//| echo: false
+sincCurve = d3.range(1, 4.0001, 0.01).map((x) => ({x, y: sincF(x)}))
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof sincN = Inputs.range([1, 60], {value: 3, step: 1, label: "Number of rectangles n"})
+```
+
+```{ojs}
+//| echo: false
+viewof sincSide = Inputs.radio(["Left", "Right"], {value: "Left", label: "Sum"})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+sincBars = {
+  const dx = 3 / sincN;
+  return d3.range(sincN).map((k) => {
+    const x1 = 1 + k * dx, x2 = x1 + dx;
+    return {x1, x2, h: sincF(sincSide === "Left" ? x1 : x2)};
+  });
+}
+```
+
+```{ojs}
+//| echo: false
+sincL = d3.sum(d3.range(sincN), (k) => sincF(1 + k * 3 / sincN) * 3 / sincN)
+```
+
+```{ojs}
+//| echo: false
+sincR = d3.sum(d3.range(1, sincN + 1), (k) => sincF(1 + k * 3 / sincN) * 3 / sincN)
+```
+
+::: {style="display:flex; justify-content:center;"}
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 600,
+  height: 320,
+  style: {background: "transparent"},
+  x: {domain: [0.8, 4.2], label: "x", grid: true},
+  y: {domain: [-0.4, 1], label: "f(x) = sin(x)/x", grid: true},
+  marks: [
+    Plot.rect(sincBars, {
+      x1: "x1", x2: "x2", y1: 0, y2: "h",
+      fill: (d) => d.h >= 0 ? "#8ecae6" : "#f4a3a8",
+      stroke: sincN <= 40 ? "var(--bs-body-color)" : "none",
+      strokeOpacity: 0.4
+    }),
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)"}),
+    Plot.line(sincCurve, {x: "x", y: "y", stroke: "var(--bs-body-color)", strokeWidth: 2})
+  ]
+})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center; margin-top:8px;">
+  Δx = ${(3 / sincN).toFixed(4)}<br>
+  <b>L<sub>${sincN}</sub> ≈ ${sincL.toFixed(4)}</b> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <b>R<sub>${sincN}</sub> ≈ ${sincR.toFixed(4)}</b> &nbsp;&nbsp;|&nbsp;&nbsp;
+  |R<sub>${sincN}</sub> − L<sub>${sincN}</sub>| ≈ ${Math.abs(sincR - sincL).toFixed(4)}
+</p>`
+```
+
+Things to look for as you drag the slider:
+
+- Is $f$ increasing or decreasing on $[1,4]$? Which sum is the overestimate, and which is the underestimate?
+- Compare the left and right rectangles on the same piece. Where does the difference between $L_n$ and $R_n$ come from?
+- Does your answer to part (c) agree with what you see here?
+:::::
+
+## Problem 4 - An Ant on the Move
+
+Suppose an ant is crawling with velocity
+$$
+v(t) = \sin(\pi t)
+$$
+meters per hour, for $0\le t\le 1$.
+
+a. Sketch a graph of the ant's velocity.
+b. Describe the ant's motion in words: Is the ant changing direction? Speeding up or slowing down? When is the ant traveling the fastest?
+c. Using $\Delta t = 0.2$, obtain an overestimate and an underestimate for $\displaystyle\int_0^1 \sin(\pi t)\,dt$. What do these values represent?
+d. Which estimate is better? Why?
+
+:::{.callout-tip collapse="true"}
+## Over or Under? (click to expand)
+
+The rule "if $f$ is increasing, $L_n$ is an underestimate and $R_n$ is an overestimate" only applies when $f$ is increasing (or decreasing) on the *whole* interval. If $f$ changes direction, like the ant's velocity in Problem 4, neither $L_n$ nor $R_n$ has to be an overestimate or an underestimate.
+
+In that case, use the **upper sum** for an overestimate and the **lower sum** for an underestimate: on each piece, use the *largest* or *smallest* value of $f$ on that piece. On a piece where $f$ is only increasing or only decreasing, these are the two endpoint values. On a piece containing a turning point, the largest or smallest value may occur at the turning point instead of at an endpoint.
+:::

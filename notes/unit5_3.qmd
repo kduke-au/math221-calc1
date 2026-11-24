@@ -1,0 +1,146 @@
+---
+title: "Interpreting Definite Integrals & the Fundamental Theorem of Calculus"
+subtitle: "Read Section 5.3"
+sidebar: notes
+---
+
+# Introduction
+
+So far, we have used Riemann sums to estimate definite integrals, and the area under a graph to compute them exactly when the region has a simple shape. In this section, we answer two questions:
+
+1. **What does a definite integral mean?** When the integrand is the rate of change of some quantity, what does the definite integral tell us about that quantity, and in what units?
+2. **How can we compute a definite integral exactly** when the region under the graph is *not* a simple shape? Riemann sums only give us estimates, and their limits are hard to calculate directly. Is there a shortcut?
+
+The answer to both questions comes from a connection between definite integrals and derivatives that we have already seen hints of: the signed area under a velocity graph gives the displacement, which is the change in position. This connection is called the **Fundamental Theorem of Calculus**.
+
+:::{.callout-tip collapse="true"}
+## Units of a Definite Integral (click to expand)
+
+A definite integral is a limit of Riemann sums, which are sums of terms like $f(t)\,\Delta t$. So its units are
+$$
+(\text{units of } f) \times (\text{units of } t).
+$$
+For example, if $v(t)$ is a velocity in feet per minute and $t$ is in minutes, then $\displaystyle\int_a^b v(t)\,dt$ is measured in $\dfrac{\text{ft}}{\text{min}}\times\text{min} = \text{ft}$.
+
+Checking the units is a quick way to see what a definite integral is measuring before you interpret it.
+:::
+
+# Discussion Problems
+
+## Problem 1 - A Hike
+
+A hiker starts a hike at an initial elevation of 1200 ft. During the first 20 minutes of the hike, their elevation changes at a rate of $v(t)=18-t$ feet per minute.
+
+a. True or False: The hiker is always gaining elevation.
+b. Draw a graph of $v(t)$ on the interval $0\leq t\leq 20$. Thinking geometrically, use the graph to calculate $\displaystyle\int_0^{20}v(t)\,dt$. *(Hint: Be careful with any part of the region that lies below the $t$-axis.)*
+c. Let $h(t)$ be the hiker's elevation (in feet) $t$ minutes after the start of the hike.
+    i. What is $h'(t)$? What is $h(0)$?
+    ii. Use these two facts to guess a formula for $h(t)$. *(Hint: What function has derivative $18$? What function has derivative $t$? Then, how can you make sure $h(0)$ is correct?)*
+    iii. Check your guess by taking its derivative and evaluating it at $t=0$.
+d. Use your formula for $h(t)$ to calculate the hiker's change in elevation during the first 20 minutes, $h(20)-h(0)$. Compare your answer to part (b). Explain why these two values *must* be the same.
+e. Write a sentence explaining the meaning of the value you found in parts (b) and (d) in the context of the problem.
+f. Determine the maximum elevation the hiker reaches during the first 20 minutes of the hike.
+
+:::{.callout-note collapse="true"}
+## The Fundamental Theorem of Calculus (click to expand)
+
+If $f$ is continuous on $[a,b]$ and $F'(x)=f(x)$ for all $x$ in $[a,b]$, then
+$$
+\int_a^b f(x)\,dx = F(b)-F(a).
+$$
+
+**In words:** the definite integral of a rate of change is the total change. If $F'$ is the rate at which $F$ changes, then adding up $F'$ over $[a,b]$ gives how much $F$ changed between $a$ and $b$.
+
+**In Problem 1:** the rate of change of the hiker's elevation is $h'(t)=v(t)$, so
+$$
+\int_0^{20} v(t)\,dt = h(20)-h(0).
+$$
+The left side is the signed area you found geometrically in part (b), and the right side is the change in elevation you found with your formula in part (d).
+
+**Why this is useful:** to compute $\displaystyle\int_a^b f(x)\,dx$ exactly, we don't need to find any areas or limits of Riemann sums. We only need a function $F$ whose derivative is $f$. A function like this is called an **antiderivative** of $f$.
+:::
+
+## Problem 2 - Using the Fundamental Theorem
+
+a. Let $F(x)=\frac{1}{2}\sin^2(x)$. Check that $F'(x)=\sin(x)\cos(x)$. Use the Fundamental Theorem of Calculus to evaluate
+$$
+\int_0^{\pi/2}\sin(x)\cos(x)\,dx.
+$$
+b. Let $f(x)=1+e^x$. Find a function $F(x)$ such that $F'(x)=f(x)$. Use the Fundamental Theorem of Calculus to evaluate
+$$
+\int_{-10}^{10}\left(1+e^x\right)dx.
+$$
+The region under the graph of $f(x)=x^2+x$ between $x=0$ and $x=1$ is shaded below. This region is not a shape we can find the area of using geometry.
+
+```{ojs}
+//| echo: false
+quadCurve = d3.range(-0.25, 1.2501, 0.01).map((x) => ({x, y: x * x + x}))
+```
+
+```{ojs}
+//| echo: false
+quadRegion = d3.range(0, 1.0001, 0.01).map((x) => ({x, y: x * x + x}))
+```
+
+::: {style="display:flex; justify-content:center;"}
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 420,
+  height: 360,
+  style: {background: "transparent"},
+  x: {domain: [-0.25, 1.25], ticks: d3.range(-0.25, 1.26, 0.25), label: "x", grid: true},
+  y: {domain: [-0.5, 3], ticks: d3.range(-0.5, 3.01, 0.5), label: "y = x² + x", grid: true},
+  marks: [
+    Plot.areaY(quadRegion, {x: "x", y1: 0, y2: "y", fill: "#8ecae6", fillOpacity: 0.8}),
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)"}),
+    Plot.ruleX([0], {stroke: "var(--bs-body-color)"}),
+    Plot.line(quadCurve, {x: "x", y: "y", stroke: "var(--bs-body-color)", strokeWidth: 2})
+  ]
+})
+```
+
+:::
+
+c. Find the area of the shaded region.
+    i. Write a definite integral that represents the area of the shaded region.
+    ii. Find a function $F(x)$ such that $F'(x)=x^2+x$.
+    iii. Use the Fundamental Theorem of Calculus to find the exact area of the shaded region.
+    iv. Check that your answer is reasonable by comparing it to the area of a rectangle or triangle drawn on the graph.
+
+## Problem 3 - What Does It Mean?
+
+Write a sentence explaining each of the following equations:
+
+a. $\displaystyle\int_0^6 a(t)\,dt=50$, where $a(t)$ is acceleration in m/s$^2$ and $t$ is time in seconds.
+b. $\displaystyle\int_0^5 s(x)\,dx = 38$, where $s(x)$ is the rate of change of the salinity (salt concentration) in gm/liter per cm of sea water $x$ cm below the surface of the water.
+c. $\displaystyle p(4)+\int_4^9 p'(t)\,dt = 30$, where $p'(t)$ is the rate of change of a company's stock price (in \$ per share per day) $t$ days after January 1, 2018.
+d. $\displaystyle\frac{1}{9-4}\int_4^9 p'(t)\,dt=-0.5$, where $p'(t)$ is the rate of change of a company's stock price (in \$ per share per day) $t$ days after January 1, 2018.
+
+:::{.callout-tip collapse="true"}
+## A Strategy for Interpreting Definite Integrals (click to expand)
+
+1. **Identify the rate.** What quantity is the integrand the rate of change of? What are its units?
+2. **Identify the interval.** What do the limits of integration represent (times, depths, distances, ...)?
+3. **Find the units** of the integral: (units of the integrand) $\times$ (units of the variable).
+4. **Write the sentence.** "Between [start] and [end], [the quantity] changed by [value] [units]." Make sure to say whether it increased or decreased.
+
+**Note:** Be careful to distinguish between the *amount* of a quantity and the *change* in that quantity. By the Fundamental Theorem, a definite integral of a rate gives a change. To find an amount, you also need to know a starting value, like in part (c).
+:::
+
+## Problem 4 - Waiting in Line
+
+Below is the graph of the rate $r$ (in arrivals per hour) at which patrons arrive at the theater in order to get rush seats for the evening performance.
+
+![](math222_0503_fig1.png){fig-align="center" width="70%"}
+
+The first people arrive at 8 am and the ticket windows open at 9 am. Suppose that once the windows open, people can be served at an (average) rate of 200 per hour.
+
+Use the information above to find or provide an estimate of:
+
+a. The length of the line at 9 am when the windows open.
+b. The length of time someone arriving at 9 am has to stand in line.
+c. The length of the line at 10 am.
+d. The rate at which the line is growing (or shrinking) in length at 10 am.
+e. The time at which the length of the line is maximum.

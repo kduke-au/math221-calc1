@@ -1,0 +1,214 @@
+---
+title: "The Definite Integral - Introduction"
+subtitle: "Unit 5 Overview"
+sidebar: notes
+---
+
+# Introduction
+
+Way back at the [beginning of the course](unit0_index.qmd), we discussed what Calculus was about: measuring *rates* and *accumulation*. Most of the semester has been devoted to understanding how to measure and use the rate of change of a given relationship between variables. In our final two units, we will think about the inverse problem:  
+
+> Given the rate of change of a relationship between variables, if we change the independent variable by a certain amount, can we determine *how much* the dependent variable changes?
+
+We have already seen that we can use $\frac{dy}{dx}$ to _estimate_ the change in $y$ if $x$ changes by a small amount.
+
+If the change in $x$ is sufficiently small, then the rate, $\frac{dy}{dx}$, is approximately *constant* from $x$ to $x + \Delta x$, so
+$$
+\Delta y \approx \frac{dy}{dx} \times \Delta x.
+$$
+
+This approximation is exact when the rate is constant. The challenge is that most rates are *not* constant. Our goal in this unit is to develop a method that uses the rate to measure *exactly* how much the dependent variable changes as the independent variable changes, or at least as precisely as our information about the rate allows.
+
+# Problem 1 - Running on Empty?
+
+A driver starts a 200-mile road trip with a full 20-gallon tank of gas. Along the way, the car's dashboard records the **fuel efficiency**, $E$, in miles/gallon. The driver observes this value at eight different points during the trip and computes the **fuel consumption rate**, $R=1/E$, in gallons/mile. These values are below:
+
+| Distance (miles) | 0 | 15 | 40 | 70 | 100 | 130 | 170 | 200 |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Rate $R$ (gal/mi) | 0.040 | 0.050 | 0.060 | 0.055 | 0.045 | 0.050 | 0.060 | 0.040 |
+
+At the end of the trip, the driver wants to know: **Is there more than half a tank of gas left, less than half a tank, or is it not possible to tell?**
+
+:::{.callout-note}
+## Assumption
+Between any two consecutive measurements, the rate of fuel consumption is bounded by the measurements. For example, the fuel consumption rate for the first 15 miles is always between 0.04 gallons/mile and 0.05 gallons/mile.
+:::
+
+a. Think about how to estimate the total amount of fuel used in the first 15 miles. Can you extend this idea to come up with an estimate for how much fuel was used over the full 200 miles?
+
+b. Does your estimate allow you to determine if more or less than a half of tank of gas was used? Does your estimate allow you to show that we can't be certain if more or less than half a tank of gas was used? Can you explain why?
+
+Later, the driver downloads the complete record of the rate of fuel consumption from the car's computer. It turns out that the graph of $r$ is made up of line segments, as shown below. (The red dots are the eight measurements from the table.)
+
+```{ojs}
+//| echo: false
+gasCorners = [
+  [0, 0.040], [15, 0.050], [35, 0.050], [40, 0.060], [70, 0.055], [80, 0.045],
+  [100, 0.045], [130, 0.050], [160, 0.050], [170, 0.060], [180, 0.040], [200, 0.040]
+].map(([x, r]) => ({x, r}))
+```
+
+```{ojs}
+//| echo: false
+gasRate = (x) => {
+  x = Math.max(0, Math.min(200, x));
+  for (let k = 0; k < gasCorners.length - 1; k++) {
+    const p = gasCorners[k], q = gasCorners[k + 1];
+    if (x <= q.x) return p.r + (q.r - p.r) * (x - p.x) / (q.x - p.x);
+  }
+  return gasCorners[gasCorners.length - 1].r;
+}
+```
+
+```{ojs}
+//| echo: false
+gasMeasured = [0, 15, 40, 70, 100, 130, 170, 200].map((x) => ({x, r: gasRate(x)}))
+```
+
+::: {style="display:flex; justify-content:center;"}
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 640,
+  height: 340,
+  marginLeft: 55,
+  style: {background: "transparent"},
+  x: {domain: [0, 200]},
+  y: {domain: [0, 0.07]},
+  marks: [
+    Plot.gridX(d3.range(0, 201, 5), {strokeOpacity: 0.12}),
+    Plot.gridY(d3.range(0, 0.0701, 0.005), {strokeOpacity: 0.12}),
+    Plot.axisX({ticks: d3.range(0, 201, 20), label: "distance traveled (miles)"}),
+    Plot.axisY({
+      ticks: d3.range(0, 0.0701, 0.01),
+      tickFormat: (d) => d.toFixed(2),
+      label: "rate r (gal/mi)"
+    }),
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)"}),
+    Plot.line(gasCorners, {x: "x", y: "r", stroke: "var(--bs-body-color)", strokeWidth: 2}),
+    Plot.dot(gasMeasured, {x: "x", y: "r", r: 4, fill: "#e63946"})
+  ]
+})
+```
+
+:::
+
+c. Why should having the graph allow the driver to be *more certain* about how much gas was used than the table alone? What information does the graph give that the table does not?
+
+
+::::: {.callout-note collapse="true"}
+## Explore: take more and more measurements (try this after the problem)
+
+Since we know the whole graph, we are no longer stuck with the eight measurements from the table: we can read off the rate at *any* mile marker we like. Use the slider to split the 200-mile trip into $n$ equal pieces.
+
+- On each piece, the **light blue** rectangle uses the *largest* rate on that piece. Adding up the areas of these rectangles gives an **overestimate** of the fuel used.
+- The **dark blue** rectangle uses the *smallest* rate on that piece. Adding up the areas of these rectangles gives an **underestimate** of the fuel used.
+
+The true amount of fuel used must be between the two.
+
+::: {style="display:flex; justify-content:center; margin-top:12px;"}
+
+```{ojs}
+//| echo: false
+viewof nPieces = Inputs.range([1, 200], {
+  value: 8,
+  step: 1,
+  label: "Number of pieces n"
+})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+gasBars = {
+  const h = 200 / nPieces;
+  return d3.range(nPieces).map((i) => {
+    const a = i * h, b = (i + 1) * h;
+    const vals = [gasRate(a), gasRate(b),
+      ...gasCorners.filter((d) => d.x > a && d.x < b).map((d) => d.r)];
+    return {x1: a, x2: b, hi: d3.max(vals), lo: d3.min(vals)};
+  });
+}
+```
+
+```{ojs}
+//| echo: false
+gasUpper = d3.sum(gasBars, (d) => d.hi * (d.x2 - d.x1))
+```
+
+```{ojs}
+//| echo: false
+gasLower = d3.sum(gasBars, (d) => d.lo * (d.x2 - d.x1))
+```
+
+::: {style="display:flex; justify-content:center;"}
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: 640,
+  height: 340,
+  marginLeft: 55,
+  style: {background: "transparent"},
+  x: {domain: [0, 200]},
+  y: {domain: [0, 0.07]},
+  marks: [
+    Plot.axisX({ticks: d3.range(0, 201, 20), label: "distance traveled (miles)"}),
+    Plot.axisY({
+      ticks: d3.range(0, 0.0701, 0.01),
+      tickFormat: (d) => d.toFixed(2),
+      label: "rate r (gal/mi)"
+    }),
+    Plot.rect(gasBars, {
+      x1: "x1", x2: "x2", y1: 0, y2: "hi",
+      fill: "#8ecae6",
+      stroke: nPieces <= 60 ? "var(--bs-body-color)" : "none",
+      strokeOpacity: 0.3
+    }),
+    Plot.rect(gasBars, {
+      x1: "x1", x2: "x2", y1: 0, y2: "lo",
+      fill: "#219ebc",
+      stroke: nPieces <= 60 ? "var(--bs-body-color)" : "none",
+      strokeOpacity: 0.3
+    }),
+    Plot.ruleY([0], {stroke: "var(--bs-body-color)"}),
+    Plot.line(gasCorners, {x: "x", y: "r", stroke: "#e63946", strokeWidth: 2})
+  ]
+})
+```
+
+:::
+
+```{ojs}
+//| echo: false
+html`<p style="text-align:center; margin-top:8px;">
+  Width of each piece: ${(200 / nPieces).toFixed(2)} miles<br>
+  <b>Overestimate: ${gasUpper.toFixed(3)} gal</b> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <b>Underestimate: ${gasLower.toFixed(3)} gal</b> &nbsp;&nbsp;|&nbsp;&nbsp;
+  Difference: ${(gasUpper - gasLower).toFixed(3)} gal<br>
+  ${gasUpper < 10
+    ? html`<b style="color:#2a9d8f;">Less than 10 gallons used for certain, so <i>more</i> than half a tank is left.</b>`
+    : gasLower > 10
+      ? html`<b style="color:#e63946;">More than 10 gallons used for certain, so <i>less</i> than half a tank is left.</b>`
+      : html`<b>10 gallons is between the two estimates, so we can't tell yet.</b>`}
+</p>`
+```
+
+Things to look for as you drag the slider:
+
+- What happens to the gap between the light blue (overestimate) and dark blue (underestimate) rectangles as $n$ grows? How does this relate to the difference between the two estimates?
+- How large does $n$ need to be before the driver can answer the half-tank question for certain? 
+
+**Leading question:** As $n$ grows, the overestimate and underestimate squeeze closer and closer together. Can we use the graph to determine *exactly* how much fuel is left in the tank? If so, how? 
+:::::
+
+# Looking Ahead
+
+Each part of Problem 1 previews an idea we will develop in this unit:
+
+- The idea of adding up areas of rectangles is called a *Riemann Sum*.
+- Noting that the overestimate and underestimate sums converged to the same value as the number of measurements used increased to infinity is the basis for our definition of *the definite integral*.
+- The fact that the definite integral of the rate of change is the right way to measure the total, or net change, in a quantity is the *Fundamental Theorem of Calculus*. 
+
